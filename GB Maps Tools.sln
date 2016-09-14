@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GB Maps Tools for BVE5", "GB Maps Tools\GB Maps Tools for BVE5.vbproj", "{24910C62-CC84-4E1A-B8A8-68491A67E93D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24910C62-CC84-4E1A-B8A8-68491A67E93D}.Debug|x86.ActiveCfg = Debug|x86
+		{24910C62-CC84-4E1A-B8A8-68491A67E93D}.Debug|x86.Build.0 = Debug|x86
+		{24910C62-CC84-4E1A-B8A8-68491A67E93D}.Release|x86.ActiveCfg = Release|x86
+		{24910C62-CC84-4E1A-B8A8-68491A67E93D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
