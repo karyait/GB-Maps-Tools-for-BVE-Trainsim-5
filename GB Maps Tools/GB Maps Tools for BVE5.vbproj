@@ -70,13 +70,14 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ak233.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>1D7410595771021EBCBE51FEB6FEC363B896C207</ManifestCertificateThumbprint>
@@ -85,7 +86,7 @@
     <ManifestKeyFile>GB Maps Tools for BVE5_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -120,10 +121,52 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOption.Designer.vb">
-      <DependentUpon>frmOption.vb</DependentUpon>
+    <Compile Include="DialogBrowseBVEDirHelp.Designer.vb">
+      <DependentUpon>DialogBrowseBVEDirHelp.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmOption.vb">
+    <Compile Include="DialogBrowseBVEDirHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBrowseGBMapsImageDirHelp.Designer.vb">
+      <DependentUpon>DialogBrowseGBMapsImageDirHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBrowseGBMapsImageDirHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPoleBVESyntax.Designer.vb">
+      <DependentUpon>FormPoleBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPoleBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPoleTip.Designer.vb">
+      <DependentUpon>FormPoleTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPoleTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRailBVESyntaxEx.Designer.vb">
+      <DependentUpon>FormRailBVESyntaxEx.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRailBVESyntaxEx.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRailPicHelp.Designer.vb">
+      <DependentUpon>FormRailPicHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRailPicHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTunnelBVESyntax.Designer.vb">
+      <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTunnelBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTunnelTip.Designer.vb">
+      <DependentUpon>FormTunnelTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTunnelTip.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb">
@@ -159,8 +202,29 @@
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOption.resx">
-      <DependentUpon>frmOption.vb</DependentUpon>
+    <EmbeddedResource Include="DialogBrowseBVEDirHelp.resx">
+      <DependentUpon>DialogBrowseBVEDirHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBrowseGBMapsImageDirHelp.resx">
+      <DependentUpon>DialogBrowseGBMapsImageDirHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPoleBVESyntax.resx">
+      <DependentUpon>FormPoleBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPoleTip.resx">
+      <DependentUpon>FormPoleTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRailBVESyntaxEx.resx">
+      <DependentUpon>FormRailBVESyntaxEx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRailPicHelp.resx">
+      <DependentUpon>FormRailPicHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTunnelBVESyntax.resx">
+      <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTunnelTip.resx">
+      <DependentUpon>FormTunnelTip.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
@@ -176,8 +240,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GB Maps Tools for BVE5_TemporaryKey.pfx" />
-    <None Include="GB Maps Tools_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -188,11 +250,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ak233.ico" />
-    <Content Include="ak233ur.ico" />
-    <Content Include="e531s.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
