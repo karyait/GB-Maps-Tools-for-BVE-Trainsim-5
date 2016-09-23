@@ -71,31 +71,22 @@ Public Class Main
     End Sub
 
     Private Sub ButtonRailTypeAdd_Click(sender As System.Object, e As System.EventArgs) Handles buttonNewRail.Click
-        Dim rtype As String = "" ' not required in newer version
-        Dim OH = ""
-        Dim OHx = 0.0
-        If CbOverHeadWire.Checked Then
-            OH = textBoxOverHeadWire.Text
-            OHx = NumericUpDownOHx.Value
-        End If
-        If textBoxRailName.Text <> "" And textBoxRailTitle.Text <> "" And textBoxRailSleeper1.Text <> "" And comboBoxRailType.Text <> "" Then
+        If textBoxRailName.Text <> "" And textBoxRailTitle.Text <> "" And textBoxRailSleeper1.Text <> "" And
+            comboBoxRailType.Text <> "" Then
             DataGridViewRailType.Rows.Add(New String() {DataGridViewRailType.RowCount - 1, textBoxRailName.Text,
-                textBoxRailTitle.Text, rtype, comboBoxRailType.Text, textBoxRailSleeper1.Text, textBoxRailImage.Text, "0",
-                "0", "0", NumericUpDownRailGauge.Value, NumericUpDownRailCycle.Value, textBoxRailLeft1.Text, textBoxRailRight1.Text, OH,
-                OHx, textBoxRailSleeper2.Text, textBoxRailLeft2.Text, textBoxRailRight2.Text, textBoxRailSleeper3.Text, textBoxRailLeft3.Text, textBoxRailRight3.Text,
-                textBoxRailSleeper4.Text, textBoxRailLeft4.Text, textBoxRailRight4.Text, textBoxRailSleeper5.Text, textBoxRailLeft5.Text, textBoxRailRight5.Text})
+            textBoxRailTitle.Text, textBoxRailImage.Text, comboBoxRailType.Text, comboBoxRailGauge.Text,
+            textBoxRailSleeper1.Text, textBoxRailLeft1.Text, textBoxRailRight1.Text, textBoxRailSleeper2.Text,
+            textBoxRailLeft2.Text, textBoxRailRight2.Text, textBoxRailSleeper3.Text, textBoxRailLeft3.Text,
+            textBoxRailRight3.Text, textBoxRailSleeper4.Text, textBoxRailLeft4.Text, textBoxRailRight4.Text,
+            textBoxRailSleeper5.Text, textBoxRailLeft5.Text, textBoxRailRight5.Text, NumericUpDownRailCycle.Value})
         End If
     End Sub
 
-    Private Sub ButtonRTBVEfile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRailSleeper1.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxRailSleeper1.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+    Private Sub buttonBrowseRailSleeper1_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRailSleeper1.Click
+        UpdateXFileField(textBoxRailSleeper1, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRTgbmimg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRailImage.Click
+    Private Sub buttonBrowseRailImage_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRailImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
             Try
@@ -253,27 +244,11 @@ Public Class Main
 
     Private Sub ButtonAddTunnel_Click(sender As System.Object, e As System.EventArgs) Handles buttonAddNewTunnel.Click
         If textBoxTunnelName.Text <> "" And textBoxTunnelTitle.Text <> "" And textBoxTunnelEntrance.Text <> "" Then
-            DataGridViewTunnel.Rows.Add(New String() {DataGridViewTunnel.RowCount - 1, textBoxTunnelName.Text, textBoxTunnelTitle.Text, textBoxTunnelImage.Text,
-                textBoxTunnelEntrance.Text, textBoxTunnelExitStructure.Text, TextBoxTunnelInStartLeft.Text,
-                TextBoxTunnelInStartRight.Text, textBoxTunnelWallLeft.Text, textBoxTunnelWallRight.Text,
-                NumericUpDownTunnelWallCycle.Value, TextBoxTunnelInMid2Left.Text, TextBoxTunnelInMid2Right.Text,
-                NumericUpDownTunnelRepeat2.Value, TextBoxTunnelInEndLeft.Text, TextBoxTunnelInEndRight.Text})
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelInStartLeft_Click(sender As Object, e As System.EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInStartLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            OpenFileDialog1.InitialDirectory = currDir
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelInStartRight_Click(sender As System.Object, e As System.EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInStartRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
+            DataGridViewTunnel.Rows.Add(New String() {DataGridViewTunnel.RowCount - 1, textBoxTunnelName.Text,
+                textBoxTunnelTitle.Text, textBoxTunnelImage.Text,
+                textBoxTunnelEntrance.Text, textBoxTunnelExitStructure.Text,
+                textBoxTunnelWallLeft.Text, textBoxTunnelWallRight.Text,
+                NumericUpDownTunnelWallCycle.Value})
         End If
     End Sub
 
@@ -290,38 +265,6 @@ Public Class Main
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
             textBoxTunnelWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelInMid2Left_Click(sender As System.Object, e As System.EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInMid2Left.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelInMid2Right_Click(sender As System.Object, e As System.EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInMid2Right.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelInEndLeft_Click(sender As System.Object, e As System.EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInEndLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelInEndRight_Click(sender As System.Object, e As System.EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInEndRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
@@ -350,263 +293,267 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub ButtonFOBrowseImgFile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFOBrowseImgFile.Click
+    Private Sub ButtonFOBrowseImgFile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseOverPassImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxFOImgFile.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxOverPassImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxFO.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
 
-    Private Sub ButtonBrowseCutImgFile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseCutImgFile.Click
+    Private Sub ButtonBrowseCutImgFile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseHillCutImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCutImgFile.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxHillCutImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxHillCut.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
 
-    Private Sub ButtonDikeBrowseImg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonDikeBrowseImg.Click
+    Private Sub ButtonDikeBrowseImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseDikeImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxDikeImgFile.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxDikeImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxDike.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
 
-    Private Sub ButtonBrowseRCImg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseRCImg.Click
+    Private Sub ButtonBrowseRCImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRCImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxRCImgFile.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxRCImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxRC.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
 
-    Private Sub ButtonBrowsePformImgFile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowsePformImgFile.Click
+    Private Sub ButtonBrowsePformImgFile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowsePlatformImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformImgFile.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxPlatformImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxPlatform.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxBridgeFileLeft_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgeFileLeft.Click
+    Private Sub TextBoxBridgeFileLeft_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgeLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBridgeFileLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            TextBoxBridgeLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxBridgeFileRight_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgeFileRight.Click
+    Private Sub TextBoxBridgeFileRight_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgeRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBridgeFileRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            TextBoxBridgeRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxBridgePier_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgePier.Click
+    Private Sub TextBoxBridgePier_Click(sender As System.Object, e As System.EventArgs) Handles textBoxBridgePier.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBridgePier.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxBridgePier.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub ButtonAddBridge_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddBridge.Click
-        Dim strType = ""
-        If brStrFreeObj.Checked Then
-            strType = "FreeObj"
-        Else
-            strType = "Wall"
-        End If
+    Private Sub ButtonNewBridge_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewBridge.Click
         If TextBoxBridgeName.Text <> "" And TextBoxBridgeTitle.Text <> "" Then
-            DataGridViewBridge.Rows.Add(New String() {DataGridViewBridge.RowCount - 1, TextBoxBridgeName.Text, TextBoxBridgeTitle.Text,
-                TextBoxBridgeImage.Text, TextBoxBridgeFileLeft.Text, TextBoxBridgeFileRight.Text,
-                TextBoxBridgePier.Text, NumericUpDownBridgeBeamunder.Value, NumericUpDownbridgeLength.Value, strType, NumericUpDownBridgeStrX.Value})
+            DataGridViewBridge.Rows.Add(New String() {DataGridViewBridge.RowCount - 1, TextBoxBridgeName.Text,
+                TextBoxBridgeTitle.Text, TextBoxBridgeImage.Text,
+                TextBoxBridgeLeft.Text, TextBoxBridgeRight.Text, NumericUpDownBridgeWallCycle.Value,
+                textBoxBridgePier.Text, NumericUpDownBridgePierCycle.Value})
         End If
     End Sub
 
-    Private Sub TextBoxFOWallLeft_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxFOWallLeft.Click
+    Private Sub TextBoxFOWallLeft_Click(sender As System.Object, e As System.EventArgs) Handles textBoxOverPassWallLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxFOWallLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxOverPassWallLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxFOWallRight_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxFOWallRight.Click
+    Private Sub TextBoxFOWallRight_Click(sender As System.Object, e As System.EventArgs) Handles textBoxOverPassWallRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxFOWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxOverPassWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxFObeamunder_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxFObeamunder.Click
+    Private Sub TextBoxFObeamunder_Click(sender As System.Object, e As System.EventArgs) Handles textBoxOverPassPier.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxFObeamunder.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxOverPassPier.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub ButtonAddFO_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddFO.Click
-        If TextBoxFOName.Text <> "" And TextBoxFOTitle.Text <> "" Then
-            DataGridViewFlyOver.Rows.Add(New String() {DataGridViewFlyOver.RowCount - 1, TextBoxFOName.Text,
-                TextBoxFOTitle.Text, TextBoxFOImgFile.Text, TextBoxFOWallLeft.Text, TextBoxFOWallRight.Text,
-                TextBoxFObeamunder.Text, NumericUpDownFObeamrepeat.Value, NumericUpDownFoX.Value})
+    Private Sub ButtonNewOverpass_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewOverpass.Click
+        If textBoxOverPassName.Text <> "" And textBoxOverPassTitle.Text <> "" Then
+            DataGridViewFlyOver.Rows.Add(New String() {DataGridViewFlyOver.RowCount - 1,
+                textBoxOverPassName.Text, textBoxOverPassTitle.Text, textBoxOverPassImage.Text,
+                textBoxOverPassWallLeft.Text, textBoxOverPassWallRight.Text, NumericUpDownOverpassWallCycle.Value,
+                textBoxOverPassPier.Text, NumericUpDownOverpassPierCycle.Value})
         End If
     End Sub
 
-    Private Sub TextBoxCutL5m_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxCutL5m.Click
+    Private Sub TextBoxCutL5m_Click(sender As System.Object, e As System.EventArgs) Handles textBoxHillCutLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCutL5m.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxHillCutLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxCutR5m_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxCutR5m.Click
+    Private Sub TextBoxCutR5m_Click(sender As System.Object, e As System.EventArgs) Handles textBoxHillCutRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCutR5m.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxHillCutRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub ButtonAddCut_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddCut.Click
-        If TextBoxCutName.Text <> "" And TextBoxCutTitle.Text <> "" Then
-            DataGridViewCut.Rows.Add(New String() {DataGridViewCut.RowCount - 1, TextBoxCutName.Text,
-                TextBoxCutTitle.Text, TextBoxCutImgFile.Text, TextBoxCutL5m.Text, TextBoxCutR5m.Text, NumericUpDownCutX.Value})
+    Private Sub ButtonAddCut_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewHillCut.Click
+        If textBoxHillCutName.Text <> "" And textBoxHillCutTitle.Text <> "" Then
+            DataGridViewCut.Rows.Add(New String() {DataGridViewCut.RowCount - 1,
+                textBoxHillCutName.Text, textBoxHillCutTitle.Text, textBoxHillCutImage.Text,
+                textBoxHillCutLeft.Text, textBoxHillCutRight.Text, NumericUpDownHillCutCycle.Value})
         End If
     End Sub
 
-    Private Sub TextBoxDikeLeft_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxDikeLeft.Click
+    Private Sub TextBoxDikeLeft_Click(sender As System.Object, e As System.EventArgs) Handles textBoxDikeLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxDikeLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxDikeLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxDikeRight_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxDikeRight.Click
+    Private Sub TextBoxDikeRight_Click(sender As System.Object, e As System.EventArgs) Handles textBoxDikeRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxDikeRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxDikeRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub ButtonAddDike_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddDike.Click
-        If TextBoxDikeName.Text <> "" And TextBoxDikeTitle.Text <> "" Then
-            DataGridViewDike.Rows.Add(New String() {DataGridViewDike.RowCount - 1, TextBoxDikeName.Text,
-                TextBoxDikeTitle.Text, TextBoxDikeImgFile.Text, TextBoxDikeLeft.Text, TextBoxDikeRight.Text, NumericUpDownDikeX.Value})
+    Private Sub ButtonNewDike_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewDike.Click
+        If textBoxDikeName.Text <> "" And textBoxDikeTitle.Text <> "" Then
+            DataGridViewDike.Rows.Add(New String() {DataGridViewDike.RowCount - 1,
+            textBoxDikeName.Text, textBoxDikeTitle.Text, textBoxDikeImage.Text,
+            textBoxDikeLeft.Text, textBoxDikeRight.Text, NumericUpDownDikeCycle.Value})
         End If
     End Sub
 
-    Private Sub TextBoxRCLeft_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxRCLeft.Click
+    Private Sub TextBoxRCLeft_Click(sender As System.Object, e As System.EventArgs) Handles textBoxRCgateLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxRCLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxRCgateLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxRCcross_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxRCcross.Click
+    Private Sub TextBoxRCcross_Click(sender As System.Object, e As System.EventArgs) Handles textBoxRCIntersection.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxRCcross.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxRCIntersection.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxRCRight_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxRCRight.Click
+    Private Sub TextBoxRCRight_Click(sender As System.Object, e As System.EventArgs) Handles textBoxRCgateRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxRCRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxRCgateRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub ButtonAddRC_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddRC.Click
-        If TextBoxRCName.Text <> "" And TextBoxRCTitle.Text <> "" Then
-            DataGridViewRC.Rows.Add(New String() {DataGridViewRC.RowCount - 1, TextBoxRCName.Text, TextBoxRCTitle.Text, TextBoxRCImgFile.Text,
-                TextBoxRCLeft.Text, TextBoxRCcross.Text, TextBoxRCRight.Text, txtRCdopller.Text})
+    Private Sub ButtonAddRC_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewRC.Click
+        If textBoxRCName.Text <> "" And textBoxRCTitle.Text <> "" Then
+            DataGridViewRC.Rows.Add(New String() {DataGridViewRC.RowCount - 1,
+                textBoxRCName.Text, textBoxRCTitle.Text, textBoxRCImage.Text,
+                textBoxRCgateLeft.Text, textBoxRCIntersection.Text, textBoxRCgateRight.Text,
+                textBoxRCSound.Text})
         End If
     End Sub
 
-    Private Sub TextBoxPformFormL_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformFormL.Click
+    Private Sub TextBoxPformFormL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformFormL.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformFormCL_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformFormCL.Click
+    Private Sub TextBoxPformFormCL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformMiddleLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformFormCL.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformMiddleLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformFormCR_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformFormCR.Click
+    Private Sub TextBoxPformFormCR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformMiddleRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformFormCR.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformMiddleRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformFormR_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformFormR.Click
+    Private Sub TextBoxPformFormR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformFormR.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformRoofL_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformRoofL.Click
+    Private Sub TextBoxPformRoofL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformRoofL.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformRoofLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformRoofCL_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformRoofCL.Click
+    Private Sub TextBoxPformRoofCL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofMiddleLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformRoofCL.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformRoofMiddleLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformRoofCR_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformRoofCR.Click
+    Private Sub TextBoxPformRoofCR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofMiddleRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformRoofCR.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformRoofMiddleRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxPformRoofR_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxPformRoofR.Click
+    Private Sub TextBoxPformRoofR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPformRoofR.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxPlatformRoofRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub ButtonAddPlatform_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddPlatform.Click
-        If TextBoxPformName.Text <> "" And TextBoxPformTitle.Text <> "" Then
-            DataGridViewPlatform.Rows.Add(New String() {DataGridViewPlatform.RowCount - 1, TextBoxPformName.Text,
-                TextBoxPformTitle.Text, TextBoxPformImgFile.Text, TextBoxPformFormL.Text, TextBoxPformFormCL.Text,
-                TextBoxPformFormCR.Text, TextBoxPformFormR.Text, TextBoxPformRoofL.Text, TextBoxPformRoofCL.Text,
-                TextBoxPformRoofCR.Text, TextBoxPformRoofR.Text, NumericUpDownFormX.Value})
+    Private Sub ButtonAddPlatform_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewPlatform.Click
+        If textBoxPlatformName.Text <> "" And textBoxPlatformTitle.Text <> "" Then
+            DataGridViewPlatform.Rows.Add(New String() {DataGridViewPlatform.RowCount - 1,
+             textBoxPlatformName.Text, textBoxPlatformTitle.Text, textBoxPlatformImage.Text,
+              textBoxPlatformLeft.Text, textBoxPlatformMiddleLeft.Text,
+              textBoxPlatformMiddleRight.Text, textBoxPlatformRight.Text,
+              NumericUpDownPlatformCycle.Value,
+              textBoxPlatformRoofLeft.Text, textBoxPlatformRoofMiddleLeft.Text,
+              textBoxPlatformRoofMiddleRight.Text, textBoxPlatformRoofRight.Text,
+              NumericUpDownPlatformRoofCycle.Value})
         End If
     End Sub
 
@@ -726,10 +673,11 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub ButtonAddPole_Click(sender As System.Object, e As System.EventArgs) Handles buttonNewPole.Click
+    Private Sub buttonNewPole_Click(sender As System.Object, e As System.EventArgs) Handles buttonNewPole.Click
         If textBoxPoleName.Text <> "" And textBoxPoleTitle.Text <> "" Then
             DataGridViewPole.Rows.Add(New String() {DataGridViewPole.RowCount - 1, textBoxPoleName.Text,
-                textBoxPoleTitle.Text, TextBoxPoleImg.Text, textBoxPoleStructureLeft.Text, NumericUpDownPoleCycle.Value})
+                textBoxPoleTitle.Text, textBoxPoleImage.Text, textBoxPoleStructureLeft.Text,
+                textBoxPoleStructureRight.Text, textBoxOverHeadWire.Text, NumericUpDownPoleCycle.Value})
         End If
     End Sub
 
@@ -741,10 +689,10 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub ButtonBrowsePoleImg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowsePoleImg.Click
+    Private Sub ButtonBrowsePoleImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowsePoleImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxPoleImg.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxPoleImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxPole.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
@@ -763,33 +711,34 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub ButtonAddCrack_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAddCrack.Click
-        If TextBoxCrackName.Text <> "" And TextBoxCrackTitle.Text <> "" Then
-            DataGridViewCrack.Rows.Add(New String() {DataGridViewCrack.RowCount - 1, TextBoxCrackName.Text,
-                TextBoxCrackTitle.Text, TextBoxCrackImg.Text, TextBoxCrackLeftcsv.Text, TextBoxCrackRightcsv.Text, NumericUpDownCrX.Value})
+    Private Sub ButtonNewCrack_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewCrack.Click
+        If textBoxCrackName.Text <> "" And textBoxCrackTitle.Text <> "" Then
+            DataGridViewCrack.Rows.Add(New String() {DataGridViewCrack.RowCount - 1,
+                textBoxCrackName.Text, textBoxCrackTitle.Text, textBoxCrackImage.Text,
+                textBoxCrackLeft.Text, textBoxCrackRight.Text, NumericUpDownCrackCycle.Value})
         End If
     End Sub
 
-    Private Sub ButtonBrowseCrackImg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseCrackImg.Click
+    Private Sub ButtonBrowseCrackImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseCrackImage.Click
         OpenFileDialog2.InitialDirectory = gbIdir
         If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCrackImg.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+            textBoxCrackImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
             PictureBoxCrack.Image = Image.FromFile(OpenFileDialog2.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxCrackLeftcsv_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxCrackLeftcsv.Click
+    Private Sub TextBoxCrackLeftcsv_Click(sender As System.Object, e As System.EventArgs) Handles textBoxCrackLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCrackLeftcsv.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxCrackLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
-    Private Sub TextBoxCrackRightcsv_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxCrackRightcsv.Click
+    Private Sub TextBoxCrackRightcsv_Click(sender As System.Object, e As System.EventArgs) Handles textBoxCrackRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxCrackRightcsv.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+            textBoxCrackRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
             currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
@@ -833,23 +782,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub btnTStL_Click(sender As Object, e As EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInStartLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            OpenFileDialog1.InitialDirectory = currDir
-        End If
-    End Sub
-
-    Private Sub btnTStR_Click(sender As Object, e As EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInStartRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub btnTm1L_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelWallLeft.Click
+    Private Sub buttonBrowseTunnelWallLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelWallLeft.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
             textBoxTunnelWallLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
@@ -857,7 +790,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub btnTm1R_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelWallRight.Click
+    Private Sub buttonBrowseTunnelWallRight_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelWallRight.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
             textBoxTunnelWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
@@ -865,39 +798,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub btnTm2L_Click(sender As Object, e As EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInMid2Left.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub btnTm2R_Click(sender As Object, e As EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInMid2Right.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub btnTEdL_Click(sender As Object, e As EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInEndLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub btnTEdR_Click(sender As Object, e As EventArgs)
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxTunnelInEndRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub btnTEt_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelEntrance.Click
+    Private Sub buttonBrowseTunnelEntrance_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelEntrance.Click
         OpenFileDialog1.InitialDirectory = currDir
         If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
             textBoxTunnelEntrance.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
@@ -905,157 +806,153 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub btnTEx_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelExitStructure.Click
-        UpdateXFileField(textBoxTunnelExitStructure, filetype.x)
+    Private Sub buttonBrowseTunnelExitStructure_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelExitStructure.Click
+        UpdateXFileField(textBoxTunnelExitStructure, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnBgL_Click(sender As Object, e As EventArgs) Handles btnBgL.Click
-        UpdateXFileField(TextBoxBridgeFileLeft, filetype.x)
+    Private Sub btnBgL_Click(sender As Object, e As EventArgs) Handles buttonBrowseBridgeLeft.Click
+        UpdateXFileField(TextBoxBridgeLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnBgR_Click(sender As Object, e As EventArgs) Handles btnBgR.Click
-        UpdateXFileField(TextBoxBridgeFileRight, filetype.x)
+    Private Sub btnBgR_Click(sender As Object, e As EventArgs) Handles buttonBrowseBridgeRight.Click
+        UpdateXFileField(TextBoxBridgeRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnBgPr_Click(sender As Object, e As EventArgs) Handles btnBgPr.Click
-        UpdateXFileField(TextBoxBridgePier, filetype.x)
+    Private Sub btnBgPr_Click(sender As Object, e As EventArgs) Handles buttonBrowseBridgePier.Click
+        UpdateXFileField(textBoxBridgePier, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnFOL_Click(sender As Object, e As EventArgs) Handles btnFOL.Click
-        UpdateXFileField(TextBoxFOWallLeft, filetype.x)
+    Private Sub btnFOL_Click(sender As Object, e As EventArgs) Handles buttonBrowseOverPassWallLeft.Click
+        UpdateXFileField(textBoxOverPassWallLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnFOR_Click(sender As Object, e As EventArgs) Handles btnFOR.Click
-        UpdateXFileField(TextBoxFOWallRight, filetype.x)
+    Private Sub btnFOR_Click(sender As Object, e As EventArgs) Handles buttonBrowseOverPassWallRight.Click
+        UpdateXFileField(textBoxOverPassWallRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnFOB_Click(sender As Object, e As EventArgs) Handles btnFOB.Click
-        UpdateXFileField(TextBoxFObeamunder, filetype.x)
+    Private Sub btnFOB_Click(sender As Object, e As EventArgs) Handles buttonBrowseOverPassPier.Click
+        UpdateXFileField(textBoxOverPassPier, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnHCL_Click(sender As Object, e As EventArgs) Handles btnHCL.Click
-        UpdateXFileField(TextBoxCutL5m, filetype.x)
+    Private Sub btnHCL_Click(sender As Object, e As EventArgs) Handles buttonBrowseHillCutLeft.Click
+        UpdateXFileField(textBoxHillCutLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnHCR_Click(sender As Object, e As EventArgs) Handles btnHCR.Click
-        UpdateXFileField(TextBoxCutR5m, filetype.x)
+    Private Sub btnHCR_Click(sender As Object, e As EventArgs) Handles buttonBrowseHillCutRight.Click
+        UpdateXFileField(textBoxHillCutRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnDL_Click(sender As Object, e As EventArgs) Handles btnDL.Click
-        UpdateXFileField(TextBoxDikeLeft, filetype.x)
+    Private Sub btnDL_Click(sender As Object, e As EventArgs) Handles buttonBrowseDikeLeft.Click
+        UpdateXFileField(textBoxDikeLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnDR_Click(sender As Object, e As EventArgs) Handles btnDR.Click
-        UpdateXFileField(TextBoxDikeRight, filetype.x)
+    Private Sub btnDR_Click(sender As Object, e As EventArgs) Handles buttonBrowseDikeRight.Click
+        UpdateXFileField(textBoxDikeRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnRCTL_Click(sender As Object, e As EventArgs) Handles btnRCTL.Click
-        UpdateXFileField(TextBoxRCLeft, filetype.x)
+    Private Sub btnRCTL_Click(sender As Object, e As EventArgs) Handles buttonBrowseRCgateLeft.Click
+        UpdateXFileField(textBoxRCgateLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnRCC_Click(sender As Object, e As EventArgs) Handles btnRCC.Click
-        UpdateXFileField(TextBoxRCcross, filetype.x)
+    Private Sub btnRCC_Click(sender As Object, e As EventArgs) Handles buttonBrowseRCIntersection.Click
+        UpdateXFileField(textBoxRCIntersection, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnRCTR_Click(sender As Object, e As EventArgs) Handles btnRCTR.Click
-        UpdateXFileField(TextBoxRCRight, filetype.x)
+    Private Sub btnRCTR_Click(sender As Object, e As EventArgs) Handles buttonBrowseRCgateRight.Click
+        UpdateXFileField(textBoxRCgateRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnRCDS_Click(sender As Object, e As EventArgs) Handles btnRCDS.Click
-        UpdateXFileField(txtRCdopller, filetype.wav)
+    Private Sub btnRCDS_Click(sender As Object, e As EventArgs) Handles buttonBrowseRCSound.Click
+        UpdateXFileField(textBoxRCSound, filetype.wav, Nothing)
     End Sub
 
 
-    Private Sub btnpFL_Click(sender As Object, e As EventArgs) Handles btnpFL.Click
-        UpdateXFileField(TextBoxPformFormL, filetype.x)
+    Private Sub btnpFL_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformLeft.Click
+        UpdateXFileField(textBoxPlatformLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpFLC_Click(sender As Object, e As EventArgs) Handles btnpFLC.Click
-        UpdateXFileField(TextBoxPformFormCL, filetype.x)
+    Private Sub btnpFLC_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformMiddleLeft.Click
+        UpdateXFileField(textBoxPlatformMiddleLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpFRC_Click(sender As Object, e As EventArgs) Handles btnpFRC.Click
-        UpdateXFileField(TextBoxPformFormCR, filetype.x)
+    Private Sub btnpFRC_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformMiddleRight.Click
+        UpdateXFileField(textBoxPlatformMiddleRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpFR_Click(sender As Object, e As EventArgs) Handles btnpFR.Click
-        UpdateXFileField(TextBoxPformFormR, filetype.x)
+    Private Sub btnpFR_Click(sender As Object, e As EventArgs) Handles buttonbrowsePlatformRight.Click
+        UpdateXFileField(textBoxPlatformRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpRL_Click(sender As Object, e As EventArgs) Handles btnpRL.Click
-        UpdateXFileField(TextBoxPformRoofL, filetype.x)
+    Private Sub btnpRL_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformRoofLeft.Click
+        UpdateXFileField(textBoxPlatformRoofLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpRLC_Click(sender As Object, e As EventArgs) Handles btnpRLC.Click
-        UpdateXFileField(TextBoxPformRoofCL, filetype.x)
+    Private Sub btnpRLC_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformRoofMiddleLeft.Click
+        UpdateXFileField(textBoxPlatformRoofMiddleLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpRRC_Click(sender As Object, e As EventArgs) Handles btnpRRC.Click
-        UpdateXFileField(TextBoxPformRoofCR, filetype.x)
+    Private Sub btnpRRC_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformRoofMiddleRight.Click
+        UpdateXFileField(textBoxPlatformRoofMiddleRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnpRR_Click(sender As Object, e As EventArgs) Handles btnpRR.Click
-        UpdateXFileField(TextBoxPformRoofR, filetype.x)
+    Private Sub btnpRR_Click(sender As Object, e As EventArgs) Handles buttonBrowsermRoofRight.Click
+        UpdateXFileField(textBoxPlatformRoofRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnCrL_Click(sender As Object, e As EventArgs) Handles btnCrL.Click
-        UpdateXFileField(TextBoxCrackLeftcsv, filetype.x)
+    Private Sub btnCrL_Click(sender As Object, e As EventArgs) Handles buttonBrowseCrackLeft.Click
+        UpdateXFileField(textBoxCrackLeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub btnCrR_Click(sender As Object, e As EventArgs) Handles btnCrR.Click
-        UpdateXFileField(TextBoxCrackRightcsv, filetype.x)
+    Private Sub btnCrR_Click(sender As Object, e As EventArgs) Handles buttonBrowseCrackRight.Click
+        UpdateXFileField(textBoxCrackRight, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonOHWire_Click(sender As Object, e As EventArgs)
-        UpdateXFileField(textBoxOverHeadWire, filetype.x)
+    Private Sub buttonBrowseRailSleeper2_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper2.Click
+        UpdateXFileField(textBoxRailSleeper2, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailBase1_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper2.Click
-        UpdateXFileField(textBoxRailSleeper2, filetype.x)
+    Private Sub buttonBrowseRailSleeper3_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper3.Click
+        UpdateXFileField(textBoxRailSleeper3, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailBase2_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper3.Click
-        UpdateXFileField(textBoxRailSleeper3, filetype.x)
+    Private Sub buttonBrowseRailSleeper4_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper4.Click
+        UpdateXFileField(textBoxRailSleeper4, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailBase3_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper4.Click
-        UpdateXFileField(textBoxRailSleeper4, filetype.x)
+    Private Sub buttonBrowseRailSleeper5_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper5.Click
+        UpdateXFileField(textBoxRailSleeper5, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailBase4_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailSleeper5.Click
-        UpdateXFileField(textBoxRailSleeper5, filetype.x)
+    Private Sub buttonBrowseRailLeft2_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft2.Click
+        UpdateXFileField(textBoxRailLeft2, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailL1_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft2.Click
-        UpdateXFileField(textBoxRailLeft2, filetype.x)
+    Private Sub buttonBrowseRailLeft3_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft3.Click
+        UpdateXFileField(textBoxRailLeft3, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailL2_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft3.Click
-        UpdateXFileField(textBoxRailLeft3, filetype.x)
+    Private Sub buttonBrowseRailLeft4_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft4.Click
+        UpdateXFileField(textBoxRailLeft4, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailL3_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft4.Click
-        UpdateXFileField(textBoxRailLeft4, filetype.x)
+    Private Sub buttonBrowseRailLeft5_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft5.Click
+        UpdateXFileField(textBoxRailLeft5, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailL4_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft5.Click
-        UpdateXFileField(textBoxRailLeft5, filetype.x)
+    Private Sub buttonBrowseRailRight2_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight2.Click
+        UpdateXFileField(textBoxRailRight2, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailR1_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight2.Click
-        UpdateXFileField(textBoxRailRight2, filetype.x)
+    Private Sub buttonBrowseRailRight3_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight3.Click
+        UpdateXFileField(textBoxRailRight3, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailR2_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight3.Click
-        UpdateXFileField(textBoxRailRight3, filetype.x)
+    Private Sub buttonBrowseRailRight4_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight4.Click
+        UpdateXFileField(textBoxRailRight4, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonRailR3_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight4.Click
-        UpdateXFileField(textBoxRailRight4, filetype.x)
-    End Sub
-
-    Private Sub ButtonRailR4_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight5.Click
-        UpdateXFileField(textBoxRailRight5, filetype.x)
+    Private Sub buttonBrowseRailRight5_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight5.Click
+        UpdateXFileField(textBoxRailRight5, filetype.x, Nothing)
     End Sub
 
     Private Sub ButtonBVEDir_Click(sender As Object, e As EventArgs) Handles buttonBrowseBVEDataDir.Click
@@ -1149,11 +1046,11 @@ Public Class Main
     End Sub
 
     Private Sub ButtonRailL_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft1.Click
-        UpdateXFileField(textBoxRailLeft1, filetype.x)
+        UpdateXFileField(textBoxRailLeft1, filetype.x, Nothing)
     End Sub
 
     Private Sub ButtonRailR_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailRight1.Click
-        UpdateXFileField(textBoxRailRight1, filetype.x)
+        UpdateXFileField(textBoxRailRight1, filetype.x, Nothing)
     End Sub
 
     Private Sub ButtonSaveXML_Click(sender As Object, e As EventArgs) Handles ButtonSaveXML.Click
@@ -1568,10 +1465,6 @@ Public Class Main
         DialogBrowseBVEDirHelp.Show()
     End Sub
 
-    Private Sub PictureBoxPoleTip_Click(sender As Object, e As EventArgs) Handles PictureBoxPoleTip.Click
-        FormPoleTip.Show()
-    End Sub
-
     Private Sub PictureBoxPoleBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxPoleBVESyntax.Click
         FormPoleBVESyntax.Show()
     End Sub
@@ -1580,15 +1473,91 @@ Public Class Main
         FormTunnelBVESyntax.Show()
     End Sub
 
-    Private Sub PictureBoxTunnelTip_Click(sender As Object, e As EventArgs) Handles PictureBoxTunnelTip.Click
+    Private Sub PictureBoxBridgeBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxBridgeBVESyntax.Click
+        FormBridgeBVESyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxOverpassBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxOverpassBVESyntax.Click
+        FormOverpassBVESyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxHillCutBVEsyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxHillCutBVEsyntax.Click
+        FormHillCutBVESyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxDikeBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxDikeBVESyntax.Click
+        FormDikeBVEsyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxRCBVEsyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxRCBVEsyntax.Click
+        FormRCBVEsyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxPlatformTip_Click(sender As Object, e As EventArgs)
+        FormPlatformTip.Show()
+    End Sub
+
+    Private Sub PictureBoxPlatformBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxPlatformBVESyntax.Click
+        FormPlatformBVESyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxCrackTip_Click(sender As Object, e As EventArgs)
+        FormCrackTip.Show()
+    End Sub
+
+    Private Sub PictureBoxCrackBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxCrackBVESyntax.Click
+        FormCrackBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonRailTip_Click(sender As Object, e As EventArgs) Handles ButtonRailTip.Click
+        FormRailPicHelp.Show()
+    End Sub
+
+    Private Sub ButtonPoleTip_Click(sender As Object, e As EventArgs) Handles ButtonPoleTip.Click
+        FormPoleTip.Show()
+    End Sub
+
+    Private Sub ButtonTunnelTip_Click(sender As Object, e As EventArgs) Handles ButtonTunnelTip.Click
         FormTunnelTip.Show()
+    End Sub
+
+    Private Sub ButtonBridgeTip_Click(sender As Object, e As EventArgs) Handles ButtonBridgeTip.Click
+        FormBridgeTip.Show()
+    End Sub
+
+    Private Sub ButtonOverpassTip_Click(sender As Object, e As EventArgs) Handles ButtonOverpassTip.Click
+        FormOverpassTip.Show()
+    End Sub
+
+    Private Sub ButtonDikeTip_Click(sender As Object, e As EventArgs) Handles ButtonDikeTip.Click
+        FormDikeTip.Show()
+    End Sub
+
+    Private Sub ButtonRCTip_Click(sender As Object, e As EventArgs) Handles ButtonRCTip.Click
+        FormRCTip.Show()
+    End Sub
+
+    Private Sub ButtonPlatformTip_Click(sender As Object, e As EventArgs) Handles ButtonPlatformTip.Click
+        FormPlatformTip.Show()
+    End Sub
+
+    Private Sub ButtonNewUG_Click(sender As Object, e As EventArgs) Handles ButtonNewUG.Click
+        If textBoxUGName.Text <> "" And textBoxUGTitle.Text <> "" Then
+            DataGridViewUG.Rows.Add(New String() {DataGridViewUG.RowCount - 1,
+             textBoxUGName.Text, textBoxUGTitle.Text, textBoxUGImage.Text,
+              textBoxUGGroundLeft.Text, textBoxUGGroundRight.Text, NumericUpDownUGgroundCycle.Value,
+              textBoxUGoWallLeft.Text, textBoxUGoWallRight.Text, NumericUpDownUGoWallCycle.Value,
+              textBoxUGEntrance.Text, textBoxUGiWallLeft.Text,
+              textBoxUGiWallRight.Text, NumericUpDownUGiWallCycle.Value,
+              textBoxUGExit.Text})
+        End If
     End Sub
 
     Private Sub PictureBoxBrowseImgDir_Click(sender As Object, e As EventArgs) Handles PictureBoxBrowseImgDir.Click
         DialogBrowseGBMapsImageDirHelp.Show()
     End Sub
 
-    Public Sub UpdateXFileField(TB As TextBox, file As filetype)
+    Public Sub UpdateXFileField(TB As TextBox, file As filetype, PB As PictureBox)
         If bvedir Is Nothing And file = filetype.x Then
             MessageBox.Show("Please set default bve folder in step 1, first.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
@@ -1628,7 +1597,15 @@ Public Class Main
                     TB.Text = FileDialog.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
                     currDir = My.Computer.FileSystem.GetParentPath(FileDialog.FileName)
                 Case filetype.img
-                    TB.Text = FileDialog.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+                    Try
+                        TB.Text = FileDialog.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+
+                        PB.Image = Nothing
+                        PB.Image = Image.FromFile(FileDialog.FileName)
+
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
                 Case filetype.wav
                     Dim filename = "sounds\" & My.Computer.FileSystem.GetFileInfo(FileDialog.FileName).Name
                     TB.Text = filename

@@ -133,6 +133,72 @@
     <Compile Include="DialogBrowseGBMapsImageDirHelp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormBridgeBVESyntax.Designer.vb">
+      <DependentUpon>FormBridgeBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBridgeBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBridgeTip.Designer.vb">
+      <DependentUpon>FormBridgeTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBridgeTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrackTip.Designer.vb">
+      <DependentUpon>FormCrackTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrackTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDikeBVEsyntax.Designer.vb">
+      <DependentUpon>FormDikeBVEsyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDikeBVEsyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDikeTip.Designer.vb">
+      <DependentUpon>FormDikeTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDikeTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHillCutBVESyntax.Designer.vb">
+      <DependentUpon>FormHillCutBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHillCutBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHillCutTip.Designer.vb">
+      <DependentUpon>FormHillCutTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHillCutTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOverpassBVESyntax.Designer.vb">
+      <DependentUpon>FormOverpassBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormOverpassBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOverpassTip.Designer.vb">
+      <DependentUpon>FormOverpassTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormOverpassTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlatformBVESyntax.Designer.vb">
+      <DependentUpon>FormPlatformBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlatformBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlatformTip.Designer.vb">
+      <DependentUpon>FormPlatformTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlatformTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPoleBVESyntax.Designer.vb">
       <DependentUpon>FormPoleBVESyntax.vb</DependentUpon>
     </Compile>
@@ -157,6 +223,18 @@
     <Compile Include="FormRailPicHelp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormRCBVEsyntax.Designer.vb">
+      <DependentUpon>FormRCBVEsyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRCBVEsyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRCTip.Designer.vb">
+      <DependentUpon>FormRCTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRCTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormTunnelBVESyntax.Designer.vb">
       <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
     </Compile>
@@ -167,6 +245,12 @@
       <DependentUpon>FormTunnelTip.vb</DependentUpon>
     </Compile>
     <Compile Include="FormTunnelTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrackBVESyntax.Designer.vb">
+      <DependentUpon>FormCrackBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrackBVESyntax.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb">
@@ -208,6 +292,39 @@
     <EmbeddedResource Include="DialogBrowseGBMapsImageDirHelp.resx">
       <DependentUpon>DialogBrowseGBMapsImageDirHelp.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBridgeBVESyntax.resx">
+      <DependentUpon>FormBridgeBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBridgeTip.resx">
+      <DependentUpon>FormBridgeTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCrackTip.resx">
+      <DependentUpon>FormCrackTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDikeBVEsyntax.resx">
+      <DependentUpon>FormDikeBVEsyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDikeTip.resx">
+      <DependentUpon>FormDikeTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHillCutBVESyntax.resx">
+      <DependentUpon>FormHillCutBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHillCutTip.resx">
+      <DependentUpon>FormHillCutTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOverpassBVESyntax.resx">
+      <DependentUpon>FormOverpassBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOverpassTip.resx">
+      <DependentUpon>FormOverpassTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlatformBVESyntax.resx">
+      <DependentUpon>FormPlatformBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlatformTip.resx">
+      <DependentUpon>FormPlatformTip.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPoleBVESyntax.resx">
       <DependentUpon>FormPoleBVESyntax.vb</DependentUpon>
     </EmbeddedResource>
@@ -220,11 +337,20 @@
     <EmbeddedResource Include="FormRailPicHelp.resx">
       <DependentUpon>FormRailPicHelp.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRCBVEsyntax.resx">
+      <DependentUpon>FormRCBVEsyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRCTip.resx">
+      <DependentUpon>FormRCTip.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTunnelBVESyntax.resx">
       <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTunnelTip.resx">
       <DependentUpon>FormTunnelTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCrackBVESyntax.resx">
+      <DependentUpon>FormCrackBVESyntax.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
