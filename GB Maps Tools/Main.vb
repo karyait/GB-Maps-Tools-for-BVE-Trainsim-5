@@ -55,17 +55,12 @@ Public Class Main
     End Sub
 
     Private Sub Buttonbrowseaudiofile_Click(sender As System.Object, e As System.EventArgs) Handles Buttonbrowseaudiofile.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            Dim filename = "sounds\" & My.Computer.FileSystem.GetFileInfo(OpenFileDialog1.FileName).Name
-            TextBoxaudiofile.Text = filename
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(TextBoxaudiofile, filetype.wav, Nothing)
     End Sub
 
     Private Sub Buttonaudioadd_Click(sender As System.Object, e As System.EventArgs) Handles Buttonaudioadd.Click
         If TextBoxaudioname.Text <> "" And TextBoxaudiotitle.Text <> "" And TextBoxaudiofile.Text <> "" And ComboBoxaudiotype.Text <> "" Then
-            DataGridViewaudio.Rows.Add(New String() {DataGridViewaudio.RowCount - 1, TextBoxaudioname.Text,
+            DataGridViewSound.Rows.Add(New String() {DataGridViewSound.RowCount - 1, TextBoxaudioname.Text,
                                                      TextBoxaudiotitle.Text, ComboBoxaudiotype.Text, TextBoxaudiofile.Text})
         End If
     End Sub
@@ -73,7 +68,7 @@ Public Class Main
     Private Sub ButtonRailTypeAdd_Click(sender As System.Object, e As System.EventArgs) Handles buttonNewRail.Click
         If textBoxRailName.Text <> "" And textBoxRailTitle.Text <> "" And textBoxRailSleeper1.Text <> "" And
             comboBoxRailType.Text <> "" Then
-            DataGridViewRailType.Rows.Add(New String() {DataGridViewRailType.RowCount - 1, textBoxRailName.Text,
+            DataGridViewRail.Rows.Add(New String() {DataGridViewRail.RowCount - 1, textBoxRailName.Text,
             textBoxRailTitle.Text, textBoxRailImage.Text, comboBoxRailType.Text, comboBoxRailGauge.Text,
             textBoxRailSleeper1.Text, textBoxRailLeft1.Text, textBoxRailRight1.Text, textBoxRailSleeper2.Text,
             textBoxRailLeft2.Text, textBoxRailRight2.Text, textBoxRailSleeper3.Text, textBoxRailLeft3.Text,
@@ -87,71 +82,48 @@ Public Class Main
     End Sub
 
     Private Sub buttonBrowseRailImage_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRailImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            Try
-                textBoxRailImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-                PictureBoxRailTypeImg.Image = Nothing
-                PictureBoxRailTypeImg.Image = Image.FromFile(OpenFileDialog2.FileName)
+        UpdateXFileField(textBoxRailImage, filetype.img, PictureBoxRailTypeImg)
+    End Sub
 
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
+    Private Sub Buttonbvestrfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseBVEfile.Click
+        UpdateXFileField(TextBoxBVEfile, filetype.x, Nothing)
+    End Sub
+
+    Private Sub Buttonbvestrimg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseEtcBVEImage.Click
+        UpdateXFileField(TextBoxetcBVEImage, filetype.img, PictureBoxBVEstrimg)
+    End Sub
+
+    Private Sub ButtonBVEstrAdd_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewBVE.Click
+        If ComboBoxBVEType.Text <> "" And TextBoxBVEstrname.Text <> "" And TextBoxBVEstrtitle.Text <> "" And TextBoxBVEfile.Text <> "" Then
+            DataGridViewEtc.Rows.Add(New String() {DataGridViewEtc.RowCount - 1,
+            TextBoxBVEstrname.Text, TextBoxBVEstrtitle.Text, TextBoxetcBVEImage.Text,
+            ComboBoxBVEType.Text, TextBoxBVEfile.Text,
+            textBoxBVELeft.Text, TextBoxBVERight.Text,
+            NumericUpDownBveX.Value})
         End If
     End Sub
 
-    Private Sub Buttonbvestrfile_Click(sender As System.Object, e As System.EventArgs) Handles Buttonbvestrfile.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBVEstrfile.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
+    Private Sub Buttonbvefobjadd_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewFreeObject.Click
+        If ComboBoxFreeObjectType.Text <> "" And TextBoxbvefobjname.Text <> "" And TextBoxbvefobjtitle.Text <> "" And textBoxFreeObjectFile.Text <> "" Then
+            DataGridViewFreeObject.Rows.Add(New String() {DataGridViewFreeObject.RowCount - 1,
+            TextBoxbvefobjname.Text, TextBoxbvefobjtitle.Text, textBoxFreeObjectImage.Text,
+            ComboBoxFreeObjectType.Text, textBoxFreeObjectFile.Text})
         End If
     End Sub
 
-    Private Sub Buttonbvestrimg_Click(sender As System.Object, e As System.EventArgs) Handles Buttonbvestrimg.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBVEstrimg.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxBVEstrimg.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+    Private Sub ButtonbveFOfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseFreeObjectFile.Click
+        UpdateXFileField(textBoxFreeObjectFile, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonBVEstrAdd_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBVEstrAdd.Click
-        If ComboBoxBVEstrtype.Text <> "" And TextBoxBVEstrname.Text <> "" And TextBoxBVEstrtitle.Text <> "" And TextBoxBVEstrfile.Text <> "" Then
-            DataGridViewBVEstr.Rows.Add(New String() {DataGridViewBVEstr.RowCount - 1, TextBoxBVEstrname.Text,
-            TextBoxBVEstrtitle.Text, ComboBoxBVEstrtype.Text, TextBoxBVEstrimg.Text, TextBoxBVEstrfile.Text,
-            TextBoxbveWallLfile.Text, TextBoxbveWallRfile.Text, NumericUpDownBveX.Value})
-        End If
+    Private Sub ButtonbveFOimg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseFreeObjectImage.Click
+        UpdateXFileField(textBoxFreeObjectImage, filetype.img, PictureBoxbvefobjimg)
     End Sub
 
-    Private Sub Buttonbvefobjadd_Click(sender As System.Object, e As System.EventArgs) Handles Buttonbvefobjadd.Click
-        If ComboBoxbvefobjotype.Text <> "" And TextBoxbvefobjname.Text <> "" And TextBoxbvefobjtitle.Text <> "" And TextBoxbvefobjfile.Text <> "" Then
-            DataGridViewBVEfobj.Rows.Add(New String() {DataGridViewBVEfobj.RowCount - 1, TextBoxbvefobjname.Text,
-                                         TextBoxbvefobjtitle.Text, ComboBoxbvefobjotype.Text, TextBoxbvefobjimg.Text, TextBoxbvefobjfile.Text})
-        End If
-    End Sub
-
-    Private Sub ButtonbveFOfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbveFOfile.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxbvefobjfile.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub ButtonbveFOimg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbveFOimg.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxbvefobjimg.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxbvefobjimg.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
-    End Sub
-
-    Private Sub DataGridViewaudio_Click(sender As Object, e As System.EventArgs) Handles DataGridViewaudio.Click
+    Private Sub DataGridViewaudio_Click(sender As Object, e As System.EventArgs) Handles DataGridViewSound.Click
         Try
-            Dim irow As Integer = DataGridViewaudio.CurrentRow.Index
+            Dim irow As Integer = DataGridViewSound.CurrentRow.Index
             Dim basedir = bvedir.Substring(0, bvedir.LastIndexOf("\"))
-            Dim fullpath As String = basedir & "\" & DataGridViewaudio.Item(4, irow).Value
+            Dim fullpath As String = basedir & "\" & DataGridViewSound.Item(4, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxaudiorun.Visible = True
                 My.Computer.Audio.Stop()
@@ -164,10 +136,10 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub DataGridViewBVEfobj_Click(sender As Object, e As System.EventArgs) Handles DataGridViewBVEfobj.Click
+    Private Sub DataGridViewBVEfobj_Click(sender As Object, e As System.EventArgs) Handles DataGridViewFreeObject.Click
         Try
-            Dim irow As Integer = DataGridViewBVEfobj.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewBVEfobj.Item(4, irow).Value
+            Dim irow As Integer = DataGridViewFreeObject.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewFreeObject.Item(4, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxbvefobjimg.Image = Image.FromFile(fullpath)
             Else
@@ -178,10 +150,10 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub DataGridViewBVEstr_Click(sender As Object, e As System.EventArgs) Handles DataGridViewBVEstr.Click
+    Private Sub DataGridViewBVEstr_Click(sender As Object, e As System.EventArgs) Handles DataGridViewEtc.Click
         Try
-            Dim irow As Integer = DataGridViewBVEstr.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewBVEstr.Item(4, irow).Value
+            Dim irow As Integer = DataGridViewEtc.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewEtc.Item(4, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxBVEstrimg.Image = Image.FromFile(fullpath)
             Else
@@ -192,10 +164,10 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub DataGridViewRailType_Click(sender As Object, e As System.EventArgs) Handles DataGridViewRailType.Click
+    Private Sub DataGridViewRailType_Click(sender As Object, e As System.EventArgs) Handles DataGridViewRail.Click
         Try
-            Dim irow As Integer = DataGridViewRailType.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewRailType.Item(6, irow).Value
+            Dim irow As Integer = DataGridViewRail.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewRail.Item(6, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxRailTypeImg.Image = Image.FromFile(fullpath)
             Else
@@ -216,7 +188,7 @@ Public Class Main
                 Dim dirName = trainDir.Substring(trainDir.LastIndexOf("\") + 1)
                 Dim imgFile = dirName & "\" & "train.bmp"
                 If File.Exists(basedir & "\" & dirName & "\train.dat") Then
-                    DataGridViewTrainDir.Rows.Add(New String() {bil, dirName, dirName, imgFile, dirName})
+                    DataGridViewTrain.Rows.Add(New String() {bil, dirName, dirName, imgFile, dirName})
                     bil += 1
                 End If
             Next
@@ -235,14 +207,10 @@ Public Class Main
     End Sub
 
     Private Sub ButtonTunnelBrowseImage_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseTunnelImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxTunnelPicture.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxTunnelImage, filetype.img, PictureBoxTunnelPicture)
     End Sub
 
-    Private Sub ButtonAddTunnel_Click(sender As System.Object, e As System.EventArgs) Handles buttonAddNewTunnel.Click
+    Private Sub buttonNewTunnel_Click(sender As System.Object, e As System.EventArgs) Handles buttonNewTunnel.Click
         If textBoxTunnelName.Text <> "" And textBoxTunnelTitle.Text <> "" And textBoxTunnelEntrance.Text <> "" Then
             DataGridViewTunnel.Rows.Add(New String() {DataGridViewTunnel.RowCount - 1, textBoxTunnelName.Text,
                 textBoxTunnelTitle.Text, textBoxTunnelImage.Text,
@@ -252,109 +220,28 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub TextBoxTunnelInMid1Left_Click(sender As System.Object, e As System.EventArgs) Handles textBoxTunnelWallLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelWallLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-
-    Private Sub TextBoxTunnelInMid1Right_Click(sender As System.Object, e As System.EventArgs) Handles textBoxTunnelWallRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelEntrance_Click(sender As System.Object, e As System.EventArgs) Handles textBoxTunnelEntrance.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelEntrance.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxTunnelExit_Click(sender As System.Object, e As System.EventArgs) Handles textBoxTunnelExitStructure.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelExitStructure.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
     Private Sub ButtonBrowseBridgeImageFile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseBridgeImageFile.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBridgeImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxBridge.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(TextBoxBridgeImage, filetype.img, PictureBoxBridge)
     End Sub
 
     Private Sub ButtonFOBrowseImgFile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseOverPassImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxOverPassImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxFO.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxOverPassImage, filetype.img, PictureBoxFO)
     End Sub
 
     Private Sub ButtonBrowseCutImgFile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseHillCutImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxHillCutImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxHillCut.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxHillCutImage, filetype.img, PictureBoxHillCut)
     End Sub
 
     Private Sub ButtonDikeBrowseImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseDikeImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxDikeImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxDike.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxDikeImage, filetype.img, PictureBoxDike)
     End Sub
 
     Private Sub ButtonBrowseRCImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseRCImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxRCImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxRC.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxRCImage, filetype.img, PictureBoxRC)
     End Sub
 
     Private Sub ButtonBrowsePformImgFile_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowsePlatformImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxPlatform.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxBridgeFileLeft_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgeLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBridgeLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxBridgeFileRight_Click(sender As System.Object, e As System.EventArgs) Handles TextBoxBridgeRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxBridgeRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxBridgePier_Click(sender As System.Object, e As System.EventArgs) Handles textBoxBridgePier.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxBridgePier.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxPlatformImage, filetype.img, PictureBoxPlatform)
     End Sub
 
     Private Sub ButtonNewBridge_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewBridge.Click
@@ -366,78 +253,23 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub TextBoxFOWallLeft_Click(sender As System.Object, e As System.EventArgs) Handles textBoxOverPassWallLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxOverPassWallLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxFOWallRight_Click(sender As System.Object, e As System.EventArgs) Handles textBoxOverPassWallRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxOverPassWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxFObeamunder_Click(sender As System.Object, e As System.EventArgs) Handles textBoxOverPassPier.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxOverPassPier.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
     Private Sub ButtonNewOverpass_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewOverpass.Click
         If textBoxOverPassName.Text <> "" And textBoxOverPassTitle.Text <> "" Then
-            DataGridViewFlyOver.Rows.Add(New String() {DataGridViewFlyOver.RowCount - 1,
+            DataGridViewOverpass.Rows.Add(New String() {DataGridViewOverpass.RowCount - 1,
                 textBoxOverPassName.Text, textBoxOverPassTitle.Text, textBoxOverPassImage.Text,
                 textBoxOverPassWallLeft.Text, textBoxOverPassWallRight.Text, NumericUpDownOverpassWallCycle.Value,
                 textBoxOverPassPier.Text, NumericUpDownOverpassPierCycle.Value})
         End If
     End Sub
 
-    Private Sub TextBoxCutL5m_Click(sender As System.Object, e As System.EventArgs) Handles textBoxHillCutLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxHillCutLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxCutR5m_Click(sender As System.Object, e As System.EventArgs) Handles textBoxHillCutRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxHillCutRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
     Private Sub ButtonAddCut_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewHillCut.Click
         If textBoxHillCutName.Text <> "" And textBoxHillCutTitle.Text <> "" Then
-            DataGridViewCut.Rows.Add(New String() {DataGridViewCut.RowCount - 1,
+            DataGridViewHillCut.Rows.Add(New String() {DataGridViewHillCut.RowCount - 1,
                 textBoxHillCutName.Text, textBoxHillCutTitle.Text, textBoxHillCutImage.Text,
                 textBoxHillCutLeft.Text, textBoxHillCutRight.Text, NumericUpDownHillCutCycle.Value})
         End If
     End Sub
 
-    Private Sub TextBoxDikeLeft_Click(sender As System.Object, e As System.EventArgs) Handles textBoxDikeLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxDikeLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxDikeRight_Click(sender As System.Object, e As System.EventArgs) Handles textBoxDikeRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxDikeRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
 
     Private Sub ButtonNewDike_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewDike.Click
         If textBoxDikeName.Text <> "" And textBoxDikeTitle.Text <> "" Then
@@ -447,100 +279,12 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub TextBoxRCLeft_Click(sender As System.Object, e As System.EventArgs) Handles textBoxRCgateLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxRCgateLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxRCcross_Click(sender As System.Object, e As System.EventArgs) Handles textBoxRCIntersection.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxRCIntersection.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxRCRight_Click(sender As System.Object, e As System.EventArgs) Handles textBoxRCgateRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxRCgateRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
     Private Sub ButtonAddRC_Click(sender As System.Object, e As System.EventArgs) Handles ButtonNewRC.Click
         If textBoxRCName.Text <> "" And textBoxRCTitle.Text <> "" Then
             DataGridViewRC.Rows.Add(New String() {DataGridViewRC.RowCount - 1,
                 textBoxRCName.Text, textBoxRCTitle.Text, textBoxRCImage.Text,
                 textBoxRCgateLeft.Text, textBoxRCIntersection.Text, textBoxRCgateRight.Text,
                 textBoxRCSound.Text})
-        End If
-    End Sub
-
-    Private Sub TextBoxPformFormL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformFormCL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformMiddleLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformMiddleLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformFormCR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformMiddleRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformMiddleRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformFormR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformRoofL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformRoofLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformRoofCL_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofMiddleLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformRoofMiddleLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformRoofCR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofMiddleRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformRoofMiddleRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub TextBoxPformRoofR_Click(sender As System.Object, e As System.EventArgs) Handles textBoxPlatformRoofRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPlatformRoofRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
         End If
     End Sub
 
@@ -557,14 +301,12 @@ Public Class Main
         End If
     End Sub
 
-
-
-    Private Sub DataGridViewTrainDir_Click(sender As Object, e As System.EventArgs) Handles DataGridViewTrainDir.Click
+    Private Sub DataGridViewTrainDir_Click(sender As Object, e As System.EventArgs) Handles DataGridViewTrain.Click
         Try
-            Dim irow As Integer = DataGridViewTrainDir.CurrentRow.Index
+            Dim irow As Integer = DataGridViewTrain.CurrentRow.Index
             Dim basedir = bvedir.Substring(0, bvedir.LastIndexOf("\")) & "\trains" 'bvedir.Replace("Railway\Object", "") & "train"
 
-            Dim fullpath As String = basedir.ToLower & "\" & DataGridViewTrainDir.Item(3, irow).Value
+            Dim fullpath As String = basedir.ToLower & "\" & DataGridViewTrain.Item(3, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxTrainDir.Image = Image.FromFile(fullpath)
             Else
@@ -603,10 +345,10 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub DataGridViewFlyOver_Click(sender As Object, e As System.EventArgs) Handles DataGridViewFlyOver.Click
+    Private Sub DataGridViewFlyOver_Click(sender As Object, e As System.EventArgs) Handles DataGridViewOverpass.Click
         Try
-            Dim irow As Integer = DataGridViewFlyOver.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewFlyOver.Item(3, irow).Value
+            Dim irow As Integer = DataGridViewOverpass.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewOverpass.Item(3, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxFO.Image = Image.FromFile(fullpath)
             Else
@@ -617,10 +359,10 @@ Public Class Main
         End Try
     End Sub
 
-    Private Sub DataGridViewCut_Click(sender As Object, e As System.EventArgs) Handles DataGridViewCut.Click
+    Private Sub DataGridViewCut_Click(sender As Object, e As System.EventArgs) Handles DataGridViewHillCut.Click
         Try
-            Dim irow As Integer = DataGridViewCut.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewCut.Item(3, irow).Value
+            Dim irow As Integer = DataGridViewHillCut.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewHillCut.Item(3, irow).Value
             If File.Exists(fullpath) Then
                 PictureBoxHillCut.Image = Image.FromFile(fullpath)
             Else
@@ -682,19 +424,11 @@ Public Class Main
     End Sub
 
     Private Sub ButtonBrowsePoleCSV_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowsePoleStructureLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPoleStructureLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxPoleStructureLeft, filetype.x, Nothing)
     End Sub
 
     Private Sub ButtonBrowsePoleImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowsePoleImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxPoleImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxPole.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxPoleImage, filetype.img, PictureBoxPole)
     End Sub
 
     Private Sub DataGridViewPole_Click(sender As Object, e As System.EventArgs) Handles DataGridViewPole.Click
@@ -720,27 +454,15 @@ Public Class Main
     End Sub
 
     Private Sub ButtonBrowseCrackImg_Click(sender As System.Object, e As System.EventArgs) Handles buttonBrowseCrackImage.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxCrackImage.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxCrack.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(textBoxCrackImage, filetype.img, PictureBoxCrack)
     End Sub
 
     Private Sub TextBoxCrackLeftcsv_Click(sender As System.Object, e As System.EventArgs) Handles textBoxCrackLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxCrackLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxCrackLeft, filetype.x, Nothing)
     End Sub
 
     Private Sub TextBoxCrackRightcsv_Click(sender As System.Object, e As System.EventArgs) Handles textBoxCrackRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxCrackRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxCrackRight, filetype.x, Nothing)
     End Sub
 
     Private Sub DataGridViewCrack_Click(sender As Object, e As System.EventArgs) Handles DataGridViewCrack.Click
@@ -758,52 +480,32 @@ Public Class Main
     End Sub
 
 
-    Private Sub ComboBoxBVEstrtype_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxBVEstrtype.SelectedIndexChanged
-        If ComboBoxBVEstrtype.SelectedItem = "Wall" Then
+    Private Sub ComboBoxBVEstrtype_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxBVEType.SelectedIndexChanged
+        If ComboBoxBVEType.SelectedItem = "Wall" Then
             GroupBoxbvestrwall.Enabled = True
         Else
             GroupBoxbvestrwall.Enabled = False
         End If
     End Sub
 
-    Private Sub ButtonbveWallLfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbveWallLfile.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxbveWallLfile.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+    Private Sub ButtonbveWallLfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbrowseBVELeft.Click
+        UpdateXFileField(textBoxBVELeft, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonbveWallRfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbveWallRfile.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxbveWallRfile.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+    Private Sub ButtonbveWallRfile_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbrowseBVERight.Click
+        UpdateXFileField(TextBoxBVERight, filetype.x, Nothing)
     End Sub
 
     Private Sub buttonBrowseTunnelWallLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelWallLeft.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelWallLeft.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxTunnelWallLeft, filetype.x, Nothing)
     End Sub
 
     Private Sub buttonBrowseTunnelWallRight_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelWallRight.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelWallRight.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxTunnelWallRight, filetype.x, Nothing)
     End Sub
 
     Private Sub buttonBrowseTunnelEntrance_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelEntrance.Click
-        OpenFileDialog1.InitialDirectory = currDir
-        If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            textBoxTunnelEntrance.Text = OpenFileDialog1.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
-            currDir = My.Computer.FileSystem.GetParentPath(OpenFileDialog1.FileName)
-        End If
+        UpdateXFileField(textBoxTunnelEntrance, filetype.x, Nothing)
     End Sub
 
     Private Sub buttonBrowseTunnelExitStructure_Click(sender As Object, e As EventArgs) Handles buttonBrowseTunnelExitStructure.Click
@@ -865,7 +567,6 @@ Public Class Main
     Private Sub btnRCDS_Click(sender As Object, e As EventArgs) Handles buttonBrowseRCSound.Click
         UpdateXFileField(textBoxRCSound, filetype.wav, Nothing)
     End Sub
-
 
     Private Sub btnpFL_Click(sender As Object, e As EventArgs) Handles buttonBrowsePlatformLeft.Click
         UpdateXFileField(textBoxPlatformLeft, filetype.x, Nothing)
@@ -975,49 +676,62 @@ Public Class Main
             Dim filename As String = OpenFileDialog3.FileName
             Dim teks As String = My.Computer.FileSystem.ReadAllText(filename)
             Dim arrRow As String() = teks.Split(vbCrLf)
+
+            '# version check
+            Dim vercek = arrRow(0).Split("_")
+            If vercek.Count < 3 Then
+                MessageBox.Show("sorry! older data version not supported.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            '# "gbmapstools_v_2.2"
+            If vercek(0) <> "gbmapstools" And vercek(1) <> "v" And (Convert.ToDouble(vercek(2)) >= 2.2) Then
+                MessageBox.Show("unknown error.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
             For Each drow As String In arrRow
-                Dim dd As String() = drow.Split(",")
-                Select Case dd(0).Trim()
-                    Case "rail"
-                        'DataGridViewRailType
-                        Dim dty As String() = dd(4).Split("_")
-                        DataGridViewRailType.Rows.Add(New String() {dd(1), dd(2), dd(3), dty(0), dty(1), dd(6), dd(5), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15)})
-                    Case "bvestr"
-                        'DataGridViewBVEstr
-                        DataGridViewBVEstr.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
-                    Case "fobj"
-                        'DataGridViewBVEfobj
-                        DataGridViewBVEfobj.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
-                    Case "wav"
-                        'DataGridViewaudio
-                        DataGridViewaudio.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
+                    Dim dd As String() = drow.Split(",")
+                    Select Case dd(0).Trim()
+                        Case "rail"
+                            'DataGridViewRailType
+                            Dim dty As String() = dd(4).Split("_")
+                            DataGridViewRail.Rows.Add(New String() {dd(1), dd(2), dd(3), dty(0), dty(1), dd(6), dd(5), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15)})
+                        Case "bvestr"
+                            'DataGridViewBVEstr
+                            DataGridViewEtc.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Case "fobj"
+                            'DataGridViewBVEfobj
+                            DataGridViewFreeObject.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Case "wav"
+                            'DataGridViewaudio
+                            DataGridViewSound.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
 
                         '//***************
-                    Case "traindir"
-                        DataGridViewTrainDir.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
-                    Case "tunnel"
-                        DataGridViewTunnel.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15), dd(16)})
-                    Case "bridge"
-                        DataGridViewBridge.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11)})
-                    Case "fo"
-                        DataGridViewFlyOver.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
-                    Case "cut"
-                        DataGridViewCut.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
-                    Case "dike"
-                        DataGridViewDike.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
-                    Case "rc"
-                        DataGridViewRC.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
-                    Case "pform"
-                        DataGridViewPlatform.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13)})
-                    Case "poles"
-                        DataGridViewPole.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
-                    Case "cracks"
-                        DataGridViewCrack.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
-                    Case Else
+                        Case "traindir"
+                            DataGridViewTrain.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
+                        Case "tunnel"
+                            DataGridViewTunnel.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15), dd(16)})
+                        Case "bridge"
+                            DataGridViewBridge.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11)})
+                        Case "fo"
+                            DataGridViewOverpass.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Case "cut"
+                            DataGridViewHillCut.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
+                        Case "dike"
+                            DataGridViewDike.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
+                        Case "rc"
+                            DataGridViewRC.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+                        Case "pform"
+                            DataGridViewPlatform.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13)})
+                        Case "poles"
+                            DataGridViewPole.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Case "cracks"
+                            DataGridViewCrack.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
+                        Case Else
 
-                End Select
-            Next
-        End If
+                    End Select
+                Next
+            End If
     End Sub
 
     Private Sub buttonGBImageDir_Click(sender As Object, e As EventArgs) Handles buttonGBImageDir.Click
@@ -1028,21 +742,21 @@ Public Class Main
     End Sub
 
     Private Sub buttonNewXML_Click(sender As Object, e As EventArgs) Handles buttonNewXML.Click
-        DataGridViewaudio.Rows.Clear()
-        DataGridViewBVEfobj.Rows.Clear()
-        DataGridViewBVEstr.Rows.Clear()
-        DataGridViewRailType.Rows.Clear()
-        'DataGridViewGBMstr.Rows.Clear()
-        DataGridViewCrack.Rows.Clear()
-        DataGridViewPole.Rows.Clear()
-        DataGridViewTrainDir.Rows.Clear()
-        DataGridViewTunnel.Rows.Clear()
-        DataGridViewBridge.Rows.Clear()
-        DataGridViewFlyOver.Rows.Clear()
-        DataGridViewCut.Rows.Clear()
-        DataGridViewDike.Rows.Clear()
-        DataGridViewRC.Rows.Clear()
-        DataGridViewPlatform.Rows.Clear()
+        DataGridViewRail.Rows.Clear()  '#2
+        DataGridViewPole.Rows.Clear()  '#3
+        DataGridViewTrain.Rows.Clear()  '#4
+        DataGridViewSound.Rows.Clear()  '#5
+        DataGridViewTunnel.Rows.Clear()  '#6
+        DataGridViewBridge.Rows.Clear()  '#7
+        DataGridViewOverpass.Rows.Clear()  '#8
+        DataGridViewHillCut.Rows.Clear()  '#9
+        DataGridViewDike.Rows.Clear()  '#10
+        DataGridViewRC.Rows.Clear()  '#11
+        DataGridViewPlatform.Rows.Clear()  '#12
+        DataGridViewCrack.Rows.Clear()  '#13
+        DataGridViewUG.Rows.Clear()  '#14
+        DataGridViewFreeObject.Rows.Clear()  '#15
+        DataGridViewEtc.Rows.Clear()  '#16
     End Sub
 
     Private Sub ButtonRailL_Click(sender As Object, e As EventArgs) Handles buttonBrowseRailLeft1.Click
@@ -1060,158 +774,211 @@ Public Class Main
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim txt As New StringBuilder
             Dim filename As String = SaveFileDialog1.FileName
-
-            For ro = 0 To DataGridViewRailType.RowCount - 1
-                If DataGridViewRailType.Item(0, ro).Value <> "" And DataGridViewRailType.Item(1, ro).Value <> "" And DataGridViewRailType.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "rail," & DataGridViewRailType.Item(0, ro).Value & "," & DataGridViewRailType.Item(1, ro).Value & "," &
-                        DataGridViewRailType.Item(2, ro).Value & "," & DataGridViewRailType.Item(3, ro).Value & "_" & DataGridViewRailType.Item(4, ro).Value & "," &
-                        DataGridViewRailType.Item(6, ro).Value & "," & DataGridViewRailType.Item(5, ro).Value & "," & DataGridViewRailType.Item(7, ro).Value & "," &
-                        DataGridViewRailType.Item(8, ro).Value & "," & DataGridViewRailType.Item(9, ro).Value & "," & DataGridViewRailType.Item(10, ro).Value & "," &
-                        DataGridViewRailType.Item(11, ro).Value & "," & DataGridViewRailType.Item(12, ro).Value & "," & DataGridViewRailType.Item(13, ro).Value & "," &
-                        DataGridViewRailType.Item(14, ro).Value & "," & DataGridViewRailType.Item(15, ro).Value
+            txt.AppendLine("gbmapstools_v_2.2")
+            '#2 Rail (23 item = 0 - 22)
+            For ro = 0 To DataGridViewRail.RowCount - 1
+                If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
+                    DataGridViewRail.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "rail," & DataGridViewRail.Item(0, ro).Value & "," &
+                        DataGridViewRail.Item(1, ro).Value & "," & DataGridViewRail.Item(2, ro).Value &
+                        "," & DataGridViewRail.Item(3, ro).Value & "_" & DataGridViewRail.Item(4, ro).Value &
+                        "," & DataGridViewRail.Item(5, ro).Value & "," & DataGridViewRail.Item(6, ro).Value &
+                        "," & DataGridViewRail.Item(7, ro).Value & "," & DataGridViewRail.Item(8, ro).Value &
+                        "," & DataGridViewRail.Item(9, ro).Value & "," & DataGridViewRail.Item(10, ro).Value &
+                        "," & DataGridViewRail.Item(11, ro).Value & "," & DataGridViewRail.Item(12, ro).Value &
+                        "," & DataGridViewRail.Item(13, ro).Value & "," & DataGridViewRail.Item(14, ro).Value &
+                        "," & DataGridViewRail.Item(15, ro).Value & "," & DataGridViewRail.Item(16, ro).Value &
+                        "," & DataGridViewRail.Item(17, ro).Value & "," & DataGridViewRail.Item(18, ro).Value &
+                        "," & DataGridViewRail.Item(19, ro).Value & "," & DataGridViewRail.Item(20, ro).Value &
+                        "," & DataGridViewRail.Item(21, ro).Value & "," & DataGridViewRail.Item(22, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
 
-            For ro = 0 To DataGridViewBVEstr.RowCount - 1
-                If DataGridViewBVEstr.Item(0, ro).Value <> "" And DataGridViewBVEstr.Item(1, ro).Value <> "" And DataGridViewBVEstr.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "bvestr," & DataGridViewBVEstr.Item(0, ro).Value & "," & DataGridViewBVEstr.Item(1, ro).Value & "," &
-                        DataGridViewBVEstr.Item(2, ro).Value & "," & DataGridViewBVEstr.Item(3, ro).Value & "," &
-                        DataGridViewBVEstr.Item(4, ro).Value & "," & DataGridViewBVEstr.Item(5, ro).Value & "," &
-                        DataGridViewBVEstr.Item(6, ro).Value & "," & DataGridViewBVEstr.Item(7, ro).Value & "," &
-                        DataGridViewBVEstr.Item(8, ro).Value
+            '#3 Pole (8 item = 0 - 7)
+            For ro = 0 To DataGridViewPole.RowCount - 1
+                If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" And
+                    DataGridViewPole.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "pole," & DataGridViewPole.Item(0, ro).Value &
+                        "," & DataGridViewPole.Item(1, ro).Value & "," & DataGridViewPole.Item(2, ro).Value &
+                        "," & DataGridViewPole.Item(3, ro).Value & "," & DataGridViewPole.Item(4, ro).Value &
+                        "," & DataGridViewPole.Item(5, ro).Value & "," & DataGridViewPole.Item(6, ro).Value &
+                        "," & DataGridViewPole.Item(7, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
 
-            For ro = 0 To DataGridViewBVEfobj.RowCount - 1
-                If DataGridViewBVEfobj.Item(0, ro).Value <> "" And DataGridViewBVEfobj.Item(1, ro).Value <> "" And DataGridViewBVEfobj.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "fobj," & DataGridViewBVEfobj.Item(0, ro).Value & "," & DataGridViewBVEfobj.Item(1, ro).Value & "," &
-                        DataGridViewBVEfobj.Item(2, ro).Value & "," & DataGridViewBVEfobj.Item(3, ro).Value & "," &
-                        DataGridViewBVEfobj.Item(4, ro).Value & "," & DataGridViewBVEfobj.Item(5, ro).Value
+            '#4 Train (5 item = 0 - 4)
+            For ro = 0 To DataGridViewTrain.RowCount - 1
+                If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And
+                    DataGridViewTrain.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "train," & DataGridViewTrain.Item(0, ro).Value &
+                        "," & DataGridViewTrain.Item(1, ro).Value & "," & DataGridViewTrain.Item(2, ro).Value &
+                        "," & DataGridViewTrain.Item(3, ro).Value & "," & DataGridViewTrain.Item(4, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
 
-
-            For ro = 0 To DataGridViewaudio.RowCount - 1
-                If DataGridViewaudio.Item(0, ro).Value <> "" And DataGridViewaudio.Item(1, ro).Value <> "" And DataGridViewaudio.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "wav," & DataGridViewaudio.Item(0, ro).Value & "," & DataGridViewaudio.Item(1, ro).Value & "," &
-                        DataGridViewaudio.Item(2, ro).Value & "," & DataGridViewaudio.Item(3, ro).Value & "," &
-                        DataGridViewaudio.Item(4, ro).Value
+            '#5 Train (5 item = 0 - 4)
+            For ro = 0 To DataGridViewSound.RowCount - 1
+                If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
+                    DataGridViewSound.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "sound," & DataGridViewSound.Item(0, ro).Value &
+                        "," & DataGridViewSound.Item(1, ro).Value & "," & DataGridViewSound.Item(2, ro).Value &
+                        "," & DataGridViewSound.Item(3, ro).Value & "," & DataGridViewSound.Item(4, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
+
+            '#6 Tunnel (9 item = 0 - 8)
+            For ro = 0 To DataGridViewTunnel.RowCount - 1
+                If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And
+                    DataGridViewTunnel.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "tunnel," & DataGridViewTunnel.Item(0, ro).Value &
+                        "," & DataGridViewTunnel.Item(1, ro).Value & "," & DataGridViewTunnel.Item(2, ro).Value &
+                        "," & DataGridViewTunnel.Item(3, ro).Value & "," & DataGridViewTunnel.Item(4, ro).Value &
+                        "," & DataGridViewTunnel.Item(5, ro).Value & "," & DataGridViewTunnel.Item(6, ro).Value &
+                        "," & DataGridViewTunnel.Item(7, ro).Value & "," & DataGridViewTunnel.Item(8, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#7 Bridge (9 item = 0 - 8)
+            For ro = 0 To DataGridViewBridge.RowCount - 1
+                If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And
+                    DataGridViewBridge.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "bridge," & DataGridViewBridge.Item(0, ro).Value &
+                        "," & DataGridViewBridge.Item(1, ro).Value & "," & DataGridViewBridge.Item(2, ro).Value &
+                        "," & DataGridViewBridge.Item(3, ro).Value & "," & DataGridViewBridge.Item(4, ro).Value &
+                        "," & DataGridViewBridge.Item(5, ro).Value & "," & DataGridViewBridge.Item(6, ro).Value &
+                        "," & DataGridViewBridge.Item(7, ro).Value & "," & DataGridViewBridge.Item(8, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#8 Overpass (9 item = 0 - 8)
+            For ro = 0 To DataGridViewOverpass.RowCount - 1
+                If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And
+                    DataGridViewOverpass.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "overpass," & DataGridViewOverpass.Item(0, ro).Value &
+                        "," & DataGridViewOverpass.Item(1, ro).Value & "," & DataGridViewOverpass.Item(2, ro).Value &
+                        "," & DataGridViewOverpass.Item(3, ro).Value & "," & DataGridViewOverpass.Item(4, ro).Value &
+                        "," & DataGridViewOverpass.Item(5, ro).Value & "," & DataGridViewOverpass.Item(6, ro).Value &
+                        "," & DataGridViewOverpass.Item(7, ro).Value & "," & DataGridViewOverpass.Item(8, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#9 Hillcut (7 item = 0 - 6)
+            For ro = 0 To DataGridViewHillCut.RowCount - 1
+                If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And
+                    DataGridViewHillCut.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "hillcut," & DataGridViewHillCut.Item(0, ro).Value &
+                        "," & DataGridViewHillCut.Item(1, ro).Value & "," & DataGridViewHillCut.Item(2, ro).Value &
+                        "," & DataGridViewHillCut.Item(3, ro).Value & "," & DataGridViewHillCut.Item(4, ro).Value &
+                        "," & DataGridViewHillCut.Item(5, ro).Value & "," & DataGridViewHillCut.Item(6, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#10 Dike (9 item = 0 - 8)
+            For ro = 0 To DataGridViewDike.RowCount - 1
+                If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And
+                    DataGridViewDike.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "dike," & DataGridViewDike.Item(0, ro).Value &
+                        "," & DataGridViewDike.Item(1, ro).Value & "," & DataGridViewDike.Item(2, ro).Value &
+                        "," & DataGridViewDike.Item(3, ro).Value & "," & DataGridViewDike.Item(4, ro).Value &
+                        "," & DataGridViewDike.Item(5, ro).Value & "," & DataGridViewDike.Item(6, ro).Value &
+                        "," & DataGridViewDike.Item(7, ro).Value & "," & DataGridViewDike.Item(8, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#11 Road Crossing (8 item = 0 - 7)
+            For ro = 0 To DataGridViewRC.RowCount - 1
+                If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And
+                    DataGridViewRC.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "rc," & DataGridViewRC.Item(0, ro).Value &
+                        "," & DataGridViewRC.Item(1, ro).Value & "," & DataGridViewRC.Item(2, ro).Value &
+                        "," & DataGridViewRC.Item(3, ro).Value & "," & DataGridViewRC.Item(4, ro).Value &
+                        "," & DataGridViewRC.Item(5, ro).Value & "," & DataGridViewRC.Item(6, ro).Value &
+                        "," & DataGridViewRC.Item(7, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#12 Platform (14 item = 0 - 13)
+            For ro = 0 To DataGridViewPlatform.RowCount - 1
+                If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And
+                    DataGridViewPlatform.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "pform," & DataGridViewPlatform.Item(0, ro).Value &
+                        "," & DataGridViewPlatform.Item(1, ro).Value & "," & DataGridViewPlatform.Item(2, ro).Value &
+                        "," & DataGridViewPlatform.Item(3, ro).Value & "," & DataGridViewPlatform.Item(4, ro).Value &
+                        "," & DataGridViewPlatform.Item(5, ro).Value & "," & DataGridViewPlatform.Item(6, ro).Value &
+                        "," & DataGridViewPlatform.Item(7, ro).Value & "," & DataGridViewPlatform.Item(8, ro).Value &
+                        "," & DataGridViewPlatform.Item(9, ro).Value & "," & DataGridViewPlatform.Item(10, ro).Value &
+                        "," & DataGridViewPlatform.Item(11, ro).Value & "," & DataGridViewPlatform.Item(12, ro).Value &
+                        "," & DataGridViewPlatform.Item(13, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#13 Crack (7 item = 0 - 6)
+            For ro = 0 To DataGridViewCrack.RowCount - 1
+                If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And
+                    DataGridViewCrack.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "cracks," & DataGridViewCrack.Item(0, ro).Value &
+                        "," & DataGridViewCrack.Item(1, ro).Value & "," & DataGridViewCrack.Item(2, ro).Value &
+                        "," & DataGridViewCrack.Item(3, ro).Value & "," & DataGridViewCrack.Item(4, ro).Value &
+                        "," & DataGridViewCrack.Item(5, ro).Value & "," & DataGridViewCrack.Item(6, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#14 Underground (15 item = 0 - 14)
+            For ro = 0 To DataGridViewUG.RowCount - 1
+                If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
+                    DataGridViewUG.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ug," & DataGridViewUG.Item(0, ro).Value &
+                        "," & DataGridViewUG.Item(1, ro).Value & "," & DataGridViewUG.Item(2, ro).Value &
+                        "," & DataGridViewUG.Item(3, ro).Value & "," & DataGridViewUG.Item(4, ro).Value &
+                        "," & DataGridViewUG.Item(5, ro).Value & "," & DataGridViewUG.Item(6, ro).Value &
+                        "," & DataGridViewUG.Item(7, ro).Value & "," & DataGridViewUG.Item(8, ro).Value &
+                        "," & DataGridViewUG.Item(9, ro).Value & "," & DataGridViewUG.Item(10, ro).Value &
+                        "," & DataGridViewUG.Item(11, ro).Value & "," & DataGridViewUG.Item(12, ro).Value &
+                        "," & DataGridViewUG.Item(13, ro).Value & "," & DataGridViewUG.Item(14, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#15 Free objects  (6 item = 0 - 5)
+            For ro = 0 To DataGridViewFreeObject.RowCount - 1
+                If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And
+                    DataGridViewFreeObject.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "fobj," & DataGridViewFreeObject.Item(0, ro).Value &
+                        "," & DataGridViewFreeObject.Item(1, ro).Value & "," & DataGridViewFreeObject.Item(2, ro).Value &
+                        "," & DataGridViewFreeObject.Item(3, ro).Value & "," & DataGridViewFreeObject.Item(4, ro).Value &
+                        "," & DataGridViewFreeObject.Item(5, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
+            '#16 Etc (9 item = 0 - 8)
+            For ro = 0 To DataGridViewEtc.RowCount - 1
+                If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And
+                    DataGridViewEtc.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "bvestr," & DataGridViewEtc.Item(0, ro).Value &
+                        "," & DataGridViewEtc.Item(1, ro).Value & "," & DataGridViewEtc.Item(2, ro).Value &
+                        "," & DataGridViewEtc.Item(3, ro).Value & "," & DataGridViewEtc.Item(4, ro).Value &
+                        "," & DataGridViewEtc.Item(5, ro).Value & "," & DataGridViewEtc.Item(6, ro).Value &
+                        "," & DataGridViewEtc.Item(7, ro).Value & "," & DataGridViewEtc.Item(8, ro).Value
+                    txt.AppendLine(ttxt)
+                End If
+            Next
+
 
             ' // *******************************
 
-            For ro = 0 To DataGridViewTrainDir.RowCount - 1
-                If DataGridViewTrainDir.Item(0, ro).Value <> "" And DataGridViewTrainDir.Item(1, ro).Value <> "" And DataGridViewTrainDir.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "traindir," & DataGridViewTrainDir.Item(0, ro).Value & "," & DataGridViewTrainDir.Item(1, ro).Value & "," &
-                        DataGridViewTrainDir.Item(2, ro).Value & "," & DataGridViewTrainDir.Item(3, ro).Value & "," &
-                        DataGridViewTrainDir.Item(4, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewTunnel.RowCount - 1
-                If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And DataGridViewTunnel.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "tunnel," & DataGridViewTunnel.Item(0, ro).Value & "," & DataGridViewTunnel.Item(1, ro).Value & "," &
-                        DataGridViewTunnel.Item(2, ro).Value & "," & DataGridViewTunnel.Item(3, ro).Value & "," &
-                        DataGridViewTunnel.Item(4, ro).Value & "," & DataGridViewTunnel.Item(5, ro).Value & "," &
-                        DataGridViewTunnel.Item(6, ro).Value & "," & DataGridViewTunnel.Item(7, ro).Value & "," &
-                        DataGridViewTunnel.Item(8, ro).Value & "," & DataGridViewTunnel.Item(9, ro).Value & "," &
-                        DataGridViewTunnel.Item(10, ro).Value & "," & DataGridViewTunnel.Item(11, ro).Value & "," &
-                        DataGridViewTunnel.Item(12, ro).Value & "," & DataGridViewTunnel.Item(13, ro).Value & "," &
-                        DataGridViewTunnel.Item(14, ro).Value & "," & DataGridViewTunnel.Item(15, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewBridge.RowCount - 1
-                If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And DataGridViewBridge.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "bridge," & DataGridViewBridge.Item(0, ro).Value & "," & DataGridViewBridge.Item(1, ro).Value & "," &
-                        DataGridViewBridge.Item(2, ro).Value & "," & DataGridViewBridge.Item(3, ro).Value & "," &
-                        DataGridViewBridge.Item(4, ro).Value & "," & DataGridViewBridge.Item(5, ro).Value & "," &
-                        DataGridViewBridge.Item(6, ro).Value & "," & DataGridViewBridge.Item(7, ro).Value & "," &
-                        DataGridViewBridge.Item(8, ro).Value & "," & DataGridViewBridge.Item(9, ro).Value & "," &
-                        DataGridViewBridge.Item(10, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewFlyOver.RowCount - 1
-                If DataGridViewFlyOver.Item(0, ro).Value <> "" And DataGridViewFlyOver.Item(1, ro).Value <> "" And DataGridViewFlyOver.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "fo," & DataGridViewFlyOver.Item(0, ro).Value & "," & DataGridViewFlyOver.Item(1, ro).Value & "," &
-                        DataGridViewFlyOver.Item(2, ro).Value & "," & DataGridViewFlyOver.Item(3, ro).Value & "," &
-                        DataGridViewFlyOver.Item(4, ro).Value & "," & DataGridViewFlyOver.Item(5, ro).Value & "," &
-                        DataGridViewFlyOver.Item(6, ro).Value & "," & DataGridViewFlyOver.Item(7, ro).Value & "," &
-                        DataGridViewFlyOver.Item(8, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewCut.RowCount - 1
-                If DataGridViewCut.Item(0, ro).Value <> "" And DataGridViewCut.Item(1, ro).Value <> "" And DataGridViewCut.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "cut," & DataGridViewCut.Item(0, ro).Value & "," & DataGridViewCut.Item(1, ro).Value & "," &
-                        DataGridViewCut.Item(2, ro).Value & "," & DataGridViewCut.Item(3, ro).Value & "," &
-                        DataGridViewCut.Item(4, ro).Value & "," & DataGridViewCut.Item(5, ro).Value & "," &
-                        DataGridViewCut.Item(6, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewDike.RowCount - 1
-                If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And DataGridViewDike.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "dike," & DataGridViewDike.Item(0, ro).Value & "," & DataGridViewDike.Item(1, ro).Value & "," &
-                        DataGridViewDike.Item(2, ro).Value & "," & DataGridViewDike.Item(3, ro).Value & "," &
-                        DataGridViewDike.Item(4, ro).Value & "," & DataGridViewDike.Item(5, ro).Value & "," &
-                        DataGridViewDike.Item(6, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewRC.RowCount - 1
-                If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And DataGridViewRC.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "rc," & DataGridViewRC.Item(0, ro).Value & "," & DataGridViewRC.Item(1, ro).Value & "," &
-                        DataGridViewRC.Item(2, ro).Value & "," & DataGridViewRC.Item(3, ro).Value & "," &
-                        DataGridViewRC.Item(4, ro).Value & "," & DataGridViewRC.Item(5, ro).Value & "," &
-                        DataGridViewRC.Item(6, ro).Value & "," & DataGridViewRC.Item(7, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewPlatform.RowCount - 1
-                If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And DataGridViewPlatform.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "pform," & DataGridViewPlatform.Item(0, ro).Value & "," & DataGridViewPlatform.Item(1, ro).Value & "," &
-                        DataGridViewPlatform.Item(2, ro).Value & "," & DataGridViewPlatform.Item(3, ro).Value & "," &
-                        DataGridViewPlatform.Item(4, ro).Value & "," & DataGridViewPlatform.Item(5, ro).Value & "," &
-                        DataGridViewPlatform.Item(6, ro).Value & "," & DataGridViewPlatform.Item(7, ro).Value & "," &
-                        DataGridViewPlatform.Item(8, ro).Value & "," & DataGridViewPlatform.Item(9, ro).Value & "," &
-                        DataGridViewPlatform.Item(10, ro).Value & "," & DataGridViewPlatform.Item(11, ro).Value & "," &
-                        DataGridViewPlatform.Item(12, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewPole.RowCount - 1
-                If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" And DataGridViewPole.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "poles," & DataGridViewPole.Item(0, ro).Value & "," & DataGridViewPole.Item(1, ro).Value & "," &
-                        DataGridViewPole.Item(2, ro).Value & "," & DataGridViewPole.Item(3, ro).Value & "," &
-                        DataGridViewPole.Item(4, ro).Value & "," & DataGridViewPole.Item(5, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
-            For ro = 0 To DataGridViewCrack.RowCount - 1
-                If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And DataGridViewCrack.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "cracks," & DataGridViewCrack.Item(0, ro).Value & "," & DataGridViewCrack.Item(1, ro).Value & "," &
-                        DataGridViewCrack.Item(2, ro).Value & "," & DataGridViewCrack.Item(3, ro).Value & "," &
-                        DataGridViewCrack.Item(4, ro).Value & "," & DataGridViewCrack.Item(5, ro).Value & "," &
-                        DataGridViewCrack.Item(6, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
             Try
                 File.WriteAllText(filename, txt.ToString)
             Catch ex As Exception
@@ -1255,18 +1022,18 @@ Public Class Main
 
             txt.AppendLine()
 
-            For ro = 0 To DataGridViewRailType.RowCount - 1
-                If DataGridViewRailType.Item(0, ro).Value <> "" And DataGridViewRailType.Item(1, ro).Value <> "" And
-                        DataGridViewRailType.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewRailType.Item(0, ro).Value & "','" &
-                        DataGridViewRailType.Item(1, ro).Value & "','" & DataGridViewRailType.Item(2, ro).Value &
-                        "','" & DataGridViewRailType.Item(3, ro).Value & "','" & DataGridViewRailType.Item(4, ro).Value &
-                        "','" & DataGridViewRailType.Item(6, ro).Value & "','" & DataGridViewRailType.Item(5, ro).Value &
-                        "','" & DataGridViewRailType.Item(7, ro).Value & "','" & DataGridViewRailType.Item(8, ro).Value &
-                        "','" & DataGridViewRailType.Item(9, ro).Value & "','" & DataGridViewRailType.Item(10, ro).Value &
-                        "','" & DataGridViewRailType.Item(11, ro).Value & "','" & DataGridViewRailType.Item(12, ro).Value &
-                        "','" & DataGridViewRailType.Item(13, ro).Value & "','" & DataGridViewRailType.Item(14, ro).Value &
-                        "','" & DataGridViewRailType.Item(15, ro).Value & "'];"
+            For ro = 0 To DataGridViewRail.RowCount - 1
+                If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
+                        DataGridViewRail.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewRail.Item(0, ro).Value & "','" &
+                        DataGridViewRail.Item(1, ro).Value & "','" & DataGridViewRail.Item(2, ro).Value &
+                        "','" & DataGridViewRail.Item(3, ro).Value & "','" & DataGridViewRail.Item(4, ro).Value &
+                        "','" & DataGridViewRail.Item(6, ro).Value & "','" & DataGridViewRail.Item(5, ro).Value &
+                        "','" & DataGridViewRail.Item(7, ro).Value & "','" & DataGridViewRail.Item(8, ro).Value &
+                        "','" & DataGridViewRail.Item(9, ro).Value & "','" & DataGridViewRail.Item(10, ro).Value &
+                        "','" & DataGridViewRail.Item(11, ro).Value & "','" & DataGridViewRail.Item(12, ro).Value &
+                        "','" & DataGridViewRail.Item(13, ro).Value & "','" & DataGridViewRail.Item(14, ro).Value &
+                        "','" & DataGridViewRail.Item(15, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bverailobjArr.push(ttxt);")
@@ -1274,13 +1041,13 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewBVEstr.RowCount - 1
-                If DataGridViewBVEstr.Item(0, ro).Value <> "" And DataGridViewBVEstr.Item(1, ro).Value <> "" And DataGridViewBVEstr.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewBVEstr.Item(0, ro).Value & "','" & DataGridViewBVEstr.Item(1, ro).Value & "','" &
-                        DataGridViewBVEstr.Item(2, ro).Value & "','" & DataGridViewBVEstr.Item(3, ro).Value & "','" &
-                        DataGridViewBVEstr.Item(4, ro).Value & "','" & DataGridViewBVEstr.Item(5, ro).Value & "','" &
-                        DataGridViewBVEstr.Item(6, ro).Value & "','" & DataGridViewBVEstr.Item(7, ro).Value & "','" &
-                        DataGridViewBVEstr.Item(8, ro).Value & "'];"
+            For ro = 0 To DataGridViewEtc.RowCount - 1
+                If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And DataGridViewEtc.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewEtc.Item(0, ro).Value & "','" & DataGridViewEtc.Item(1, ro).Value & "','" &
+                        DataGridViewEtc.Item(2, ro).Value & "','" & DataGridViewEtc.Item(3, ro).Value & "','" &
+                        DataGridViewEtc.Item(4, ro).Value & "','" & DataGridViewEtc.Item(5, ro).Value & "','" &
+                        DataGridViewEtc.Item(6, ro).Value & "','" & DataGridViewEtc.Item(7, ro).Value & "','" &
+                        DataGridViewEtc.Item(8, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bvebveStrOjArr.push(ttxt);")
@@ -1288,11 +1055,11 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewBVEfobj.RowCount - 1
-                If DataGridViewBVEfobj.Item(0, ro).Value <> "" And DataGridViewBVEfobj.Item(1, ro).Value <> "" And DataGridViewBVEfobj.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewBVEfobj.Item(0, ro).Value & "','" & DataGridViewBVEfobj.Item(1, ro).Value & "','" &
-                        DataGridViewBVEfobj.Item(2, ro).Value & "','" & DataGridViewBVEfobj.Item(3, ro).Value & "','" &
-                        DataGridViewBVEfobj.Item(4, ro).Value & "','" & DataGridViewBVEfobj.Item(5, ro).Value & "'];"
+            For ro = 0 To DataGridViewFreeObject.RowCount - 1
+                If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And DataGridViewFreeObject.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewFreeObject.Item(0, ro).Value & "','" & DataGridViewFreeObject.Item(1, ro).Value & "','" &
+                        DataGridViewFreeObject.Item(2, ro).Value & "','" & DataGridViewFreeObject.Item(3, ro).Value & "','" &
+                        DataGridViewFreeObject.Item(4, ro).Value & "','" & DataGridViewFreeObject.Item(5, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bvefreeObjArr.push(ttxt);")
@@ -1301,11 +1068,11 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewaudio.RowCount - 1
-                If DataGridViewaudio.Item(0, ro).Value <> "" And DataGridViewaudio.Item(1, ro).Value <> "" And DataGridViewaudio.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewaudio.Item(0, ro).Value & "','" & DataGridViewaudio.Item(1, ro).Value & "','" &
-                        DataGridViewaudio.Item(2, ro).Value & "','" & DataGridViewaudio.Item(3, ro).Value & "','" &
-                        DataGridViewaudio.Item(4, ro).Value & "'];"
+            For ro = 0 To DataGridViewSound.RowCount - 1
+                If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And DataGridViewSound.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewSound.Item(0, ro).Value & "','" & DataGridViewSound.Item(1, ro).Value & "','" &
+                        DataGridViewSound.Item(2, ro).Value & "','" & DataGridViewSound.Item(3, ro).Value & "','" &
+                        DataGridViewSound.Item(4, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bveaudioObjArr.push(ttxt);")
@@ -1314,11 +1081,11 @@ Public Class Main
             Next
 
             '// *****************************
-            For ro = 0 To DataGridViewTrainDir.RowCount - 1
-                If DataGridViewTrainDir.Item(0, ro).Value <> "" And DataGridViewTrainDir.Item(1, ro).Value <> "" And DataGridViewTrainDir.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewTrainDir.Item(0, ro).Value & "','" & DataGridViewTrainDir.Item(1, ro).Value & "','" &
-                        DataGridViewTrainDir.Item(2, ro).Value & "','" & DataGridViewTrainDir.Item(3, ro).Value & "','" &
-                        DataGridViewTrainDir.Item(4, ro).Value & "'];"
+            For ro = 0 To DataGridViewTrain.RowCount - 1
+                If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And DataGridViewTrain.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewTrain.Item(0, ro).Value & "','" & DataGridViewTrain.Item(1, ro).Value & "','" &
+                        DataGridViewTrain.Item(2, ro).Value & "','" & DataGridViewTrain.Item(3, ro).Value & "','" &
+                        DataGridViewTrain.Item(4, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bvetrainDirArr.push(ttxt);")
@@ -1358,13 +1125,13 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewFlyOver.RowCount - 1
-                If DataGridViewFlyOver.Item(0, ro).Value <> "" And DataGridViewFlyOver.Item(1, ro).Value <> "" And DataGridViewFlyOver.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewFlyOver.Item(0, ro).Value & "','" & DataGridViewFlyOver.Item(1, ro).Value & "','" &
-                        DataGridViewFlyOver.Item(2, ro).Value & "','" & DataGridViewFlyOver.Item(3, ro).Value & "','" &
-                        DataGridViewFlyOver.Item(4, ro).Value & "','" & DataGridViewFlyOver.Item(5, ro).Value & "','" &
-                        DataGridViewFlyOver.Item(6, ro).Value & "','" & DataGridViewFlyOver.Item(7, ro).Value & "','" &
-                        DataGridViewFlyOver.Item(8, ro).Value & "'];"
+            For ro = 0 To DataGridViewOverpass.RowCount - 1
+                If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And DataGridViewOverpass.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewOverpass.Item(0, ro).Value & "','" & DataGridViewOverpass.Item(1, ro).Value & "','" &
+                        DataGridViewOverpass.Item(2, ro).Value & "','" & DataGridViewOverpass.Item(3, ro).Value & "','" &
+                        DataGridViewOverpass.Item(4, ro).Value & "','" & DataGridViewOverpass.Item(5, ro).Value & "','" &
+                        DataGridViewOverpass.Item(6, ro).Value & "','" & DataGridViewOverpass.Item(7, ro).Value & "','" &
+                        DataGridViewOverpass.Item(8, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bveFOObjArr.push(ttxt);")
@@ -1372,12 +1139,12 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewCut.RowCount - 1
-                If DataGridViewCut.Item(0, ro).Value <> "" And DataGridViewCut.Item(1, ro).Value <> "" And DataGridViewCut.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewCut.Item(0, ro).Value & "','" & DataGridViewCut.Item(1, ro).Value & "','" &
-                        DataGridViewCut.Item(2, ro).Value & "','" & DataGridViewCut.Item(3, ro).Value & "','" &
-                        DataGridViewCut.Item(4, ro).Value & "','" & DataGridViewCut.Item(5, ro).Value & "','" &
-                        DataGridViewCut.Item(6, ro).Value & "'];"
+            For ro = 0 To DataGridViewHillCut.RowCount - 1
+                If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And DataGridViewHillCut.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewHillCut.Item(0, ro).Value & "','" & DataGridViewHillCut.Item(1, ro).Value & "','" &
+                        DataGridViewHillCut.Item(2, ro).Value & "','" & DataGridViewHillCut.Item(3, ro).Value & "','" &
+                        DataGridViewHillCut.Item(4, ro).Value & "','" & DataGridViewHillCut.Item(5, ro).Value & "','" &
+                        DataGridViewHillCut.Item(6, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bvecutObjArr.push(ttxt);")
@@ -1461,10 +1228,6 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub PictureBoxBrowseBVEDir_Click(sender As Object, e As EventArgs) Handles PictureBoxBrowseBVEDir.Click
-        DialogBrowseBVEDirHelp.Show()
-    End Sub
-
     Private Sub PictureBoxPoleBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxPoleBVESyntax.Click
         FormPoleBVESyntax.Show()
     End Sub
@@ -1493,16 +1256,8 @@ Public Class Main
         FormRCBVEsyntax.Show()
     End Sub
 
-    Private Sub PictureBoxPlatformTip_Click(sender As Object, e As EventArgs)
-        FormPlatformTip.Show()
-    End Sub
-
     Private Sub PictureBoxPlatformBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxPlatformBVESyntax.Click
         FormPlatformBVESyntax.Show()
-    End Sub
-
-    Private Sub PictureBoxCrackTip_Click(sender As Object, e As EventArgs)
-        FormCrackTip.Show()
     End Sub
 
     Private Sub PictureBoxCrackBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxCrackBVESyntax.Click
@@ -1553,7 +1308,115 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub PictureBoxBrowseImgDir_Click(sender As Object, e As EventArgs) Handles PictureBoxBrowseImgDir.Click
+    Private Sub ButtonCrackTip_Click(sender As Object, e As EventArgs) Handles ButtonCrackTip.Click
+        FormCrackTip.Show()
+    End Sub
+
+    Private Sub ButtonUGGroundTip_Click(sender As Object, e As EventArgs) Handles ButtonUGGroundTip.Click
+        FormUGsplitground.Show()
+    End Sub
+
+    Private Sub ButtonUGoWallTip_Click(sender As Object, e As EventArgs) Handles ButtonUGoWallTip.Click
+        FormUGoWallTip.Show()
+    End Sub
+
+    Private Sub ButtonUGentranceTip_Click(sender As Object, e As EventArgs) Handles ButtonUGentranceTip.Click
+        FormUGEntrance.Show()
+    End Sub
+
+    Private Sub ButtonUGExitTip_Click(sender As Object, e As EventArgs) Handles ButtonUGExitTip.Click
+        FormUGExit.Show()
+    End Sub
+
+    Private Sub ButtonUGiWallTip_Click(sender As Object, e As EventArgs) Handles ButtonUGiWallTip.Click
+        FormUGiWallTip.Show()
+    End Sub
+
+    Private Sub PictureBoxUGbveSyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxUGbveSyntax.Click
+        FormUGbveSyntax.Show()
+    End Sub
+
+    Private Sub ButtonBrowseBVEDirTip_Click(sender As Object, e As EventArgs) Handles ButtonBrowseBVEDirTip.Click
+        DialogBrowseBVEDirHelp.Show()
+    End Sub
+
+    Private Sub PictureBoxRailBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxRailBVESyntax.Click
+        FormRailBVESyntaxEx.Show()
+    End Sub
+
+    Private Sub buttonBrowsePoleStructureRight_Click(sender As Object, e As EventArgs) Handles buttonBrowsePoleStructureRight.Click
+        UpdateXFileField(textBoxPoleStructureRight, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseOverHeadWire_Click(sender As Object, e As EventArgs) Handles buttonBrowseOverHeadWire.Click
+        UpdateXFileField(textBoxOverHeadWire, filetype.x, Nothing)
+    End Sub
+
+    Private Sub ButtonTrainFolderTip_Click(sender As Object, e As EventArgs) Handles ButtonTrainFolderTip.Click
+        FormTrainDirTip.Show()
+    End Sub
+
+    Private Sub ButtonSoundTip_Click(sender As Object, e As EventArgs) Handles ButtonSoundTip.Click
+        FormSoundTip.Show()
+    End Sub
+
+    Private Sub ButtonHillCutTip_Click(sender As Object, e As EventArgs) Handles ButtonHillCutTip.Click
+        FormHillCutTip.Show()
+    End Sub
+
+    Private Sub buttonBrowseUGImage_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGImage.Click
+        UpdateXFileField(textBoxUGImage, filetype.img, PictureBoxUG)
+    End Sub
+
+    Private Sub buttonBrowseUGGroundLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGGroundLeft.Click
+        UpdateXFileField(textBoxUGGroundLeft, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGGroundRight_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGGroundRight.Click
+        UpdateXFileField(textBoxUGGroundRight, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGoWallLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGoWallLeft.Click
+        UpdateXFileField(textBoxUGoWallLeft, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGoWallRight_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGoWallRight.Click
+        UpdateXFileField(textBoxUGoWallRight, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGEntrance_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGEntrance.Click
+        UpdateXFileField(textBoxUGEntrance, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGiWallLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGiWallLeft.Click
+        UpdateXFileField(textBoxUGiWallLeft, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGiWallRight_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGiWallRight.Click
+        UpdateXFileField(textBoxUGiWallRight, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGExit_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGExit.Click
+        UpdateXFileField(textBoxUGExit, filetype.x, Nothing)
+    End Sub
+
+    Private Sub ButtonFreeObjectTip_Click(sender As Object, e As EventArgs) Handles ButtonFreeObjectTip.Click
+        FormFreeObjectTip.Show()
+    End Sub
+
+    Private Sub PictureBoxFreeObjectSyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxFreeObjectSyntax.Click
+        FormFreeObjectSyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxetcBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxetcBVESyntax.Click
+
+    End Sub
+
+    Private Sub ButtonEtcBVEImage_Click(sender As Object, e As EventArgs) Handles ButtonEtcBVEImage.Click
+
+    End Sub
+
+    Private Sub ButtonBrowseImgDirTip_Click(sender As Object, e As EventArgs) Handles ButtonBrowseImgDirTip.Click
         DialogBrowseGBMapsImageDirHelp.Show()
     End Sub
 
@@ -1615,5 +1478,4 @@ Public Class Main
 
         End If
     End Sub
-
 End Class

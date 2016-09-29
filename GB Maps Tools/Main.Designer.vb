@@ -26,8 +26,8 @@ Partial Class Main
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Step_1 = New System.Windows.Forms.TabPage()
-        Me.PictureBoxBrowseImgDir = New System.Windows.Forms.PictureBox()
-        Me.PictureBoxBrowseBVEDir = New System.Windows.Forms.PictureBox()
+        Me.ButtonBrowseImgDirTip = New System.Windows.Forms.Button()
+        Me.ButtonBrowseBVEDirTip = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.LabelS1_Txt11 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -110,7 +110,7 @@ Partial Class Main
         Me.NumericUpDownRailCycle = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxRailTypeImg = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewRailType = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewRail = New System.Windows.Forms.DataGridView()
         Me.no = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nama = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.title = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -172,7 +172,7 @@ Partial Class Main
         Me.PoleCycle = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_4 = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBoxTrainFolderTip = New System.Windows.Forms.PictureBox()
+        Me.ButtonTrainFolderTip = New System.Windows.Forms.Button()
         Me.TextBoxTrainDir = New System.Windows.Forms.TextBox()
         Me.PictureBoxTrainBVESyntax = New System.Windows.Forms.PictureBox()
         Me.Label36 = New System.Windows.Forms.Label()
@@ -181,7 +181,7 @@ Partial Class Main
         Me.ButtonBrowseTrainDir = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxTrainDir = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewTrainDir = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTrain = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -203,7 +203,7 @@ Partial Class Main
         Me.TextBoxaudiotitle = New System.Windows.Forms.TextBox()
         Me.GroupBoxaudioimgshowhide = New System.Windows.Forms.GroupBox()
         Me.PictureBoxaudiorun = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewaudio = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewSound = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumnAudioNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumnAudioName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumnAudioTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -233,7 +233,7 @@ Partial Class Main
         Me.Label43 = New System.Windows.Forms.Label()
         Me.textBoxTunnelTitle = New System.Windows.Forms.TextBox()
         Me.textBoxTunnelEntrance = New System.Windows.Forms.TextBox()
-        Me.buttonAddNewTunnel = New System.Windows.Forms.Button()
+        Me.buttonNewTunnel = New System.Windows.Forms.Button()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
@@ -322,7 +322,7 @@ Partial Class Main
         Me.textBoxOverPassName = New System.Windows.Forms.TextBox()
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxFO = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewFlyOver = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewOverpass = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -357,7 +357,7 @@ Partial Class Main
         Me.textBoxHillCutTitle = New System.Windows.Forms.TextBox()
         Me.GroupBox20 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxHillCut = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewCut = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewHillCut = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -586,70 +586,85 @@ Partial Class Main
         Me.GroupBox32 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxUG = New System.Windows.Forms.PictureBox()
         Me.DataGridViewUG = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.oWallCycle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Entrance = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iWallLeft = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iWallRight = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iWallCycle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UGExit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_15 = New System.Windows.Forms.TabPage()
         Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Button27 = New System.Windows.Forms.Button()
-        Me.Buttonbvefobjadd = New System.Windows.Forms.Button()
-        Me.TextBoxbvefobjfile = New System.Windows.Forms.TextBox()
-        Me.PictureBox21 = New System.Windows.Forms.PictureBox()
+        Me.ButtonFreeObjectTip = New System.Windows.Forms.Button()
+        Me.ButtonNewFreeObject = New System.Windows.Forms.Button()
+        Me.textBoxFreeObjectFile = New System.Windows.Forms.TextBox()
+        Me.PictureBoxFreeObjectSyntax = New System.Windows.Forms.PictureBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.ButtonbveFOimg = New System.Windows.Forms.Button()
+        Me.ButtonBrowseFreeObjectImage = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.ButtonbveFOfile = New System.Windows.Forms.Button()
+        Me.ButtonBrowseFreeObjectFile = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.ComboBoxbvefobjotype = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxFreeObjectType = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBoxbvefobjimg = New System.Windows.Forms.TextBox()
+        Me.textBoxFreeObjectImage = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TextBoxbvefobjname = New System.Windows.Forms.TextBox()
         Me.TextBoxbvefobjtitle = New System.Windows.Forms.TextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxbvefobjimg = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewBVEfobj = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewFreeObject = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BVEfobtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BVEfobtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_16 = New System.Windows.Forms.TabPage()
         Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.Button28 = New System.Windows.Forms.Button()
+        Me.ButtonEtcBVEImage = New System.Windows.Forms.Button()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.TextBoxBVEstrfile = New System.Windows.Forms.TextBox()
-        Me.Buttonbvestrfile = New System.Windows.Forms.Button()
+        Me.TextBoxBVEfile = New System.Windows.Forms.TextBox()
+        Me.ButtonBrowseBVEfile = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.PictureBox23 = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxetcBVESyntax = New System.Windows.Forms.PictureBox()
         Me.GroupBoxbvestrwall = New System.Windows.Forms.GroupBox()
         Me.Label91 = New System.Windows.Forms.Label()
         Me.Label126 = New System.Windows.Forms.Label()
         Me.NumericUpDownBveX = New System.Windows.Forms.NumericUpDown()
         Me.Label127 = New System.Windows.Forms.Label()
-        Me.ButtonbveWallRfile = New System.Windows.Forms.Button()
-        Me.ButtonbveWallLfile = New System.Windows.Forms.Button()
+        Me.ButtonbrowseBVERight = New System.Windows.Forms.Button()
+        Me.ButtonbrowseBVELeft = New System.Windows.Forms.Button()
         Me.Label124 = New System.Windows.Forms.Label()
         Me.Label125 = New System.Windows.Forms.Label()
-        Me.TextBoxbveWallRfile = New System.Windows.Forms.TextBox()
-        Me.TextBoxbveWallLfile = New System.Windows.Forms.TextBox()
-        Me.ButtonBVEstrAdd = New System.Windows.Forms.Button()
+        Me.TextBoxBVERight = New System.Windows.Forms.TextBox()
+        Me.textBoxBVELeft = New System.Windows.Forms.TextBox()
+        Me.ButtonNewBVE = New System.Windows.Forms.Button()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.Buttonbvestrimg = New System.Windows.Forms.Button()
+        Me.ButtonBrowseEtcBVEImage = New System.Windows.Forms.Button()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.ComboBoxBVEstrtype = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxBVEType = New System.Windows.Forms.ComboBox()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.TextBoxBVEstrimg = New System.Windows.Forms.TextBox()
+        Me.TextBoxetcBVEImage = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.TextBoxBVEstrname = New System.Windows.Forms.TextBox()
         Me.TextBoxBVEstrtitle = New System.Windows.Forms.TextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxBVEstrimg = New System.Windows.Forms.PictureBox()
-        Me.DataGridViewBVEstr = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewEtc = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BvestrType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BvestrType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bveWallL = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bveWallR = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -669,25 +684,8 @@ Partial Class Main
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.OpenFileDialog3 = New System.Windows.Forms.OpenFileDialog()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.oWallCycle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Entrance = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iWallLeft = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iWallRight = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iWallCycle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UGExit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.Step_1.SuspendLayout()
-        CType(Me.PictureBoxBrowseImgDir, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxBrowseBVEDir, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -697,7 +695,7 @@ Partial Class Main
         CType(Me.NumericUpDownRailCycle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBoxRailTypeImg, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewRailType, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewRail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBoxPoleBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -707,17 +705,16 @@ Partial Class Main
         CType(Me.DataGridViewPole, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_4.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBoxTrainFolderTip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxTrainBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox9.SuspendLayout()
         CType(Me.PictureBoxTrainDir, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewTrainDir, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewTrain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBoxSoundBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxaudioimgshowhide.SuspendLayout()
         CType(Me.PictureBoxaudiorun, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewaudio, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewSound, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBoxTunnelBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -743,7 +740,7 @@ Partial Class Main
         CType(Me.NumericUpDownOverpassPierCycle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox18.SuspendLayout()
         CType(Me.PictureBoxFO, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewFlyOver, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewOverpass, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_9.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.GroupBox34.SuspendLayout()
@@ -751,7 +748,7 @@ Partial Class Main
         CType(Me.PictureBoxHillCutBVEsyntax, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox20.SuspendLayout()
         CType(Me.PictureBoxHillCut, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewCut, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewHillCut, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_10.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.PictureBoxDikeBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -798,19 +795,19 @@ Partial Class Main
         CType(Me.DataGridViewUG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_15.SuspendLayout()
         Me.Panel13.SuspendLayout()
-        CType(Me.PictureBox21, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxFreeObjectSyntax, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.PictureBoxbvefobjimg, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewBVEfobj, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewFreeObject, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_16.SuspendLayout()
         Me.Panel14.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        CType(Me.PictureBox23, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxetcBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxbvestrwall.SuspendLayout()
         CType(Me.NumericUpDownBveX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox11.SuspendLayout()
         CType(Me.PictureBoxBVEstrimg, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewBVEstr, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewEtc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_17.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -840,14 +837,14 @@ Partial Class Main
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1004, 733)
+        Me.TabControl1.Size = New System.Drawing.Size(1008, 537)
         Me.TabControl1.TabIndex = 0
         '
         'Step_1
         '
         Me.Step_1.BackColor = System.Drawing.SystemColors.Control
-        Me.Step_1.Controls.Add(Me.PictureBoxBrowseImgDir)
-        Me.Step_1.Controls.Add(Me.PictureBoxBrowseBVEDir)
+        Me.Step_1.Controls.Add(Me.ButtonBrowseImgDirTip)
+        Me.Step_1.Controls.Add(Me.ButtonBrowseBVEDirTip)
         Me.Step_1.Controls.Add(Me.PictureBox2)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt11)
         Me.Step_1.Controls.Add(Me.ComboBox2)
@@ -873,23 +870,23 @@ Partial Class Main
         Me.Step_1.TabIndex = 18
         Me.Step_1.Text = "Step 1 (Basic Setting)"
         '
-        'PictureBoxBrowseImgDir
+        'ButtonBrowseImgDirTip
         '
-        Me.PictureBoxBrowseImgDir.Image = CType(resources.GetObject("PictureBoxBrowseImgDir.Image"), System.Drawing.Image)
-        Me.PictureBoxBrowseImgDir.Location = New System.Drawing.Point(936, 185)
-        Me.PictureBoxBrowseImgDir.Name = "PictureBoxBrowseImgDir"
-        Me.PictureBoxBrowseImgDir.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBoxBrowseImgDir.TabIndex = 20
-        Me.PictureBoxBrowseImgDir.TabStop = False
+        Me.ButtonBrowseImgDirTip.Image = CType(resources.GetObject("ButtonBrowseImgDirTip.Image"), System.Drawing.Image)
+        Me.ButtonBrowseImgDirTip.Location = New System.Drawing.Point(936, 180)
+        Me.ButtonBrowseImgDirTip.Name = "ButtonBrowseImgDirTip"
+        Me.ButtonBrowseImgDirTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonBrowseImgDirTip.TabIndex = 79
+        Me.ButtonBrowseImgDirTip.UseVisualStyleBackColor = True
         '
-        'PictureBoxBrowseBVEDir
+        'ButtonBrowseBVEDirTip
         '
-        Me.PictureBoxBrowseBVEDir.Image = CType(resources.GetObject("PictureBoxBrowseBVEDir.Image"), System.Drawing.Image)
-        Me.PictureBoxBrowseBVEDir.Location = New System.Drawing.Point(936, 88)
-        Me.PictureBoxBrowseBVEDir.Name = "PictureBoxBrowseBVEDir"
-        Me.PictureBoxBrowseBVEDir.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBoxBrowseBVEDir.TabIndex = 19
-        Me.PictureBoxBrowseBVEDir.TabStop = False
+        Me.ButtonBrowseBVEDirTip.Image = CType(resources.GetObject("ButtonBrowseBVEDirTip.Image"), System.Drawing.Image)
+        Me.ButtonBrowseBVEDirTip.Location = New System.Drawing.Point(936, 86)
+        Me.ButtonBrowseBVEDirTip.Name = "ButtonBrowseBVEDirTip"
+        Me.ButtonBrowseBVEDirTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonBrowseBVEDirTip.TabIndex = 78
+        Me.ButtonBrowseBVEDirTip.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -1072,11 +1069,11 @@ Partial Class Main
         Me.Step_2.BackColor = System.Drawing.SystemColors.Control
         Me.Step_2.Controls.Add(Me.Panel1)
         Me.Step_2.Controls.Add(Me.GroupBox2)
-        Me.Step_2.Controls.Add(Me.DataGridViewRailType)
+        Me.Step_2.Controls.Add(Me.DataGridViewRail)
         Me.Step_2.Location = New System.Drawing.Point(4, 40)
         Me.Step_2.Name = "Step_2"
         Me.Step_2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_2.Size = New System.Drawing.Size(996, 689)
+        Me.Step_2.Size = New System.Drawing.Size(1000, 493)
         Me.Step_2.TabIndex = 0
         Me.Step_2.Text = "Step 2 (Rails)"
         '
@@ -1106,14 +1103,14 @@ Partial Class Main
         Me.Panel1.Controls.Add(Me.NumericUpDownRailCycle)
         Me.Panel1.Location = New System.Drawing.Point(7, 214)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(702, 247)
+        Me.Panel1.Size = New System.Drawing.Size(702, 271)
         Me.Panel1.TabIndex = 66
         '
         'PictureBoxRailBVESyntax
         '
         Me.PictureBoxRailBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxRailBVESyntax.Image = CType(resources.GetObject("PictureBoxRailBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxRailBVESyntax.Location = New System.Drawing.Point(3, 412)
+        Me.PictureBoxRailBVESyntax.Location = New System.Drawing.Point(3, 409)
         Me.PictureBoxRailBVESyntax.Name = "PictureBoxRailBVESyntax"
         Me.PictureBoxRailBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxRailBVESyntax.TabIndex = 69
@@ -1604,7 +1601,7 @@ Partial Class Main
         '
         Me.buttonNewRail.Image = CType(resources.GetObject("buttonNewRail.Image"), System.Drawing.Image)
         Me.buttonNewRail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.buttonNewRail.Location = New System.Drawing.Point(590, 424)
+        Me.buttonNewRail.Location = New System.Drawing.Point(603, 420)
         Me.buttonNewRail.Name = "buttonNewRail"
         Me.buttonNewRail.Size = New System.Drawing.Size(75, 23)
         Me.buttonNewRail.TabIndex = 3
@@ -1733,7 +1730,7 @@ Partial Class Main
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.PictureBoxRailTypeImg)
-        Me.GroupBox2.Location = New System.Drawing.Point(715, 279)
+        Me.GroupBox2.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox2.TabIndex = 2
@@ -1748,16 +1745,16 @@ Partial Class Main
         Me.PictureBoxRailTypeImg.TabIndex = 0
         Me.PictureBoxRailTypeImg.TabStop = False
         '
-        'DataGridViewRailType
+        'DataGridViewRail
         '
-        Me.DataGridViewRailType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewRailType.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.no, Me.nama, Me.title, Me.imgfile, Me.baltype, Me.OPrailtype, Me.RailGauge, Me.bal_file, Me.RailL, Me.RailR, Me.RailBase1, Me.RailL1, Me.RailR1, Me.RailBase2, Me.RailL2, Me.RailR2, Me.RailBase3, Me.RailL3, Me.RailR3, Me.RailBase4, Me.RailL4, Me.RailR4, Me.RailX})
-        Me.DataGridViewRailType.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewRailType.Name = "DataGridViewRailType"
-        Me.DataGridViewRailType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewRailType.Size = New System.Drawing.Size(979, 201)
-        Me.DataGridViewRailType.TabIndex = 0
-        Me.ToolTip1.SetToolTip(Me.DataGridViewRailType, "To delete, select row and hit <Delete> key. To edit directly, double click the ce" &
+        Me.DataGridViewRail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewRail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.no, Me.nama, Me.title, Me.imgfile, Me.baltype, Me.OPrailtype, Me.RailGauge, Me.bal_file, Me.RailL, Me.RailR, Me.RailBase1, Me.RailL1, Me.RailR1, Me.RailBase2, Me.RailL2, Me.RailR2, Me.RailBase3, Me.RailL3, Me.RailR3, Me.RailBase4, Me.RailL4, Me.RailR4, Me.RailX})
+        Me.DataGridViewRail.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewRail.Name = "DataGridViewRail"
+        Me.DataGridViewRail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewRail.Size = New System.Drawing.Size(979, 201)
+        Me.DataGridViewRail.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.DataGridViewRail, "To delete, select row and hit <Delete> key. To edit directly, double click the ce" &
         "ll.")
         '
         'no
@@ -1893,7 +1890,7 @@ Partial Class Main
         Me.Step_3.Location = New System.Drawing.Point(4, 40)
         Me.Step_3.Name = "Step_3"
         Me.Step_3.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_3.Size = New System.Drawing.Size(996, 689)
+        Me.Step_3.Size = New System.Drawing.Size(1000, 493)
         Me.Step_3.TabIndex = 15
         Me.Step_3.Text = "Step 3 (Poles)"
         '
@@ -1926,7 +1923,7 @@ Partial Class Main
         Me.Panel2.Controls.Add(Me.textBoxPoleStructureLeft)
         Me.Panel2.Location = New System.Drawing.Point(9, 215)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(700, 246)
+        Me.Panel2.Size = New System.Drawing.Size(700, 270)
         Me.Panel2.TabIndex = 12
         '
         'ButtonPoleTip
@@ -1942,7 +1939,7 @@ Partial Class Main
         '
         Me.PictureBoxPoleBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxPoleBVESyntax.Image = CType(resources.GetObject("PictureBoxPoleBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxPoleBVESyntax.Location = New System.Drawing.Point(6, 260)
+        Me.PictureBoxPoleBVESyntax.Location = New System.Drawing.Point(3, 241)
         Me.PictureBoxPoleBVESyntax.Name = "PictureBoxPoleBVESyntax"
         Me.PictureBoxPoleBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxPoleBVESyntax.TabIndex = 71
@@ -1961,7 +1958,7 @@ Partial Class Main
         '
         Me.buttonNewPole.Image = CType(resources.GetObject("buttonNewPole.Image"), System.Drawing.Image)
         Me.buttonNewPole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.buttonNewPole.Location = New System.Drawing.Point(590, 282)
+        Me.buttonNewPole.Location = New System.Drawing.Point(601, 252)
         Me.buttonNewPole.Name = "buttonNewPole"
         Me.buttonNewPole.Size = New System.Drawing.Size(75, 23)
         Me.buttonNewPole.TabIndex = 11
@@ -2138,7 +2135,7 @@ Partial Class Main
         '
         Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.PictureBoxPole)
-        Me.GroupBox3.Location = New System.Drawing.Point(715, 279)
+        Me.GroupBox3.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox3.TabIndex = 10
@@ -2216,11 +2213,11 @@ Partial Class Main
         Me.Step_4.BackColor = System.Drawing.SystemColors.Control
         Me.Step_4.Controls.Add(Me.Panel3)
         Me.Step_4.Controls.Add(Me.GroupBox9)
-        Me.Step_4.Controls.Add(Me.DataGridViewTrainDir)
+        Me.Step_4.Controls.Add(Me.DataGridViewTrain)
         Me.Step_4.Location = New System.Drawing.Point(4, 40)
         Me.Step_4.Name = "Step_4"
         Me.Step_4.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_4.Size = New System.Drawing.Size(996, 689)
+        Me.Step_4.Size = New System.Drawing.Size(1000, 493)
         Me.Step_4.TabIndex = 13
         Me.Step_4.Text = "Step 4 (Running Trainset)"
         '
@@ -2228,7 +2225,7 @@ Partial Class Main
         '
         Me.Panel3.AutoScroll = True
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel3.Controls.Add(Me.PictureBoxTrainFolderTip)
+        Me.Panel3.Controls.Add(Me.ButtonTrainFolderTip)
         Me.Panel3.Controls.Add(Me.TextBoxTrainDir)
         Me.Panel3.Controls.Add(Me.PictureBoxTrainBVESyntax)
         Me.Panel3.Controls.Add(Me.Label36)
@@ -2237,18 +2234,17 @@ Partial Class Main
         Me.Panel3.Controls.Add(Me.ButtonBrowseTrainDir)
         Me.Panel3.Location = New System.Drawing.Point(4, 253)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(705, 209)
+        Me.Panel3.Size = New System.Drawing.Size(705, 232)
         Me.Panel3.TabIndex = 10
         '
-        'PictureBoxTrainFolderTip
+        'ButtonTrainFolderTip
         '
-        Me.PictureBoxTrainFolderTip.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxTrainFolderTip.Image = CType(resources.GetObject("PictureBoxTrainFolderTip.Image"), System.Drawing.Image)
-        Me.PictureBoxTrainFolderTip.Location = New System.Drawing.Point(7, 158)
-        Me.PictureBoxTrainFolderTip.Name = "PictureBoxTrainFolderTip"
-        Me.PictureBoxTrainFolderTip.Size = New System.Drawing.Size(38, 35)
-        Me.PictureBoxTrainFolderTip.TabIndex = 74
-        Me.PictureBoxTrainFolderTip.TabStop = False
+        Me.ButtonTrainFolderTip.Image = CType(resources.GetObject("ButtonTrainFolderTip.Image"), System.Drawing.Image)
+        Me.ButtonTrainFolderTip.Location = New System.Drawing.Point(653, 38)
+        Me.ButtonTrainFolderTip.Name = "ButtonTrainFolderTip"
+        Me.ButtonTrainFolderTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonTrainFolderTip.TabIndex = 75
+        Me.ButtonTrainFolderTip.UseVisualStyleBackColor = True
         '
         'TextBoxTrainDir
         '
@@ -2262,7 +2258,7 @@ Partial Class Main
         '
         Me.PictureBoxTrainBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxTrainBVESyntax.Image = CType(resources.GetObject("PictureBoxTrainBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxTrainBVESyntax.Location = New System.Drawing.Point(54, 158)
+        Me.PictureBoxTrainBVESyntax.Location = New System.Drawing.Point(3, 190)
         Me.PictureBoxTrainBVESyntax.Name = "PictureBoxTrainBVESyntax"
         Me.PictureBoxTrainBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxTrainBVESyntax.TabIndex = 73
@@ -2291,7 +2287,7 @@ Partial Class Main
         '
         Me.ButtonRetriveTrainFolder.Image = CType(resources.GetObject("ButtonRetriveTrainFolder.Image"), System.Drawing.Image)
         Me.ButtonRetriveTrainFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonRetriveTrainFolder.Location = New System.Drawing.Point(598, 76)
+        Me.ButtonRetriveTrainFolder.Location = New System.Drawing.Point(598, 201)
         Me.ButtonRetriveTrainFolder.Name = "ButtonRetriveTrainFolder"
         Me.ButtonRetriveTrainFolder.Size = New System.Drawing.Size(83, 23)
         Me.ButtonRetriveTrainFolder.TabIndex = 7
@@ -2314,7 +2310,7 @@ Partial Class Main
         '
         Me.GroupBox9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox9.Controls.Add(Me.PictureBoxTrainDir)
-        Me.GroupBox9.Location = New System.Drawing.Point(715, 279)
+        Me.GroupBox9.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox9.TabIndex = 9
@@ -2329,15 +2325,15 @@ Partial Class Main
         Me.PictureBoxTrainDir.TabIndex = 0
         Me.PictureBoxTrainDir.TabStop = False
         '
-        'DataGridViewTrainDir
+        'DataGridViewTrain
         '
-        Me.DataGridViewTrainDir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewTrainDir.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
-        Me.DataGridViewTrainDir.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewTrainDir.Name = "DataGridViewTrainDir"
-        Me.DataGridViewTrainDir.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewTrainDir.Size = New System.Drawing.Size(974, 239)
-        Me.DataGridViewTrainDir.TabIndex = 7
+        Me.DataGridViewTrain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewTrain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
+        Me.DataGridViewTrain.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewTrain.Name = "DataGridViewTrain"
+        Me.DataGridViewTrain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewTrain.Size = New System.Drawing.Size(974, 239)
+        Me.DataGridViewTrain.TabIndex = 7
         '
         'DataGridViewTextBoxColumn16
         '
@@ -2373,11 +2369,11 @@ Partial Class Main
         Me.Step_5.BackColor = System.Drawing.SystemColors.Control
         Me.Step_5.Controls.Add(Me.Panel4)
         Me.Step_5.Controls.Add(Me.GroupBoxaudioimgshowhide)
-        Me.Step_5.Controls.Add(Me.DataGridViewaudio)
+        Me.Step_5.Controls.Add(Me.DataGridViewSound)
         Me.Step_5.Location = New System.Drawing.Point(4, 40)
         Me.Step_5.Name = "Step_5"
         Me.Step_5.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_5.Size = New System.Drawing.Size(996, 689)
+        Me.Step_5.Size = New System.Drawing.Size(1000, 493)
         Me.Step_5.TabIndex = 4
         Me.Step_5.Text = "Step 5 (Sound files)"
         '
@@ -2399,14 +2395,14 @@ Partial Class Main
         Me.Panel4.Controls.Add(Me.TextBoxaudiotitle)
         Me.Panel4.Location = New System.Drawing.Point(8, 214)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(702, 247)
+        Me.Panel4.Size = New System.Drawing.Size(702, 271)
         Me.Panel4.TabIndex = 8
         '
         'PictureBoxSoundBVESyntax
         '
         Me.PictureBoxSoundBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxSoundBVESyntax.Image = CType(resources.GetObject("PictureBoxSoundBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxSoundBVESyntax.Location = New System.Drawing.Point(6, 194)
+        Me.PictureBoxSoundBVESyntax.Location = New System.Drawing.Point(3, 229)
         Me.PictureBoxSoundBVESyntax.Name = "PictureBoxSoundBVESyntax"
         Me.PictureBoxSoundBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxSoundBVESyntax.TabIndex = 74
@@ -2434,7 +2430,7 @@ Partial Class Main
         '
         Me.Buttonaudioadd.Image = CType(resources.GetObject("Buttonaudioadd.Image"), System.Drawing.Image)
         Me.Buttonaudioadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Buttonaudioadd.Location = New System.Drawing.Point(589, 206)
+        Me.Buttonaudioadd.Location = New System.Drawing.Point(590, 241)
         Me.Buttonaudioadd.Name = "Buttonaudioadd"
         Me.Buttonaudioadd.Size = New System.Drawing.Size(75, 23)
         Me.Buttonaudioadd.TabIndex = 7
@@ -2512,7 +2508,7 @@ Partial Class Main
         '
         Me.GroupBoxaudioimgshowhide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxaudioimgshowhide.Controls.Add(Me.PictureBoxaudiorun)
-        Me.GroupBoxaudioimgshowhide.Location = New System.Drawing.Point(715, 279)
+        Me.GroupBoxaudioimgshowhide.Location = New System.Drawing.Point(723, 303)
         Me.GroupBoxaudioimgshowhide.Name = "GroupBoxaudioimgshowhide"
         Me.GroupBoxaudioimgshowhide.Size = New System.Drawing.Size(271, 182)
         Me.GroupBoxaudioimgshowhide.TabIndex = 6
@@ -2530,16 +2526,16 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.PictureBoxaudiorun, "If no sound heard, please create a new uncompressed audio file.")
         Me.PictureBoxaudiorun.Visible = False
         '
-        'DataGridViewaudio
+        'DataGridViewSound
         '
-        Me.DataGridViewaudio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewaudio.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumnAudioNo, Me.DataGridViewTextBoxColumnAudioName, Me.DataGridViewTextBoxColumnAudioTitle, Me.DataGridViewTextBoxColumnAudioType, Me.DataGridViewTextBoxColumnAudioFile})
-        Me.DataGridViewaudio.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewaudio.MultiSelect = False
-        Me.DataGridViewaudio.Name = "DataGridViewaudio"
-        Me.DataGridViewaudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewaudio.Size = New System.Drawing.Size(979, 201)
-        Me.DataGridViewaudio.TabIndex = 4
+        Me.DataGridViewSound.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewSound.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumnAudioNo, Me.DataGridViewTextBoxColumnAudioName, Me.DataGridViewTextBoxColumnAudioTitle, Me.DataGridViewTextBoxColumnAudioType, Me.DataGridViewTextBoxColumnAudioFile})
+        Me.DataGridViewSound.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewSound.MultiSelect = False
+        Me.DataGridViewSound.Name = "DataGridViewSound"
+        Me.DataGridViewSound.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewSound.Size = New System.Drawing.Size(979, 201)
+        Me.DataGridViewSound.TabIndex = 4
         '
         'DataGridViewTextBoxColumnAudioNo
         '
@@ -2580,7 +2576,7 @@ Partial Class Main
         Me.Step_6.Location = New System.Drawing.Point(4, 40)
         Me.Step_6.Name = "Step_6"
         Me.Step_6.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_6.Size = New System.Drawing.Size(996, 689)
+        Me.Step_6.Size = New System.Drawing.Size(1000, 493)
         Me.Step_6.TabIndex = 6
         Me.Step_6.Text = "Step 6 (Tunnel)"
         '
@@ -2605,14 +2601,14 @@ Partial Class Main
         Me.Panel5.Controls.Add(Me.Label43)
         Me.Panel5.Controls.Add(Me.textBoxTunnelTitle)
         Me.Panel5.Controls.Add(Me.textBoxTunnelEntrance)
-        Me.Panel5.Controls.Add(Me.buttonAddNewTunnel)
+        Me.Panel5.Controls.Add(Me.buttonNewTunnel)
         Me.Panel5.Controls.Add(Me.Label38)
         Me.Panel5.Controls.Add(Me.Label35)
         Me.Panel5.Controls.Add(Me.Label42)
         Me.Panel5.Controls.Add(Me.Label47)
         Me.Panel5.Location = New System.Drawing.Point(8, 214)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(702, 247)
+        Me.Panel5.Size = New System.Drawing.Size(702, 271)
         Me.Panel5.TabIndex = 18
         '
         'ButtonTunnelTip
@@ -2628,7 +2624,7 @@ Partial Class Main
         '
         Me.PictureBoxTunnelBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxTunnelBVESyntax.Image = CType(resources.GetObject("PictureBoxTunnelBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxTunnelBVESyntax.Location = New System.Drawing.Point(3, 337)
+        Me.PictureBoxTunnelBVESyntax.Location = New System.Drawing.Point(3, 322)
         Me.PictureBoxTunnelBVESyntax.Name = "PictureBoxTunnelBVESyntax"
         Me.PictureBoxTunnelBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxTunnelBVESyntax.TabIndex = 73
@@ -2824,16 +2820,16 @@ Partial Class Main
         Me.textBoxTunnelEntrance.TabIndex = 33
         Me.ToolTip1.SetToolTip(Me.textBoxTunnelEntrance, "Required")
         '
-        'buttonAddNewTunnel
+        'buttonNewTunnel
         '
-        Me.buttonAddNewTunnel.Image = CType(resources.GetObject("buttonAddNewTunnel.Image"), System.Drawing.Image)
-        Me.buttonAddNewTunnel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.buttonAddNewTunnel.Location = New System.Drawing.Point(591, 353)
-        Me.buttonAddNewTunnel.Name = "buttonAddNewTunnel"
-        Me.buttonAddNewTunnel.Size = New System.Drawing.Size(75, 23)
-        Me.buttonAddNewTunnel.TabIndex = 11
-        Me.buttonAddNewTunnel.Text = "Add"
-        Me.buttonAddNewTunnel.UseVisualStyleBackColor = True
+        Me.buttonNewTunnel.Image = CType(resources.GetObject("buttonNewTunnel.Image"), System.Drawing.Image)
+        Me.buttonNewTunnel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.buttonNewTunnel.Location = New System.Drawing.Point(603, 334)
+        Me.buttonNewTunnel.Name = "buttonNewTunnel"
+        Me.buttonNewTunnel.Size = New System.Drawing.Size(75, 23)
+        Me.buttonNewTunnel.TabIndex = 11
+        Me.buttonNewTunnel.Text = "Add"
+        Me.buttonNewTunnel.UseVisualStyleBackColor = True
         '
         'Label38
         '
@@ -2880,7 +2876,7 @@ Partial Class Main
         '
         Me.GroupBox14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox14.Controls.Add(Me.PictureBoxTunnelPicture)
-        Me.GroupBox14.Location = New System.Drawing.Point(715, 279)
+        Me.GroupBox14.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox14.Name = "GroupBox14"
         Me.GroupBox14.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox14.TabIndex = 10
@@ -2968,7 +2964,7 @@ Partial Class Main
         Me.Step_7.Location = New System.Drawing.Point(4, 40)
         Me.Step_7.Name = "Step_7"
         Me.Step_7.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_7.Size = New System.Drawing.Size(996, 689)
+        Me.Step_7.Size = New System.Drawing.Size(1000, 493)
         Me.Step_7.TabIndex = 7
         Me.Step_7.Text = "Setup 7 (Bridges)"
         '
@@ -2988,14 +2984,14 @@ Partial Class Main
         Me.Panel6.Controls.Add(Me.TextBoxBridgeImage)
         Me.Panel6.Location = New System.Drawing.Point(6, 214)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(702, 247)
+        Me.Panel6.Size = New System.Drawing.Size(702, 271)
         Me.Panel6.TabIndex = 12
         '
         'PictureBoxBridgeBVESyntax
         '
         Me.PictureBoxBridgeBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxBridgeBVESyntax.Image = CType(resources.GetObject("PictureBoxBridgeBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxBridgeBVESyntax.Location = New System.Drawing.Point(3, 329)
+        Me.PictureBoxBridgeBVESyntax.Location = New System.Drawing.Point(3, 326)
         Me.PictureBoxBridgeBVESyntax.Name = "PictureBoxBridgeBVESyntax"
         Me.PictureBoxBridgeBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxBridgeBVESyntax.TabIndex = 75
@@ -3181,7 +3177,7 @@ Partial Class Main
         '
         Me.ButtonNewBridge.Image = CType(resources.GetObject("ButtonNewBridge.Image"), System.Drawing.Image)
         Me.ButtonNewBridge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewBridge.Location = New System.Drawing.Point(590, 345)
+        Me.ButtonNewBridge.Location = New System.Drawing.Point(603, 341)
         Me.ButtonNewBridge.Name = "ButtonNewBridge"
         Me.ButtonNewBridge.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewBridge.TabIndex = 11
@@ -3250,7 +3246,7 @@ Partial Class Main
         '
         Me.GroupBox16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox16.Controls.Add(Me.PictureBoxBridge)
-        Me.GroupBox16.Location = New System.Drawing.Point(715, 279)
+        Me.GroupBox16.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox16.Name = "GroupBox16"
         Me.GroupBox16.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox16.TabIndex = 10
@@ -3334,11 +3330,11 @@ Partial Class Main
         Me.Step_8.BackColor = System.Drawing.SystemColors.Control
         Me.Step_8.Controls.Add(Me.Panel7)
         Me.Step_8.Controls.Add(Me.GroupBox18)
-        Me.Step_8.Controls.Add(Me.DataGridViewFlyOver)
+        Me.Step_8.Controls.Add(Me.DataGridViewOverpass)
         Me.Step_8.Location = New System.Drawing.Point(4, 40)
         Me.Step_8.Name = "Step_8"
         Me.Step_8.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_8.Size = New System.Drawing.Size(996, 689)
+        Me.Step_8.Size = New System.Drawing.Size(1000, 493)
         Me.Step_8.TabIndex = 8
         Me.Step_8.Text = "Step 8 (Overpass)"
         '
@@ -3358,14 +3354,14 @@ Partial Class Main
         Me.Panel7.Controls.Add(Me.textBoxOverPassName)
         Me.Panel7.Location = New System.Drawing.Point(8, 214)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(702, 229)
+        Me.Panel7.Size = New System.Drawing.Size(702, 271)
         Me.Panel7.TabIndex = 20
         '
         'PictureBoxOverpassBVESyntax
         '
         Me.PictureBoxOverpassBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxOverpassBVESyntax.Image = CType(resources.GetObject("PictureBoxOverpassBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxOverpassBVESyntax.Location = New System.Drawing.Point(3, 291)
+        Me.PictureBoxOverpassBVESyntax.Location = New System.Drawing.Point(3, 288)
         Me.PictureBoxOverpassBVESyntax.Name = "PictureBoxOverpassBVESyntax"
         Me.PictureBoxOverpassBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxOverpassBVESyntax.TabIndex = 75
@@ -3569,7 +3565,7 @@ Partial Class Main
         '
         Me.ButtonNewOverpass.Image = CType(resources.GetObject("ButtonNewOverpass.Image"), System.Drawing.Image)
         Me.ButtonNewOverpass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewOverpass.Location = New System.Drawing.Point(603, 303)
+        Me.ButtonNewOverpass.Location = New System.Drawing.Point(603, 300)
         Me.ButtonNewOverpass.Name = "ButtonNewOverpass"
         Me.ButtonNewOverpass.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewOverpass.TabIndex = 11
@@ -3620,7 +3616,7 @@ Partial Class Main
         '
         Me.GroupBox18.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox18.Controls.Add(Me.PictureBoxFO)
-        Me.GroupBox18.Location = New System.Drawing.Point(715, 261)
+        Me.GroupBox18.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox18.Name = "GroupBox18"
         Me.GroupBox18.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox18.TabIndex = 10
@@ -3635,15 +3631,15 @@ Partial Class Main
         Me.PictureBoxFO.TabIndex = 0
         Me.PictureBoxFO.TabStop = False
         '
-        'DataGridViewFlyOver
+        'DataGridViewOverpass
         '
-        Me.DataGridViewFlyOver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewFlyOver.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn42, Me.WallL, Me.WallR, Me.FoStrX, Me.Pier, Me.FORepeatPier})
-        Me.DataGridViewFlyOver.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewFlyOver.Name = "DataGridViewFlyOver"
-        Me.DataGridViewFlyOver.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewFlyOver.Size = New System.Drawing.Size(979, 201)
-        Me.DataGridViewFlyOver.TabIndex = 8
+        Me.DataGridViewOverpass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewOverpass.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn42, Me.WallL, Me.WallR, Me.FoStrX, Me.Pier, Me.FORepeatPier})
+        Me.DataGridViewOverpass.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewOverpass.Name = "DataGridViewOverpass"
+        Me.DataGridViewOverpass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewOverpass.Size = New System.Drawing.Size(979, 201)
+        Me.DataGridViewOverpass.TabIndex = 8
         '
         'DataGridViewTextBoxColumn38
         '
@@ -3704,11 +3700,11 @@ Partial Class Main
         Me.Step_9.BackColor = System.Drawing.SystemColors.Control
         Me.Step_9.Controls.Add(Me.Panel8)
         Me.Step_9.Controls.Add(Me.GroupBox20)
-        Me.Step_9.Controls.Add(Me.DataGridViewCut)
+        Me.Step_9.Controls.Add(Me.DataGridViewHillCut)
         Me.Step_9.Location = New System.Drawing.Point(4, 40)
         Me.Step_9.Name = "Step_9"
         Me.Step_9.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_9.Size = New System.Drawing.Size(996, 689)
+        Me.Step_9.Size = New System.Drawing.Size(1000, 493)
         Me.Step_9.TabIndex = 9
         Me.Step_9.Text = "Step 9 (Hill Cuts)"
         '
@@ -3728,7 +3724,7 @@ Partial Class Main
         Me.Panel8.Controls.Add(Me.textBoxHillCutTitle)
         Me.Panel8.Location = New System.Drawing.Point(8, 214)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(702, 231)
+        Me.Panel8.Size = New System.Drawing.Size(702, 271)
         Me.Panel8.TabIndex = 20
         '
         'GroupBox34
@@ -3848,7 +3844,7 @@ Partial Class Main
         '
         Me.PictureBoxHillCutBVEsyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxHillCutBVEsyntax.Image = CType(resources.GetObject("PictureBoxHillCutBVEsyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxHillCutBVEsyntax.Location = New System.Drawing.Point(3, 201)
+        Me.PictureBoxHillCutBVEsyntax.Location = New System.Drawing.Point(3, 229)
         Me.PictureBoxHillCutBVEsyntax.Name = "PictureBoxHillCutBVEsyntax"
         Me.PictureBoxHillCutBVEsyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxHillCutBVEsyntax.TabIndex = 75
@@ -3876,7 +3872,7 @@ Partial Class Main
         '
         Me.ButtonNewHillCut.Image = CType(resources.GetObject("ButtonNewHillCut.Image"), System.Drawing.Image)
         Me.ButtonNewHillCut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewHillCut.Location = New System.Drawing.Point(601, 213)
+        Me.ButtonNewHillCut.Location = New System.Drawing.Point(601, 240)
         Me.ButtonNewHillCut.Name = "ButtonNewHillCut"
         Me.ButtonNewHillCut.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewHillCut.TabIndex = 11
@@ -3927,7 +3923,7 @@ Partial Class Main
         '
         Me.GroupBox20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox20.Controls.Add(Me.PictureBoxHillCut)
-        Me.GroupBox20.Location = New System.Drawing.Point(715, 263)
+        Me.GroupBox20.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox20.Name = "GroupBox20"
         Me.GroupBox20.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox20.TabIndex = 10
@@ -3942,15 +3938,15 @@ Partial Class Main
         Me.PictureBoxHillCut.TabIndex = 0
         Me.PictureBoxHillCut.TabStop = False
         '
-        'DataGridViewCut
+        'DataGridViewHillCut
         '
-        Me.DataGridViewCut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewCut.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn48, Me.hCL, Me.hCR, Me.CutStrX})
-        Me.DataGridViewCut.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewCut.Name = "DataGridViewCut"
-        Me.DataGridViewCut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewCut.Size = New System.Drawing.Size(979, 201)
-        Me.DataGridViewCut.TabIndex = 8
+        Me.DataGridViewHillCut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewHillCut.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn48, Me.hCL, Me.hCR, Me.CutStrX})
+        Me.DataGridViewHillCut.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewHillCut.Name = "DataGridViewHillCut"
+        Me.DataGridViewHillCut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewHillCut.Size = New System.Drawing.Size(979, 201)
+        Me.DataGridViewHillCut.TabIndex = 8
         '
         'DataGridViewTextBoxColumn44
         '
@@ -4003,7 +3999,7 @@ Partial Class Main
         Me.Step_10.Location = New System.Drawing.Point(4, 40)
         Me.Step_10.Name = "Step_10"
         Me.Step_10.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_10.Size = New System.Drawing.Size(996, 689)
+        Me.Step_10.Size = New System.Drawing.Size(1000, 493)
         Me.Step_10.TabIndex = 10
         Me.Step_10.Text = "Step 10 (Dikes)"
         '
@@ -4023,14 +4019,14 @@ Partial Class Main
         Me.Panel9.Controls.Add(Me.Label94)
         Me.Panel9.Location = New System.Drawing.Point(8, 214)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(701, 289)
+        Me.Panel9.Size = New System.Drawing.Size(701, 271)
         Me.Panel9.TabIndex = 20
         '
         'PictureBoxDikeBVESyntax
         '
         Me.PictureBoxDikeBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxDikeBVESyntax.Image = CType(resources.GetObject("PictureBoxDikeBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxDikeBVESyntax.Location = New System.Drawing.Point(6, 232)
+        Me.PictureBoxDikeBVESyntax.Location = New System.Drawing.Point(3, 229)
         Me.PictureBoxDikeBVESyntax.Name = "PictureBoxDikeBVESyntax"
         Me.PictureBoxDikeBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxDikeBVESyntax.TabIndex = 75
@@ -4171,7 +4167,7 @@ Partial Class Main
         '
         Me.ButtonNewDike.Image = CType(resources.GetObject("ButtonNewDike.Image"), System.Drawing.Image)
         Me.ButtonNewDike.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewDike.Location = New System.Drawing.Point(598, 244)
+        Me.ButtonNewDike.Location = New System.Drawing.Point(598, 240)
         Me.ButtonNewDike.Name = "ButtonNewDike"
         Me.ButtonNewDike.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewDike.TabIndex = 11
@@ -4222,7 +4218,7 @@ Partial Class Main
         '
         Me.GroupBox22.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox22.Controls.Add(Me.PictureBoxDike)
-        Me.GroupBox22.Location = New System.Drawing.Point(715, 263)
+        Me.GroupBox22.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox22.Name = "GroupBox22"
         Me.GroupBox22.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox22.TabIndex = 10
@@ -4297,7 +4293,7 @@ Partial Class Main
         Me.Step_11.Controls.Add(Me.DataGridViewRC)
         Me.Step_11.Location = New System.Drawing.Point(4, 40)
         Me.Step_11.Name = "Step_11"
-        Me.Step_11.Size = New System.Drawing.Size(996, 689)
+        Me.Step_11.Size = New System.Drawing.Size(1000, 493)
         Me.Step_11.TabIndex = 12
         Me.Step_11.Text = "Step 11 (Road Crossing)"
         '
@@ -4330,7 +4326,7 @@ Partial Class Main
         Me.Panel10.Controls.Add(Me.textBoxRCgateRight)
         Me.Panel10.Location = New System.Drawing.Point(8, 214)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(702, 231)
+        Me.Panel10.Size = New System.Drawing.Size(702, 271)
         Me.Panel10.TabIndex = 12
         '
         'ButtonRCTip
@@ -4346,7 +4342,7 @@ Partial Class Main
         '
         Me.ButtonNewRC.Image = CType(resources.GetObject("ButtonNewRC.Image"), System.Drawing.Image)
         Me.ButtonNewRC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewRC.Location = New System.Drawing.Point(590, 301)
+        Me.ButtonNewRC.Location = New System.Drawing.Point(603, 298)
         Me.ButtonNewRC.Name = "ButtonNewRC"
         Me.ButtonNewRC.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewRC.TabIndex = 11
@@ -4364,7 +4360,7 @@ Partial Class Main
         '
         Me.PictureBoxRCBVEsyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxRCBVEsyntax.Image = CType(resources.GetObject("PictureBoxRCBVEsyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxRCBVEsyntax.Location = New System.Drawing.Point(3, 289)
+        Me.PictureBoxRCBVEsyntax.Location = New System.Drawing.Point(3, 285)
         Me.PictureBoxRCBVEsyntax.Name = "PictureBoxRCBVEsyntax"
         Me.PictureBoxRCBVEsyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxRCBVEsyntax.TabIndex = 75
@@ -4537,7 +4533,7 @@ Partial Class Main
         '
         Me.GroupBox26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox26.Controls.Add(Me.PictureBoxRC)
-        Me.GroupBox26.Location = New System.Drawing.Point(715, 263)
+        Me.GroupBox26.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox26.Name = "GroupBox26"
         Me.GroupBox26.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox26.TabIndex = 10
@@ -4619,7 +4615,7 @@ Partial Class Main
         Me.Step_12.Location = New System.Drawing.Point(4, 40)
         Me.Step_12.Name = "Step_12"
         Me.Step_12.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_12.Size = New System.Drawing.Size(996, 689)
+        Me.Step_12.Size = New System.Drawing.Size(1000, 493)
         Me.Step_12.TabIndex = 14
         Me.Step_12.Text = "Step 12 (Platfoms)"
         '
@@ -4640,14 +4636,14 @@ Partial Class Main
         Me.Panel11.Controls.Add(Me.buttonBrowsePlatformImage)
         Me.Panel11.Location = New System.Drawing.Point(7, 214)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(702, 231)
+        Me.Panel11.Size = New System.Drawing.Size(702, 271)
         Me.Panel11.TabIndex = 12
         '
         'ButtonNewPlatform
         '
         Me.ButtonNewPlatform.Image = CType(resources.GetObject("ButtonNewPlatform.Image"), System.Drawing.Image)
         Me.ButtonNewPlatform.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewPlatform.Location = New System.Drawing.Point(603, 457)
+        Me.ButtonNewPlatform.Location = New System.Drawing.Point(603, 453)
         Me.ButtonNewPlatform.Name = "ButtonNewPlatform"
         Me.ButtonNewPlatform.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewPlatform.TabIndex = 11
@@ -4658,7 +4654,7 @@ Partial Class Main
         '
         Me.PictureBoxPlatformBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxPlatformBVESyntax.Image = CType(resources.GetObject("PictureBoxPlatformBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxPlatformBVESyntax.Location = New System.Drawing.Point(3, 442)
+        Me.PictureBoxPlatformBVESyntax.Location = New System.Drawing.Point(3, 439)
         Me.PictureBoxPlatformBVESyntax.Name = "PictureBoxPlatformBVESyntax"
         Me.PictureBoxPlatformBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxPlatformBVESyntax.TabIndex = 75
@@ -4846,7 +4842,7 @@ Partial Class Main
         'ButtonPlatformTip
         '
         Me.ButtonPlatformTip.Image = CType(resources.GetObject("ButtonPlatformTip.Image"), System.Drawing.Image)
-        Me.ButtonPlatformTip.Location = New System.Drawing.Point(413, 17)
+        Me.ButtonPlatformTip.Location = New System.Drawing.Point(628, 16)
         Me.ButtonPlatformTip.Name = "ButtonPlatformTip"
         Me.ButtonPlatformTip.Size = New System.Drawing.Size(28, 23)
         Me.ButtonPlatformTip.TabIndex = 70
@@ -5044,7 +5040,7 @@ Partial Class Main
         '
         Me.GroupBox28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox28.Controls.Add(Me.PictureBoxPlatform)
-        Me.GroupBox28.Location = New System.Drawing.Point(715, 263)
+        Me.GroupBox28.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox28.Name = "GroupBox28"
         Me.GroupBox28.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox28.TabIndex = 10
@@ -5161,7 +5157,7 @@ Partial Class Main
         Me.Step_13.Location = New System.Drawing.Point(4, 40)
         Me.Step_13.Name = "Step_13"
         Me.Step_13.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_13.Size = New System.Drawing.Size(996, 689)
+        Me.Step_13.Size = New System.Drawing.Size(1000, 493)
         Me.Step_13.TabIndex = 16
         Me.Step_13.Text = "Step 13 (Cracks)"
         '
@@ -5181,7 +5177,7 @@ Partial Class Main
         Me.Panel12.Controls.Add(Me.buttonBrowseCrackImage)
         Me.Panel12.Location = New System.Drawing.Point(6, 214)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(702, 231)
+        Me.Panel12.Size = New System.Drawing.Size(702, 271)
         Me.Panel12.TabIndex = 20
         '
         'GroupBox13
@@ -5206,7 +5202,7 @@ Partial Class Main
         'ButtonCrackTip
         '
         Me.ButtonCrackTip.Image = CType(resources.GetObject("ButtonCrackTip.Image"), System.Drawing.Image)
-        Me.ButtonCrackTip.Location = New System.Drawing.Point(181, 56)
+        Me.ButtonCrackTip.Location = New System.Drawing.Point(638, 72)
         Me.ButtonCrackTip.Name = "ButtonCrackTip"
         Me.ButtonCrackTip.Size = New System.Drawing.Size(28, 23)
         Me.ButtonCrackTip.TabIndex = 70
@@ -5310,7 +5306,7 @@ Partial Class Main
         '
         Me.PictureBoxCrackBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxCrackBVESyntax.Image = CType(resources.GetObject("PictureBoxCrackBVESyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxCrackBVESyntax.Location = New System.Drawing.Point(6, 206)
+        Me.PictureBoxCrackBVESyntax.Location = New System.Drawing.Point(3, 228)
         Me.PictureBoxCrackBVESyntax.Name = "PictureBoxCrackBVESyntax"
         Me.PictureBoxCrackBVESyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxCrackBVESyntax.TabIndex = 75
@@ -5320,7 +5316,7 @@ Partial Class Main
         '
         Me.ButtonNewCrack.Image = CType(resources.GetObject("ButtonNewCrack.Image"), System.Drawing.Image)
         Me.ButtonNewCrack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewCrack.Location = New System.Drawing.Point(603, 218)
+        Me.ButtonNewCrack.Location = New System.Drawing.Point(603, 240)
         Me.ButtonNewCrack.Name = "ButtonNewCrack"
         Me.ButtonNewCrack.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewCrack.TabIndex = 15
@@ -5382,7 +5378,7 @@ Partial Class Main
         '
         Me.GroupBox30.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox30.Controls.Add(Me.PictureBoxCrack)
-        Me.GroupBox30.Location = New System.Drawing.Point(715, 263)
+        Me.GroupBox30.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox30.Name = "GroupBox30"
         Me.GroupBox30.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox30.TabIndex = 14
@@ -5442,7 +5438,7 @@ Partial Class Main
         '
         'CrStrX
         '
-        Me.CrStrX.HeaderText = "X"
+        Me.CrStrX.HeaderText = "Cycle"
         Me.CrStrX.Name = "CrStrX"
         '
         'Step_14
@@ -5454,7 +5450,7 @@ Partial Class Main
         Me.Step_14.Location = New System.Drawing.Point(4, 40)
         Me.Step_14.Name = "Step_14"
         Me.Step_14.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_14.Size = New System.Drawing.Size(996, 689)
+        Me.Step_14.Size = New System.Drawing.Size(1000, 493)
         Me.Step_14.TabIndex = 17
         Me.Step_14.Text = "Step 14 (Undergrounds)"
         '
@@ -5483,7 +5479,7 @@ Partial Class Main
         Me.Panel15.Controls.Add(Me.textBoxUGTitle)
         Me.Panel15.Location = New System.Drawing.Point(8, 213)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(702, 470)
+        Me.Panel15.Size = New System.Drawing.Size(702, 271)
         Me.Panel15.TabIndex = 12
         '
         'ButtonUGExitTip
@@ -5790,7 +5786,7 @@ Partial Class Main
         '
         Me.ButtonNewUG.Image = CType(resources.GetObject("ButtonNewUG.Image"), System.Drawing.Image)
         Me.ButtonNewUG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewUG.Location = New System.Drawing.Point(598, 532)
+        Me.ButtonNewUG.Location = New System.Drawing.Point(607, 517)
         Me.ButtonNewUG.Name = "ButtonNewUG"
         Me.ButtonNewUG.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewUG.TabIndex = 11
@@ -5810,7 +5806,7 @@ Partial Class Main
         '
         Me.PictureBoxUGbveSyntax.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBoxUGbveSyntax.Image = CType(resources.GetObject("PictureBoxUGbveSyntax.Image"), System.Drawing.Image)
-        Me.PictureBoxUGbveSyntax.Location = New System.Drawing.Point(3, 517)
+        Me.PictureBoxUGbveSyntax.Location = New System.Drawing.Point(3, 505)
         Me.PictureBoxUGbveSyntax.Name = "PictureBoxUGbveSyntax"
         Me.PictureBoxUGbveSyntax.Size = New System.Drawing.Size(38, 35)
         Me.PictureBoxUGbveSyntax.TabIndex = 75
@@ -5985,7 +5981,7 @@ Partial Class Main
         '
         Me.GroupBox32.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox32.Controls.Add(Me.PictureBoxUG)
-        Me.GroupBox32.Location = New System.Drawing.Point(716, 262)
+        Me.GroupBox32.Location = New System.Drawing.Point(723, 303)
         Me.GroupBox32.Name = "GroupBox32"
         Me.GroupBox32.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox32.TabIndex = 10
@@ -6009,686 +6005,6 @@ Partial Class Main
         Me.DataGridViewUG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewUG.Size = New System.Drawing.Size(979, 201)
         Me.DataGridViewUG.TabIndex = 8
-        '
-        'Step_15
-        '
-        Me.Step_15.BackColor = System.Drawing.SystemColors.Control
-        Me.Step_15.Controls.Add(Me.Panel13)
-        Me.Step_15.Controls.Add(Me.GroupBox5)
-        Me.Step_15.Controls.Add(Me.DataGridViewBVEfobj)
-        Me.Step_15.Location = New System.Drawing.Point(4, 40)
-        Me.Step_15.Name = "Step_15"
-        Me.Step_15.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_15.Size = New System.Drawing.Size(996, 689)
-        Me.Step_15.TabIndex = 2
-        Me.Step_15.Text = "Step 15 (Free Objects)"
-        '
-        'Panel13
-        '
-        Me.Panel13.AutoScroll = True
-        Me.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel13.Controls.Add(Me.Button27)
-        Me.Panel13.Controls.Add(Me.Buttonbvefobjadd)
-        Me.Panel13.Controls.Add(Me.TextBoxbvefobjfile)
-        Me.Panel13.Controls.Add(Me.PictureBox21)
-        Me.Panel13.Controls.Add(Me.Label15)
-        Me.Panel13.Controls.Add(Me.ButtonbveFOimg)
-        Me.Panel13.Controls.Add(Me.Label14)
-        Me.Panel13.Controls.Add(Me.ButtonbveFOfile)
-        Me.Panel13.Controls.Add(Me.Label13)
-        Me.Panel13.Controls.Add(Me.ComboBoxbvefobjotype)
-        Me.Panel13.Controls.Add(Me.Label12)
-        Me.Panel13.Controls.Add(Me.TextBoxbvefobjimg)
-        Me.Panel13.Controls.Add(Me.Label11)
-        Me.Panel13.Controls.Add(Me.TextBoxbvefobjname)
-        Me.Panel13.Controls.Add(Me.TextBoxbvefobjtitle)
-        Me.Panel13.Location = New System.Drawing.Point(8, 214)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(702, 296)
-        Me.Panel13.TabIndex = 8
-        '
-        'Button27
-        '
-        Me.Button27.Image = CType(resources.GetObject("Button27.Image"), System.Drawing.Image)
-        Me.Button27.Location = New System.Drawing.Point(375, 83)
-        Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(28, 23)
-        Me.Button27.TabIndex = 77
-        Me.Button27.UseVisualStyleBackColor = True
-        '
-        'Buttonbvefobjadd
-        '
-        Me.Buttonbvefobjadd.Image = CType(resources.GetObject("Buttonbvefobjadd.Image"), System.Drawing.Image)
-        Me.Buttonbvefobjadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Buttonbvefobjadd.Location = New System.Drawing.Point(603, 252)
-        Me.Buttonbvefobjadd.Name = "Buttonbvefobjadd"
-        Me.Buttonbvefobjadd.Size = New System.Drawing.Size(75, 23)
-        Me.Buttonbvefobjadd.TabIndex = 7
-        Me.Buttonbvefobjadd.Text = "Add"
-        Me.Buttonbvefobjadd.UseVisualStyleBackColor = True
-        '
-        'TextBoxbvefobjfile
-        '
-        Me.TextBoxbvefobjfile.Location = New System.Drawing.Point(88, 149)
-        Me.TextBoxbvefobjfile.Name = "TextBoxbvefobjfile"
-        Me.TextBoxbvefobjfile.ReadOnly = True
-        Me.TextBoxbvefobjfile.Size = New System.Drawing.Size(389, 20)
-        Me.TextBoxbvefobjfile.TabIndex = 10
-        '
-        'PictureBox21
-        '
-        Me.PictureBox21.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox21.Image = CType(resources.GetObject("PictureBox21.Image"), System.Drawing.Image)
-        Me.PictureBox21.Location = New System.Drawing.Point(6, 240)
-        Me.PictureBox21.Name = "PictureBox21"
-        Me.PictureBox21.Size = New System.Drawing.Size(38, 35)
-        Me.PictureBox21.TabIndex = 75
-        Me.PictureBox21.TabStop = False
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(3, 12)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(41, 13)
-        Me.Label15.TabIndex = 0
-        Me.Label15.Text = "Name :"
-        '
-        'ButtonbveFOimg
-        '
-        Me.ButtonbveFOimg.Image = CType(resources.GetObject("ButtonbveFOimg.Image"), System.Drawing.Image)
-        Me.ButtonbveFOimg.Location = New System.Drawing.Point(346, 41)
-        Me.ButtonbveFOimg.Name = "ButtonbveFOimg"
-        Me.ButtonbveFOimg.Size = New System.Drawing.Size(23, 23)
-        Me.ButtonbveFOimg.TabIndex = 19
-        Me.ButtonbveFOimg.UseVisualStyleBackColor = True
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(232, 12)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(33, 13)
-        Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Title :"
-        '
-        'ButtonbveFOfile
-        '
-        Me.ButtonbveFOfile.Image = CType(resources.GetObject("ButtonbveFOfile.Image"), System.Drawing.Image)
-        Me.ButtonbveFOfile.Location = New System.Drawing.Point(483, 147)
-        Me.ButtonbveFOfile.Name = "ButtonbveFOfile"
-        Me.ButtonbveFOfile.Size = New System.Drawing.Size(23, 23)
-        Me.ButtonbveFOfile.TabIndex = 18
-        Me.ButtonbveFOfile.UseVisualStyleBackColor = True
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(3, 152)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(72, 13)
-        Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Structure file :"
-        '
-        'ComboBoxbvefobjotype
-        '
-        Me.ComboBoxbvefobjotype.FormattingEnabled = True
-        Me.ComboBoxbvefobjotype.Items.AddRange(New Object() {"building", "house", "tree", "landscape", "road", "fence", "train", "others vehicle", "sign", "rail object", "structure", "machine", "station object", "overbridge", "others"})
-        Me.ComboBoxbvefobjotype.Location = New System.Drawing.Point(88, 85)
-        Me.ComboBoxbvefobjotype.Name = "ComboBoxbvefobjotype"
-        Me.ComboBoxbvefobjotype.Size = New System.Drawing.Size(281, 21)
-        Me.ComboBoxbvefobjotype.TabIndex = 16
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(3, 46)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(61, 13)
-        Me.Label12.TabIndex = 3
-        Me.Label12.Text = "Image File :"
-        '
-        'TextBoxbvefobjimg
-        '
-        Me.TextBoxbvefobjimg.Location = New System.Drawing.Point(70, 43)
-        Me.TextBoxbvefobjimg.Name = "TextBoxbvefobjimg"
-        Me.TextBoxbvefobjimg.ReadOnly = True
-        Me.TextBoxbvefobjimg.Size = New System.Drawing.Size(270, 20)
-        Me.TextBoxbvefobjimg.TabIndex = 11
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(3, 88)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(79, 13)
-        Me.Label11.TabIndex = 4
-        Me.Label11.Text = "Structure type :"
-        '
-        'TextBoxbvefobjname
-        '
-        Me.TextBoxbvefobjname.Location = New System.Drawing.Point(50, 9)
-        Me.TextBoxbvefobjname.Name = "TextBoxbvefobjname"
-        Me.TextBoxbvefobjname.Size = New System.Drawing.Size(138, 20)
-        Me.TextBoxbvefobjname.TabIndex = 8
-        '
-        'TextBoxbvefobjtitle
-        '
-        Me.TextBoxbvefobjtitle.Location = New System.Drawing.Point(271, 9)
-        Me.TextBoxbvefobjtitle.Name = "TextBoxbvefobjtitle"
-        Me.TextBoxbvefobjtitle.Size = New System.Drawing.Size(394, 20)
-        Me.TextBoxbvefobjtitle.TabIndex = 9
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox5.Controls.Add(Me.PictureBoxbvefobjimg)
-        Me.GroupBox5.Location = New System.Drawing.Point(715, 263)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(271, 182)
-        Me.GroupBox5.TabIndex = 6
-        Me.GroupBox5.TabStop = False
-        '
-        'PictureBoxbvefobjimg
-        '
-        Me.PictureBoxbvefobjimg.Location = New System.Drawing.Point(6, 13)
-        Me.PictureBoxbvefobjimg.Name = "PictureBoxbvefobjimg"
-        Me.PictureBoxbvefobjimg.Size = New System.Drawing.Size(259, 163)
-        Me.PictureBoxbvefobjimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxbvefobjimg.TabIndex = 0
-        Me.PictureBoxbvefobjimg.TabStop = False
-        '
-        'DataGridViewBVEfobj
-        '
-        Me.DataGridViewBVEfobj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewBVEfobj.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn10, Me.BVEfobtype, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn8})
-        Me.DataGridViewBVEfobj.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewBVEfobj.Name = "DataGridViewBVEfobj"
-        Me.DataGridViewBVEfobj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewBVEfobj.Size = New System.Drawing.Size(979, 201)
-        Me.DataGridViewBVEfobj.TabIndex = 4
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.HeaderText = ""
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.Width = 30
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Name"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Title"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.Width = 200
-        '
-        'BVEfobtype
-        '
-        Me.BVEfobtype.HeaderText = "Type"
-        Me.BVEfobtype.Name = "BVEfobtype"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Image"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 200
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.HeaderText = "CSV File"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.Width = 220
-        '
-        'Step_16
-        '
-        Me.Step_16.BackColor = System.Drawing.SystemColors.Control
-        Me.Step_16.Controls.Add(Me.Panel14)
-        Me.Step_16.Controls.Add(Me.GroupBox11)
-        Me.Step_16.Controls.Add(Me.DataGridViewBVEstr)
-        Me.Step_16.Location = New System.Drawing.Point(4, 40)
-        Me.Step_16.Name = "Step_16"
-        Me.Step_16.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_16.Size = New System.Drawing.Size(996, 689)
-        Me.Step_16.TabIndex = 5
-        Me.Step_16.Text = "Step 16 (etc.)"
-        '
-        'Panel14
-        '
-        Me.Panel14.AutoScroll = True
-        Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel14.Controls.Add(Me.Button28)
-        Me.Panel14.Controls.Add(Me.Label78)
-        Me.Panel14.Controls.Add(Me.GroupBox6)
-        Me.Panel14.Controls.Add(Me.PictureBox23)
-        Me.Panel14.Controls.Add(Me.GroupBoxbvestrwall)
-        Me.Panel14.Controls.Add(Me.ButtonBVEstrAdd)
-        Me.Panel14.Controls.Add(Me.Label33)
-        Me.Panel14.Controls.Add(Me.Buttonbvestrimg)
-        Me.Panel14.Controls.Add(Me.Label32)
-        Me.Panel14.Controls.Add(Me.ComboBoxBVEstrtype)
-        Me.Panel14.Controls.Add(Me.Label30)
-        Me.Panel14.Controls.Add(Me.TextBoxBVEstrimg)
-        Me.Panel14.Controls.Add(Me.Label29)
-        Me.Panel14.Controls.Add(Me.TextBoxBVEstrname)
-        Me.Panel14.Controls.Add(Me.TextBoxBVEstrtitle)
-        Me.Panel14.Location = New System.Drawing.Point(6, 214)
-        Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(701, 467)
-        Me.Panel14.TabIndex = 8
-        '
-        'Button28
-        '
-        Me.Button28.Image = CType(resources.GetObject("Button28.Image"), System.Drawing.Image)
-        Me.Button28.Location = New System.Drawing.Point(346, 85)
-        Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(28, 23)
-        Me.Button28.TabIndex = 79
-        Me.Button28.UseVisualStyleBackColor = True
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(314, 204)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(45, 25)
-        Me.Label78.TabIndex = 78
-        Me.Label78.Text = "OR"
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.TextBoxBVEstrfile)
-        Me.GroupBox6.Controls.Add(Me.Buttonbvestrfile)
-        Me.GroupBox6.Controls.Add(Me.Label31)
-        Me.GroupBox6.Location = New System.Drawing.Point(6, 129)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(659, 68)
-        Me.GroupBox6.TabIndex = 77
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Single structure"
-        '
-        'TextBoxBVEstrfile
-        '
-        Me.TextBoxBVEstrfile.Location = New System.Drawing.Point(70, 32)
-        Me.TextBoxBVEstrfile.Name = "TextBoxBVEstrfile"
-        Me.TextBoxBVEstrfile.ReadOnly = True
-        Me.TextBoxBVEstrfile.Size = New System.Drawing.Size(554, 20)
-        Me.TextBoxBVEstrfile.TabIndex = 10
-        '
-        'Buttonbvestrfile
-        '
-        Me.Buttonbvestrfile.Image = CType(resources.GetObject("Buttonbvestrfile.Image"), System.Drawing.Image)
-        Me.Buttonbvestrfile.Location = New System.Drawing.Point(630, 30)
-        Me.Buttonbvestrfile.Name = "Buttonbvestrfile"
-        Me.Buttonbvestrfile.Size = New System.Drawing.Size(23, 23)
-        Me.Buttonbvestrfile.TabIndex = 18
-        Me.Buttonbvestrfile.UseVisualStyleBackColor = True
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(8, 35)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(56, 13)
-        Me.Label31.TabIndex = 2
-        Me.Label31.Text = "Structure :"
-        '
-        'PictureBox23
-        '
-        Me.PictureBox23.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox23.Image = CType(resources.GetObject("PictureBox23.Image"), System.Drawing.Image)
-        Me.PictureBox23.Location = New System.Drawing.Point(6, 385)
-        Me.PictureBox23.Name = "PictureBox23"
-        Me.PictureBox23.Size = New System.Drawing.Size(38, 35)
-        Me.PictureBox23.TabIndex = 75
-        Me.PictureBox23.TabStop = False
-        '
-        'GroupBoxbvestrwall
-        '
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label91)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label126)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.NumericUpDownBveX)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label127)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.ButtonbveWallRfile)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.ButtonbveWallLfile)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label124)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label125)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.TextBoxbveWallRfile)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.TextBoxbveWallLfile)
-        Me.GroupBoxbvestrwall.Location = New System.Drawing.Point(6, 232)
-        Me.GroupBoxbvestrwall.Name = "GroupBoxbvestrwall"
-        Me.GroupBoxbvestrwall.Size = New System.Drawing.Size(659, 92)
-        Me.GroupBoxbvestrwall.TabIndex = 20
-        Me.GroupBoxbvestrwall.TabStop = False
-        Me.GroupBoxbvestrwall.Text = "Repeating structure (.x only) :"
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(24, 36)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(56, 13)
-        Me.Label91.TabIndex = 67
-        Me.Label91.Text = "Structure :"
-        '
-        'Label126
-        '
-        Me.Label126.AutoSize = True
-        Me.Label126.Location = New System.Drawing.Point(157, 61)
-        Me.Label126.Name = "Label126"
-        Me.Label126.Size = New System.Drawing.Size(15, 13)
-        Me.Label126.TabIndex = 66
-        Me.Label126.Text = "m"
-        '
-        'NumericUpDownBveX
-        '
-        Me.NumericUpDownBveX.Location = New System.Drawing.Point(96, 59)
-        Me.NumericUpDownBveX.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.NumericUpDownBveX.Name = "NumericUpDownBveX"
-        Me.NumericUpDownBveX.Size = New System.Drawing.Size(55, 20)
-        Me.NumericUpDownBveX.TabIndex = 65
-        '
-        'Label127
-        '
-        Me.Label127.AutoSize = True
-        Me.Label127.Location = New System.Drawing.Point(8, 61)
-        Me.Label127.Name = "Label127"
-        Me.Label127.Size = New System.Drawing.Size(84, 13)
-        Me.Label127.TabIndex = 64
-        Me.Label127.Text = "Repeating cycle"
-        '
-        'ButtonbveWallRfile
-        '
-        Me.ButtonbveWallRfile.Image = CType(resources.GetObject("ButtonbveWallRfile.Image"), System.Drawing.Image)
-        Me.ButtonbveWallRfile.Location = New System.Drawing.Point(636, 31)
-        Me.ButtonbveWallRfile.Name = "ButtonbveWallRfile"
-        Me.ButtonbveWallRfile.Size = New System.Drawing.Size(23, 23)
-        Me.ButtonbveWallRfile.TabIndex = 38
-        Me.ButtonbveWallRfile.UseVisualStyleBackColor = True
-        '
-        'ButtonbveWallLfile
-        '
-        Me.ButtonbveWallLfile.Image = CType(resources.GetObject("ButtonbveWallLfile.Image"), System.Drawing.Image)
-        Me.ButtonbveWallLfile.Location = New System.Drawing.Point(340, 31)
-        Me.ButtonbveWallLfile.Name = "ButtonbveWallLfile"
-        Me.ButtonbveWallLfile.Size = New System.Drawing.Size(23, 23)
-        Me.ButtonbveWallLfile.TabIndex = 37
-        Me.ButtonbveWallLfile.UseVisualStyleBackColor = True
-        '
-        'Label124
-        '
-        Me.Label124.AutoSize = True
-        Me.Label124.Location = New System.Drawing.Point(499, 17)
-        Me.Label124.Name = "Label124"
-        Me.Label124.Size = New System.Drawing.Size(32, 13)
-        Me.Label124.TabIndex = 36
-        Me.Label124.Text = "Right"
-        Me.Label124.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Label125
-        '
-        Me.Label125.AutoSize = True
-        Me.Label125.Location = New System.Drawing.Point(190, 17)
-        Me.Label125.Name = "Label125"
-        Me.Label125.Size = New System.Drawing.Size(25, 13)
-        Me.Label125.TabIndex = 35
-        Me.Label125.Text = "Left"
-        Me.Label125.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'TextBoxbveWallRfile
-        '
-        Me.TextBoxbveWallRfile.Location = New System.Drawing.Point(380, 33)
-        Me.TextBoxbveWallRfile.Name = "TextBoxbveWallRfile"
-        Me.TextBoxbveWallRfile.Size = New System.Drawing.Size(250, 20)
-        Me.TextBoxbveWallRfile.TabIndex = 34
-        '
-        'TextBoxbveWallLfile
-        '
-        Me.TextBoxbveWallLfile.Location = New System.Drawing.Point(86, 33)
-        Me.TextBoxbveWallLfile.Name = "TextBoxbveWallLfile"
-        Me.TextBoxbveWallLfile.Size = New System.Drawing.Size(250, 20)
-        Me.TextBoxbveWallLfile.TabIndex = 33
-        '
-        'ButtonBVEstrAdd
-        '
-        Me.ButtonBVEstrAdd.Image = CType(resources.GetObject("ButtonBVEstrAdd.Image"), System.Drawing.Image)
-        Me.ButtonBVEstrAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonBVEstrAdd.Location = New System.Drawing.Point(584, 397)
-        Me.ButtonBVEstrAdd.Name = "ButtonBVEstrAdd"
-        Me.ButtonBVEstrAdd.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonBVEstrAdd.TabIndex = 7
-        Me.ButtonBVEstrAdd.Text = "Add"
-        Me.ButtonBVEstrAdd.UseVisualStyleBackColor = True
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(3, 12)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(41, 13)
-        Me.Label33.TabIndex = 0
-        Me.Label33.Text = "Name :"
-        '
-        'Buttonbvestrimg
-        '
-        Me.Buttonbvestrimg.Image = CType(resources.GetObject("Buttonbvestrimg.Image"), System.Drawing.Image)
-        Me.Buttonbvestrimg.Location = New System.Drawing.Point(346, 41)
-        Me.Buttonbvestrimg.Name = "Buttonbvestrimg"
-        Me.Buttonbvestrimg.Size = New System.Drawing.Size(23, 23)
-        Me.Buttonbvestrimg.TabIndex = 19
-        Me.Buttonbvestrimg.UseVisualStyleBackColor = True
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(232, 12)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(33, 13)
-        Me.Label32.TabIndex = 1
-        Me.Label32.Text = "Title :"
-        '
-        'ComboBoxBVEstrtype
-        '
-        Me.ComboBoxBVEstrtype.FormattingEnabled = True
-        Me.ComboBoxBVEstrtype.Items.AddRange(New Object() {"Ground", "Beacon", "Background", "Wall", "River", "RiverBank"})
-        Me.ComboBoxBVEstrtype.Location = New System.Drawing.Point(88, 87)
-        Me.ComboBoxBVEstrtype.Name = "ComboBoxBVEstrtype"
-        Me.ComboBoxBVEstrtype.Size = New System.Drawing.Size(252, 21)
-        Me.ComboBoxBVEstrtype.TabIndex = 15
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(3, 46)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(61, 13)
-        Me.Label30.TabIndex = 3
-        Me.Label30.Text = "Image File :"
-        '
-        'TextBoxBVEstrimg
-        '
-        Me.TextBoxBVEstrimg.Location = New System.Drawing.Point(70, 43)
-        Me.TextBoxBVEstrimg.Name = "TextBoxBVEstrimg"
-        Me.TextBoxBVEstrimg.ReadOnly = True
-        Me.TextBoxBVEstrimg.Size = New System.Drawing.Size(270, 20)
-        Me.TextBoxBVEstrimg.TabIndex = 11
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(3, 90)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(79, 13)
-        Me.Label29.TabIndex = 4
-        Me.Label29.Text = "Structure type :"
-        '
-        'TextBoxBVEstrname
-        '
-        Me.TextBoxBVEstrname.Location = New System.Drawing.Point(50, 9)
-        Me.TextBoxBVEstrname.Name = "TextBoxBVEstrname"
-        Me.TextBoxBVEstrname.Size = New System.Drawing.Size(138, 20)
-        Me.TextBoxBVEstrname.TabIndex = 8
-        '
-        'TextBoxBVEstrtitle
-        '
-        Me.TextBoxBVEstrtitle.Location = New System.Drawing.Point(271, 9)
-        Me.TextBoxBVEstrtitle.Name = "TextBoxBVEstrtitle"
-        Me.TextBoxBVEstrtitle.Size = New System.Drawing.Size(394, 20)
-        Me.TextBoxBVEstrtitle.TabIndex = 9
-        '
-        'GroupBox11
-        '
-        Me.GroupBox11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox11.Controls.Add(Me.PictureBoxBVEstrimg)
-        Me.GroupBox11.Location = New System.Drawing.Point(715, 263)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(271, 182)
-        Me.GroupBox11.TabIndex = 6
-        Me.GroupBox11.TabStop = False
-        '
-        'PictureBoxBVEstrimg
-        '
-        Me.PictureBoxBVEstrimg.Location = New System.Drawing.Point(6, 13)
-        Me.PictureBoxBVEstrimg.Name = "PictureBoxBVEstrimg"
-        Me.PictureBoxBVEstrimg.Size = New System.Drawing.Size(259, 163)
-        Me.PictureBoxBVEstrimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxBVEstrimg.TabIndex = 0
-        Me.PictureBoxBVEstrimg.TabStop = False
-        '
-        'DataGridViewBVEstr
-        '
-        Me.DataGridViewBVEstr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewBVEstr.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn25, Me.BvestrType, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn23, Me.bveWallL, Me.bveWallR, Me.BveStrX})
-        Me.DataGridViewBVEstr.Location = New System.Drawing.Point(7, 7)
-        Me.DataGridViewBVEstr.Name = "DataGridViewBVEstr"
-        Me.DataGridViewBVEstr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewBVEstr.Size = New System.Drawing.Size(979, 201)
-        Me.DataGridViewBVEstr.TabIndex = 4
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.HeaderText = ""
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.Width = 30
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.HeaderText = "Name"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.HeaderText = "Title"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        Me.DataGridViewTextBoxColumn25.Width = 150
-        '
-        'BvestrType
-        '
-        Me.BvestrType.HeaderText = "Type"
-        Me.BvestrType.Name = "BvestrType"
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.HeaderText = "Image"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.HeaderText = "CSV"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        '
-        'bveWallL
-        '
-        Me.bveWallL.HeaderText = "SL"
-        Me.bveWallL.Name = "bveWallL"
-        '
-        'bveWallR
-        '
-        Me.bveWallR.HeaderText = "SR"
-        Me.bveWallR.Name = "bveWallR"
-        '
-        'BveStrX
-        '
-        Me.BveStrX.HeaderText = "X"
-        Me.BveStrX.Name = "BveStrX"
-        '
-        'Step_17
-        '
-        Me.Step_17.BackColor = System.Drawing.SystemColors.Control
-        Me.Step_17.Controls.Add(Me.ButtonGenerateGBMapsJS)
-        Me.Step_17.Controls.Add(Me.ButtonSaveXML)
-        Me.Step_17.Controls.Add(Me.LabelS17_Txt02)
-        Me.Step_17.Controls.Add(Me.Label157S17_Txt01)
-        Me.Step_17.Location = New System.Drawing.Point(4, 40)
-        Me.Step_17.Name = "Step_17"
-        Me.Step_17.Size = New System.Drawing.Size(996, 689)
-        Me.Step_17.TabIndex = 19
-        Me.Step_17.Text = "Step 17 (Finishing)"
-        '
-        'ButtonGenerateGBMapsJS
-        '
-        Me.ButtonGenerateGBMapsJS.Image = CType(resources.GetObject("ButtonGenerateGBMapsJS.Image"), System.Drawing.Image)
-        Me.ButtonGenerateGBMapsJS.Location = New System.Drawing.Point(627, 158)
-        Me.ButtonGenerateGBMapsJS.Name = "ButtonGenerateGBMapsJS"
-        Me.ButtonGenerateGBMapsJS.Size = New System.Drawing.Size(132, 134)
-        Me.ButtonGenerateGBMapsJS.TabIndex = 20
-        Me.ButtonGenerateGBMapsJS.UseVisualStyleBackColor = True
-        '
-        'ButtonSaveXML
-        '
-        Me.ButtonSaveXML.Image = CType(resources.GetObject("ButtonSaveXML.Image"), System.Drawing.Image)
-        Me.ButtonSaveXML.Location = New System.Drawing.Point(145, 158)
-        Me.ButtonSaveXML.Name = "ButtonSaveXML"
-        Me.ButtonSaveXML.Size = New System.Drawing.Size(132, 134)
-        Me.ButtonSaveXML.TabIndex = 19
-        Me.ButtonSaveXML.UseVisualStyleBackColor = True
-        '
-        'LabelS17_Txt02
-        '
-        Me.LabelS17_Txt02.AutoSize = True
-        Me.LabelS17_Txt02.Location = New System.Drawing.Point(765, 219)
-        Me.LabelS17_Txt02.Name = "LabelS17_Txt02"
-        Me.LabelS17_Txt02.Size = New System.Drawing.Size(173, 13)
-        Me.LabelS17_Txt02.TabIndex = 16
-        Me.LabelS17_Txt02.Text = "Generate GB Maps Javascript data"
-        '
-        'Label157S17_Txt01
-        '
-        Me.Label157S17_Txt01.AutoSize = True
-        Me.Label157S17_Txt01.Location = New System.Drawing.Point(283, 219)
-        Me.Label157S17_Txt01.Name = "Label157S17_Txt01"
-        Me.Label157S17_Txt01.Size = New System.Drawing.Size(87, 13)
-        Me.Label157S17_Txt01.TabIndex = 17
-        Me.Label157S17_Txt01.Text = "Saved XML data"
-        '
-        'About
-        '
-        Me.About.BackColor = System.Drawing.SystemColors.Control
-        Me.About.ForeColor = System.Drawing.Color.Black
-        Me.About.Location = New System.Drawing.Point(4, 40)
-        Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(996, 689)
-        Me.About.TabIndex = 20
-        Me.About.Text = "About"
-        '
-        'FolderBrowserDialog1
-        '
-        Me.FolderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer
-        '
-        'SaveFileDialog1
-        '
-        Me.SaveFileDialog1.DefaultExt = "txt"
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.ContainerControl = Me
-        '
-        'OpenFileDialog2
-        '
-        Me.OpenFileDialog2.FileName = "OpenFileDialog2"
         '
         'DataGridViewTextBoxColumn4
         '
@@ -6780,12 +6096,700 @@ Partial Class Main
         Me.UGExit.Name = "UGExit"
         Me.UGExit.Width = 120
         '
+        'Step_15
+        '
+        Me.Step_15.BackColor = System.Drawing.SystemColors.Control
+        Me.Step_15.Controls.Add(Me.Panel13)
+        Me.Step_15.Controls.Add(Me.GroupBox5)
+        Me.Step_15.Controls.Add(Me.DataGridViewFreeObject)
+        Me.Step_15.Location = New System.Drawing.Point(4, 40)
+        Me.Step_15.Name = "Step_15"
+        Me.Step_15.Padding = New System.Windows.Forms.Padding(3)
+        Me.Step_15.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_15.TabIndex = 2
+        Me.Step_15.Text = "Step 15 (Free Objects)"
+        '
+        'Panel13
+        '
+        Me.Panel13.AutoScroll = True
+        Me.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel13.Controls.Add(Me.ButtonFreeObjectTip)
+        Me.Panel13.Controls.Add(Me.ButtonNewFreeObject)
+        Me.Panel13.Controls.Add(Me.textBoxFreeObjectFile)
+        Me.Panel13.Controls.Add(Me.PictureBoxFreeObjectSyntax)
+        Me.Panel13.Controls.Add(Me.Label15)
+        Me.Panel13.Controls.Add(Me.ButtonBrowseFreeObjectImage)
+        Me.Panel13.Controls.Add(Me.Label14)
+        Me.Panel13.Controls.Add(Me.ButtonBrowseFreeObjectFile)
+        Me.Panel13.Controls.Add(Me.Label13)
+        Me.Panel13.Controls.Add(Me.ComboBoxFreeObjectType)
+        Me.Panel13.Controls.Add(Me.Label12)
+        Me.Panel13.Controls.Add(Me.textBoxFreeObjectImage)
+        Me.Panel13.Controls.Add(Me.Label11)
+        Me.Panel13.Controls.Add(Me.TextBoxbvefobjname)
+        Me.Panel13.Controls.Add(Me.TextBoxbvefobjtitle)
+        Me.Panel13.Location = New System.Drawing.Point(8, 214)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(702, 271)
+        Me.Panel13.TabIndex = 8
+        '
+        'ButtonFreeObjectTip
+        '
+        Me.ButtonFreeObjectTip.Image = CType(resources.GetObject("ButtonFreeObjectTip.Image"), System.Drawing.Image)
+        Me.ButtonFreeObjectTip.Location = New System.Drawing.Point(637, 43)
+        Me.ButtonFreeObjectTip.Name = "ButtonFreeObjectTip"
+        Me.ButtonFreeObjectTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonFreeObjectTip.TabIndex = 77
+        Me.ButtonFreeObjectTip.UseVisualStyleBackColor = True
+        '
+        'ButtonNewFreeObject
+        '
+        Me.ButtonNewFreeObject.Image = CType(resources.GetObject("ButtonNewFreeObject.Image"), System.Drawing.Image)
+        Me.ButtonNewFreeObject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonNewFreeObject.Location = New System.Drawing.Point(590, 240)
+        Me.ButtonNewFreeObject.Name = "ButtonNewFreeObject"
+        Me.ButtonNewFreeObject.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonNewFreeObject.TabIndex = 7
+        Me.ButtonNewFreeObject.Text = "Add"
+        Me.ButtonNewFreeObject.UseVisualStyleBackColor = True
+        '
+        'textBoxFreeObjectFile
+        '
+        Me.textBoxFreeObjectFile.Location = New System.Drawing.Point(88, 149)
+        Me.textBoxFreeObjectFile.Name = "textBoxFreeObjectFile"
+        Me.textBoxFreeObjectFile.ReadOnly = True
+        Me.textBoxFreeObjectFile.Size = New System.Drawing.Size(389, 20)
+        Me.textBoxFreeObjectFile.TabIndex = 10
+        '
+        'PictureBoxFreeObjectSyntax
+        '
+        Me.PictureBoxFreeObjectSyntax.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxFreeObjectSyntax.Image = CType(resources.GetObject("PictureBoxFreeObjectSyntax.Image"), System.Drawing.Image)
+        Me.PictureBoxFreeObjectSyntax.Location = New System.Drawing.Point(3, 229)
+        Me.PictureBoxFreeObjectSyntax.Name = "PictureBoxFreeObjectSyntax"
+        Me.PictureBoxFreeObjectSyntax.Size = New System.Drawing.Size(38, 35)
+        Me.PictureBoxFreeObjectSyntax.TabIndex = 75
+        Me.PictureBoxFreeObjectSyntax.TabStop = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(3, 12)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(41, 13)
+        Me.Label15.TabIndex = 0
+        Me.Label15.Text = "Name :"
+        '
+        'ButtonBrowseFreeObjectImage
+        '
+        Me.ButtonBrowseFreeObjectImage.Image = CType(resources.GetObject("ButtonBrowseFreeObjectImage.Image"), System.Drawing.Image)
+        Me.ButtonBrowseFreeObjectImage.Location = New System.Drawing.Point(346, 41)
+        Me.ButtonBrowseFreeObjectImage.Name = "ButtonBrowseFreeObjectImage"
+        Me.ButtonBrowseFreeObjectImage.Size = New System.Drawing.Size(23, 23)
+        Me.ButtonBrowseFreeObjectImage.TabIndex = 19
+        Me.ButtonBrowseFreeObjectImage.UseVisualStyleBackColor = True
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(232, 12)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(33, 13)
+        Me.Label14.TabIndex = 1
+        Me.Label14.Text = "Title :"
+        '
+        'ButtonBrowseFreeObjectFile
+        '
+        Me.ButtonBrowseFreeObjectFile.Image = CType(resources.GetObject("ButtonBrowseFreeObjectFile.Image"), System.Drawing.Image)
+        Me.ButtonBrowseFreeObjectFile.Location = New System.Drawing.Point(483, 147)
+        Me.ButtonBrowseFreeObjectFile.Name = "ButtonBrowseFreeObjectFile"
+        Me.ButtonBrowseFreeObjectFile.Size = New System.Drawing.Size(23, 23)
+        Me.ButtonBrowseFreeObjectFile.TabIndex = 18
+        Me.ButtonBrowseFreeObjectFile.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(3, 152)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(72, 13)
+        Me.Label13.TabIndex = 2
+        Me.Label13.Text = "Structure file :"
+        '
+        'ComboBoxFreeObjectType
+        '
+        Me.ComboBoxFreeObjectType.FormattingEnabled = True
+        Me.ComboBoxFreeObjectType.Items.AddRange(New Object() {"building", "house", "tree", "landscape", "road", "fence", "train", "others vehicle", "sign", "rail object", "structure", "machine", "station object", "overbridge", "others"})
+        Me.ComboBoxFreeObjectType.Location = New System.Drawing.Point(88, 85)
+        Me.ComboBoxFreeObjectType.Name = "ComboBoxFreeObjectType"
+        Me.ComboBoxFreeObjectType.Size = New System.Drawing.Size(281, 21)
+        Me.ComboBoxFreeObjectType.TabIndex = 16
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(3, 46)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(61, 13)
+        Me.Label12.TabIndex = 3
+        Me.Label12.Text = "Image File :"
+        '
+        'textBoxFreeObjectImage
+        '
+        Me.textBoxFreeObjectImage.Location = New System.Drawing.Point(70, 43)
+        Me.textBoxFreeObjectImage.Name = "textBoxFreeObjectImage"
+        Me.textBoxFreeObjectImage.ReadOnly = True
+        Me.textBoxFreeObjectImage.Size = New System.Drawing.Size(270, 20)
+        Me.textBoxFreeObjectImage.TabIndex = 11
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(3, 88)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(79, 13)
+        Me.Label11.TabIndex = 4
+        Me.Label11.Text = "Structure type :"
+        '
+        'TextBoxbvefobjname
+        '
+        Me.TextBoxbvefobjname.Location = New System.Drawing.Point(50, 9)
+        Me.TextBoxbvefobjname.Name = "TextBoxbvefobjname"
+        Me.TextBoxbvefobjname.Size = New System.Drawing.Size(138, 20)
+        Me.TextBoxbvefobjname.TabIndex = 8
+        '
+        'TextBoxbvefobjtitle
+        '
+        Me.TextBoxbvefobjtitle.Location = New System.Drawing.Point(271, 9)
+        Me.TextBoxbvefobjtitle.Name = "TextBoxbvefobjtitle"
+        Me.TextBoxbvefobjtitle.Size = New System.Drawing.Size(394, 20)
+        Me.TextBoxbvefobjtitle.TabIndex = 9
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Controls.Add(Me.PictureBoxbvefobjimg)
+        Me.GroupBox5.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(271, 182)
+        Me.GroupBox5.TabIndex = 6
+        Me.GroupBox5.TabStop = False
+        '
+        'PictureBoxbvefobjimg
+        '
+        Me.PictureBoxbvefobjimg.Location = New System.Drawing.Point(6, 13)
+        Me.PictureBoxbvefobjimg.Name = "PictureBoxbvefobjimg"
+        Me.PictureBoxbvefobjimg.Size = New System.Drawing.Size(259, 163)
+        Me.PictureBoxbvefobjimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxbvefobjimg.TabIndex = 0
+        Me.PictureBoxbvefobjimg.TabStop = False
+        '
+        'DataGridViewFreeObject
+        '
+        Me.DataGridViewFreeObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewFreeObject.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn9, Me.BVEfobtype, Me.DataGridViewTextBoxColumn8})
+        Me.DataGridViewFreeObject.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewFreeObject.Name = "DataGridViewFreeObject"
+        Me.DataGridViewFreeObject.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewFreeObject.Size = New System.Drawing.Size(979, 201)
+        Me.DataGridViewFreeObject.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.HeaderText = ""
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.Width = 30
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Name"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 80
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Title"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.Width = 150
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Image"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 120
+        '
+        'BVEfobtype
+        '
+        Me.BVEfobtype.HeaderText = "Type"
+        Me.BVEfobtype.Name = "BVEfobtype"
+        Me.BVEfobtype.Width = 80
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.HeaderText = "File"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Width = 120
+        '
+        'Step_16
+        '
+        Me.Step_16.BackColor = System.Drawing.SystemColors.Control
+        Me.Step_16.Controls.Add(Me.Panel14)
+        Me.Step_16.Controls.Add(Me.GroupBox11)
+        Me.Step_16.Controls.Add(Me.DataGridViewEtc)
+        Me.Step_16.Location = New System.Drawing.Point(4, 40)
+        Me.Step_16.Name = "Step_16"
+        Me.Step_16.Padding = New System.Windows.Forms.Padding(3)
+        Me.Step_16.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_16.TabIndex = 5
+        Me.Step_16.Text = "Step 16 (etc.)"
+        '
+        'Panel14
+        '
+        Me.Panel14.AutoScroll = True
+        Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel14.Controls.Add(Me.ButtonEtcBVEImage)
+        Me.Panel14.Controls.Add(Me.Label78)
+        Me.Panel14.Controls.Add(Me.GroupBox6)
+        Me.Panel14.Controls.Add(Me.PictureBoxetcBVESyntax)
+        Me.Panel14.Controls.Add(Me.GroupBoxbvestrwall)
+        Me.Panel14.Controls.Add(Me.ButtonNewBVE)
+        Me.Panel14.Controls.Add(Me.Label33)
+        Me.Panel14.Controls.Add(Me.ButtonBrowseEtcBVEImage)
+        Me.Panel14.Controls.Add(Me.Label32)
+        Me.Panel14.Controls.Add(Me.ComboBoxBVEType)
+        Me.Panel14.Controls.Add(Me.Label30)
+        Me.Panel14.Controls.Add(Me.TextBoxetcBVEImage)
+        Me.Panel14.Controls.Add(Me.Label29)
+        Me.Panel14.Controls.Add(Me.TextBoxBVEstrname)
+        Me.Panel14.Controls.Add(Me.TextBoxBVEstrtitle)
+        Me.Panel14.Location = New System.Drawing.Point(6, 214)
+        Me.Panel14.Name = "Panel14"
+        Me.Panel14.Size = New System.Drawing.Size(701, 271)
+        Me.Panel14.TabIndex = 8
+        '
+        'ButtonEtcBVEImage
+        '
+        Me.ButtonEtcBVEImage.Image = CType(resources.GetObject("ButtonEtcBVEImage.Image"), System.Drawing.Image)
+        Me.ButtonEtcBVEImage.Location = New System.Drawing.Point(649, 90)
+        Me.ButtonEtcBVEImage.Name = "ButtonEtcBVEImage"
+        Me.ButtonEtcBVEImage.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonEtcBVEImage.TabIndex = 79
+        Me.ButtonEtcBVEImage.UseVisualStyleBackColor = True
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label78.Location = New System.Drawing.Point(314, 204)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(45, 25)
+        Me.Label78.TabIndex = 78
+        Me.Label78.Text = "OR"
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.TextBoxBVEfile)
+        Me.GroupBox6.Controls.Add(Me.ButtonBrowseBVEfile)
+        Me.GroupBox6.Controls.Add(Me.Label31)
+        Me.GroupBox6.Location = New System.Drawing.Point(6, 129)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(671, 68)
+        Me.GroupBox6.TabIndex = 77
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Single structure"
+        '
+        'TextBoxBVEfile
+        '
+        Me.TextBoxBVEfile.Location = New System.Drawing.Point(70, 32)
+        Me.TextBoxBVEfile.Name = "TextBoxBVEfile"
+        Me.TextBoxBVEfile.ReadOnly = True
+        Me.TextBoxBVEfile.Size = New System.Drawing.Size(554, 20)
+        Me.TextBoxBVEfile.TabIndex = 10
+        '
+        'ButtonBrowseBVEfile
+        '
+        Me.ButtonBrowseBVEfile.Image = CType(resources.GetObject("ButtonBrowseBVEfile.Image"), System.Drawing.Image)
+        Me.ButtonBrowseBVEfile.Location = New System.Drawing.Point(630, 30)
+        Me.ButtonBrowseBVEfile.Name = "ButtonBrowseBVEfile"
+        Me.ButtonBrowseBVEfile.Size = New System.Drawing.Size(23, 23)
+        Me.ButtonBrowseBVEfile.TabIndex = 18
+        Me.ButtonBrowseBVEfile.UseVisualStyleBackColor = True
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(8, 35)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(56, 13)
+        Me.Label31.TabIndex = 2
+        Me.Label31.Text = "Structure :"
+        '
+        'PictureBoxetcBVESyntax
+        '
+        Me.PictureBoxetcBVESyntax.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxetcBVESyntax.Image = CType(resources.GetObject("PictureBoxetcBVESyntax.Image"), System.Drawing.Image)
+        Me.PictureBoxetcBVESyntax.Location = New System.Drawing.Point(3, 349)
+        Me.PictureBoxetcBVESyntax.Name = "PictureBoxetcBVESyntax"
+        Me.PictureBoxetcBVESyntax.Size = New System.Drawing.Size(38, 35)
+        Me.PictureBoxetcBVESyntax.TabIndex = 75
+        Me.PictureBoxetcBVESyntax.TabStop = False
+        '
+        'GroupBoxbvestrwall
+        '
+        Me.GroupBoxbvestrwall.Controls.Add(Me.Label91)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.Label126)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.NumericUpDownBveX)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.Label127)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.ButtonbrowseBVERight)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.ButtonbrowseBVELeft)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.Label124)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.Label125)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.TextBoxBVERight)
+        Me.GroupBoxbvestrwall.Controls.Add(Me.textBoxBVELeft)
+        Me.GroupBoxbvestrwall.Location = New System.Drawing.Point(6, 232)
+        Me.GroupBoxbvestrwall.Name = "GroupBoxbvestrwall"
+        Me.GroupBoxbvestrwall.Size = New System.Drawing.Size(671, 92)
+        Me.GroupBoxbvestrwall.TabIndex = 20
+        Me.GroupBoxbvestrwall.TabStop = False
+        Me.GroupBoxbvestrwall.Text = "Repeating structure (.x only) :"
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Location = New System.Drawing.Point(24, 36)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(56, 13)
+        Me.Label91.TabIndex = 67
+        Me.Label91.Text = "Structure :"
+        '
+        'Label126
+        '
+        Me.Label126.AutoSize = True
+        Me.Label126.Location = New System.Drawing.Point(157, 61)
+        Me.Label126.Name = "Label126"
+        Me.Label126.Size = New System.Drawing.Size(15, 13)
+        Me.Label126.TabIndex = 66
+        Me.Label126.Text = "m"
+        '
+        'NumericUpDownBveX
+        '
+        Me.NumericUpDownBveX.Location = New System.Drawing.Point(96, 59)
+        Me.NumericUpDownBveX.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownBveX.Name = "NumericUpDownBveX"
+        Me.NumericUpDownBveX.Size = New System.Drawing.Size(55, 20)
+        Me.NumericUpDownBveX.TabIndex = 65
+        '
+        'Label127
+        '
+        Me.Label127.AutoSize = True
+        Me.Label127.Location = New System.Drawing.Point(8, 61)
+        Me.Label127.Name = "Label127"
+        Me.Label127.Size = New System.Drawing.Size(84, 13)
+        Me.Label127.TabIndex = 64
+        Me.Label127.Text = "Repeating cycle"
+        '
+        'ButtonbrowseBVERight
+        '
+        Me.ButtonbrowseBVERight.Image = CType(resources.GetObject("ButtonbrowseBVERight.Image"), System.Drawing.Image)
+        Me.ButtonbrowseBVERight.Location = New System.Drawing.Point(636, 31)
+        Me.ButtonbrowseBVERight.Name = "ButtonbrowseBVERight"
+        Me.ButtonbrowseBVERight.Size = New System.Drawing.Size(23, 23)
+        Me.ButtonbrowseBVERight.TabIndex = 38
+        Me.ButtonbrowseBVERight.UseVisualStyleBackColor = True
+        '
+        'ButtonbrowseBVELeft
+        '
+        Me.ButtonbrowseBVELeft.Image = CType(resources.GetObject("ButtonbrowseBVELeft.Image"), System.Drawing.Image)
+        Me.ButtonbrowseBVELeft.Location = New System.Drawing.Point(340, 31)
+        Me.ButtonbrowseBVELeft.Name = "ButtonbrowseBVELeft"
+        Me.ButtonbrowseBVELeft.Size = New System.Drawing.Size(23, 23)
+        Me.ButtonbrowseBVELeft.TabIndex = 37
+        Me.ButtonbrowseBVELeft.UseVisualStyleBackColor = True
+        '
+        'Label124
+        '
+        Me.Label124.AutoSize = True
+        Me.Label124.Location = New System.Drawing.Point(499, 17)
+        Me.Label124.Name = "Label124"
+        Me.Label124.Size = New System.Drawing.Size(32, 13)
+        Me.Label124.TabIndex = 36
+        Me.Label124.Text = "Right"
+        Me.Label124.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label125
+        '
+        Me.Label125.AutoSize = True
+        Me.Label125.Location = New System.Drawing.Point(190, 17)
+        Me.Label125.Name = "Label125"
+        Me.Label125.Size = New System.Drawing.Size(25, 13)
+        Me.Label125.TabIndex = 35
+        Me.Label125.Text = "Left"
+        Me.Label125.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'TextBoxBVERight
+        '
+        Me.TextBoxBVERight.Location = New System.Drawing.Point(380, 33)
+        Me.TextBoxBVERight.Name = "TextBoxBVERight"
+        Me.TextBoxBVERight.Size = New System.Drawing.Size(250, 20)
+        Me.TextBoxBVERight.TabIndex = 34
+        '
+        'textBoxBVELeft
+        '
+        Me.textBoxBVELeft.Location = New System.Drawing.Point(86, 33)
+        Me.textBoxBVELeft.Name = "textBoxBVELeft"
+        Me.textBoxBVELeft.Size = New System.Drawing.Size(250, 20)
+        Me.textBoxBVELeft.TabIndex = 33
+        '
+        'ButtonNewBVE
+        '
+        Me.ButtonNewBVE.Image = CType(resources.GetObject("ButtonNewBVE.Image"), System.Drawing.Image)
+        Me.ButtonNewBVE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonNewBVE.Location = New System.Drawing.Point(602, 361)
+        Me.ButtonNewBVE.Name = "ButtonNewBVE"
+        Me.ButtonNewBVE.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonNewBVE.TabIndex = 7
+        Me.ButtonNewBVE.Text = "Add"
+        Me.ButtonNewBVE.UseVisualStyleBackColor = True
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(3, 12)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(41, 13)
+        Me.Label33.TabIndex = 0
+        Me.Label33.Text = "Name :"
+        '
+        'ButtonBrowseEtcBVEImage
+        '
+        Me.ButtonBrowseEtcBVEImage.Image = CType(resources.GetObject("ButtonBrowseEtcBVEImage.Image"), System.Drawing.Image)
+        Me.ButtonBrowseEtcBVEImage.Location = New System.Drawing.Point(346, 41)
+        Me.ButtonBrowseEtcBVEImage.Name = "ButtonBrowseEtcBVEImage"
+        Me.ButtonBrowseEtcBVEImage.Size = New System.Drawing.Size(23, 23)
+        Me.ButtonBrowseEtcBVEImage.TabIndex = 19
+        Me.ButtonBrowseEtcBVEImage.UseVisualStyleBackColor = True
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(232, 12)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(33, 13)
+        Me.Label32.TabIndex = 1
+        Me.Label32.Text = "Title :"
+        '
+        'ComboBoxBVEType
+        '
+        Me.ComboBoxBVEType.FormattingEnabled = True
+        Me.ComboBoxBVEType.Items.AddRange(New Object() {"Ground", "Beacon", "Background", "Wall", "River", "RiverBank"})
+        Me.ComboBoxBVEType.Location = New System.Drawing.Point(88, 87)
+        Me.ComboBoxBVEType.Name = "ComboBoxBVEType"
+        Me.ComboBoxBVEType.Size = New System.Drawing.Size(252, 21)
+        Me.ComboBoxBVEType.TabIndex = 15
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(3, 46)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(61, 13)
+        Me.Label30.TabIndex = 3
+        Me.Label30.Text = "Image File :"
+        '
+        'TextBoxetcBVEImage
+        '
+        Me.TextBoxetcBVEImage.Location = New System.Drawing.Point(70, 43)
+        Me.TextBoxetcBVEImage.Name = "TextBoxetcBVEImage"
+        Me.TextBoxetcBVEImage.ReadOnly = True
+        Me.TextBoxetcBVEImage.Size = New System.Drawing.Size(270, 20)
+        Me.TextBoxetcBVEImage.TabIndex = 11
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(3, 90)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(79, 13)
+        Me.Label29.TabIndex = 4
+        Me.Label29.Text = "Structure type :"
+        '
+        'TextBoxBVEstrname
+        '
+        Me.TextBoxBVEstrname.Location = New System.Drawing.Point(50, 9)
+        Me.TextBoxBVEstrname.Name = "TextBoxBVEstrname"
+        Me.TextBoxBVEstrname.Size = New System.Drawing.Size(138, 20)
+        Me.TextBoxBVEstrname.TabIndex = 8
+        '
+        'TextBoxBVEstrtitle
+        '
+        Me.TextBoxBVEstrtitle.Location = New System.Drawing.Point(271, 9)
+        Me.TextBoxBVEstrtitle.Name = "TextBoxBVEstrtitle"
+        Me.TextBoxBVEstrtitle.Size = New System.Drawing.Size(394, 20)
+        Me.TextBoxBVEstrtitle.TabIndex = 9
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox11.Controls.Add(Me.PictureBoxBVEstrimg)
+        Me.GroupBox11.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(271, 182)
+        Me.GroupBox11.TabIndex = 6
+        Me.GroupBox11.TabStop = False
+        '
+        'PictureBoxBVEstrimg
+        '
+        Me.PictureBoxBVEstrimg.Location = New System.Drawing.Point(6, 13)
+        Me.PictureBoxBVEstrimg.Name = "PictureBoxBVEstrimg"
+        Me.PictureBoxBVEstrimg.Size = New System.Drawing.Size(259, 163)
+        Me.PictureBoxBVEstrimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxBVEstrimg.TabIndex = 0
+        Me.PictureBoxBVEstrimg.TabStop = False
+        '
+        'DataGridViewEtc
+        '
+        Me.DataGridViewEtc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewEtc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn24, Me.BvestrType, Me.DataGridViewTextBoxColumn23, Me.bveWallL, Me.bveWallR, Me.BveStrX})
+        Me.DataGridViewEtc.Location = New System.Drawing.Point(7, 7)
+        Me.DataGridViewEtc.Name = "DataGridViewEtc"
+        Me.DataGridViewEtc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewEtc.Size = New System.Drawing.Size(979, 201)
+        Me.DataGridViewEtc.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.HeaderText = ""
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.Width = 30
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.HeaderText = "Name"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.Width = 80
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.HeaderText = "Title"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.Width = 150
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.HeaderText = "Image"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.Width = 120
+        '
+        'BvestrType
+        '
+        Me.BvestrType.HeaderText = "Type"
+        Me.BvestrType.Name = "BvestrType"
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.HeaderText = "Structure"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.Width = 120
+        '
+        'bveWallL
+        '
+        Me.bveWallL.HeaderText = "StructureLeft"
+        Me.bveWallL.Name = "bveWallL"
+        Me.bveWallL.Width = 120
+        '
+        'bveWallR
+        '
+        Me.bveWallR.HeaderText = "StructureRight"
+        Me.bveWallR.Name = "bveWallR"
+        Me.bveWallR.Width = 120
+        '
+        'BveStrX
+        '
+        Me.BveStrX.HeaderText = "Cycle"
+        Me.BveStrX.Name = "BveStrX"
+        Me.BveStrX.Width = 80
+        '
+        'Step_17
+        '
+        Me.Step_17.BackColor = System.Drawing.SystemColors.Control
+        Me.Step_17.Controls.Add(Me.ButtonGenerateGBMapsJS)
+        Me.Step_17.Controls.Add(Me.ButtonSaveXML)
+        Me.Step_17.Controls.Add(Me.LabelS17_Txt02)
+        Me.Step_17.Controls.Add(Me.Label157S17_Txt01)
+        Me.Step_17.Location = New System.Drawing.Point(4, 40)
+        Me.Step_17.Name = "Step_17"
+        Me.Step_17.Size = New System.Drawing.Size(996, 689)
+        Me.Step_17.TabIndex = 19
+        Me.Step_17.Text = "Step 17 (Finishing)"
+        '
+        'ButtonGenerateGBMapsJS
+        '
+        Me.ButtonGenerateGBMapsJS.Image = CType(resources.GetObject("ButtonGenerateGBMapsJS.Image"), System.Drawing.Image)
+        Me.ButtonGenerateGBMapsJS.Location = New System.Drawing.Point(627, 158)
+        Me.ButtonGenerateGBMapsJS.Name = "ButtonGenerateGBMapsJS"
+        Me.ButtonGenerateGBMapsJS.Size = New System.Drawing.Size(132, 134)
+        Me.ButtonGenerateGBMapsJS.TabIndex = 20
+        Me.ButtonGenerateGBMapsJS.UseVisualStyleBackColor = True
+        '
+        'ButtonSaveXML
+        '
+        Me.ButtonSaveXML.Image = CType(resources.GetObject("ButtonSaveXML.Image"), System.Drawing.Image)
+        Me.ButtonSaveXML.Location = New System.Drawing.Point(145, 158)
+        Me.ButtonSaveXML.Name = "ButtonSaveXML"
+        Me.ButtonSaveXML.Size = New System.Drawing.Size(132, 134)
+        Me.ButtonSaveXML.TabIndex = 19
+        Me.ButtonSaveXML.UseVisualStyleBackColor = True
+        '
+        'LabelS17_Txt02
+        '
+        Me.LabelS17_Txt02.AutoSize = True
+        Me.LabelS17_Txt02.Location = New System.Drawing.Point(765, 219)
+        Me.LabelS17_Txt02.Name = "LabelS17_Txt02"
+        Me.LabelS17_Txt02.Size = New System.Drawing.Size(173, 13)
+        Me.LabelS17_Txt02.TabIndex = 16
+        Me.LabelS17_Txt02.Text = "Generate GB Maps Javascript data"
+        '
+        'Label157S17_Txt01
+        '
+        Me.Label157S17_Txt01.AutoSize = True
+        Me.Label157S17_Txt01.Location = New System.Drawing.Point(283, 219)
+        Me.Label157S17_Txt01.Name = "Label157S17_Txt01"
+        Me.Label157S17_Txt01.Size = New System.Drawing.Size(86, 13)
+        Me.Label157S17_Txt01.TabIndex = 17
+        Me.Label157S17_Txt01.Text = "Saved TXT data"
+        '
+        'About
+        '
+        Me.About.BackColor = System.Drawing.SystemColors.Control
+        Me.About.ForeColor = System.Drawing.Color.Black
+        Me.About.Location = New System.Drawing.Point(4, 40)
+        Me.About.Name = "About"
+        Me.About.Size = New System.Drawing.Size(996, 689)
+        Me.About.TabIndex = 20
+        Me.About.Text = "About"
+        '
+        'FolderBrowserDialog1
+        '
+        Me.FolderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer
+        '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.DefaultExt = "txt"
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'OpenFileDialog2
+        '
+        Me.OpenFileDialog2.FileName = "OpenFileDialog2"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1004, 733)
+        Me.ClientSize = New System.Drawing.Size(1008, 537)
         Me.Controls.Add(Me.TabControl1)
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -6795,8 +6799,6 @@ Partial Class Main
         Me.TabControl1.ResumeLayout(False)
         Me.Step_1.ResumeLayout(False)
         Me.Step_1.PerformLayout()
-        CType(Me.PictureBoxBrowseImgDir, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxBrowseBVEDir, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -6808,7 +6810,7 @@ Partial Class Main
         CType(Me.NumericUpDownRailCycle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBoxRailTypeImg, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewRailType, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewRail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -6820,18 +6822,17 @@ Partial Class Main
         Me.Step_4.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBoxTrainFolderTip, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxTrainBVESyntax, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox9.ResumeLayout(False)
         CType(Me.PictureBoxTrainDir, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewTrainDir, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewTrain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_5.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.PictureBoxSoundBVESyntax, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxaudioimgshowhide.ResumeLayout(False)
         CType(Me.PictureBoxaudiorun, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewaudio, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewSound, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_6.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
@@ -6863,7 +6864,7 @@ Partial Class Main
         CType(Me.NumericUpDownOverpassPierCycle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox18.ResumeLayout(False)
         CType(Me.PictureBoxFO, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewFlyOver, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewOverpass, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_9.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
@@ -6873,7 +6874,7 @@ Partial Class Main
         CType(Me.PictureBoxHillCutBVEsyntax, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox20.ResumeLayout(False)
         CType(Me.PictureBoxHillCut, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewCut, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewHillCut, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_10.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
@@ -6933,22 +6934,22 @@ Partial Class Main
         Me.Step_15.ResumeLayout(False)
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
-        CType(Me.PictureBox21, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxFreeObjectSyntax, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.PictureBoxbvefobjimg, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewBVEfobj, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewFreeObject, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_16.ResumeLayout(False)
         Me.Panel14.ResumeLayout(False)
         Me.Panel14.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
-        CType(Me.PictureBox23, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxetcBVESyntax, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxbvestrwall.ResumeLayout(False)
         Me.GroupBoxbvestrwall.PerformLayout()
         CType(Me.NumericUpDownBveX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox11.ResumeLayout(False)
         CType(Me.PictureBoxBVEstrimg, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewBVEstr, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewEtc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_17.ResumeLayout(False)
         Me.Step_17.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6962,7 +6963,7 @@ Partial Class Main
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxRailTypeImg As System.Windows.Forms.PictureBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents DataGridViewRailType As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewRail As System.Windows.Forms.DataGridView
     Friend WithEvents buttonNewRail As System.Windows.Forms.Button
     Friend WithEvents textBoxRailImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxRailSleeper1 As System.Windows.Forms.TextBox
@@ -6972,11 +6973,11 @@ Partial Class Main
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Buttonbvefobjadd As System.Windows.Forms.Button
+    Friend WithEvents ButtonNewFreeObject As System.Windows.Forms.Button
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxbvefobjimg As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBoxbvefobjimg As System.Windows.Forms.TextBox
-    Friend WithEvents TextBoxbvefobjfile As System.Windows.Forms.TextBox
+    Friend WithEvents textBoxFreeObjectImage As System.Windows.Forms.TextBox
+    Friend WithEvents textBoxFreeObjectFile As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxbvefobjtitle As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxbvefobjname As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -6984,7 +6985,7 @@ Partial Class Main
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewBVEfobj As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewFreeObject As System.Windows.Forms.DataGridView
     Friend WithEvents Buttonaudioadd As System.Windows.Forms.Button
     Friend WithEvents GroupBoxaudioimgshowhide As System.Windows.Forms.GroupBox
     Friend WithEvents TextBoxaudiofile As System.Windows.Forms.TextBox
@@ -6994,16 +6995,16 @@ Partial Class Main
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewaudio As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewSound As System.Windows.Forms.DataGridView
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents Step_16 As System.Windows.Forms.TabPage
-    Friend WithEvents ButtonBVEstrAdd As System.Windows.Forms.Button
+    Friend WithEvents ButtonNewBVE As System.Windows.Forms.Button
     Friend WithEvents GroupBox11 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxBVEstrimg As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBoxBVEstrimg As System.Windows.Forms.TextBox
-    Friend WithEvents TextBoxBVEstrfile As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxetcBVEImage As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxBVEfile As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBVEstrtitle As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBVEstrname As System.Windows.Forms.TextBox
     Friend WithEvents Label29 As System.Windows.Forms.Label
@@ -7011,9 +7012,9 @@ Partial Class Main
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewBVEstr As System.Windows.Forms.DataGridView
-    Friend WithEvents ComboBoxBVEstrtype As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBoxbvefobjotype As System.Windows.Forms.ComboBox
+    Friend WithEvents DataGridViewEtc As System.Windows.Forms.DataGridView
+    Friend WithEvents ComboBoxBVEType As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxFreeObjectType As System.Windows.Forms.ComboBox
     Friend WithEvents comboBoxRailType As System.Windows.Forms.ComboBox
     Friend WithEvents PictureBoxaudiorun As System.Windows.Forms.PictureBox
     Friend WithEvents ComboBoxaudiotype As System.Windows.Forms.ComboBox
@@ -7024,10 +7025,10 @@ Partial Class Main
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents buttonBrowseRailImage As System.Windows.Forms.Button
     Friend WithEvents buttonBrowseRailSleeper1 As System.Windows.Forms.Button
-    Friend WithEvents Buttonbvestrimg As System.Windows.Forms.Button
-    Friend WithEvents Buttonbvestrfile As System.Windows.Forms.Button
-    Friend WithEvents ButtonbveFOimg As System.Windows.Forms.Button
-    Friend WithEvents ButtonbveFOfile As System.Windows.Forms.Button
+    Friend WithEvents ButtonBrowseEtcBVEImage As System.Windows.Forms.Button
+    Friend WithEvents ButtonBrowseBVEfile As System.Windows.Forms.Button
+    Friend WithEvents ButtonBrowseFreeObjectImage As System.Windows.Forms.Button
+    Friend WithEvents ButtonBrowseFreeObjectFile As System.Windows.Forms.Button
     Friend WithEvents Step_4 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxTrainDir As System.Windows.Forms.PictureBox
@@ -7035,19 +7036,13 @@ Partial Class Main
     Friend WithEvents TextBoxTrainDir As System.Windows.Forms.TextBox
     Friend WithEvents ButtonRetriveTrainFolder As System.Windows.Forms.Button
     Friend WithEvents Label36 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewTrainDir As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTrain As System.Windows.Forms.DataGridView
     Friend WithEvents Step_6 As System.Windows.Forms.TabPage
     Friend WithEvents Step_7 As System.Windows.Forms.TabPage
     Friend WithEvents Step_8 As System.Windows.Forms.TabPage
     Friend WithEvents Step_9 As System.Windows.Forms.TabPage
     Friend WithEvents Step_10 As System.Windows.Forms.TabPage
     Friend WithEvents Step_11 As System.Windows.Forms.TabPage
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BVEfobtype As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -7072,7 +7067,7 @@ Partial Class Main
     Friend WithEvents Label45 As System.Windows.Forms.Label
     Friend WithEvents Label46 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTunnel As System.Windows.Forms.DataGridView
-    Friend WithEvents buttonAddNewTunnel As System.Windows.Forms.Button
+    Friend WithEvents buttonNewTunnel As System.Windows.Forms.Button
     Friend WithEvents Label50 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownTunnelWallCycle As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label48 As System.Windows.Forms.Label
@@ -7103,7 +7098,7 @@ Partial Class Main
     Friend WithEvents Label70 As System.Windows.Forms.Label
     Friend WithEvents Label72 As System.Windows.Forms.Label
     Friend WithEvents Label73 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewFlyOver As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewOverpass As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewOverpass As System.Windows.Forms.Button
     Friend WithEvents GroupBox20 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxHillCut As System.Windows.Forms.PictureBox
@@ -7116,7 +7111,7 @@ Partial Class Main
     Friend WithEvents Label81 As System.Windows.Forms.Label
     Friend WithEvents Label83 As System.Windows.Forms.Label
     Friend WithEvents Label84 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewCut As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewHillCut As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewHillCut As System.Windows.Forms.Button
     Friend WithEvents GroupBox22 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxDike As System.Windows.Forms.PictureBox
@@ -7224,12 +7219,12 @@ Partial Class Main
     Friend WithEvents Label133 As System.Windows.Forms.Label
     Friend WithEvents Label132 As System.Windows.Forms.Label
     Friend WithEvents GroupBoxbvestrwall As System.Windows.Forms.GroupBox
-    Friend WithEvents ButtonbveWallRfile As System.Windows.Forms.Button
-    Friend WithEvents ButtonbveWallLfile As System.Windows.Forms.Button
+    Friend WithEvents ButtonbrowseBVERight As System.Windows.Forms.Button
+    Friend WithEvents ButtonbrowseBVELeft As System.Windows.Forms.Button
     Friend WithEvents Label124 As System.Windows.Forms.Label
     Friend WithEvents Label125 As System.Windows.Forms.Label
-    Friend WithEvents TextBoxbveWallRfile As System.Windows.Forms.TextBox
-    Friend WithEvents TextBoxbveWallLfile As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxBVERight As System.Windows.Forms.TextBox
+    Friend WithEvents textBoxBVELeft As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseRCSound As System.Windows.Forms.Button
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents textBoxRCSound As System.Windows.Forms.TextBox
@@ -7304,22 +7299,6 @@ Partial Class Main
     Friend WithEvents Label126 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownBveX As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label127 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewTextBoxColumn43 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn47 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn49 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn53 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn55 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn59 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CrStrX As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn25 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BvestrType As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents bveWallL As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents bveWallR As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BveStrX As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label122 As System.Windows.Forms.Label
     Friend WithEvents Label121 As System.Windows.Forms.Label
     Friend WithEvents Label120 As System.Windows.Forms.Label
@@ -7394,8 +7373,6 @@ Partial Class Main
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LabelS1_Txt11 As Label
     Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents PictureBoxBrowseImgDir As PictureBox
-    Friend WithEvents PictureBoxBrowseBVEDir As PictureBox
     Friend WithEvents ButtonGenerateGBMapsJS As Button
     Friend WithEvents ButtonSaveXML As Button
     Friend WithEvents LabelS17_Txt02 As Label
@@ -7414,7 +7391,6 @@ Partial Class Main
     Friend WithEvents buttonBrowsePoleStructureRight As Button
     Friend WithEvents textBoxPoleStructureRight As TextBox
     Friend WithEvents comboBoxRailGauge As ComboBox
-    Friend WithEvents PictureBoxTrainFolderTip As PictureBox
     Friend WithEvents PictureBoxTrainBVESyntax As PictureBox
     Friend WithEvents Label60 As Label
     Friend WithEvents Panel3 As Panel
@@ -7432,8 +7408,8 @@ Partial Class Main
     Friend WithEvents PictureBoxPlatformBVESyntax As PictureBox
     Friend WithEvents PictureBoxCrackBVESyntax As PictureBox
     Friend WithEvents PictureBoxUGbveSyntax As PictureBox
-    Friend WithEvents PictureBox21 As PictureBox
-    Friend WithEvents PictureBox23 As PictureBox
+    Friend WithEvents PictureBoxFreeObjectSyntax As PictureBox
+    Friend WithEvents PictureBoxetcBVESyntax As PictureBox
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Panel10 As Panel
@@ -7500,8 +7476,8 @@ Partial Class Main
     Friend WithEvents ButtonRCTip As Button
     Friend WithEvents ButtonPlatformTip As Button
     Friend WithEvents ButtonCrackTip As Button
-    Friend WithEvents Button27 As Button
-    Friend WithEvents Button28 As Button
+    Friend WithEvents ButtonFreeObjectTip As Button
+    Friend WithEvents ButtonEtcBVEImage As Button
     Friend WithEvents no As DataGridViewTextBoxColumn
     Friend WithEvents nama As DataGridViewTextBoxColumn
     Friend WithEvents title As DataGridViewTextBoxColumn
@@ -7618,4 +7594,29 @@ Partial Class Main
     Friend WithEvents iWallRight As DataGridViewTextBoxColumn
     Friend WithEvents iWallCycle As DataGridViewTextBoxColumn
     Friend WithEvents UGExit As DataGridViewTextBoxColumn
+    Friend WithEvents ButtonBrowseImgDirTip As Button
+    Friend WithEvents ButtonBrowseBVEDirTip As Button
+    Friend WithEvents ButtonTrainFolderTip As Button
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents BVEfobtype As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents BvestrType As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents bveWallL As DataGridViewTextBoxColumn
+    Friend WithEvents bveWallR As DataGridViewTextBoxColumn
+    Friend WithEvents BveStrX As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn43 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn47 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn49 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn53 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
+    Friend WithEvents CrStrX As DataGridViewTextBoxColumn
 End Class

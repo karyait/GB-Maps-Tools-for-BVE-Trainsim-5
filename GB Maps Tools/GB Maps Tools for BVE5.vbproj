@@ -163,6 +163,30 @@
     <Compile Include="FormDikeTip.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormEtcBVESyntax.Designer.vb">
+      <DependentUpon>FormEtcBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEtcBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormetcBVEtip.Designer.vb">
+      <DependentUpon>FormetcBVEtip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormetcBVEtip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFreeObjectSyntax.Designer.vb">
+      <DependentUpon>FormFreeObjectSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFreeObjectSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFreeObjectTip.Designer.vb">
+      <DependentUpon>FormFreeObjectTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFreeObjectTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormHillCutBVESyntax.Designer.vb">
       <DependentUpon>FormHillCutBVESyntax.vb</DependentUpon>
     </Compile>
@@ -235,6 +259,18 @@
     <Compile Include="FormRCTip.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormSoundTip.Designer.vb">
+      <DependentUpon>FormSoundTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSoundTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTrainDirTip.Designer.vb">
+      <DependentUpon>FormTrainDirTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTrainDirTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormTunnelBVESyntax.Designer.vb">
       <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
     </Compile>
@@ -251,6 +287,42 @@
       <DependentUpon>FormCrackBVESyntax.vb</DependentUpon>
     </Compile>
     <Compile Include="FormCrackBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGbveSyntax.Designer.vb">
+      <DependentUpon>FormUGbveSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGbveSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGEntrance.Designer.vb">
+      <DependentUpon>FormUGEntrance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGEntrance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGExit.Designer.vb">
+      <DependentUpon>FormUGExit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGExit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGiWallTip.Designer.vb">
+      <DependentUpon>FormUGiWallTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGiWallTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGsplitground.Designer.vb">
+      <DependentUpon>FormUGsplitground.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGsplitground.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGoWallTip.Designer.vb">
+      <DependentUpon>FormUGoWallTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGoWallTip.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb">
@@ -307,6 +379,18 @@
     <EmbeddedResource Include="FormDikeTip.resx">
       <DependentUpon>FormDikeTip.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEtcBVESyntax.resx">
+      <DependentUpon>FormEtcBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormetcBVEtip.resx">
+      <DependentUpon>FormetcBVEtip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFreeObjectSyntax.resx">
+      <DependentUpon>FormFreeObjectSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFreeObjectTip.resx">
+      <DependentUpon>FormFreeObjectTip.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHillCutBVESyntax.resx">
       <DependentUpon>FormHillCutBVESyntax.vb</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +427,12 @@
     <EmbeddedResource Include="FormRCTip.resx">
       <DependentUpon>FormRCTip.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSoundTip.resx">
+      <DependentUpon>FormSoundTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrainDirTip.resx">
+      <DependentUpon>FormTrainDirTip.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTunnelBVESyntax.resx">
       <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +441,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCrackBVESyntax.resx">
       <DependentUpon>FormCrackBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGbveSyntax.resx">
+      <DependentUpon>FormUGbveSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGEntrance.resx">
+      <DependentUpon>FormUGEntrance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGExit.resx">
+      <DependentUpon>FormUGExit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGiWallTip.resx">
+      <DependentUpon>FormUGiWallTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGsplitground.resx">
+      <DependentUpon>FormUGsplitground.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGoWallTip.resx">
+      <DependentUpon>FormUGoWallTip.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
