@@ -115,12 +115,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.Designer.vb">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="AboutBox1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DialogBrowseBVEDirHelp.Designer.vb">
       <DependentUpon>DialogBrowseBVEDirHelp.vb</DependentUpon>
     </Compile>
@@ -355,9 +349,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DialogBrowseBVEDirHelp.resx">
       <DependentUpon>DialogBrowseBVEDirHelp.vb</DependentUpon>
     </EmbeddedResource>

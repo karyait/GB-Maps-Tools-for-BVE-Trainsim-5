@@ -117,4 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>declaration in structure.txt
+
+BveTs Structure List 2.00:UTF-8
+....
+sign_m_curve,shared\freeobj\km_p\m_curve.x
+sign_sloop_down-up,shared\freeobj\km_p\sloop_down-up.x
+sign_sloop_down-level,shared\freeobj\km_p\sloop_down-level.x
+sign_sloop_up-down,shared\freeobj\km_p\sloop_up-down.x
+sign_kmp,shared\freeobj\km_p\kmp.x
+sign_500mp,shared\freeobj\km_p\500mp.x
+sign_100mp,shared\freeobj\km_p\100mp.x
+
+usage syntax in map.txt
+
+700;
+	Structure['sign_100mp'].Put(0, 2, -0.4, 0, 0, 0, 0, 0, 0);
+
+718;
+	Legacy.Pitch(-5);
+	Structure['sign_sloop_down-level'].Put(0, -2, -0.3, 0, 0, 0, 0, 0, 0);
+
+800;
+	Structure['sign_100mp'].Put(0, 2, -0.4, 0, 0, 0, 0, 0, 0);</value>
+  </data>
 </root>

@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>declaration in structure.txt
+
+BveTs Structure List 2.00:UTF-8
+....
+road_3_overbridge,shared\overbridge\road_3.x
+m_overbridge,shared\overbridge\minobu\overbridge.x
+
+
+usage syntax in map.txt
+
+79;
+	Structure['road_3_overbridge'].Put(0,0,0, 0, 0, 0, 0, 0, 0);
+	CabIlluminance.Set(0.875);
+	# overbridge</value>
+  </data>
 </root>

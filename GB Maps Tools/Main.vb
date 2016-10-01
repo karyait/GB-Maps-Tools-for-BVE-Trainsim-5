@@ -11,6 +11,7 @@ Public Class Main
     Friend bvedir, gbIdir, currDir As String
     Friend newData As Boolean
     Friend saved As Boolean
+    Friend onStartup As Boolean = True
 
     Public Enum filetype
         x = 0
@@ -20,7 +21,10 @@ Public Class Main
 
     Private Sub MainWin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = My.Application.Info.Title
-
+        LabelAboutTitle.Text = My.Application.Info.Title
+        LabelAboutVersion.Text = My.Application.Info.Version.ToString
+        LabelAboutDescription.Text = My.Application.Info.Description
+        LabelAboutCopyRight.Text = My.Application.Info.Copyright
 
         If File.Exists("5config.xml") = True Then
             Try
@@ -35,7 +39,22 @@ Public Class Main
                 MessageBox.Show(ex.Message)
             End Try
         End If
+        If File.Exists("lang.xml") = True Then
+            Try
+                Dim xLfile As XDocument = XDocument.Load("lang.xml")
+                For Each lang In From element In xLfile.<language>.<lang>
+                    ComboBoxLanguage.Items.Add(lang.@name.Replace("_", " "))
+                    If lang.@select = "true" Then
+                        ComboBoxLanguage.SelectedItem = lang.@name.Replace("_", " ")
+                    End If
+                Next
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
         currDir = ""
+        saved = True
     End Sub
 
     Private Sub TextBoxaudiofile_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxaudiofile.TextChanged
@@ -482,9 +501,9 @@ Public Class Main
 
     Private Sub ComboBoxBVEstrtype_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxBVEType.SelectedIndexChanged
         If ComboBoxBVEType.SelectedItem = "Wall" Then
-            GroupBoxbvestrwall.Enabled = True
+            GroupBoxS16_Txt08.Enabled = True
         Else
-            GroupBoxbvestrwall.Enabled = False
+            GroupBoxS16_Txt08.Enabled = False
         End If
     End Sub
 
@@ -663,26 +682,30 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub buttonOpenXML_Click(sender As Object, e As EventArgs) Handles buttonOpenXML.Click
+    Private Sub buttonOpenCSV_Click(sender As Object, e As EventArgs) Handles buttonOpenCSV.Click
         Dim basedir As String
         If gbIdir = "" Then
             MessageBox.Show("Please set image dir first")
-
+            Exit Sub
         Else
             basedir = gbIdir.ToLower.Replace("\images", "")
             If basedir <> "" Then OpenFileDialog3.InitialDirectory = basedir
         End If
+
+        OpenFileDialog3.Filter = "GB Maps Data|*.csv|All files|*.*"
+
         If OpenFileDialog3.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim filename As String = OpenFileDialog3.FileName
             Dim teks As String = My.Computer.FileSystem.ReadAllText(filename)
-            Dim arrRow As String() = teks.Split(vbCrLf)
+            Dim arrRow As String() = teks.Split(vbLf)
 
             '# version check
             Dim vercek = arrRow(0).Split("_")
             If vercek.Count < 3 Then
-                MessageBox.Show("sorry! older data version not supported.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("sorry! invalid format or older data version not supported.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
+
             '# "gbmapstools_v_2.2"
             If vercek(0) <> "gbmapstools" And vercek(1) <> "v" And (Convert.ToDouble(vercek(2)) >= 2.2) Then
                 MessageBox.Show("unknown error.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -690,48 +713,170 @@ Public Class Main
             End If
 
             For Each drow As String In arrRow
-                    Dim dd As String() = drow.Split(",")
-                    Select Case dd(0).Trim()
-                        Case "rail"
-                            'DataGridViewRailType
-                            Dim dty As String() = dd(4).Split("_")
-                            DataGridViewRail.Rows.Add(New String() {dd(1), dd(2), dd(3), dty(0), dty(1), dd(6), dd(5), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15)})
-                        Case "bvestr"
-                            'DataGridViewBVEstr
-                            DataGridViewEtc.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
-                        Case "fobj"
-                            'DataGridViewBVEfobj
-                            DataGridViewFreeObject.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
-                        Case "wav"
-                            'DataGridViewaudio
-                            DataGridViewSound.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
+
+                Dim dd As String() = drow.Split(",")
+
+                Select Case dd(0).Trim()
+                    Case "rail"
+                        '#2 "rail,"
+                        Try
+                            DataGridViewRail.Rows.Add(New String() {
+                               dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10),
+                               dd(11), dd(12), dd(13), dd(14), dd(15), dd(16), dd(17), dd(18), dd(19), dd(20),
+                               dd(21), dd(22), dd(23)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+                    Case "pole"
+                        '#3 "pole,"
+                        Try
+                            DataGridViewPole.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "train"
+                        '#4 "train,"
+                        Try
+                            DataGridViewTrain.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "sound"
+                        '#5 "sound,"
+                        Try
+                            DataGridViewSound.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "tunnel"
+                        '#6 "tunnel,"
+                        Try
+                            DataGridViewTunnel.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "bridge"
+                        '#7 "bridge,"
+                        Try
+                            DataGridViewBridge.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "overpass"
+                        '#8 "overpass,"
+                        Try
+                            DataGridViewOverpass.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "hillcut"
+                        '#9 "hillcut,"
+                        Try
+                            DataGridViewHillCut.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "dike"
+                        '#10 "dike,"
+                        Try
+                            DataGridViewDike.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "rc"
+                        '#11 "rc,"
+                        Try
+                            DataGridViewRC.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "pform"
+                        '#12 "pform,"
+                        Try
+                            DataGridViewPlatform.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10),
+                            dd(11), dd(12), dd(13), dd(14)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "cracks"
+                        '#13 "cracks,"
+                        Try
+                            DataGridViewCrack.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "ug"
+                        '#14 "ug,"
+                        Try
+                            DataGridViewUG.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10),
+                            dd(11), dd(12), dd(13), dd(14), dd(15)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+
+                    Case "fobj"
+                        '#15 "fobj,"
+                        Try
+                            DataGridViewFreeObject.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
+                    Case "etc"
+                        '#16 "etc,"
+                        Try
+                            DataGridViewEtc.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
 
                         '//***************
-                        Case "traindir"
-                            DataGridViewTrain.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
-                        Case "tunnel"
-                            DataGridViewTunnel.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15), dd(16)})
-                        Case "bridge"
-                            DataGridViewBridge.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11)})
-                        Case "fo"
-                            DataGridViewOverpass.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
-                        Case "cut"
-                            DataGridViewHillCut.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
-                        Case "dike"
-                            DataGridViewDike.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
-                        Case "rc"
-                            DataGridViewRC.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
-                        Case "pform"
-                            DataGridViewPlatform.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13)})
-                        Case "poles"
-                            DataGridViewPole.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
-                        Case "cracks"
-                            DataGridViewCrack.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
-                        Case Else
+                    Case Else
 
-                    End Select
-                Next
-            End If
+                End Select
+            Next
+        End If
     End Sub
 
     Private Sub buttonGBImageDir_Click(sender As Object, e As EventArgs) Handles buttonGBImageDir.Click
@@ -767,10 +912,10 @@ Public Class Main
         UpdateXFileField(textBoxRailRight1, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonSaveXML_Click(sender As Object, e As EventArgs) Handles ButtonSaveXML.Click
+    Private Sub ButtonSaveXML_Click(sender As Object, e As EventArgs) Handles ButtonSaveTXT.Click
         Dim basedir = gbIdir.ToLower.Replace("\images", "")
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\data"
-        SaveFileDialog1.Filter = "GB Maps Data|*.txt|All files|*.*"
+        SaveFileDialog1.Filter = "GB Maps Data|*.csv|All files|*.*"
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim txt As New StringBuilder
             Dim filename As String = SaveFileDialog1.FileName
@@ -819,7 +964,7 @@ Public Class Main
                 End If
             Next
 
-            '#5 Train (5 item = 0 - 4)
+            '#5 Sound (5 item = 0 - 4)
             For ro = 0 To DataGridViewSound.RowCount - 1
                 If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
                     DataGridViewSound.Item(2, ro).Value <> "" Then
@@ -967,7 +1112,7 @@ Public Class Main
             For ro = 0 To DataGridViewEtc.RowCount - 1
                 If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And
                     DataGridViewEtc.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "bvestr," & DataGridViewEtc.Item(0, ro).Value &
+                    Dim ttxt As String = "etc," & DataGridViewEtc.Item(0, ro).Value &
                         "," & DataGridViewEtc.Item(1, ro).Value & "," & DataGridViewEtc.Item(2, ro).Value &
                         "," & DataGridViewEtc.Item(3, ro).Value & "," & DataGridViewEtc.Item(4, ro).Value &
                         "," & DataGridViewEtc.Item(5, ro).Value & "," & DataGridViewEtc.Item(6, ro).Value &
@@ -993,47 +1138,35 @@ Public Class Main
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\script"
         SaveFileDialog1.Filter = "Javascript file|*.js|All files|*.*"
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
-            Dim scriptfile = SaveFileDialog1.FileName 'basedir & "\script\gbm-objects.js"
+            Dim scriptfile = SaveFileDialog1.FileName
             Dim txt As New StringBuilder
             'txt.AppendLine("GB Maps - ギビマップ Tools,2.0.0,gauge,object title")
-            txt.AppendLine("// This file is created with GB Maps - ギビマップ Tools v2.2.0. If necessary, you can create your own file reference. ")
-            txt.AppendLine("// Fail ini dicipta dengan GB Maps - ギビマップ Tools v2.2.0. Jika perlu, anda boleh membuat rujukan fail anda sendiri. ")
+            txt.AppendLine("// This file is created with GB Maps - ギビマップ Tools v2.3.0. If necessary, you can create your own file reference. ")
+            txt.AppendLine("// Fail ini dicipta dengan GB Maps - ギビマップ Tools v2.3.0. Jika perlu, anda boleh membuat rujukan fail anda sendiri. ")
             txt.AppendLine("var gbmdatatool = 'GB Maps - ギビマップ Tools';")
-            txt.AppendLine("var gbmdataversion = '2.2.0';")
-            'txt.AppendLine("var gbmdatagauge = '1067';")
-            'txt.AppendLine("var bverailobjArr = [];")
-            ''txt.AppendLine("var bvegbmapOArr = [];")
-            'txt.AppendLine("var bvebveStrOjArr = [];")
-            'txt.AppendLine("var bvefreeObjArr = [];")
-            'txt.AppendLine("var bvetrainObjArr = [];")
-            'txt.AppendLine("var bveaudioObjArr = [];")
-            'txt.AppendLine("var bvetrainDirArr = [];")
-            'txt.AppendLine("var bvetunnelObjArr = [];")
-            'txt.AppendLine("var bveplatformObjArr = [];")
-            'txt.AppendLine("var bvecutObjArr = [];")
-            'txt.AppendLine("var bvedikeObjArr = [];")
-            'txt.AppendLine("var bveFOObjArr = [];")
-            'txt.AppendLine("var bvebridgeObjArr = [];")
-            'txt.AppendLine("var bveRCObjArr = [];")
-            'txt.AppendLine("var bveUGObjArr = [];")
-            'txt.AppendLine("var bvepoleObjArr = [];")
-            'txt.AppendLine("var bvecrackObjArr = [];")
+            txt.AppendLine("var gbmdataversion = '2.3.0';")
+
             txt.AppendLine("var ttxt ='';")
 
             txt.AppendLine()
 
+            '#2 Rail (23 item = 0 - 22)
             For ro = 0 To DataGridViewRail.RowCount - 1
                 If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
                         DataGridViewRail.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewRail.Item(0, ro).Value & "','" &
-                        DataGridViewRail.Item(1, ro).Value & "','" & DataGridViewRail.Item(2, ro).Value &
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewRail.Item(0, ro).Value &
+                        "','" & DataGridViewRail.Item(1, ro).Value & "','" & DataGridViewRail.Item(2, ro).Value &
                         "','" & DataGridViewRail.Item(3, ro).Value & "','" & DataGridViewRail.Item(4, ro).Value &
-                        "','" & DataGridViewRail.Item(6, ro).Value & "','" & DataGridViewRail.Item(5, ro).Value &
+                        "','" & DataGridViewRail.Item(5, ro).Value & "','" & DataGridViewRail.Item(6, ro).Value &
                         "','" & DataGridViewRail.Item(7, ro).Value & "','" & DataGridViewRail.Item(8, ro).Value &
                         "','" & DataGridViewRail.Item(9, ro).Value & "','" & DataGridViewRail.Item(10, ro).Value &
                         "','" & DataGridViewRail.Item(11, ro).Value & "','" & DataGridViewRail.Item(12, ro).Value &
                         "','" & DataGridViewRail.Item(13, ro).Value & "','" & DataGridViewRail.Item(14, ro).Value &
-                        "','" & DataGridViewRail.Item(15, ro).Value & "'];"
+                        "','" & DataGridViewRail.Item(15, ro).Value & "','" & DataGridViewRail.Item(16, ro).Value &
+                        "','" & DataGridViewRail.Item(17, ro).Value & "','" & DataGridViewRail.Item(18, ro).Value &
+                        "','" & DataGridViewRail.Item(19, ro).Value & "','" & DataGridViewRail.Item(20, ro).Value &
+                        "','" & DataGridViewRail.Item(21, ro).Value & "','" & DataGridViewRail.Item(22, ro).Value &
+                        "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bverailobjArr.push(ttxt);")
@@ -1041,25 +1174,218 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewEtc.RowCount - 1
-                If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And DataGridViewEtc.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewEtc.Item(0, ro).Value & "','" & DataGridViewEtc.Item(1, ro).Value & "','" &
-                        DataGridViewEtc.Item(2, ro).Value & "','" & DataGridViewEtc.Item(3, ro).Value & "','" &
-                        DataGridViewEtc.Item(4, ro).Value & "','" & DataGridViewEtc.Item(5, ro).Value & "','" &
-                        DataGridViewEtc.Item(6, ro).Value & "','" & DataGridViewEtc.Item(7, ro).Value & "','" &
-                        DataGridViewEtc.Item(8, ro).Value & "'];"
+            '#3 Pole (8 item = 0 - 7)
+            For ro = 0 To DataGridViewPole.RowCount - 1
+                If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" _
+                    And DataGridViewPole.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewPole.Item(0, ro).Value &
+                        "','" & DataGridViewPole.Item(1, ro).Value & "','" & DataGridViewPole.Item(2, ro).Value &
+                        "','" & DataGridViewPole.Item(3, ro).Value & "','" & DataGridViewPole.Item(4, ro).Value &
+                        "','" & DataGridViewPole.Item(5, ro).Value & "','" & DataGridViewPole.Item(6, ro).Value &
+                        "','" & DataGridViewPole.Item(7, ro).Value &
+                        "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
-                    txt.AppendLine("bvebveStrOjArr.push(ttxt);")
+                    txt.AppendLine("bvepoleObjArr.push(ttxt);")
                     txt.AppendLine("ttxt = [];")
                 End If
             Next
 
+            '#4 Train (5 item = 0 - 4)
+            For ro = 0 To DataGridViewTrain.RowCount - 1
+                If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And
+                    DataGridViewTrain.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewTrain.Item(0, ro).Value &
+                        "','" & DataGridViewTrain.Item(1, ro).Value & "','" & DataGridViewTrain.Item(2, ro).Value &
+                        "','" & DataGridViewTrain.Item(3, ro).Value & "','" & DataGridViewTrain.Item(4, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bvetrainDirArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#5 Sound (5 item = 0 - 4)
+            For ro = 0 To DataGridViewSound.RowCount - 1
+                If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
+                    DataGridViewSound.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewSound.Item(0, ro).Value &
+                        "','" & DataGridViewSound.Item(1, ro).Value & "','" & DataGridViewSound.Item(2, ro).Value &
+                        "','" & DataGridViewSound.Item(3, ro).Value & "','" & DataGridViewSound.Item(4, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveaudioObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#6 Tunnel (9 item = 0 - 8)
+            For ro = 0 To DataGridViewTunnel.RowCount - 1
+                If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And
+                    DataGridViewTunnel.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewTunnel.Item(0, ro).Value &
+                        "','" & DataGridViewTunnel.Item(1, ro).Value & "','" & DataGridViewTunnel.Item(2, ro).Value &
+                        "','" & DataGridViewTunnel.Item(3, ro).Value & "','" & DataGridViewTunnel.Item(4, ro).Value &
+                        "','" & DataGridViewTunnel.Item(5, ro).Value & "','" & DataGridViewTunnel.Item(6, ro).Value &
+                        "','" & DataGridViewTunnel.Item(7, ro).Value & "','" & DataGridViewTunnel.Item(8, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bvetunnelObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#7 Bridge (9 item = 0 - 8)
+            For ro = 0 To DataGridViewBridge.RowCount - 1
+                If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And
+                    DataGridViewBridge.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewBridge.Item(0, ro).Value &
+                        "','" & DataGridViewBridge.Item(1, ro).Value & "','" & DataGridViewBridge.Item(2, ro).Value &
+                        "','" & DataGridViewBridge.Item(3, ro).Value & "','" & DataGridViewBridge.Item(4, ro).Value &
+                        "','" & DataGridViewBridge.Item(5, ro).Value & "','" & DataGridViewBridge.Item(6, ro).Value &
+                        "','" & DataGridViewBridge.Item(7, ro).Value & "','" & DataGridViewBridge.Item(8, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bvebridgeObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#8 Overpass (9 item = 0 - 8)
+            For ro = 0 To DataGridViewOverpass.RowCount - 1
+                If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And
+                    DataGridViewOverpass.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewOverpass.Item(0, ro).Value &
+                        "','" & DataGridViewOverpass.Item(1, ro).Value & "','" & DataGridViewOverpass.Item(2, ro).Value &
+                        "','" & DataGridViewOverpass.Item(3, ro).Value & "','" & DataGridViewOverpass.Item(4, ro).Value &
+                        "','" & DataGridViewOverpass.Item(5, ro).Value & "','" & DataGridViewOverpass.Item(6, ro).Value &
+                        "','" & DataGridViewOverpass.Item(7, ro).Value & "','" & DataGridViewOverpass.Item(8, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveFOObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#9 Hillcut (7 item = 0 - 6)
+            For ro = 0 To DataGridViewHillCut.RowCount - 1
+                If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And
+                    DataGridViewHillCut.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewHillCut.Item(0, ro).Value &
+                        "','" & DataGridViewHillCut.Item(1, ro).Value & "','" & DataGridViewHillCut.Item(2, ro).Value &
+                        "','" & DataGridViewHillCut.Item(3, ro).Value & "','" & DataGridViewHillCut.Item(4, ro).Value &
+                        "','" & DataGridViewHillCut.Item(5, ro).Value & "','" & DataGridViewHillCut.Item(6, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bvecutObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#10 Dike (9 item = 0 - 8)
+            For ro = 0 To DataGridViewDike.RowCount - 1
+                If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And
+                    DataGridViewDike.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewDike.Item(0, ro).Value &
+                        "','" & DataGridViewDike.Item(1, ro).Value & "','" & DataGridViewDike.Item(2, ro).Value &
+                        "','" & DataGridViewDike.Item(3, ro).Value & "','" & DataGridViewDike.Item(4, ro).Value &
+                        "','" & DataGridViewDike.Item(5, ro).Value & "','" & DataGridViewDike.Item(6, ro).Value &
+                        "','" & DataGridViewDike.Item(7, ro).Value & "','" & DataGridViewDike.Item(8, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bvedikeObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#11 Road Crossing (8 item = 0 - 7)
+            For ro = 0 To DataGridViewRC.RowCount - 1
+                If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And
+                    DataGridViewRC.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewRC.Item(0, ro).Value &
+                        "','" & DataGridViewRC.Item(1, ro).Value & "','" & DataGridViewRC.Item(2, ro).Value &
+                        "','" & DataGridViewRC.Item(3, ro).Value & "','" & DataGridViewRC.Item(4, ro).Value &
+                        "','" & DataGridViewRC.Item(5, ro).Value & "','" & DataGridViewRC.Item(6, ro).Value &
+                        "','" & DataGridViewRC.Item(7, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveRCObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#12 Platform (14 item = 0 - 13)
+            For ro = 0 To DataGridViewPlatform.RowCount - 1
+                If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And
+                    DataGridViewPlatform.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewPlatform.Item(0, ro).Value &
+                        "','" & DataGridViewPlatform.Item(1, ro).Value & "','" & DataGridViewPlatform.Item(2, ro).Value &
+                        "','" & DataGridViewPlatform.Item(3, ro).Value & "','" & DataGridViewPlatform.Item(4, ro).Value &
+                        "','" & DataGridViewPlatform.Item(5, ro).Value & "','" & DataGridViewPlatform.Item(6, ro).Value &
+                        "','" & DataGridViewPlatform.Item(7, ro).Value & "','" & DataGridViewPlatform.Item(8, ro).Value &
+                        "','" & DataGridViewPlatform.Item(9, ro).Value & "','" & DataGridViewPlatform.Item(10, ro).Value &
+                        "','" & DataGridViewPlatform.Item(11, ro).Value & "','" & DataGridViewPlatform.Item(12, ro).Value &
+                        "','" & DataGridViewPlatform.Item(13, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveplatformObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#13 Crack (7 item = 0 - 6)
+            For ro = 0 To DataGridViewCrack.RowCount - 1
+                If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And
+                    DataGridViewCrack.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewCrack.Item(0, ro).Value &
+                        "','" & DataGridViewCrack.Item(1, ro).Value & "','" & DataGridViewCrack.Item(2, ro).Value &
+                        "','" & DataGridViewCrack.Item(3, ro).Value & "','" & DataGridViewCrack.Item(4, ro).Value &
+                        "','" & DataGridViewCrack.Item(5, ro).Value & "','" & DataGridViewCrack.Item(6, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bvecrackObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#14 UG (15 item = 0 - 14)
+            For ro = 0 To DataGridViewPlatform.RowCount - 1
+                If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
+                    DataGridViewUG.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewUG.Item(0, ro).Value &
+                        "','" & DataGridViewUG.Item(1, ro).Value & "','" & DataGridViewUG.Item(2, ro).Value &
+                        "','" & DataGridViewUG.Item(3, ro).Value & "','" & DataGridViewUG.Item(4, ro).Value &
+                        "','" & DataGridViewUG.Item(5, ro).Value & "','" & DataGridViewUG.Item(6, ro).Value &
+                        "','" & DataGridViewUG.Item(7, ro).Value & "','" & DataGridViewUG.Item(8, ro).Value &
+                        "','" & DataGridViewUG.Item(9, ro).Value & "','" & DataGridViewUG.Item(10, ro).Value &
+                        "','" & DataGridViewUG.Item(11, ro).Value & "','" & DataGridViewUG.Item(12, ro).Value &
+                        "','" & DataGridViewUG.Item(13, ro).Value & "','" & DataGridViewUG.Item(14, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveplatformObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
+            '#15 Free objects  (6 item = 0 - 5)
             For ro = 0 To DataGridViewFreeObject.RowCount - 1
-                If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And DataGridViewFreeObject.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewFreeObject.Item(0, ro).Value & "','" & DataGridViewFreeObject.Item(1, ro).Value & "','" &
-                        DataGridViewFreeObject.Item(2, ro).Value & "','" & DataGridViewFreeObject.Item(3, ro).Value & "','" &
-                        DataGridViewFreeObject.Item(4, ro).Value & "','" & DataGridViewFreeObject.Item(5, ro).Value & "'];"
+                If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And
+                    DataGridViewFreeObject.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewFreeObject.Item(0, ro).Value &
+                        "','" & DataGridViewFreeObject.Item(1, ro).Value & "','" & DataGridViewFreeObject.Item(2, ro).Value &
+                        "','" & DataGridViewFreeObject.Item(3, ro).Value & "','" & DataGridViewFreeObject.Item(4, ro).Value &
+                        "','" & DataGridViewFreeObject.Item(5, ro).Value & "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
                     txt.AppendLine("bvefreeObjArr.push(ttxt);")
@@ -1068,153 +1394,19 @@ Public Class Main
                 End If
             Next
 
-            For ro = 0 To DataGridViewSound.RowCount - 1
-                If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And DataGridViewSound.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewSound.Item(0, ro).Value & "','" & DataGridViewSound.Item(1, ro).Value & "','" &
-                        DataGridViewSound.Item(2, ro).Value & "','" & DataGridViewSound.Item(3, ro).Value & "','" &
-                        DataGridViewSound.Item(4, ro).Value & "'];"
+            '#16 Etc (9 item = 0 - 8)
+            For ro = 0 To DataGridViewEtc.RowCount - 1
+                If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And
+                    DataGridViewEtc.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewEtc.Item(0, ro).Value &
+                        "','" & DataGridViewEtc.Item(1, ro).Value & "','" & DataGridViewEtc.Item(2, ro).Value &
+                        "','" & DataGridViewEtc.Item(3, ro).Value & "','" & DataGridViewEtc.Item(4, ro).Value &
+                        "','" & DataGridViewEtc.Item(5, ro).Value & "','" & DataGridViewEtc.Item(6, ro).Value &
+                        "','" & DataGridViewEtc.Item(7, ro).Value & "','" & DataGridViewEtc.Item(8, ro).Value &
+                        "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
-                    txt.AppendLine("bveaudioObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            '// *****************************
-            For ro = 0 To DataGridViewTrain.RowCount - 1
-                If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And DataGridViewTrain.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewTrain.Item(0, ro).Value & "','" & DataGridViewTrain.Item(1, ro).Value & "','" &
-                        DataGridViewTrain.Item(2, ro).Value & "','" & DataGridViewTrain.Item(3, ro).Value & "','" &
-                        DataGridViewTrain.Item(4, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvetrainDirArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewTunnel.RowCount - 1
-                If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And DataGridViewTunnel.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewTunnel.Item(0, ro).Value & "','" & DataGridViewTunnel.Item(1, ro).Value & "','" &
-                        DataGridViewTunnel.Item(2, ro).Value & "','" & DataGridViewTunnel.Item(3, ro).Value & "','" &
-                        DataGridViewTunnel.Item(4, ro).Value & "','" & DataGridViewTunnel.Item(5, ro).Value & "','" &
-                        DataGridViewTunnel.Item(6, ro).Value & "','" & DataGridViewTunnel.Item(7, ro).Value & "','" &
-                        DataGridViewTunnel.Item(8, ro).Value & "','" & DataGridViewTunnel.Item(9, ro).Value & "','" &
-                        DataGridViewTunnel.Item(10, ro).Value & "','" & DataGridViewTunnel.Item(11, ro).Value & "','" &
-                        DataGridViewTunnel.Item(12, ro).Value & "','" & DataGridViewTunnel.Item(13, ro).Value & "','" &
-                        DataGridViewTunnel.Item(14, ro).Value & "','" & DataGridViewTunnel.Item(15, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvetunnelObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewBridge.RowCount - 1
-                If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And DataGridViewBridge.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewBridge.Item(0, ro).Value & "','" & DataGridViewBridge.Item(1, ro).Value & "','" &
-                        DataGridViewBridge.Item(2, ro).Value & "','" & DataGridViewBridge.Item(3, ro).Value & "','" &
-                        DataGridViewBridge.Item(4, ro).Value & "','" & DataGridViewBridge.Item(5, ro).Value & "','" &
-                        DataGridViewBridge.Item(6, ro).Value & "','" & DataGridViewBridge.Item(7, ro).Value & "','" &
-                        DataGridViewBridge.Item(8, ro).Value & "','" & DataGridViewBridge.Item(9, ro).Value & "','" &
-                        DataGridViewBridge.Item(10, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvebridgeObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewOverpass.RowCount - 1
-                If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And DataGridViewOverpass.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewOverpass.Item(0, ro).Value & "','" & DataGridViewOverpass.Item(1, ro).Value & "','" &
-                        DataGridViewOverpass.Item(2, ro).Value & "','" & DataGridViewOverpass.Item(3, ro).Value & "','" &
-                        DataGridViewOverpass.Item(4, ro).Value & "','" & DataGridViewOverpass.Item(5, ro).Value & "','" &
-                        DataGridViewOverpass.Item(6, ro).Value & "','" & DataGridViewOverpass.Item(7, ro).Value & "','" &
-                        DataGridViewOverpass.Item(8, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bveFOObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewHillCut.RowCount - 1
-                If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And DataGridViewHillCut.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewHillCut.Item(0, ro).Value & "','" & DataGridViewHillCut.Item(1, ro).Value & "','" &
-                        DataGridViewHillCut.Item(2, ro).Value & "','" & DataGridViewHillCut.Item(3, ro).Value & "','" &
-                        DataGridViewHillCut.Item(4, ro).Value & "','" & DataGridViewHillCut.Item(5, ro).Value & "','" &
-                        DataGridViewHillCut.Item(6, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvecutObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewDike.RowCount - 1
-                If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And DataGridViewDike.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewDike.Item(0, ro).Value & "','" & DataGridViewDike.Item(1, ro).Value & "','" &
-                        DataGridViewDike.Item(2, ro).Value & "','" & DataGridViewDike.Item(3, ro).Value & "','" &
-                        DataGridViewDike.Item(4, ro).Value & "','" & DataGridViewDike.Item(5, ro).Value & "','" &
-                        DataGridViewDike.Item(6, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvedikeObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewRC.RowCount - 1
-                If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And DataGridViewRC.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewRC.Item(0, ro).Value & "','" & DataGridViewRC.Item(1, ro).Value & "','" &
-                        DataGridViewRC.Item(2, ro).Value & "','" & DataGridViewRC.Item(3, ro).Value & "','" &
-                        DataGridViewRC.Item(4, ro).Value & "','" & DataGridViewRC.Item(5, ro).Value & "','" &
-                        DataGridViewRC.Item(6, ro).Value & "','" & DataGridViewRC.Item(7, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bveRCObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewPlatform.RowCount - 1
-                If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And DataGridViewPlatform.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewPlatform.Item(0, ro).Value & "','" & DataGridViewPlatform.Item(1, ro).Value & "','" &
-                        DataGridViewPlatform.Item(2, ro).Value & "','" & DataGridViewPlatform.Item(3, ro).Value & "','" &
-                        DataGridViewPlatform.Item(4, ro).Value & "','" & DataGridViewPlatform.Item(5, ro).Value & "','" &
-                        DataGridViewPlatform.Item(6, ro).Value & "','" & DataGridViewPlatform.Item(7, ro).Value & "','" &
-                        DataGridViewPlatform.Item(8, ro).Value & "','" & DataGridViewPlatform.Item(9, ro).Value & "','" &
-                        DataGridViewPlatform.Item(10, ro).Value & "','" & DataGridViewPlatform.Item(11, ro).Value & "','" &
-                        DataGridViewPlatform.Item(12, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bveplatformObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewPole.RowCount - 1
-                If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" And DataGridViewPole.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewPole.Item(0, ro).Value & "','" & DataGridViewPole.Item(1, ro).Value & "','" &
-                        DataGridViewPole.Item(2, ro).Value & "','" & DataGridViewPole.Item(3, ro).Value & "','" &
-                        DataGridViewPole.Item(4, ro).Value & "','" & DataGridViewPole.Item(5, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvepoleObjArr.push(ttxt);")
-                    txt.AppendLine("ttxt = [];")
-                End If
-            Next
-
-            For ro = 0 To DataGridViewCrack.RowCount - 1
-                If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And DataGridViewCrack.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ttxt = ['" & DataGridViewCrack.Item(0, ro).Value & "','" & DataGridViewCrack.Item(1, ro).Value & "','" &
-                        DataGridViewCrack.Item(2, ro).Value & "','" & DataGridViewCrack.Item(3, ro).Value & "','" &
-                        DataGridViewCrack.Item(4, ro).Value & "','" & DataGridViewCrack.Item(5, ro).Value & "','" &
-                        DataGridViewCrack.Item(6, ro).Value & "'];"
-                    ttxt = ttxt.Replace("\", "/")
-                    txt.AppendLine(ttxt)
-                    txt.AppendLine("bvecrackObjArr.push(ttxt);")
+                    txt.AppendLine("bvebveStrOjArr.push(ttxt);")
                     txt.AppendLine("ttxt = [];")
                 End If
             Next
@@ -1409,11 +1601,105 @@ Public Class Main
     End Sub
 
     Private Sub PictureBoxetcBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxetcBVESyntax.Click
-
+        FormEtcBVESyntax.Show()
     End Sub
 
     Private Sub ButtonEtcBVEImage_Click(sender As Object, e As EventArgs) Handles ButtonEtcBVEImage.Click
+        FormetcBVEtip.Show()
+    End Sub
 
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        '# generate controls text list
+        Dim xdata As XElement = <list></list>
+
+        For Each page As Control In TabControl1.Controls
+            xdata.Add(<control>
+                          <name><%= page.Name %></name>
+                          <type><%= TypeName(page) %></type>
+                          <text><%= page.Text %></text>
+                      </control>)
+
+            For Each ctrl As Control In page.Controls
+
+                Select Case True
+                    Case TypeOf (ctrl) Is Label
+                        If ctrl.Name.Contains("About") Then
+                            Continue For
+                        End If
+                        If ctrl.Name = "LinkLabel1" Then
+                            Continue For
+                        End If
+                        xdata.Add(<control>
+                                      <name><%= ctrl.Name %></name>
+                                      <type>Label</type>
+                                      <text><%= ctrl.Text %></text>
+                                  </control>)
+                    Case TypeOf (ctrl) Is Button
+                        xdata.Add(<control>
+                                      <name><%= ctrl.Name %></name>
+                                      <type>Button</type>
+                                      <text><%= ctrl.Text %></text>
+                                  </control>)
+                    Case TypeOf (ctrl) Is GroupBox
+
+                        xdata.Add(<control>
+                                      <name><%= ctrl.Name %></name>
+                                      <type>GroupBox</type>
+                                      <text><%= ctrl.Text %></text>
+                                  </control>)
+                    Case TypeOf (ctrl) Is Panel
+                        For Each ctrlinPanel As Control In ctrl.Controls
+                            Select Case True
+                                Case TypeOf (ctrlinPanel) Is Label
+                                    xdata.Add(<control>
+                                                  <name><%= ctrlinPanel.Name %></name>
+                                                  <type>Label</type>
+                                                  <text><%= ctrlinPanel.Text %></text>
+                                              </control>)
+                                Case TypeOf (ctrlinPanel) Is Button
+                                    xdata.Add(<control>
+                                                  <name><%= ctrlinPanel.Name %></name>
+                                                  <type>Button</type>
+                                                  <text><%= ctrlinPanel.Text %></text>
+                                              </control>)
+                                Case TypeOf (ctrlinPanel) Is GroupBox
+                                    xdata.Add(<control>
+                                                  <name><%= ctrlinPanel.Name %></name>
+                                                  <type>GroupBox</type>
+                                                  <text><%= ctrlinPanel.Text %></text>
+                                              </control>)
+                                    For Each ctrlinGBox As Control In ctrlinPanel.Controls
+                                        Select Case True
+                                            Case TypeOf (ctrlinGBox) Is Label
+                                                xdata.Add(<control>
+                                                              <name><%= ctrlinGBox.Name %></name>
+                                                              <type>Label</type>
+                                                              <text><%= ctrlinGBox.Text %></text>
+                                                          </control>)
+                                            Case TypeOf (ctrlinGBox) Is Button
+                                                xdata.Add(<control>
+                                                              <name><%= ctrlinGBox.Name %></name>
+                                                              <type>Button</type>
+                                                              <text><%= ctrlinGBox.Text %></text>
+                                                          </control>)
+                                                '      <page><%= page.Name %></page>
+
+                                        End Select
+                                    Next
+                            End Select
+                        Next
+                    Case Else
+
+                End Select
+            Next
+        Next
+
+        Try
+            xdata.Save("controls_text.xml")
+            MessageBox.Show("Control text list saved successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
 
     Private Sub ButtonBrowseImgDirTip_Click(sender As Object, e As EventArgs) Handles ButtonBrowseImgDirTip.Click
@@ -1477,5 +1763,91 @@ Public Class Main
             End Select
 
         End If
+    End Sub
+
+    Private Sub textBoxBVEdataDir_TextChanged(sender As Object, e As EventArgs) Handles textBoxBVEdataDir.TextChanged
+        saved = False
+    End Sub
+
+    Private Sub textBoxGBimgDir_TextChanged(sender As Object, e As EventArgs) Handles textBoxGBimgDir.TextChanged
+        saved = False
+    End Sub
+
+    Private Sub ComboBoxLanguage_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxLanguage.SelectedIndexChanged
+        If File.Exists("lang.xml") = True And onStartup = False Then
+            Try
+                Dim xLfile As XDocument = XDocument.Load("lang.xml")
+                For Each lang In From element In xLfile.<language>.<lang>
+                    If lang.@name.Replace("_", " ") = ComboBoxLanguage.SelectedItem Then
+
+                        Dim xUpdLang = XElement.Load(lang.@file)
+
+                        For Each kontrol In From element In xUpdLang.Elements
+                            DirectCast(TabControl1.Controls.Find(kontrol.<name>.Value, True)(0), Control).Text =
+                                kontrol.<text>.Value
+                        Next
+
+                        lang.@select = "true"
+                    Else
+                        If lang.@select = "true" Then lang.@select = "false"
+                    End If
+                Next
+
+                xLfile.Save("lang.xml")
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        If saved = False And TabControl1.SelectedIndex <> 0 Then
+            Dim notexist = ""
+            If Directory.Exists(textBoxBVEdataDir.Text) = False Then
+                notexist &= "BVE data folder not exist" & vbCrLf
+            End If
+            If Directory.Exists(textBoxGBimgDir.Text) = False Then
+                notexist &= "GB Maps image folder not exist"
+            End If
+            If notexist <> "" Then
+                MessageBox.Show(notexist, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TabControl1.SelectedTab = Step_1
+                If Directory.Exists(textBoxBVEdataDir.Text) = False Then
+                    textBoxBVEdataDir.Focus()
+                Else
+                    textBoxGBimgDir.Focus()
+                End If
+                Exit Sub
+            End If
+
+            Try
+                Dim xCfile As XElement =
+                        <dir>
+                            <bve><%= textBoxBVEdataDir.Text %></bve>
+                            <gbimg><%= textBoxGBimgDir.Text %></gbimg>
+                        </dir>
+                xCfile.Save("5config.xml")
+                MessageBox.Show("Reference saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                saved = True
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub TabControl1_KeyDown(sender As Object, e As KeyEventArgs) Handles TabControl1.KeyDown
+        If e.KeyCode = Keys.F9 AndAlso e.Modifiers = Keys.Control Then
+            If LinkLabel1.Visible = True Then
+                LinkLabel1.Visible = False
+            Else
+                LinkLabel1.Visible = True
+            End If
+        End If
+    End Sub
+
+    Private Sub Main_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        onStartup = False
     End Sub
 End Class

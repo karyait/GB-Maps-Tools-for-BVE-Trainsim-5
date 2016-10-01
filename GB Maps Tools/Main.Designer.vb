@@ -26,13 +26,14 @@ Partial Class Main
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Step_1 = New System.Windows.Forms.TabPage()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.ButtonBrowseImgDirTip = New System.Windows.Forms.Button()
         Me.ButtonBrowseBVEDirTip = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.LabelS1_Txt11 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxLanguage = New System.Windows.Forms.ComboBox()
         Me.buttonNewXML = New System.Windows.Forms.Button()
-        Me.buttonOpenXML = New System.Windows.Forms.Button()
+        Me.buttonOpenCSV = New System.Windows.Forms.Button()
         Me.LabelS1_Txt09 = New System.Windows.Forms.Label()
         Me.LabelS1_Txt10 = New System.Windows.Forms.Label()
         Me.LabelS1_Txt08 = New System.Windows.Forms.Label()
@@ -54,14 +55,14 @@ Partial Class Main
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonRailTip = New System.Windows.Forms.Button()
         Me.textBoxRailSleeper1 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label119 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt06 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt09 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt10 = New System.Windows.Forms.Label()
         Me.textBoxRailSleeper2 = New System.Windows.Forms.TextBox()
-        Me.Label66 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt08 = New System.Windows.Forms.Label()
         Me.textBoxRailRight1 = New System.Windows.Forms.TextBox()
         Me.textBoxRailRight2 = New System.Windows.Forms.TextBox()
-        Me.Label53 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt07 = New System.Windows.Forms.Label()
         Me.textBoxRailLeft1 = New System.Windows.Forms.TextBox()
         Me.textBoxRailLeft2 = New System.Windows.Forms.TextBox()
         Me.buttonBrowseRailSleeper1 = New System.Windows.Forms.Button()
@@ -70,11 +71,11 @@ Partial Class Main
         Me.buttonBrowseRailSleeper2 = New System.Windows.Forms.Button()
         Me.buttonBrowseRailLeft2 = New System.Windows.Forms.Button()
         Me.buttonBrowseRailRight2 = New System.Windows.Forms.Button()
-        Me.Label120 = New System.Windows.Forms.Label()
-        Me.Label122 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt11 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt13 = New System.Windows.Forms.Label()
         Me.textBoxRailSleeper3 = New System.Windows.Forms.TextBox()
         Me.textBoxRailLeft3 = New System.Windows.Forms.TextBox()
-        Me.Label121 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt12 = New System.Windows.Forms.Label()
         Me.textBoxRailRight3 = New System.Windows.Forms.TextBox()
         Me.buttonBrowseRailSleeper5 = New System.Windows.Forms.Button()
         Me.buttonBrowseRailLeft5 = New System.Windows.Forms.Button()
@@ -92,21 +93,21 @@ Partial Class Main
         Me.buttonBrowseRailSleeper4 = New System.Windows.Forms.Button()
         Me.buttonBrowseRailLeft4 = New System.Windows.Forms.Button()
         Me.comboBoxRailGauge = New System.Windows.Forms.ComboBox()
-        Me.Label132 = New System.Windows.Forms.Label()
-        Me.Label75 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt03 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt15 = New System.Windows.Forms.Label()
         Me.buttonNewRail = New System.Windows.Forms.Button()
         Me.textBoxRailImage = New System.Windows.Forms.TextBox()
         Me.buttonBrowseRailImage = New System.Windows.Forms.Button()
         Me.comboBoxRailType = New System.Windows.Forms.ComboBox()
         Me.textBoxRailTitle = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt05 = New System.Windows.Forms.Label()
         Me.Label133 = New System.Windows.Forms.Label()
         Me.textBoxRailName = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label123 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt04 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt14 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt02 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelS02_Txt01 = New System.Windows.Forms.Label()
         Me.NumericUpDownRailCycle = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxRailTypeImg = New System.Windows.Forms.PictureBox()
@@ -138,25 +139,25 @@ Partial Class Main
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ButtonPoleTip = New System.Windows.Forms.Button()
         Me.PictureBoxPoleBVESyntax = New System.Windows.Forms.PictureBox()
-        Me.Label49 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt07 = New System.Windows.Forms.Label()
         Me.buttonNewPole = New System.Windows.Forms.Button()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt05 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt04 = New System.Windows.Forms.Label()
         Me.buttonBrowsePoleStructureRight = New System.Windows.Forms.Button()
         Me.buttonBrowseOverHeadWire = New System.Windows.Forms.Button()
         Me.textBoxOverHeadWire = New System.Windows.Forms.TextBox()
         Me.textBoxPoleStructureRight = New System.Windows.Forms.TextBox()
         Me.textBoxPoleName = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt01 = New System.Windows.Forms.Label()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.textBoxPoleTitle = New System.Windows.Forms.TextBox()
         Me.NumericUpDownPoleCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt02 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt08 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxPoleImage = New System.Windows.Forms.TextBox()
         Me.buttonBrowsePoleImage = New System.Windows.Forms.Button()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.LabelS03_Txt06 = New System.Windows.Forms.Label()
         Me.buttonBrowsePoleStructureLeft = New System.Windows.Forms.Button()
         Me.textBoxPoleStructureLeft = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -175,8 +176,8 @@ Partial Class Main
         Me.ButtonTrainFolderTip = New System.Windows.Forms.Button()
         Me.TextBoxTrainDir = New System.Windows.Forms.TextBox()
         Me.PictureBoxTrainBVESyntax = New System.Windows.Forms.PictureBox()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label60 = New System.Windows.Forms.Label()
+        Me.LabelS04_Txt01 = New System.Windows.Forms.Label()
+        Me.LabelS04_Txt02 = New System.Windows.Forms.Label()
         Me.ButtonRetriveTrainFolder = New System.Windows.Forms.Button()
         Me.ButtonBrowseTrainDir = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
@@ -193,13 +194,13 @@ Partial Class Main
         Me.ButtonSoundTip = New System.Windows.Forms.Button()
         Me.Buttonbrowseaudiofile = New System.Windows.Forms.Button()
         Me.Buttonaudioadd = New System.Windows.Forms.Button()
-        Me.Label25 = New System.Windows.Forms.Label()
+        Me.LabelS05_Txt01 = New System.Windows.Forms.Label()
         Me.ComboBoxaudiotype = New System.Windows.Forms.ComboBox()
         Me.TextBoxaudiofile = New System.Windows.Forms.TextBox()
         Me.TextBoxaudioname = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
+        Me.LabelS05_Txt03 = New System.Windows.Forms.Label()
+        Me.LabelS05_Txt02 = New System.Windows.Forms.Label()
+        Me.LabelS05_Txt04 = New System.Windows.Forms.Label()
         Me.TextBoxaudiotitle = New System.Windows.Forms.TextBox()
         Me.GroupBoxaudioimgshowhide = New System.Windows.Forms.GroupBox()
         Me.PictureBoxaudiorun = New System.Windows.Forms.PictureBox()
@@ -215,29 +216,29 @@ Partial Class Main
         Me.PictureBoxTunnelBVESyntax = New System.Windows.Forms.PictureBox()
         Me.buttonBrowseTunnelExitStructure = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label40 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt07 = New System.Windows.Forms.Label()
         Me.textBoxTunnelWallLeft = New System.Windows.Forms.TextBox()
         Me.buttonBrowseTunnelWallLeft = New System.Windows.Forms.Button()
         Me.textBoxTunnelWallRight = New System.Windows.Forms.TextBox()
         Me.buttonBrowseTunnelWallRight = New System.Windows.Forms.Button()
-        Me.Label46 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt01 = New System.Windows.Forms.Label()
         Me.textBoxTunnelExitStructure = New System.Windows.Forms.TextBox()
         Me.buttonBrowseTunnelImage = New System.Windows.Forms.Button()
         Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt08 = New System.Windows.Forms.Label()
         Me.textBoxTunnelName = New System.Windows.Forms.TextBox()
         Me.NumericUpDownTunnelWallCycle = New System.Windows.Forms.NumericUpDown()
         Me.textBoxTunnelImage = New System.Windows.Forms.TextBox()
         Me.buttonBrowseTunnelEntrance = New System.Windows.Forms.Button()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt02 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxTunnelTitle = New System.Windows.Forms.TextBox()
         Me.textBoxTunnelEntrance = New System.Windows.Forms.TextBox()
         Me.buttonNewTunnel = New System.Windows.Forms.Button()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt05 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt06 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt04 = New System.Windows.Forms.Label()
+        Me.LabelS06_Txt09 = New System.Windows.Forms.Label()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxTunnelPicture = New System.Windows.Forms.PictureBox()
         Me.DataGridViewTunnel = New System.Windows.Forms.DataGridView()
@@ -258,25 +259,25 @@ Partial Class Main
         Me.Label96 = New System.Windows.Forms.Label()
         Me.TextBoxBridgeLeft = New System.Windows.Forms.TextBox()
         Me.NumericUpDownBridgeWallCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.Label98 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt06 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt07 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt08 = New System.Windows.Forms.Label()
         Me.buttonBrowseBridgePier = New System.Windows.Forms.Button()
         Me.textBoxBridgePier = New System.Windows.Forms.TextBox()
         Me.buttonBrowseBridgeRight = New System.Windows.Forms.Button()
         Me.TextBoxBridgeRight = New System.Windows.Forms.TextBox()
         Me.buttonBrowseBridgeLeft = New System.Windows.Forms.Button()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt04 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt05 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt09 = New System.Windows.Forms.Label()
         Me.NumericUpDownBridgePierCycle = New System.Windows.Forms.NumericUpDown()
         Me.Label58 = New System.Windows.Forms.Label()
         Me.ButtonNewBridge = New System.Windows.Forms.Button()
         Me.TextBoxBridgeTitle = New System.Windows.Forms.TextBox()
-        Me.Label62 = New System.Windows.Forms.Label()
-        Me.Label61 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt01 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt02 = New System.Windows.Forms.Label()
         Me.TextBoxBridgeName = New System.Windows.Forms.TextBox()
-        Me.Label59 = New System.Windows.Forms.Label()
+        Me.LabelS07_Txt03 = New System.Windows.Forms.Label()
         Me.ButtonBrowseBridgeImageFile = New System.Windows.Forms.Button()
         Me.TextBoxBridgeImage = New System.Windows.Forms.TextBox()
         Me.GroupBox16 = New System.Windows.Forms.GroupBox()
@@ -296,29 +297,29 @@ Partial Class Main
         Me.PictureBoxOverpassBVESyntax = New System.Windows.Forms.PictureBox()
         Me.GroupBox36 = New System.Windows.Forms.GroupBox()
         Me.ButtonOverpassTip = New System.Windows.Forms.Button()
-        Me.Label69 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt06 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
         Me.textBoxOverPassWallLeft = New System.Windows.Forms.TextBox()
         Me.NumericUpDownOverpassWallCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.Label100 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt08 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt07 = New System.Windows.Forms.Label()
         Me.textBoxOverPassPier = New System.Windows.Forms.TextBox()
         Me.buttonBrowseOverPassWallRight = New System.Windows.Forms.Button()
         Me.textBoxOverPassWallRight = New System.Windows.Forms.TextBox()
         Me.buttonBrowseOverPassPier = New System.Windows.Forms.Button()
-        Me.Label67 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt04 = New System.Windows.Forms.Label()
         Me.buttonBrowseOverPassWallLeft = New System.Windows.Forms.Button()
-        Me.Label65 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt05 = New System.Windows.Forms.Label()
         Me.Label63 = New System.Windows.Forms.Label()
-        Me.Label64 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt09 = New System.Windows.Forms.Label()
         Me.NumericUpDownOverpassPierCycle = New System.Windows.Forms.NumericUpDown()
         Me.buttonBrowseOverPassImage = New System.Windows.Forms.Button()
-        Me.Label73 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt01 = New System.Windows.Forms.Label()
         Me.ButtonNewOverpass = New System.Windows.Forms.Button()
         Me.textBoxOverPassImage = New System.Windows.Forms.TextBox()
-        Me.Label72 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt02 = New System.Windows.Forms.Label()
         Me.textBoxOverPassTitle = New System.Windows.Forms.TextBox()
-        Me.Label70 = New System.Windows.Forms.Label()
+        Me.LabelS08_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxOverPassName = New System.Windows.Forms.TextBox()
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxFO = New System.Windows.Forms.PictureBox()
@@ -338,22 +339,22 @@ Partial Class Main
         Me.ButtonHillCutTip = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.NumericUpDownHillCutCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label44 = New System.Windows.Forms.Label()
+        Me.LabelS09_Txt06 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.buttonBrowseHillCutRight = New System.Windows.Forms.Button()
         Me.buttonBrowseHillCutLeft = New System.Windows.Forms.Button()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
+        Me.LabelS09_Txt05 = New System.Windows.Forms.Label()
+        Me.LabelS09_Txt04 = New System.Windows.Forms.Label()
         Me.textBoxHillCutRight = New System.Windows.Forms.TextBox()
         Me.textBoxHillCutLeft = New System.Windows.Forms.TextBox()
         Me.PictureBoxHillCutBVEsyntax = New System.Windows.Forms.PictureBox()
-        Me.Label84 = New System.Windows.Forms.Label()
+        Me.LabelS09_Txt01 = New System.Windows.Forms.Label()
         Me.buttonBrowseHillCutImage = New System.Windows.Forms.Button()
         Me.ButtonNewHillCut = New System.Windows.Forms.Button()
         Me.textBoxHillCutName = New System.Windows.Forms.TextBox()
         Me.textBoxHillCutImage = New System.Windows.Forms.TextBox()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
+        Me.LabelS09_Txt02 = New System.Windows.Forms.Label()
+        Me.LabelS09_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxHillCutTitle = New System.Windows.Forms.TextBox()
         Me.GroupBox20 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxHillCut = New System.Windows.Forms.PictureBox()
@@ -367,27 +368,27 @@ Partial Class Main
         Me.CutStrX = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_10 = New System.Windows.Forms.TabPage()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.ButtonDikeTip = New System.Windows.Forms.Button()
         Me.PictureBoxDikeBVESyntax = New System.Windows.Forms.PictureBox()
         Me.GroupBox35 = New System.Windows.Forms.GroupBox()
-        Me.ButtonDikeTip = New System.Windows.Forms.Button()
         Me.Label87 = New System.Windows.Forms.Label()
         Me.NumericUpDownDikeCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label93 = New System.Windows.Forms.Label()
-        Me.Label71 = New System.Windows.Forms.Label()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label85 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt07 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt06 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt05 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt04 = New System.Windows.Forms.Label()
         Me.textBoxDikeLeft = New System.Windows.Forms.TextBox()
         Me.buttonBrowseDikeRight = New System.Windows.Forms.Button()
         Me.textBoxDikeRight = New System.Windows.Forms.TextBox()
         Me.buttonBrowseDikeLeft = New System.Windows.Forms.Button()
-        Me.Label95 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt01 = New System.Windows.Forms.Label()
         Me.buttonBrowseDikeImage = New System.Windows.Forms.Button()
         Me.ButtonNewDike = New System.Windows.Forms.Button()
         Me.textBoxDikeName = New System.Windows.Forms.TextBox()
         Me.textBoxDikeImage = New System.Windows.Forms.TextBox()
         Me.textBoxDikeTitle = New System.Windows.Forms.TextBox()
-        Me.Label92 = New System.Windows.Forms.Label()
-        Me.Label94 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt03 = New System.Windows.Forms.Label()
+        Me.LabelS10_Txt02 = New System.Windows.Forms.Label()
         Me.GroupBox22 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxDike = New System.Windows.Forms.PictureBox()
         Me.DataGridViewDike = New System.Windows.Forms.DataGridView()
@@ -404,24 +405,23 @@ Partial Class Main
         Me.ButtonNewRC = New System.Windows.Forms.Button()
         Me.textBoxRCgateLeft = New System.Windows.Forms.TextBox()
         Me.PictureBoxRCBVEsyntax = New System.Windows.Forms.PictureBox()
-        Me.Label117 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt01 = New System.Windows.Forms.Label()
         Me.buttonBrowseRCgateRight = New System.Windows.Forms.Button()
-        Me.Label116 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt02 = New System.Windows.Forms.Label()
         Me.buttonBrowseRCIntersection = New System.Windows.Forms.Button()
-        Me.Label115 = New System.Windows.Forms.Label()
         Me.buttonBrowseRCgateLeft = New System.Windows.Forms.Button()
-        Me.Label114 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt03 = New System.Windows.Forms.Label()
         Me.buttonBrowseRCSound = New System.Windows.Forms.Button()
         Me.textBoxRCName = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt07 = New System.Windows.Forms.Label()
         Me.textBoxRCTitle = New System.Windows.Forms.TextBox()
         Me.textBoxRCSound = New System.Windows.Forms.TextBox()
         Me.textBoxRCImage = New System.Windows.Forms.TextBox()
-        Me.Label107 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt06 = New System.Windows.Forms.Label()
         Me.buttonBrowseRCImage = New System.Windows.Forms.Button()
-        Me.Label108 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt05 = New System.Windows.Forms.Label()
         Me.textBoxRCIntersection = New System.Windows.Forms.TextBox()
-        Me.Label109 = New System.Windows.Forms.Label()
+        Me.LabelS11_Txt04 = New System.Windows.Forms.Label()
         Me.textBoxRCgateRight = New System.Windows.Forms.TextBox()
         Me.GroupBox26 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxRC = New System.Windows.Forms.PictureBox()
@@ -438,14 +438,14 @@ Partial Class Main
         Me.Panel11 = New System.Windows.Forms.Panel()
         Me.ButtonNewPlatform = New System.Windows.Forms.Button()
         Me.PictureBoxPlatformBVESyntax = New System.Windows.Forms.PictureBox()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxS12_Txt10 = New System.Windows.Forms.GroupBox()
         Me.Label103 = New System.Windows.Forms.Label()
         Me.NumericUpDownPlatformRoofCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label104 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt15 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt11 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt14 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt12 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt13 = New System.Windows.Forms.Label()
         Me.textBoxPlatformRoofMiddleRight = New System.Windows.Forms.TextBox()
         Me.textBoxPlatformRoofLeft = New System.Windows.Forms.TextBox()
         Me.textBoxPlatformRoofRight = New System.Windows.Forms.TextBox()
@@ -454,27 +454,27 @@ Partial Class Main
         Me.buttonBrowsePlatformRoofMiddleLeft = New System.Windows.Forms.Button()
         Me.buttonBrowsermRoofRight = New System.Windows.Forms.Button()
         Me.buttonBrowsePlatformRoofLeft = New System.Windows.Forms.Button()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxS12_Txt04 = New System.Windows.Forms.GroupBox()
         Me.ButtonPlatformTip = New System.Windows.Forms.Button()
         Me.textBoxPlatformRight = New System.Windows.Forms.TextBox()
         Me.textBoxPlatformLeft = New System.Windows.Forms.TextBox()
-        Me.Label90 = New System.Windows.Forms.Label()
-        Me.Label89 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt05 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt08 = New System.Windows.Forms.Label()
         Me.Label101 = New System.Windows.Forms.Label()
         Me.textBoxPlatformMiddleLeft = New System.Windows.Forms.TextBox()
         Me.textBoxPlatformMiddleRight = New System.Windows.Forms.TextBox()
-        Me.Label79 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt06 = New System.Windows.Forms.Label()
         Me.NumericUpDownPlatformCycle = New System.Windows.Forms.NumericUpDown()
         Me.buttonBrowsePlatformMiddleRight = New System.Windows.Forms.Button()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.Label105 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt07 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt09 = New System.Windows.Forms.Label()
         Me.buttonBrowsePlatformMiddleLeft = New System.Windows.Forms.Button()
         Me.buttonbrowsePlatformRight = New System.Windows.Forms.Button()
         Me.buttonBrowsePlatformLeft = New System.Windows.Forms.Button()
         Me.textBoxPlatformTitle = New System.Windows.Forms.TextBox()
-        Me.Label112 = New System.Windows.Forms.Label()
-        Me.Label111 = New System.Windows.Forms.Label()
-        Me.Label102 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt01 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt02 = New System.Windows.Forms.Label()
+        Me.LabelS12_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxPlatformName = New System.Windows.Forms.TextBox()
         Me.textBoxPlatformImage = New System.Windows.Forms.TextBox()
         Me.buttonBrowsePlatformImage = New System.Windows.Forms.Button()
@@ -499,22 +499,22 @@ Partial Class Main
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         Me.ButtonCrackTip = New System.Windows.Forms.Button()
-        Me.Label37 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt06 = New System.Windows.Forms.Label()
         Me.textBoxCrackLeft = New System.Windows.Forms.TextBox()
         Me.textBoxCrackRight = New System.Windows.Forms.TextBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt04 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt05 = New System.Windows.Forms.Label()
         Me.buttonBrowseCrackLeft = New System.Windows.Forms.Button()
         Me.buttonBrowseCrackRight = New System.Windows.Forms.Button()
         Me.Label106 = New System.Windows.Forms.Label()
-        Me.Label118 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt07 = New System.Windows.Forms.Label()
         Me.NumericUpDownCrackCycle = New System.Windows.Forms.NumericUpDown()
         Me.textBoxCrackName = New System.Windows.Forms.TextBox()
         Me.PictureBoxCrackBVESyntax = New System.Windows.Forms.PictureBox()
         Me.ButtonNewCrack = New System.Windows.Forms.Button()
-        Me.Label97 = New System.Windows.Forms.Label()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt01 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt02 = New System.Windows.Forms.Label()
+        Me.LabelS13_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxCrackTitle = New System.Windows.Forms.TextBox()
         Me.textBoxCrackImage = New System.Windows.Forms.TextBox()
         Me.buttonBrowseCrackImage = New System.Windows.Forms.Button()
@@ -532,53 +532,53 @@ Partial Class Main
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.ButtonUGExitTip = New System.Windows.Forms.Button()
         Me.ButtonUGentranceTip = New System.Windows.Forms.Button()
-        Me.Label155 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt20 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGExit = New System.Windows.Forms.Button()
         Me.textBoxUGExit = New System.Windows.Forms.TextBox()
-        Me.Label152 = New System.Windows.Forms.Label()
-        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.LabelS14_Txt14 = New System.Windows.Forms.Label()
+        Me.GroupBoxS14_Txt15 = New System.Windows.Forms.GroupBox()
         Me.ButtonUGiWallTip = New System.Windows.Forms.Button()
-        Me.Label134 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt18 = New System.Windows.Forms.Label()
         Me.Label135 = New System.Windows.Forms.Label()
         Me.NumericUpDownUGiWallCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label136 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt19 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGiWallRight = New System.Windows.Forms.Button()
         Me.buttonBrowseUGiWallLeft = New System.Windows.Forms.Button()
-        Me.Label137 = New System.Windows.Forms.Label()
-        Me.Label150 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt17 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt16 = New System.Windows.Forms.Label()
         Me.textBoxUGiWallRight = New System.Windows.Forms.TextBox()
         Me.textBoxUGiWallLeft = New System.Windows.Forms.TextBox()
         Me.buttonBrowseUGEntrance = New System.Windows.Forms.Button()
-        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxS14_Txt09 = New System.Windows.Forms.GroupBox()
         Me.ButtonUGoWallTip = New System.Windows.Forms.Button()
-        Me.Label113 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt12 = New System.Windows.Forms.Label()
         Me.Label128 = New System.Windows.Forms.Label()
         Me.NumericUpDownUGoWallCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label129 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt13 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGoWallRight = New System.Windows.Forms.Button()
         Me.buttonBrowseUGoWallLeft = New System.Windows.Forms.Button()
-        Me.Label130 = New System.Windows.Forms.Label()
-        Me.Label131 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt11 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt10 = New System.Windows.Forms.Label()
         Me.textBoxUGoWallRight = New System.Windows.Forms.TextBox()
         Me.textBoxUGoWallLeft = New System.Windows.Forms.TextBox()
         Me.textBoxUGEntrance = New System.Windows.Forms.TextBox()
         Me.ButtonNewUG = New System.Windows.Forms.Button()
-        Me.Label154 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt01 = New System.Windows.Forms.Label()
         Me.PictureBoxUGbveSyntax = New System.Windows.Forms.PictureBox()
-        Me.Label153 = New System.Windows.Forms.Label()
-        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
+        Me.LabelS14_Txt02 = New System.Windows.Forms.Label()
+        Me.GroupBoxS14_Txt04 = New System.Windows.Forms.GroupBox()
         Me.ButtonUGGroundTip = New System.Windows.Forms.Button()
-        Me.Label110 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt07 = New System.Windows.Forms.Label()
         Me.Label146 = New System.Windows.Forms.Label()
         Me.NumericUpDownUGgroundCycle = New System.Windows.Forms.NumericUpDown()
-        Me.Label147 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt08 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGGroundRight = New System.Windows.Forms.Button()
         Me.buttonBrowseUGGroundLeft = New System.Windows.Forms.Button()
-        Me.Label148 = New System.Windows.Forms.Label()
-        Me.Label149 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt06 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt05 = New System.Windows.Forms.Label()
         Me.textBoxUGGroundRight = New System.Windows.Forms.TextBox()
         Me.textBoxUGGroundLeft = New System.Windows.Forms.TextBox()
-        Me.Label151 = New System.Windows.Forms.Label()
+        Me.LabelS14_Txt03 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGImage = New System.Windows.Forms.Button()
         Me.textBoxUGName = New System.Windows.Forms.TextBox()
         Me.textBoxUGImage = New System.Windows.Forms.TextBox()
@@ -607,15 +607,15 @@ Partial Class Main
         Me.ButtonNewFreeObject = New System.Windows.Forms.Button()
         Me.textBoxFreeObjectFile = New System.Windows.Forms.TextBox()
         Me.PictureBoxFreeObjectSyntax = New System.Windows.Forms.PictureBox()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.LabelS15_Txt01 = New System.Windows.Forms.Label()
         Me.ButtonBrowseFreeObjectImage = New System.Windows.Forms.Button()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Me.LabelS15_Txt02 = New System.Windows.Forms.Label()
         Me.ButtonBrowseFreeObjectFile = New System.Windows.Forms.Button()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.LabelS15_Txt05 = New System.Windows.Forms.Label()
         Me.ComboBoxFreeObjectType = New System.Windows.Forms.ComboBox()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.LabelS15_Txt03 = New System.Windows.Forms.Label()
         Me.textBoxFreeObjectImage = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.LabelS15_Txt04 = New System.Windows.Forms.Label()
         Me.TextBoxbvefobjname = New System.Windows.Forms.TextBox()
         Me.TextBoxbvefobjtitle = New System.Windows.Forms.TextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -630,31 +630,31 @@ Partial Class Main
         Me.Step_16 = New System.Windows.Forms.TabPage()
         Me.Panel14 = New System.Windows.Forms.Panel()
         Me.ButtonEtcBVEImage = New System.Windows.Forms.Button()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.LabelS16_Txt07 = New System.Windows.Forms.Label()
+        Me.GroupBoxS16_Txt05 = New System.Windows.Forms.GroupBox()
         Me.TextBoxBVEfile = New System.Windows.Forms.TextBox()
         Me.ButtonBrowseBVEfile = New System.Windows.Forms.Button()
-        Me.Label31 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt06 = New System.Windows.Forms.Label()
         Me.PictureBoxetcBVESyntax = New System.Windows.Forms.PictureBox()
-        Me.GroupBoxbvestrwall = New System.Windows.Forms.GroupBox()
-        Me.Label91 = New System.Windows.Forms.Label()
+        Me.GroupBoxS16_Txt08 = New System.Windows.Forms.GroupBox()
+        Me.LabelS16_Txt11 = New System.Windows.Forms.Label()
         Me.Label126 = New System.Windows.Forms.Label()
         Me.NumericUpDownBveX = New System.Windows.Forms.NumericUpDown()
-        Me.Label127 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt12 = New System.Windows.Forms.Label()
         Me.ButtonbrowseBVERight = New System.Windows.Forms.Button()
         Me.ButtonbrowseBVELeft = New System.Windows.Forms.Button()
-        Me.Label124 = New System.Windows.Forms.Label()
-        Me.Label125 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt10 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt09 = New System.Windows.Forms.Label()
         Me.TextBoxBVERight = New System.Windows.Forms.TextBox()
         Me.textBoxBVELeft = New System.Windows.Forms.TextBox()
         Me.ButtonNewBVE = New System.Windows.Forms.Button()
-        Me.Label33 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt01 = New System.Windows.Forms.Label()
         Me.ButtonBrowseEtcBVEImage = New System.Windows.Forms.Button()
-        Me.Label32 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt02 = New System.Windows.Forms.Label()
         Me.ComboBoxBVEType = New System.Windows.Forms.ComboBox()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.LabelS16_Txt03 = New System.Windows.Forms.Label()
         Me.TextBoxetcBVEImage = New System.Windows.Forms.TextBox()
-        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label29S16_Txt04 = New System.Windows.Forms.Label()
         Me.TextBoxBVEstrname = New System.Windows.Forms.TextBox()
         Me.TextBoxBVEstrtitle = New System.Windows.Forms.TextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
@@ -671,17 +671,21 @@ Partial Class Main
         Me.BveStrX = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_17 = New System.Windows.Forms.TabPage()
         Me.ButtonGenerateGBMapsJS = New System.Windows.Forms.Button()
-        Me.ButtonSaveXML = New System.Windows.Forms.Button()
+        Me.ButtonSaveTXT = New System.Windows.Forms.Button()
         Me.LabelS17_Txt02 = New System.Windows.Forms.Label()
-        Me.Label157S17_Txt01 = New System.Windows.Forms.Label()
+        Me.LabelS17_Txt01 = New System.Windows.Forms.Label()
         Me.About = New System.Windows.Forms.TabPage()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.LabelAboutCopyRight = New System.Windows.Forms.Label()
+        Me.LabelAboutDisclaimer = New System.Windows.Forms.Label()
+        Me.LabelAboutDescription = New System.Windows.Forms.Label()
+        Me.LabelAboutVersion = New System.Windows.Forms.Label()
+        Me.LabelAboutTitle = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.OpenFileDialog3 = New System.Windows.Forms.OpenFileDialog()
         Me.TabControl1.SuspendLayout()
@@ -766,9 +770,9 @@ Partial Class Main
         Me.Step_12.SuspendLayout()
         Me.Panel11.SuspendLayout()
         CType(Me.PictureBoxPlatformBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox10.SuspendLayout()
+        Me.GroupBoxS12_Txt10.SuspendLayout()
         CType(Me.NumericUpDownPlatformRoofCycle, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox4.SuspendLayout()
+        Me.GroupBoxS12_Txt04.SuspendLayout()
         CType(Me.NumericUpDownPlatformCycle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox28.SuspendLayout()
         CType(Me.PictureBoxPlatform, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -783,12 +787,12 @@ Partial Class Main
         CType(Me.DataGridViewCrack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_14.SuspendLayout()
         Me.Panel15.SuspendLayout()
-        Me.GroupBox15.SuspendLayout()
+        Me.GroupBoxS14_Txt15.SuspendLayout()
         CType(Me.NumericUpDownUGiWallCycle, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox12.SuspendLayout()
+        Me.GroupBoxS14_Txt09.SuspendLayout()
         CType(Me.NumericUpDownUGoWallCycle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxUGbveSyntax, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox37.SuspendLayout()
+        Me.GroupBoxS14_Txt04.SuspendLayout()
         CType(Me.NumericUpDownUGgroundCycle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox32.SuspendLayout()
         CType(Me.PictureBoxUG, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -801,15 +805,17 @@ Partial Class Main
         CType(Me.DataGridViewFreeObject, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_16.SuspendLayout()
         Me.Panel14.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
+        Me.GroupBoxS16_Txt05.SuspendLayout()
         CType(Me.PictureBoxetcBVESyntax, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBoxbvestrwall.SuspendLayout()
+        Me.GroupBoxS16_Txt08.SuspendLayout()
         CType(Me.NumericUpDownBveX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox11.SuspendLayout()
         CType(Me.PictureBoxBVEstrimg, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewEtc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Step_17.SuspendLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.About.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -843,13 +849,14 @@ Partial Class Main
         'Step_1
         '
         Me.Step_1.BackColor = System.Drawing.SystemColors.Control
+        Me.Step_1.Controls.Add(Me.LinkLabel1)
         Me.Step_1.Controls.Add(Me.ButtonBrowseImgDirTip)
         Me.Step_1.Controls.Add(Me.ButtonBrowseBVEDirTip)
         Me.Step_1.Controls.Add(Me.PictureBox2)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt11)
-        Me.Step_1.Controls.Add(Me.ComboBox2)
+        Me.Step_1.Controls.Add(Me.ComboBoxLanguage)
         Me.Step_1.Controls.Add(Me.buttonNewXML)
-        Me.Step_1.Controls.Add(Me.buttonOpenXML)
+        Me.Step_1.Controls.Add(Me.buttonOpenCSV)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt09)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt10)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt08)
@@ -866,9 +873,20 @@ Partial Class Main
         Me.Step_1.Controls.Add(Me.LabelS1_Txt01)
         Me.Step_1.Location = New System.Drawing.Point(4, 40)
         Me.Step_1.Name = "Step_1"
-        Me.Step_1.Size = New System.Drawing.Size(996, 689)
+        Me.Step_1.Size = New System.Drawing.Size(1000, 493)
         Me.Step_1.TabIndex = 18
         Me.Step_1.Text = "Step 1 (Basic Setting)"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(906, 40)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(80, 13)
+        Me.LinkLabel1.TabIndex = 80
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Generate Texts"
+        Me.LinkLabel1.Visible = False
         '
         'ButtonBrowseImgDirTip
         '
@@ -906,13 +924,13 @@ Partial Class Main
         Me.LabelS1_Txt11.TabIndex = 17
         Me.LabelS1_Txt11.Text = "Language"
         '
-        'ComboBox2
+        'ComboBoxLanguage
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(865, 11)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 16
+        Me.ComboBoxLanguage.FormattingEnabled = True
+        Me.ComboBoxLanguage.Location = New System.Drawing.Point(865, 11)
+        Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
+        Me.ComboBoxLanguage.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxLanguage.TabIndex = 16
         '
         'buttonNewXML
         '
@@ -923,14 +941,14 @@ Partial Class Main
         Me.buttonNewXML.TabIndex = 15
         Me.buttonNewXML.UseVisualStyleBackColor = True
         '
-        'buttonOpenXML
+        'buttonOpenCSV
         '
-        Me.buttonOpenXML.Image = CType(resources.GetObject("buttonOpenXML.Image"), System.Drawing.Image)
-        Me.buttonOpenXML.Location = New System.Drawing.Point(94, 265)
-        Me.buttonOpenXML.Name = "buttonOpenXML"
-        Me.buttonOpenXML.Size = New System.Drawing.Size(132, 134)
-        Me.buttonOpenXML.TabIndex = 14
-        Me.buttonOpenXML.UseVisualStyleBackColor = True
+        Me.buttonOpenCSV.Image = CType(resources.GetObject("buttonOpenCSV.Image"), System.Drawing.Image)
+        Me.buttonOpenCSV.Location = New System.Drawing.Point(94, 265)
+        Me.buttonOpenCSV.Name = "buttonOpenCSV"
+        Me.buttonOpenCSV.Size = New System.Drawing.Size(132, 134)
+        Me.buttonOpenCSV.TabIndex = 14
+        Me.buttonOpenCSV.UseVisualStyleBackColor = True
         '
         'LabelS1_Txt09
         '
@@ -1085,21 +1103,21 @@ Partial Class Main
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel1.Controls.Add(Me.comboBoxRailGauge)
-        Me.Panel1.Controls.Add(Me.Label132)
-        Me.Panel1.Controls.Add(Me.Label75)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt03)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt15)
         Me.Panel1.Controls.Add(Me.buttonNewRail)
         Me.Panel1.Controls.Add(Me.textBoxRailImage)
         Me.Panel1.Controls.Add(Me.buttonBrowseRailImage)
         Me.Panel1.Controls.Add(Me.comboBoxRailType)
         Me.Panel1.Controls.Add(Me.textBoxRailTitle)
-        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt05)
         Me.Panel1.Controls.Add(Me.Label133)
         Me.Panel1.Controls.Add(Me.textBoxRailName)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label123)
-        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt04)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt14)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt02)
         Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.LabelS02_Txt01)
         Me.Panel1.Controls.Add(Me.NumericUpDownRailCycle)
         Me.Panel1.Location = New System.Drawing.Point(7, 214)
         Me.Panel1.Name = "Panel1"
@@ -1137,14 +1155,14 @@ Partial Class Main
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonRailTip, 6, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailSleeper1, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label18, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label119, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt06, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt09, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt10, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailSleeper2, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label66, 5, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt08, 5, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailRight1, 5, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailRight2, 5, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label53, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt07, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailLeft1, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailLeft2, 3, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.buttonBrowseRailSleeper1, 2, 1)
@@ -1153,11 +1171,11 @@ Partial Class Main
         Me.TableLayoutPanel1.Controls.Add(Me.buttonBrowseRailSleeper2, 2, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.buttonBrowseRailLeft2, 4, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.buttonBrowseRailRight2, 6, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label120, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label122, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt11, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt13, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailSleeper3, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailLeft3, 3, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label121, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelS02_Txt12, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.textBoxRailRight3, 5, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.buttonBrowseRailSleeper5, 2, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.buttonBrowseRailLeft5, 4, 5)
@@ -1204,34 +1222,34 @@ Partial Class Main
         Me.textBoxRailSleeper1.TabIndex = 10
         Me.ToolTip1.SetToolTip(Me.textBoxRailSleeper1, resources.GetString("textBoxRailSleeper1.ToolTip"))
         '
-        'Label3
+        'LabelS02_Txt06
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(83, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 13)
-        Me.Label3.TabIndex = 23
-        Me.Label3.Text = "Sleeper"
+        Me.LabelS02_Txt06.AutoSize = True
+        Me.LabelS02_Txt06.Location = New System.Drawing.Point(83, 0)
+        Me.LabelS02_Txt06.Name = "LabelS02_Txt06"
+        Me.LabelS02_Txt06.Size = New System.Drawing.Size(43, 13)
+        Me.LabelS02_Txt06.TabIndex = 23
+        Me.LabelS02_Txt06.Text = "Sleeper"
         '
-        'Label18
+        'LabelS02_Txt09
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(3, 30)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(59, 13)
-        Me.Label18.TabIndex = 60
-        Me.Label18.Text = "Structure 1"
-        Me.ToolTip1.SetToolTip(Me.Label18, "Required")
+        Me.LabelS02_Txt09.AutoSize = True
+        Me.LabelS02_Txt09.Location = New System.Drawing.Point(3, 30)
+        Me.LabelS02_Txt09.Name = "LabelS02_Txt09"
+        Me.LabelS02_Txt09.Size = New System.Drawing.Size(59, 13)
+        Me.LabelS02_Txt09.TabIndex = 60
+        Me.LabelS02_Txt09.Text = "Structure 1"
+        Me.ToolTip1.SetToolTip(Me.LabelS02_Txt09, "Required")
         '
-        'Label119
+        'LabelS02_Txt10
         '
-        Me.Label119.AutoSize = True
-        Me.Label119.Location = New System.Drawing.Point(3, 60)
-        Me.Label119.Name = "Label119"
-        Me.Label119.Size = New System.Drawing.Size(59, 13)
-        Me.Label119.TabIndex = 61
-        Me.Label119.Text = "Structure 2"
-        Me.ToolTip1.SetToolTip(Me.Label119, "Optional")
+        Me.LabelS02_Txt10.AutoSize = True
+        Me.LabelS02_Txt10.Location = New System.Drawing.Point(3, 60)
+        Me.LabelS02_Txt10.Name = "LabelS02_Txt10"
+        Me.LabelS02_Txt10.Size = New System.Drawing.Size(59, 13)
+        Me.LabelS02_Txt10.TabIndex = 61
+        Me.LabelS02_Txt10.Text = "Structure 2"
+        Me.ToolTip1.SetToolTip(Me.LabelS02_Txt10, "Optional")
         '
         'textBoxRailSleeper2
         '
@@ -1244,14 +1262,14 @@ Partial Class Main
         "epeater['Ballast'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5, 'Ballast0', 'Ballast1', 'B" &
         "allast2', 'Ballast3', 'Ballast4');")
         '
-        'Label66
+        'LabelS02_Txt08
         '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(473, 0)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(53, 13)
-        Me.Label66.TabIndex = 25
-        Me.Label66.Text = "Right Rail"
+        Me.LabelS02_Txt08.AutoSize = True
+        Me.LabelS02_Txt08.Location = New System.Drawing.Point(473, 0)
+        Me.LabelS02_Txt08.Name = "LabelS02_Txt08"
+        Me.LabelS02_Txt08.Size = New System.Drawing.Size(53, 13)
+        Me.LabelS02_Txt08.TabIndex = 25
+        Me.LabelS02_Txt08.Text = "Right Rail"
         '
         'textBoxRailRight1
         '
@@ -1275,14 +1293,14 @@ Partial Class Main
         "Begin(, 0.5335, 0, 0, 0, 0, 0, 3, 5, 5, 'RailR0', 'RailR1', 'RailR2', 'RailR3', " &
         "'RailR4');")
         '
-        'Label53
+        'LabelS02_Txt07
         '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(278, 0)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(46, 13)
-        Me.Label53.TabIndex = 24
-        Me.Label53.Text = "Left Rail"
+        Me.LabelS02_Txt07.AutoSize = True
+        Me.LabelS02_Txt07.Location = New System.Drawing.Point(278, 0)
+        Me.LabelS02_Txt07.Name = "LabelS02_Txt07"
+        Me.LabelS02_Txt07.Size = New System.Drawing.Size(46, 13)
+        Me.LabelS02_Txt07.TabIndex = 24
+        Me.LabelS02_Txt07.Text = "Left Rail"
         '
         'textBoxRailLeft1
         '
@@ -1360,25 +1378,25 @@ Partial Class Main
         Me.buttonBrowseRailRight2.TabIndex = 41
         Me.buttonBrowseRailRight2.UseVisualStyleBackColor = True
         '
-        'Label120
+        'LabelS02_Txt11
         '
-        Me.Label120.AutoSize = True
-        Me.Label120.Location = New System.Drawing.Point(3, 90)
-        Me.Label120.Name = "Label120"
-        Me.Label120.Size = New System.Drawing.Size(59, 13)
-        Me.Label120.TabIndex = 62
-        Me.Label120.Text = "Structure 3"
-        Me.ToolTip1.SetToolTip(Me.Label120, "Optional")
+        Me.LabelS02_Txt11.AutoSize = True
+        Me.LabelS02_Txt11.Location = New System.Drawing.Point(3, 90)
+        Me.LabelS02_Txt11.Name = "LabelS02_Txt11"
+        Me.LabelS02_Txt11.Size = New System.Drawing.Size(59, 13)
+        Me.LabelS02_Txt11.TabIndex = 62
+        Me.LabelS02_Txt11.Text = "Structure 3"
+        Me.ToolTip1.SetToolTip(Me.LabelS02_Txt11, "Optional")
         '
-        'Label122
+        'LabelS02_Txt13
         '
-        Me.Label122.AutoSize = True
-        Me.Label122.Location = New System.Drawing.Point(3, 150)
-        Me.Label122.Name = "Label122"
-        Me.Label122.Size = New System.Drawing.Size(59, 13)
-        Me.Label122.TabIndex = 64
-        Me.Label122.Text = "Structure 5"
-        Me.ToolTip1.SetToolTip(Me.Label122, "Optional")
+        Me.LabelS02_Txt13.AutoSize = True
+        Me.LabelS02_Txt13.Location = New System.Drawing.Point(3, 150)
+        Me.LabelS02_Txt13.Name = "LabelS02_Txt13"
+        Me.LabelS02_Txt13.Size = New System.Drawing.Size(59, 13)
+        Me.LabelS02_Txt13.TabIndex = 64
+        Me.LabelS02_Txt13.Text = "Structure 5"
+        Me.ToolTip1.SetToolTip(Me.LabelS02_Txt13, "Optional")
         '
         'textBoxRailSleeper3
         '
@@ -1402,15 +1420,15 @@ Partial Class Main
         "egin(, -0.5335, 0, 0, 0, 0, 0, 3, 5, 5, 'RailL0', 'RailL1', 'RailL2', 'RailL3', " &
         "'RailL4');")
         '
-        'Label121
+        'LabelS02_Txt12
         '
-        Me.Label121.AutoSize = True
-        Me.Label121.Location = New System.Drawing.Point(3, 120)
-        Me.Label121.Name = "Label121"
-        Me.Label121.Size = New System.Drawing.Size(59, 13)
-        Me.Label121.TabIndex = 63
-        Me.Label121.Text = "Structure 4"
-        Me.ToolTip1.SetToolTip(Me.Label121, "Optional")
+        Me.LabelS02_Txt12.AutoSize = True
+        Me.LabelS02_Txt12.Location = New System.Drawing.Point(3, 120)
+        Me.LabelS02_Txt12.Name = "LabelS02_Txt12"
+        Me.LabelS02_Txt12.Size = New System.Drawing.Size(59, 13)
+        Me.LabelS02_Txt12.TabIndex = 63
+        Me.LabelS02_Txt12.Text = "Structure 4"
+        Me.ToolTip1.SetToolTip(Me.LabelS02_Txt12, "Optional")
         '
         'textBoxRailRight3
         '
@@ -1579,23 +1597,23 @@ Partial Class Main
         Me.comboBoxRailGauge.Size = New System.Drawing.Size(121, 21)
         Me.comboBoxRailGauge.TabIndex = 66
         '
-        'Label132
+        'LabelS02_Txt03
         '
-        Me.Label132.AutoSize = True
-        Me.Label132.Location = New System.Drawing.Point(3, 53)
-        Me.Label132.Name = "Label132"
-        Me.Label132.Size = New System.Drawing.Size(45, 13)
-        Me.Label132.TabIndex = 22
-        Me.Label132.Text = "Gauge :"
+        Me.LabelS02_Txt03.AutoSize = True
+        Me.LabelS02_Txt03.Location = New System.Drawing.Point(3, 53)
+        Me.LabelS02_Txt03.Name = "LabelS02_Txt03"
+        Me.LabelS02_Txt03.Size = New System.Drawing.Size(45, 13)
+        Me.LabelS02_Txt03.TabIndex = 22
+        Me.LabelS02_Txt03.Text = "Gauge :"
         '
-        'Label75
+        'LabelS02_Txt15
         '
-        Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(3, 376)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(116, 13)
-        Me.Label75.TabIndex = 26
-        Me.Label75.Text = "Repeating cycle, every"
+        Me.LabelS02_Txt15.AutoSize = True
+        Me.LabelS02_Txt15.Location = New System.Drawing.Point(3, 376)
+        Me.LabelS02_Txt15.Name = "LabelS02_Txt15"
+        Me.LabelS02_Txt15.Size = New System.Drawing.Size(116, 13)
+        Me.LabelS02_Txt15.TabIndex = 26
+        Me.LabelS02_Txt15.Text = "Repeating cycle, every"
         '
         'buttonNewRail
         '
@@ -1645,14 +1663,14 @@ Partial Class Main
         Me.textBoxRailTitle.TabIndex = 9
         Me.ToolTip1.SetToolTip(Me.textBoxRailTitle, "Long name (with short desciption)")
         '
-        'Label4
+        'LabelS02_Txt05
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(3, 91)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(151, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Image File (for GB Maps only) :"
+        Me.LabelS02_Txt05.AutoSize = True
+        Me.LabelS02_Txt05.Location = New System.Drawing.Point(3, 91)
+        Me.LabelS02_Txt05.Name = "LabelS02_Txt05"
+        Me.LabelS02_Txt05.Size = New System.Drawing.Size(151, 13)
+        Me.LabelS02_Txt05.TabIndex = 3
+        Me.LabelS02_Txt05.Text = "Image File (for GB Maps only) :"
         '
         'Label133
         '
@@ -1671,33 +1689,33 @@ Partial Class Main
         Me.textBoxRailName.TabIndex = 8
         Me.ToolTip1.SetToolTip(Me.textBoxRailName, "Rail ID, short name without space")
         '
-        'Label5
+        'LabelS02_Txt04
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(228, 53)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(37, 13)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Type :"
+        Me.LabelS02_Txt04.AutoSize = True
+        Me.LabelS02_Txt04.Location = New System.Drawing.Point(228, 53)
+        Me.LabelS02_Txt04.Name = "LabelS02_Txt04"
+        Me.LabelS02_Txt04.Size = New System.Drawing.Size(37, 13)
+        Me.LabelS02_Txt04.TabIndex = 4
+        Me.LabelS02_Txt04.Text = "Type :"
         '
-        'Label123
+        'LabelS02_Txt14
         '
-        Me.Label123.AutoSize = True
-        Me.Label123.Location = New System.Drawing.Point(50, 326)
-        Me.Label123.Name = "Label123"
-        Me.Label123.Size = New System.Drawing.Size(486, 26)
-        Me.Label123.TabIndex = 65
-        Me.Label123.Text = "Note: Structure 1 is required, others are optional.  Place five structures with d" &
+        Me.LabelS02_Txt14.AutoSize = True
+        Me.LabelS02_Txt14.Location = New System.Drawing.Point(50, 326)
+        Me.LabelS02_Txt14.Name = "LabelS02_Txt14"
+        Me.LabelS02_Txt14.Size = New System.Drawing.Size(486, 26)
+        Me.LabelS02_Txt14.TabIndex = 65
+        Me.LabelS02_Txt14.Text = "Note: Structure 1 is required, others are optional.  Place five structures with d" &
     "ifferent texture in a cycle " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to create a more natural pattern."
         '
-        'Label2
+        'LabelS02_Txt02
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(232, 12)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(33, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Title :"
+        Me.LabelS02_Txt02.AutoSize = True
+        Me.LabelS02_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS02_Txt02.Name = "LabelS02_Txt02"
+        Me.LabelS02_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS02_Txt02.TabIndex = 1
+        Me.LabelS02_Txt02.Text = "Title :"
         '
         'Label9
         '
@@ -1708,14 +1726,14 @@ Partial Class Main
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "m"
         '
-        'Label1
+        'LabelS02_Txt01
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 12)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Name :"
+        Me.LabelS02_Txt01.AutoSize = True
+        Me.LabelS02_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS02_Txt01.Name = "LabelS02_Txt01"
+        Me.LabelS02_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS02_Txt01.TabIndex = 0
+        Me.LabelS02_Txt01.Text = "Name :"
         '
         'NumericUpDownRailCycle
         '
@@ -1900,25 +1918,25 @@ Partial Class Main
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel2.Controls.Add(Me.ButtonPoleTip)
         Me.Panel2.Controls.Add(Me.PictureBoxPoleBVESyntax)
-        Me.Panel2.Controls.Add(Me.Label49)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt07)
         Me.Panel2.Controls.Add(Me.buttonNewPole)
-        Me.Panel2.Controls.Add(Me.Label41)
-        Me.Panel2.Controls.Add(Me.Label39)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt05)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt04)
         Me.Panel2.Controls.Add(Me.buttonBrowsePoleStructureRight)
         Me.Panel2.Controls.Add(Me.buttonBrowseOverHeadWire)
         Me.Panel2.Controls.Add(Me.textBoxOverHeadWire)
         Me.Panel2.Controls.Add(Me.textBoxPoleStructureRight)
         Me.Panel2.Controls.Add(Me.textBoxPoleName)
-        Me.Panel2.Controls.Add(Me.Label26)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt01)
         Me.Panel2.Controls.Add(Me.Label80)
         Me.Panel2.Controls.Add(Me.textBoxPoleTitle)
         Me.Panel2.Controls.Add(Me.NumericUpDownPoleCycle)
-        Me.Panel2.Controls.Add(Me.Label22)
-        Me.Panel2.Controls.Add(Me.Label86)
-        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt02)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt08)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt03)
         Me.Panel2.Controls.Add(Me.textBoxPoleImage)
         Me.Panel2.Controls.Add(Me.buttonBrowsePoleImage)
-        Me.Panel2.Controls.Add(Me.Label16)
+        Me.Panel2.Controls.Add(Me.LabelS03_Txt06)
         Me.Panel2.Controls.Add(Me.buttonBrowsePoleStructureLeft)
         Me.Panel2.Controls.Add(Me.textBoxPoleStructureLeft)
         Me.Panel2.Location = New System.Drawing.Point(9, 215)
@@ -1945,14 +1963,14 @@ Partial Class Main
         Me.PictureBoxPoleBVESyntax.TabIndex = 71
         Me.PictureBoxPoleBVESyntax.TabStop = False
         '
-        'Label49
+        'LabelS03_Txt07
         '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(3, 145)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(82, 13)
-        Me.Label49.TabIndex = 41
-        Me.Label49.Text = "Overhead wire :"
+        Me.LabelS03_Txt07.AutoSize = True
+        Me.LabelS03_Txt07.Location = New System.Drawing.Point(3, 145)
+        Me.LabelS03_Txt07.Name = "LabelS03_Txt07"
+        Me.LabelS03_Txt07.Size = New System.Drawing.Size(82, 13)
+        Me.LabelS03_Txt07.TabIndex = 41
+        Me.LabelS03_Txt07.Text = "Overhead wire :"
         '
         'buttonNewPole
         '
@@ -1965,23 +1983,23 @@ Partial Class Main
         Me.buttonNewPole.Text = "Add"
         Me.buttonNewPole.UseVisualStyleBackColor = True
         '
-        'Label41
+        'LabelS03_Txt05
         '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(492, 89)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(55, 13)
-        Me.Label41.TabIndex = 23
-        Me.Label41.Text = "Right pole"
+        Me.LabelS03_Txt05.AutoSize = True
+        Me.LabelS03_Txt05.Location = New System.Drawing.Point(492, 89)
+        Me.LabelS03_Txt05.Name = "LabelS03_Txt05"
+        Me.LabelS03_Txt05.Size = New System.Drawing.Size(55, 13)
+        Me.LabelS03_Txt05.TabIndex = 23
+        Me.LabelS03_Txt05.Text = "Right pole"
         '
-        'Label39
+        'LabelS03_Txt04
         '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(194, 89)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(48, 13)
-        Me.Label39.TabIndex = 22
-        Me.Label39.Text = "Left pole"
+        Me.LabelS03_Txt04.AutoSize = True
+        Me.LabelS03_Txt04.Location = New System.Drawing.Point(194, 89)
+        Me.LabelS03_Txt04.Name = "LabelS03_Txt04"
+        Me.LabelS03_Txt04.Size = New System.Drawing.Size(48, 13)
+        Me.LabelS03_Txt04.TabIndex = 22
+        Me.LabelS03_Txt04.Text = "Left pole"
         '
         'buttonBrowsePoleStructureRight
         '
@@ -2026,14 +2044,14 @@ Partial Class Main
         Me.textBoxPoleName.Size = New System.Drawing.Size(138, 20)
         Me.textBoxPoleName.TabIndex = 8
         '
-        'Label26
+        'LabelS03_Txt01
         '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(3, 12)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(41, 13)
-        Me.Label26.TabIndex = 0
-        Me.Label26.Text = "Name :"
+        Me.LabelS03_Txt01.AutoSize = True
+        Me.LabelS03_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS03_Txt01.Name = "LabelS03_Txt01"
+        Me.LabelS03_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS03_Txt01.TabIndex = 0
+        Me.LabelS03_Txt01.Text = "Name :"
         '
         'Label80
         '
@@ -2060,32 +2078,32 @@ Partial Class Main
         Me.NumericUpDownPoleCycle.TabIndex = 30
         Me.NumericUpDownPoleCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
-        'Label22
+        'LabelS03_Txt02
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(232, 12)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(33, 13)
-        Me.Label22.TabIndex = 1
-        Me.Label22.Text = "Title :"
+        Me.LabelS03_Txt02.AutoSize = True
+        Me.LabelS03_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS03_Txt02.Name = "LabelS03_Txt02"
+        Me.LabelS03_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS03_Txt02.TabIndex = 1
+        Me.LabelS03_Txt02.Text = "Title :"
         '
-        'Label86
+        'LabelS03_Txt08
         '
-        Me.Label86.AutoSize = True
-        Me.Label86.Location = New System.Drawing.Point(3, 199)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(90, 13)
-        Me.Label86.TabIndex = 29
-        Me.Label86.Text = "Repeating cycle :"
+        Me.LabelS03_Txt08.AutoSize = True
+        Me.LabelS03_Txt08.Location = New System.Drawing.Point(3, 199)
+        Me.LabelS03_Txt08.Name = "LabelS03_Txt08"
+        Me.LabelS03_Txt08.Size = New System.Drawing.Size(90, 13)
+        Me.LabelS03_Txt08.TabIndex = 29
+        Me.LabelS03_Txt08.Text = "Repeating cycle :"
         '
-        'Label10
+        'LabelS03_Txt03
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 48)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(151, 13)
-        Me.Label10.TabIndex = 3
-        Me.Label10.Text = "Image File (for GB Maps only) :"
+        Me.LabelS03_Txt03.AutoSize = True
+        Me.LabelS03_Txt03.Location = New System.Drawing.Point(3, 48)
+        Me.LabelS03_Txt03.Name = "LabelS03_Txt03"
+        Me.LabelS03_Txt03.Size = New System.Drawing.Size(151, 13)
+        Me.LabelS03_Txt03.TabIndex = 3
+        Me.LabelS03_Txt03.Text = "Image File (for GB Maps only) :"
         '
         'textBoxPoleImage
         '
@@ -2104,14 +2122,14 @@ Partial Class Main
         Me.buttonBrowsePoleImage.TabIndex = 19
         Me.buttonBrowsePoleImage.UseVisualStyleBackColor = True
         '
-        'Label16
+        'LabelS03_Txt06
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(3, 108)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(78, 13)
-        Me.Label16.TabIndex = 2
-        Me.Label16.Text = "Pole structure :"
+        Me.LabelS03_Txt06.AutoSize = True
+        Me.LabelS03_Txt06.Location = New System.Drawing.Point(3, 108)
+        Me.LabelS03_Txt06.Name = "LabelS03_Txt06"
+        Me.LabelS03_Txt06.Size = New System.Drawing.Size(78, 13)
+        Me.LabelS03_Txt06.TabIndex = 2
+        Me.LabelS03_Txt06.Text = "Pole structure :"
         '
         'buttonBrowsePoleStructureLeft
         '
@@ -2228,8 +2246,8 @@ Partial Class Main
         Me.Panel3.Controls.Add(Me.ButtonTrainFolderTip)
         Me.Panel3.Controls.Add(Me.TextBoxTrainDir)
         Me.Panel3.Controls.Add(Me.PictureBoxTrainBVESyntax)
-        Me.Panel3.Controls.Add(Me.Label36)
-        Me.Panel3.Controls.Add(Me.Label60)
+        Me.Panel3.Controls.Add(Me.LabelS04_Txt01)
+        Me.Panel3.Controls.Add(Me.LabelS04_Txt02)
         Me.Panel3.Controls.Add(Me.ButtonRetriveTrainFolder)
         Me.Panel3.Controls.Add(Me.ButtonBrowseTrainDir)
         Me.Panel3.Location = New System.Drawing.Point(4, 253)
@@ -2264,23 +2282,23 @@ Partial Class Main
         Me.PictureBoxTrainBVESyntax.TabIndex = 73
         Me.PictureBoxTrainBVESyntax.TabStop = False
         '
-        'Label36
+        'LabelS04_Txt01
         '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(3, 12)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(66, 13)
-        Me.Label36.TabIndex = 2
-        Me.Label36.Text = "Train folder :"
+        Me.LabelS04_Txt01.AutoSize = True
+        Me.LabelS04_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS04_Txt01.Name = "LabelS04_Txt01"
+        Me.LabelS04_Txt01.Size = New System.Drawing.Size(66, 13)
+        Me.LabelS04_Txt01.TabIndex = 2
+        Me.LabelS04_Txt01.Text = "Train folder :"
         '
-        'Label60
+        'LabelS04_Txt02
         '
-        Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(150, 38)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(393, 13)
-        Me.Label60.TabIndex = 18
-        Me.Label60.Text = "(<your drive>:\ ... \bve\bve5\trains, for example : F:\nginx\html\bve\bve5\trains" &
+        Me.LabelS04_Txt02.AutoSize = True
+        Me.LabelS04_Txt02.Location = New System.Drawing.Point(150, 38)
+        Me.LabelS04_Txt02.Name = "LabelS04_Txt02"
+        Me.LabelS04_Txt02.Size = New System.Drawing.Size(393, 13)
+        Me.LabelS04_Txt02.TabIndex = 18
+        Me.LabelS04_Txt02.Text = "(<your drive>:\ ... \bve\bve5\trains, for example : F:\nginx\html\bve\bve5\trains" &
     " )"
         '
         'ButtonRetriveTrainFolder
@@ -2332,7 +2350,7 @@ Partial Class Main
         Me.DataGridViewTrain.Location = New System.Drawing.Point(7, 7)
         Me.DataGridViewTrain.Name = "DataGridViewTrain"
         Me.DataGridViewTrain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewTrain.Size = New System.Drawing.Size(974, 239)
+        Me.DataGridViewTrain.Size = New System.Drawing.Size(985, 239)
         Me.DataGridViewTrain.TabIndex = 7
         '
         'DataGridViewTextBoxColumn16
@@ -2385,13 +2403,13 @@ Partial Class Main
         Me.Panel4.Controls.Add(Me.ButtonSoundTip)
         Me.Panel4.Controls.Add(Me.Buttonbrowseaudiofile)
         Me.Panel4.Controls.Add(Me.Buttonaudioadd)
-        Me.Panel4.Controls.Add(Me.Label25)
+        Me.Panel4.Controls.Add(Me.LabelS05_Txt01)
         Me.Panel4.Controls.Add(Me.ComboBoxaudiotype)
         Me.Panel4.Controls.Add(Me.TextBoxaudiofile)
         Me.Panel4.Controls.Add(Me.TextBoxaudioname)
-        Me.Panel4.Controls.Add(Me.Label21)
-        Me.Panel4.Controls.Add(Me.Label24)
-        Me.Panel4.Controls.Add(Me.Label23)
+        Me.Panel4.Controls.Add(Me.LabelS05_Txt03)
+        Me.Panel4.Controls.Add(Me.LabelS05_Txt02)
+        Me.Panel4.Controls.Add(Me.LabelS05_Txt04)
         Me.Panel4.Controls.Add(Me.TextBoxaudiotitle)
         Me.Panel4.Location = New System.Drawing.Point(8, 214)
         Me.Panel4.Name = "Panel4"
@@ -2437,14 +2455,14 @@ Partial Class Main
         Me.Buttonaudioadd.Text = "Add"
         Me.Buttonaudioadd.UseVisualStyleBackColor = True
         '
-        'Label25
+        'LabelS05_Txt01
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(3, 12)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(41, 13)
-        Me.Label25.TabIndex = 0
-        Me.Label25.Text = "Name :"
+        Me.LabelS05_Txt01.AutoSize = True
+        Me.LabelS05_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS05_Txt01.Name = "LabelS05_Txt01"
+        Me.LabelS05_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS05_Txt01.TabIndex = 0
+        Me.LabelS05_Txt01.Text = "Name :"
         '
         'ComboBoxaudiotype
         '
@@ -2470,32 +2488,32 @@ Partial Class Main
         Me.TextBoxaudioname.Size = New System.Drawing.Size(138, 20)
         Me.TextBoxaudioname.TabIndex = 8
         '
-        'Label21
+        'LabelS05_Txt03
         '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(3, 63)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(63, 13)
-        Me.Label21.TabIndex = 4
-        Me.Label21.Text = "Audio type :"
+        Me.LabelS05_Txt03.AutoSize = True
+        Me.LabelS05_Txt03.Location = New System.Drawing.Point(3, 63)
+        Me.LabelS05_Txt03.Name = "LabelS05_Txt03"
+        Me.LabelS05_Txt03.Size = New System.Drawing.Size(63, 13)
+        Me.LabelS05_Txt03.TabIndex = 4
+        Me.LabelS05_Txt03.Text = "Audio type :"
         '
-        'Label24
+        'LabelS05_Txt02
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(232, 12)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(33, 13)
-        Me.Label24.TabIndex = 1
-        Me.Label24.Text = "Title :"
+        Me.LabelS05_Txt02.AutoSize = True
+        Me.LabelS05_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS05_Txt02.Name = "LabelS05_Txt02"
+        Me.LabelS05_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS05_Txt02.TabIndex = 1
+        Me.LabelS05_Txt02.Text = "Title :"
         '
-        'Label23
+        'LabelS05_Txt04
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(3, 111)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(60, 13)
-        Me.Label23.TabIndex = 2
-        Me.Label23.Text = "Sound file :"
+        Me.LabelS05_Txt04.AutoSize = True
+        Me.LabelS05_Txt04.Location = New System.Drawing.Point(3, 111)
+        Me.LabelS05_Txt04.Name = "LabelS05_Txt04"
+        Me.LabelS05_Txt04.Size = New System.Drawing.Size(60, 13)
+        Me.LabelS05_Txt04.TabIndex = 2
+        Me.LabelS05_Txt04.Text = "Sound file :"
         '
         'TextBoxaudiotitle
         '
@@ -2588,24 +2606,24 @@ Partial Class Main
         Me.Panel5.Controls.Add(Me.PictureBoxTunnelBVESyntax)
         Me.Panel5.Controls.Add(Me.buttonBrowseTunnelExitStructure)
         Me.Panel5.Controls.Add(Me.TableLayoutPanel2)
-        Me.Panel5.Controls.Add(Me.Label46)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt01)
         Me.Panel5.Controls.Add(Me.textBoxTunnelExitStructure)
         Me.Panel5.Controls.Add(Me.buttonBrowseTunnelImage)
         Me.Panel5.Controls.Add(Me.Label50)
-        Me.Panel5.Controls.Add(Me.Label48)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt08)
         Me.Panel5.Controls.Add(Me.textBoxTunnelName)
         Me.Panel5.Controls.Add(Me.NumericUpDownTunnelWallCycle)
         Me.Panel5.Controls.Add(Me.textBoxTunnelImage)
         Me.Panel5.Controls.Add(Me.buttonBrowseTunnelEntrance)
-        Me.Panel5.Controls.Add(Me.Label45)
-        Me.Panel5.Controls.Add(Me.Label43)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt02)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt03)
         Me.Panel5.Controls.Add(Me.textBoxTunnelTitle)
         Me.Panel5.Controls.Add(Me.textBoxTunnelEntrance)
         Me.Panel5.Controls.Add(Me.buttonNewTunnel)
-        Me.Panel5.Controls.Add(Me.Label38)
-        Me.Panel5.Controls.Add(Me.Label35)
-        Me.Panel5.Controls.Add(Me.Label42)
-        Me.Panel5.Controls.Add(Me.Label47)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt05)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt06)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt04)
+        Me.Panel5.Controls.Add(Me.LabelS06_Txt09)
         Me.Panel5.Location = New System.Drawing.Point(8, 214)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(702, 271)
@@ -2647,7 +2665,7 @@ Partial Class Main
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label40, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.LabelS06_Txt07, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.textBoxTunnelWallLeft, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.buttonBrowseTunnelWallLeft, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.textBoxTunnelWallRight, 3, 0)
@@ -2659,16 +2677,16 @@ Partial Class Main
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(660, 38)
         Me.TableLayoutPanel2.TabIndex = 21
         '
-        'Label40
+        'LabelS06_Txt07
         '
-        Me.Label40.AutoSize = True
-        Me.Label40.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label40.Location = New System.Drawing.Point(3, 0)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(64, 13)
-        Me.Label40.TabIndex = 16
-        Me.Label40.Text = "Tunnel Wall"
-        Me.Label40.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS06_Txt07.AutoSize = True
+        Me.LabelS06_Txt07.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelS06_Txt07.Location = New System.Drawing.Point(3, 0)
+        Me.LabelS06_Txt07.Name = "LabelS06_Txt07"
+        Me.LabelS06_Txt07.Size = New System.Drawing.Size(64, 13)
+        Me.LabelS06_Txt07.TabIndex = 16
+        Me.LabelS06_Txt07.Text = "Tunnel Wall"
+        Me.LabelS06_Txt07.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'textBoxTunnelWallLeft
         '
@@ -2706,14 +2724,14 @@ Partial Class Main
         Me.buttonBrowseTunnelWallRight.TabIndex = 53
         Me.buttonBrowseTunnelWallRight.UseVisualStyleBackColor = True
         '
-        'Label46
+        'LabelS06_Txt01
         '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(3, 12)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(41, 13)
-        Me.Label46.TabIndex = 0
-        Me.Label46.Text = "Name :"
+        Me.LabelS06_Txt01.AutoSize = True
+        Me.LabelS06_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS06_Txt01.Name = "LabelS06_Txt01"
+        Me.LabelS06_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS06_Txt01.TabIndex = 0
+        Me.LabelS06_Txt01.Text = "Name :"
         '
         'textBoxTunnelExitStructure
         '
@@ -2743,15 +2761,15 @@ Partial Class Main
         Me.Label50.TabIndex = 44
         Me.Label50.Text = "m"
         '
-        'Label48
+        'LabelS06_Txt08
         '
-        Me.Label48.AutoSize = True
-        Me.Label48.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label48.Location = New System.Drawing.Point(9, 228)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(79, 13)
-        Me.Label48.TabIndex = 37
-        Me.Label48.Text = "repeating cycle"
+        Me.LabelS06_Txt08.AutoSize = True
+        Me.LabelS06_Txt08.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelS06_Txt08.Location = New System.Drawing.Point(9, 228)
+        Me.LabelS06_Txt08.Name = "LabelS06_Txt08"
+        Me.LabelS06_Txt08.Size = New System.Drawing.Size(79, 13)
+        Me.LabelS06_Txt08.TabIndex = 37
+        Me.LabelS06_Txt08.Text = "repeating cycle"
         '
         'textBoxTunnelName
         '
@@ -2786,23 +2804,23 @@ Partial Class Main
         Me.buttonBrowseTunnelEntrance.TabIndex = 50
         Me.buttonBrowseTunnelEntrance.UseVisualStyleBackColor = True
         '
-        'Label45
+        'LabelS06_Txt02
         '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(232, 12)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(33, 13)
-        Me.Label45.TabIndex = 1
-        Me.Label45.Text = "Title :"
+        Me.LabelS06_Txt02.AutoSize = True
+        Me.LabelS06_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS06_Txt02.Name = "LabelS06_Txt02"
+        Me.LabelS06_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS06_Txt02.TabIndex = 1
+        Me.LabelS06_Txt02.Text = "Title :"
         '
-        'Label43
+        'LabelS06_Txt03
         '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(3, 63)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(61, 13)
-        Me.Label43.TabIndex = 3
-        Me.Label43.Text = "Image File :"
+        Me.LabelS06_Txt03.AutoSize = True
+        Me.LabelS06_Txt03.Location = New System.Drawing.Point(3, 63)
+        Me.LabelS06_Txt03.Name = "LabelS06_Txt03"
+        Me.LabelS06_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS06_Txt03.TabIndex = 3
+        Me.LabelS06_Txt03.Text = "Image File :"
         '
         'textBoxTunnelTitle
         '
@@ -2831,46 +2849,46 @@ Partial Class Main
         Me.buttonNewTunnel.Text = "Add"
         Me.buttonNewTunnel.UseVisualStyleBackColor = True
         '
-        'Label38
+        'LabelS06_Txt05
         '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(190, 160)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(25, 13)
-        Me.Label38.TabIndex = 30
-        Me.Label38.Text = "Left"
-        Me.Label38.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS06_Txt05.AutoSize = True
+        Me.LabelS06_Txt05.Location = New System.Drawing.Point(190, 160)
+        Me.LabelS06_Txt05.Name = "LabelS06_Txt05"
+        Me.LabelS06_Txt05.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS06_Txt05.TabIndex = 30
+        Me.LabelS06_Txt05.Text = "Left"
+        Me.LabelS06_Txt05.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label35
+        'LabelS06_Txt06
         '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(482, 160)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(32, 13)
-        Me.Label35.TabIndex = 32
-        Me.Label35.Text = "Right"
-        Me.Label35.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS06_Txt06.AutoSize = True
+        Me.LabelS06_Txt06.Location = New System.Drawing.Point(482, 160)
+        Me.LabelS06_Txt06.Name = "LabelS06_Txt06"
+        Me.LabelS06_Txt06.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS06_Txt06.TabIndex = 32
+        Me.LabelS06_Txt06.Text = "Right"
+        Me.LabelS06_Txt06.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label42
+        'LabelS06_Txt04
         '
-        Me.Label42.AutoSize = True
-        Me.Label42.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label42.Location = New System.Drawing.Point(3, 121)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(59, 13)
-        Me.Label42.TabIndex = 35
-        Me.Label42.Text = "Entrance : "
+        Me.LabelS06_Txt04.AutoSize = True
+        Me.LabelS06_Txt04.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelS06_Txt04.Location = New System.Drawing.Point(3, 121)
+        Me.LabelS06_Txt04.Name = "LabelS06_Txt04"
+        Me.LabelS06_Txt04.Size = New System.Drawing.Size(59, 13)
+        Me.LabelS06_Txt04.TabIndex = 35
+        Me.LabelS06_Txt04.Text = "Entrance : "
         '
-        'Label47
+        'LabelS06_Txt09
         '
-        Me.Label47.AutoSize = True
-        Me.Label47.Enabled = False
-        Me.Label47.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label47.Location = New System.Drawing.Point(3, 282)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(33, 13)
-        Me.Label47.TabIndex = 36
-        Me.Label47.Text = "Exit : "
+        Me.LabelS06_Txt09.AutoSize = True
+        Me.LabelS06_Txt09.Enabled = False
+        Me.LabelS06_Txt09.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelS06_Txt09.Location = New System.Drawing.Point(3, 282)
+        Me.LabelS06_Txt09.Name = "LabelS06_Txt09"
+        Me.LabelS06_Txt09.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS06_Txt09.TabIndex = 36
+        Me.LabelS06_Txt09.Text = "Exit : "
         '
         'GroupBox14
         '
@@ -2976,10 +2994,10 @@ Partial Class Main
         Me.Panel6.Controls.Add(Me.GroupBox25)
         Me.Panel6.Controls.Add(Me.ButtonNewBridge)
         Me.Panel6.Controls.Add(Me.TextBoxBridgeTitle)
-        Me.Panel6.Controls.Add(Me.Label62)
-        Me.Panel6.Controls.Add(Me.Label61)
+        Me.Panel6.Controls.Add(Me.LabelS07_Txt01)
+        Me.Panel6.Controls.Add(Me.LabelS07_Txt02)
         Me.Panel6.Controls.Add(Me.TextBoxBridgeName)
-        Me.Panel6.Controls.Add(Me.Label59)
+        Me.Panel6.Controls.Add(Me.LabelS07_Txt03)
         Me.Panel6.Controls.Add(Me.ButtonBrowseBridgeImageFile)
         Me.Panel6.Controls.Add(Me.TextBoxBridgeImage)
         Me.Panel6.Location = New System.Drawing.Point(6, 214)
@@ -3003,17 +3021,17 @@ Partial Class Main
         Me.GroupBox25.Controls.Add(Me.Label96)
         Me.GroupBox25.Controls.Add(Me.TextBoxBridgeLeft)
         Me.GroupBox25.Controls.Add(Me.NumericUpDownBridgeWallCycle)
-        Me.GroupBox25.Controls.Add(Me.Label57)
-        Me.GroupBox25.Controls.Add(Me.Label98)
-        Me.GroupBox25.Controls.Add(Me.Label56)
+        Me.GroupBox25.Controls.Add(Me.LabelS07_Txt06)
+        Me.GroupBox25.Controls.Add(Me.LabelS07_Txt07)
+        Me.GroupBox25.Controls.Add(Me.LabelS07_Txt08)
         Me.GroupBox25.Controls.Add(Me.buttonBrowseBridgePier)
         Me.GroupBox25.Controls.Add(Me.textBoxBridgePier)
         Me.GroupBox25.Controls.Add(Me.buttonBrowseBridgeRight)
         Me.GroupBox25.Controls.Add(Me.TextBoxBridgeRight)
         Me.GroupBox25.Controls.Add(Me.buttonBrowseBridgeLeft)
-        Me.GroupBox25.Controls.Add(Me.Label54)
-        Me.GroupBox25.Controls.Add(Me.Label52)
-        Me.GroupBox25.Controls.Add(Me.Label55)
+        Me.GroupBox25.Controls.Add(Me.LabelS07_Txt04)
+        Me.GroupBox25.Controls.Add(Me.LabelS07_Txt05)
+        Me.GroupBox25.Controls.Add(Me.LabelS07_Txt09)
         Me.GroupBox25.Controls.Add(Me.NumericUpDownBridgePierCycle)
         Me.GroupBox25.Controls.Add(Me.Label58)
         Me.GroupBox25.Location = New System.Drawing.Point(6, 117)
@@ -3056,34 +3074,34 @@ Partial Class Main
         Me.NumericUpDownBridgeWallCycle.TabIndex = 48
         Me.NumericUpDownBridgeWallCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
-        'Label57
+        'LabelS07_Txt06
         '
-        Me.Label57.AutoSize = True
-        Me.Label57.Location = New System.Drawing.Point(30, 37)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(50, 13)
-        Me.Label57.TabIndex = 15
-        Me.Label57.Text = "Structure"
-        Me.Label57.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS07_Txt06.AutoSize = True
+        Me.LabelS07_Txt06.Location = New System.Drawing.Point(30, 37)
+        Me.LabelS07_Txt06.Name = "LabelS07_Txt06"
+        Me.LabelS07_Txt06.Size = New System.Drawing.Size(50, 13)
+        Me.LabelS07_Txt06.TabIndex = 15
+        Me.LabelS07_Txt06.Text = "Structure"
+        Me.LabelS07_Txt06.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label98
+        'LabelS07_Txt07
         '
-        Me.Label98.AutoSize = True
-        Me.Label98.Location = New System.Drawing.Point(6, 61)
-        Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(84, 13)
-        Me.Label98.TabIndex = 47
-        Me.Label98.Text = "Repeating cycle"
+        Me.LabelS07_Txt07.AutoSize = True
+        Me.LabelS07_Txt07.Location = New System.Drawing.Point(6, 61)
+        Me.LabelS07_Txt07.Name = "LabelS07_Txt07"
+        Me.LabelS07_Txt07.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS07_Txt07.TabIndex = 47
+        Me.LabelS07_Txt07.Text = "Repeating cycle"
         '
-        'Label56
+        'LabelS07_Txt08
         '
-        Me.Label56.AutoSize = True
-        Me.Label56.Location = New System.Drawing.Point(23, 105)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(57, 13)
-        Me.Label56.TabIndex = 16
-        Me.Label56.Text = "Beam/Pier"
-        Me.Label56.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS07_Txt08.AutoSize = True
+        Me.LabelS07_Txt08.Location = New System.Drawing.Point(23, 105)
+        Me.LabelS07_Txt08.Name = "LabelS07_Txt08"
+        Me.LabelS07_Txt08.Size = New System.Drawing.Size(57, 13)
+        Me.LabelS07_Txt08.TabIndex = 16
+        Me.LabelS07_Txt08.Text = "Beam/Pier"
+        Me.LabelS07_Txt08.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'buttonBrowseBridgePier
         '
@@ -3126,34 +3144,34 @@ Partial Class Main
         Me.buttonBrowseBridgeLeft.TabIndex = 40
         Me.buttonBrowseBridgeLeft.UseVisualStyleBackColor = True
         '
-        'Label54
+        'LabelS07_Txt04
         '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(151, 19)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(25, 13)
-        Me.Label54.TabIndex = 30
-        Me.Label54.Text = "Left"
-        Me.Label54.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS07_Txt04.AutoSize = True
+        Me.LabelS07_Txt04.Location = New System.Drawing.Point(151, 19)
+        Me.LabelS07_Txt04.Name = "LabelS07_Txt04"
+        Me.LabelS07_Txt04.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS07_Txt04.TabIndex = 30
+        Me.LabelS07_Txt04.Text = "Left"
+        Me.LabelS07_Txt04.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label52
+        'LabelS07_Txt05
         '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(484, 15)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(32, 13)
-        Me.Label52.TabIndex = 32
-        Me.Label52.Text = "Right"
-        Me.Label52.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS07_Txt05.AutoSize = True
+        Me.LabelS07_Txt05.Location = New System.Drawing.Point(484, 15)
+        Me.LabelS07_Txt05.Name = "LabelS07_Txt05"
+        Me.LabelS07_Txt05.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS07_Txt05.TabIndex = 32
+        Me.LabelS07_Txt05.Text = "Right"
+        Me.LabelS07_Txt05.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label55
+        'LabelS07_Txt09
         '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(6, 130)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(84, 13)
-        Me.Label55.TabIndex = 33
-        Me.Label55.Text = "Repeating cycle"
+        Me.LabelS07_Txt09.AutoSize = True
+        Me.LabelS07_Txt09.Location = New System.Drawing.Point(6, 130)
+        Me.LabelS07_Txt09.Name = "LabelS07_Txt09"
+        Me.LabelS07_Txt09.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS07_Txt09.TabIndex = 33
+        Me.LabelS07_Txt09.Text = "Repeating cycle"
         '
         'NumericUpDownBridgePierCycle
         '
@@ -3191,23 +3209,23 @@ Partial Class Main
         Me.TextBoxBridgeTitle.Size = New System.Drawing.Size(394, 20)
         Me.TextBoxBridgeTitle.TabIndex = 9
         '
-        'Label62
+        'LabelS07_Txt01
         '
-        Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(3, 12)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(41, 13)
-        Me.Label62.TabIndex = 0
-        Me.Label62.Text = "Name :"
+        Me.LabelS07_Txt01.AutoSize = True
+        Me.LabelS07_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS07_Txt01.Name = "LabelS07_Txt01"
+        Me.LabelS07_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS07_Txt01.TabIndex = 0
+        Me.LabelS07_Txt01.Text = "Name :"
         '
-        'Label61
+        'LabelS07_Txt02
         '
-        Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(232, 12)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(33, 13)
-        Me.Label61.TabIndex = 1
-        Me.Label61.Text = "Title :"
+        Me.LabelS07_Txt02.AutoSize = True
+        Me.LabelS07_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS07_Txt02.Name = "LabelS07_Txt02"
+        Me.LabelS07_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS07_Txt02.TabIndex = 1
+        Me.LabelS07_Txt02.Text = "Title :"
         '
         'TextBoxBridgeName
         '
@@ -3216,14 +3234,14 @@ Partial Class Main
         Me.TextBoxBridgeName.Size = New System.Drawing.Size(138, 20)
         Me.TextBoxBridgeName.TabIndex = 8
         '
-        'Label59
+        'LabelS07_Txt03
         '
-        Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(3, 59)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(61, 13)
-        Me.Label59.TabIndex = 3
-        Me.Label59.Text = "Image File :"
+        Me.LabelS07_Txt03.AutoSize = True
+        Me.LabelS07_Txt03.Location = New System.Drawing.Point(3, 59)
+        Me.LabelS07_Txt03.Name = "LabelS07_Txt03"
+        Me.LabelS07_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS07_Txt03.TabIndex = 3
+        Me.LabelS07_Txt03.Text = "Image File :"
         '
         'ButtonBrowseBridgeImageFile
         '
@@ -3345,12 +3363,12 @@ Partial Class Main
         Me.Panel7.Controls.Add(Me.PictureBoxOverpassBVESyntax)
         Me.Panel7.Controls.Add(Me.GroupBox36)
         Me.Panel7.Controls.Add(Me.buttonBrowseOverPassImage)
-        Me.Panel7.Controls.Add(Me.Label73)
+        Me.Panel7.Controls.Add(Me.LabelS08_Txt01)
         Me.Panel7.Controls.Add(Me.ButtonNewOverpass)
         Me.Panel7.Controls.Add(Me.textBoxOverPassImage)
-        Me.Panel7.Controls.Add(Me.Label72)
+        Me.Panel7.Controls.Add(Me.LabelS08_Txt02)
         Me.Panel7.Controls.Add(Me.textBoxOverPassTitle)
-        Me.Panel7.Controls.Add(Me.Label70)
+        Me.Panel7.Controls.Add(Me.LabelS08_Txt03)
         Me.Panel7.Controls.Add(Me.textBoxOverPassName)
         Me.Panel7.Location = New System.Drawing.Point(8, 214)
         Me.Panel7.Name = "Panel7"
@@ -3370,21 +3388,21 @@ Partial Class Main
         'GroupBox36
         '
         Me.GroupBox36.Controls.Add(Me.ButtonOverpassTip)
-        Me.GroupBox36.Controls.Add(Me.Label69)
+        Me.GroupBox36.Controls.Add(Me.LabelS08_Txt06)
         Me.GroupBox36.Controls.Add(Me.Label99)
         Me.GroupBox36.Controls.Add(Me.textBoxOverPassWallLeft)
         Me.GroupBox36.Controls.Add(Me.NumericUpDownOverpassWallCycle)
-        Me.GroupBox36.Controls.Add(Me.Label68)
-        Me.GroupBox36.Controls.Add(Me.Label100)
+        Me.GroupBox36.Controls.Add(Me.LabelS08_Txt08)
+        Me.GroupBox36.Controls.Add(Me.LabelS08_Txt07)
         Me.GroupBox36.Controls.Add(Me.textBoxOverPassPier)
         Me.GroupBox36.Controls.Add(Me.buttonBrowseOverPassWallRight)
         Me.GroupBox36.Controls.Add(Me.textBoxOverPassWallRight)
         Me.GroupBox36.Controls.Add(Me.buttonBrowseOverPassPier)
-        Me.GroupBox36.Controls.Add(Me.Label67)
+        Me.GroupBox36.Controls.Add(Me.LabelS08_Txt04)
         Me.GroupBox36.Controls.Add(Me.buttonBrowseOverPassWallLeft)
-        Me.GroupBox36.Controls.Add(Me.Label65)
+        Me.GroupBox36.Controls.Add(Me.LabelS08_Txt05)
         Me.GroupBox36.Controls.Add(Me.Label63)
-        Me.GroupBox36.Controls.Add(Me.Label64)
+        Me.GroupBox36.Controls.Add(Me.LabelS08_Txt09)
         Me.GroupBox36.Controls.Add(Me.NumericUpDownOverpassPierCycle)
         Me.GroupBox36.Location = New System.Drawing.Point(3, 104)
         Me.GroupBox36.Name = "GroupBox36"
@@ -3401,15 +3419,15 @@ Partial Class Main
         Me.ButtonOverpassTip.TabIndex = 70
         Me.ButtonOverpassTip.UseVisualStyleBackColor = True
         '
-        'Label69
+        'LabelS08_Txt06
         '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(25, 36)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(55, 13)
-        Me.Label69.TabIndex = 38
-        Me.Label69.Text = "Structures"
-        Me.Label69.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS08_Txt06.AutoSize = True
+        Me.LabelS08_Txt06.Location = New System.Drawing.Point(25, 36)
+        Me.LabelS08_Txt06.Name = "LabelS08_Txt06"
+        Me.LabelS08_Txt06.Size = New System.Drawing.Size(55, 13)
+        Me.LabelS08_Txt06.TabIndex = 38
+        Me.LabelS08_Txt06.Text = "Structures"
+        Me.LabelS08_Txt06.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label99
         '
@@ -3436,24 +3454,24 @@ Partial Class Main
         Me.NumericUpDownOverpassWallCycle.TabIndex = 53
         Me.NumericUpDownOverpassWallCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
-        'Label68
+        'LabelS08_Txt08
         '
-        Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(23, 106)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(57, 13)
-        Me.Label68.TabIndex = 39
-        Me.Label68.Text = "Beam/Pier"
-        Me.Label68.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS08_Txt08.AutoSize = True
+        Me.LabelS08_Txt08.Location = New System.Drawing.Point(23, 106)
+        Me.LabelS08_Txt08.Name = "LabelS08_Txt08"
+        Me.LabelS08_Txt08.Size = New System.Drawing.Size(57, 13)
+        Me.LabelS08_Txt08.TabIndex = 39
+        Me.LabelS08_Txt08.Text = "Beam/Pier"
+        Me.LabelS08_Txt08.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label100
+        'LabelS08_Txt07
         '
-        Me.Label100.AutoSize = True
-        Me.Label100.Location = New System.Drawing.Point(6, 61)
-        Me.Label100.Name = "Label100"
-        Me.Label100.Size = New System.Drawing.Size(84, 13)
-        Me.Label100.TabIndex = 52
-        Me.Label100.Text = "Repeating cycle"
+        Me.LabelS08_Txt07.AutoSize = True
+        Me.LabelS08_Txt07.Location = New System.Drawing.Point(6, 61)
+        Me.LabelS08_Txt07.Name = "LabelS08_Txt07"
+        Me.LabelS08_Txt07.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS08_Txt07.TabIndex = 52
+        Me.LabelS08_Txt07.Text = "Repeating cycle"
         '
         'textBoxOverPassPier
         '
@@ -3487,15 +3505,15 @@ Partial Class Main
         Me.buttonBrowseOverPassPier.TabIndex = 50
         Me.buttonBrowseOverPassPier.UseVisualStyleBackColor = True
         '
-        'Label67
+        'LabelS08_Txt04
         '
-        Me.Label67.AutoSize = True
-        Me.Label67.Location = New System.Drawing.Point(186, 16)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(25, 13)
-        Me.Label67.TabIndex = 43
-        Me.Label67.Text = "Left"
-        Me.Label67.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS08_Txt04.AutoSize = True
+        Me.LabelS08_Txt04.Location = New System.Drawing.Point(186, 16)
+        Me.LabelS08_Txt04.Name = "LabelS08_Txt04"
+        Me.LabelS08_Txt04.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS08_Txt04.TabIndex = 43
+        Me.LabelS08_Txt04.Text = "Left"
+        Me.LabelS08_Txt04.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'buttonBrowseOverPassWallLeft
         '
@@ -3506,15 +3524,15 @@ Partial Class Main
         Me.buttonBrowseOverPassWallLeft.TabIndex = 49
         Me.buttonBrowseOverPassWallLeft.UseVisualStyleBackColor = True
         '
-        'Label65
+        'LabelS08_Txt05
         '
-        Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(500, 19)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(32, 13)
-        Me.Label65.TabIndex = 45
-        Me.Label65.Text = "Right"
-        Me.Label65.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS08_Txt05.AutoSize = True
+        Me.LabelS08_Txt05.Location = New System.Drawing.Point(500, 19)
+        Me.LabelS08_Txt05.Name = "LabelS08_Txt05"
+        Me.LabelS08_Txt05.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS08_Txt05.TabIndex = 45
+        Me.LabelS08_Txt05.Text = "Right"
+        Me.LabelS08_Txt05.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label63
         '
@@ -3525,14 +3543,14 @@ Partial Class Main
         Me.Label63.TabIndex = 48
         Me.Label63.Text = "m"
         '
-        'Label64
+        'LabelS08_Txt09
         '
-        Me.Label64.AutoSize = True
-        Me.Label64.Location = New System.Drawing.Point(6, 131)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(84, 13)
-        Me.Label64.TabIndex = 46
-        Me.Label64.Text = "Repeating cycle"
+        Me.LabelS08_Txt09.AutoSize = True
+        Me.LabelS08_Txt09.Location = New System.Drawing.Point(6, 131)
+        Me.LabelS08_Txt09.Name = "LabelS08_Txt09"
+        Me.LabelS08_Txt09.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS08_Txt09.TabIndex = 46
+        Me.LabelS08_Txt09.Text = "Repeating cycle"
         '
         'NumericUpDownOverpassPierCycle
         '
@@ -3552,14 +3570,14 @@ Partial Class Main
         Me.buttonBrowseOverPassImage.TabIndex = 20
         Me.buttonBrowseOverPassImage.UseVisualStyleBackColor = True
         '
-        'Label73
+        'LabelS08_Txt01
         '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(3, 12)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(41, 13)
-        Me.Label73.TabIndex = 0
-        Me.Label73.Text = "Name :"
+        Me.LabelS08_Txt01.AutoSize = True
+        Me.LabelS08_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS08_Txt01.Name = "LabelS08_Txt01"
+        Me.LabelS08_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS08_Txt01.TabIndex = 0
+        Me.LabelS08_Txt01.Text = "Name :"
         '
         'ButtonNewOverpass
         '
@@ -3580,14 +3598,14 @@ Partial Class Main
         Me.textBoxOverPassImage.Size = New System.Drawing.Size(251, 20)
         Me.textBoxOverPassImage.TabIndex = 10
         '
-        'Label72
+        'LabelS08_Txt02
         '
-        Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(232, 12)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(33, 13)
-        Me.Label72.TabIndex = 1
-        Me.Label72.Text = "Title :"
+        Me.LabelS08_Txt02.AutoSize = True
+        Me.LabelS08_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS08_Txt02.Name = "LabelS08_Txt02"
+        Me.LabelS08_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS08_Txt02.TabIndex = 1
+        Me.LabelS08_Txt02.Text = "Title :"
         '
         'textBoxOverPassTitle
         '
@@ -3596,14 +3614,14 @@ Partial Class Main
         Me.textBoxOverPassTitle.Size = New System.Drawing.Size(394, 20)
         Me.textBoxOverPassTitle.TabIndex = 9
         '
-        'Label70
+        'LabelS08_Txt03
         '
-        Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(3, 58)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(61, 13)
-        Me.Label70.TabIndex = 3
-        Me.Label70.Text = "Image File :"
+        Me.LabelS08_Txt03.AutoSize = True
+        Me.LabelS08_Txt03.Location = New System.Drawing.Point(3, 58)
+        Me.LabelS08_Txt03.Name = "LabelS08_Txt03"
+        Me.LabelS08_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS08_Txt03.TabIndex = 3
+        Me.LabelS08_Txt03.Text = "Image File :"
         '
         'textBoxOverPassName
         '
@@ -3714,13 +3732,13 @@ Partial Class Main
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel8.Controls.Add(Me.GroupBox34)
         Me.Panel8.Controls.Add(Me.PictureBoxHillCutBVEsyntax)
-        Me.Panel8.Controls.Add(Me.Label84)
+        Me.Panel8.Controls.Add(Me.LabelS09_Txt01)
         Me.Panel8.Controls.Add(Me.buttonBrowseHillCutImage)
         Me.Panel8.Controls.Add(Me.ButtonNewHillCut)
         Me.Panel8.Controls.Add(Me.textBoxHillCutName)
         Me.Panel8.Controls.Add(Me.textBoxHillCutImage)
-        Me.Panel8.Controls.Add(Me.Label83)
-        Me.Panel8.Controls.Add(Me.Label81)
+        Me.Panel8.Controls.Add(Me.LabelS09_Txt02)
+        Me.Panel8.Controls.Add(Me.LabelS09_Txt03)
         Me.Panel8.Controls.Add(Me.textBoxHillCutTitle)
         Me.Panel8.Location = New System.Drawing.Point(8, 214)
         Me.Panel8.Name = "Panel8"
@@ -3732,12 +3750,12 @@ Partial Class Main
         Me.GroupBox34.Controls.Add(Me.ButtonHillCutTip)
         Me.GroupBox34.Controls.Add(Me.Label20)
         Me.GroupBox34.Controls.Add(Me.NumericUpDownHillCutCycle)
-        Me.GroupBox34.Controls.Add(Me.Label44)
+        Me.GroupBox34.Controls.Add(Me.LabelS09_Txt06)
         Me.GroupBox34.Controls.Add(Me.Label19)
         Me.GroupBox34.Controls.Add(Me.buttonBrowseHillCutRight)
         Me.GroupBox34.Controls.Add(Me.buttonBrowseHillCutLeft)
-        Me.GroupBox34.Controls.Add(Me.Label76)
-        Me.GroupBox34.Controls.Add(Me.Label74)
+        Me.GroupBox34.Controls.Add(Me.LabelS09_Txt05)
+        Me.GroupBox34.Controls.Add(Me.LabelS09_Txt04)
         Me.GroupBox34.Controls.Add(Me.textBoxHillCutRight)
         Me.GroupBox34.Controls.Add(Me.textBoxHillCutLeft)
         Me.GroupBox34.Location = New System.Drawing.Point(3, 87)
@@ -3772,14 +3790,14 @@ Partial Class Main
         Me.NumericUpDownHillCutCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownHillCutCycle.TabIndex = 56
         '
-        'Label44
+        'LabelS09_Txt06
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(6, 65)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(84, 13)
-        Me.Label44.TabIndex = 55
-        Me.Label44.Text = "Repeating cycle"
+        Me.LabelS09_Txt06.AutoSize = True
+        Me.LabelS09_Txt06.Location = New System.Drawing.Point(6, 65)
+        Me.LabelS09_Txt06.Name = "LabelS09_Txt06"
+        Me.LabelS09_Txt06.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS09_Txt06.TabIndex = 55
+        Me.LabelS09_Txt06.Text = "Repeating cycle"
         '
         'Label19
         '
@@ -3808,23 +3826,23 @@ Partial Class Main
         Me.buttonBrowseHillCutLeft.TabIndex = 21
         Me.buttonBrowseHillCutLeft.UseVisualStyleBackColor = True
         '
-        'Label76
+        'LabelS09_Txt05
         '
-        Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(492, 16)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(32, 13)
-        Me.Label76.TabIndex = 28
-        Me.Label76.Text = "Right"
+        Me.LabelS09_Txt05.AutoSize = True
+        Me.LabelS09_Txt05.Location = New System.Drawing.Point(492, 16)
+        Me.LabelS09_Txt05.Name = "LabelS09_Txt05"
+        Me.LabelS09_Txt05.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS09_Txt05.TabIndex = 28
+        Me.LabelS09_Txt05.Text = "Right"
         '
-        'Label74
+        'LabelS09_Txt04
         '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(193, 16)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(25, 13)
-        Me.Label74.TabIndex = 12
-        Me.Label74.Text = "Left"
+        Me.LabelS09_Txt04.AutoSize = True
+        Me.LabelS09_Txt04.Location = New System.Drawing.Point(193, 16)
+        Me.LabelS09_Txt04.Name = "LabelS09_Txt04"
+        Me.LabelS09_Txt04.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS09_Txt04.TabIndex = 12
+        Me.LabelS09_Txt04.Text = "Left"
         '
         'textBoxHillCutRight
         '
@@ -3850,14 +3868,14 @@ Partial Class Main
         Me.PictureBoxHillCutBVEsyntax.TabIndex = 75
         Me.PictureBoxHillCutBVEsyntax.TabStop = False
         '
-        'Label84
+        'LabelS09_Txt01
         '
-        Me.Label84.AutoSize = True
-        Me.Label84.Location = New System.Drawing.Point(3, 12)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(41, 13)
-        Me.Label84.TabIndex = 0
-        Me.Label84.Text = "Name :"
+        Me.LabelS09_Txt01.AutoSize = True
+        Me.LabelS09_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS09_Txt01.Name = "LabelS09_Txt01"
+        Me.LabelS09_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS09_Txt01.TabIndex = 0
+        Me.LabelS09_Txt01.Text = "Name :"
         '
         'buttonBrowseHillCutImage
         '
@@ -3894,23 +3912,23 @@ Partial Class Main
         Me.textBoxHillCutImage.Size = New System.Drawing.Size(295, 20)
         Me.textBoxHillCutImage.TabIndex = 10
         '
-        'Label83
+        'LabelS09_Txt02
         '
-        Me.Label83.AutoSize = True
-        Me.Label83.Location = New System.Drawing.Point(232, 12)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(33, 13)
-        Me.Label83.TabIndex = 1
-        Me.Label83.Text = "Title :"
+        Me.LabelS09_Txt02.AutoSize = True
+        Me.LabelS09_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS09_Txt02.Name = "LabelS09_Txt02"
+        Me.LabelS09_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS09_Txt02.TabIndex = 1
+        Me.LabelS09_Txt02.Text = "Title :"
         '
-        'Label81
+        'LabelS09_Txt03
         '
-        Me.Label81.AutoSize = True
-        Me.Label81.Location = New System.Drawing.Point(4, 46)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(61, 13)
-        Me.Label81.TabIndex = 3
-        Me.Label81.Text = "Image File :"
+        Me.LabelS09_Txt03.AutoSize = True
+        Me.LabelS09_Txt03.Location = New System.Drawing.Point(4, 46)
+        Me.LabelS09_Txt03.Name = "LabelS09_Txt03"
+        Me.LabelS09_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS09_Txt03.TabIndex = 3
+        Me.LabelS09_Txt03.Text = "Image File :"
         '
         'textBoxHillCutTitle
         '
@@ -4007,20 +4025,30 @@ Partial Class Main
         '
         Me.Panel9.AutoScroll = True
         Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel9.Controls.Add(Me.ButtonDikeTip)
         Me.Panel9.Controls.Add(Me.PictureBoxDikeBVESyntax)
         Me.Panel9.Controls.Add(Me.GroupBox35)
-        Me.Panel9.Controls.Add(Me.Label95)
+        Me.Panel9.Controls.Add(Me.LabelS10_Txt01)
         Me.Panel9.Controls.Add(Me.buttonBrowseDikeImage)
         Me.Panel9.Controls.Add(Me.ButtonNewDike)
         Me.Panel9.Controls.Add(Me.textBoxDikeName)
         Me.Panel9.Controls.Add(Me.textBoxDikeImage)
         Me.Panel9.Controls.Add(Me.textBoxDikeTitle)
-        Me.Panel9.Controls.Add(Me.Label92)
-        Me.Panel9.Controls.Add(Me.Label94)
+        Me.Panel9.Controls.Add(Me.LabelS10_Txt03)
+        Me.Panel9.Controls.Add(Me.LabelS10_Txt02)
         Me.Panel9.Location = New System.Drawing.Point(8, 214)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(701, 271)
         Me.Panel9.TabIndex = 20
+        '
+        'ButtonDikeTip
+        '
+        Me.ButtonDikeTip.Image = CType(resources.GetObject("ButtonDikeTip.Image"), System.Drawing.Image)
+        Me.ButtonDikeTip.Location = New System.Drawing.Point(645, 60)
+        Me.ButtonDikeTip.Name = "ButtonDikeTip"
+        Me.ButtonDikeTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonDikeTip.TabIndex = 70
+        Me.ButtonDikeTip.UseVisualStyleBackColor = True
         '
         'PictureBoxDikeBVESyntax
         '
@@ -4034,13 +4062,12 @@ Partial Class Main
         '
         'GroupBox35
         '
-        Me.GroupBox35.Controls.Add(Me.ButtonDikeTip)
         Me.GroupBox35.Controls.Add(Me.Label87)
         Me.GroupBox35.Controls.Add(Me.NumericUpDownDikeCycle)
-        Me.GroupBox35.Controls.Add(Me.Label93)
-        Me.GroupBox35.Controls.Add(Me.Label71)
-        Me.GroupBox35.Controls.Add(Me.Label82)
-        Me.GroupBox35.Controls.Add(Me.Label85)
+        Me.GroupBox35.Controls.Add(Me.LabelS10_Txt07)
+        Me.GroupBox35.Controls.Add(Me.LabelS10_Txt06)
+        Me.GroupBox35.Controls.Add(Me.LabelS10_Txt05)
+        Me.GroupBox35.Controls.Add(Me.LabelS10_Txt04)
         Me.GroupBox35.Controls.Add(Me.textBoxDikeLeft)
         Me.GroupBox35.Controls.Add(Me.buttonBrowseDikeRight)
         Me.GroupBox35.Controls.Add(Me.textBoxDikeRight)
@@ -4050,15 +4077,6 @@ Partial Class Main
         Me.GroupBox35.Size = New System.Drawing.Size(667, 113)
         Me.GroupBox35.TabIndex = 33
         Me.GroupBox35.TabStop = False
-        '
-        'ButtonDikeTip
-        '
-        Me.ButtonDikeTip.Image = CType(resources.GetObject("ButtonDikeTip.Image"), System.Drawing.Image)
-        Me.ButtonDikeTip.Location = New System.Drawing.Point(178, 61)
-        Me.ButtonDikeTip.Name = "ButtonDikeTip"
-        Me.ButtonDikeTip.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonDikeTip.TabIndex = 70
-        Me.ButtonDikeTip.UseVisualStyleBackColor = True
         '
         'Label87
         '
@@ -4077,41 +4095,41 @@ Partial Class Main
         Me.NumericUpDownDikeCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownDikeCycle.TabIndex = 59
         '
-        'Label93
+        'LabelS10_Txt07
         '
-        Me.Label93.AutoSize = True
-        Me.Label93.Location = New System.Drawing.Point(6, 66)
-        Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(84, 13)
-        Me.Label93.TabIndex = 58
-        Me.Label93.Text = "Repeating cycle"
+        Me.LabelS10_Txt07.AutoSize = True
+        Me.LabelS10_Txt07.Location = New System.Drawing.Point(6, 66)
+        Me.LabelS10_Txt07.Name = "LabelS10_Txt07"
+        Me.LabelS10_Txt07.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS10_Txt07.TabIndex = 58
+        Me.LabelS10_Txt07.Text = "Repeating cycle"
         '
-        'Label71
+        'LabelS10_Txt06
         '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(30, 36)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(50, 13)
-        Me.Label71.TabIndex = 33
-        Me.Label71.Text = "Structure"
+        Me.LabelS10_Txt06.AutoSize = True
+        Me.LabelS10_Txt06.Location = New System.Drawing.Point(30, 36)
+        Me.LabelS10_Txt06.Name = "LabelS10_Txt06"
+        Me.LabelS10_Txt06.Size = New System.Drawing.Size(50, 13)
+        Me.LabelS10_Txt06.TabIndex = 33
+        Me.LabelS10_Txt06.Text = "Structure"
         '
-        'Label82
+        'LabelS10_Txt05
         '
-        Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(496, 16)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(32, 13)
-        Me.Label82.TabIndex = 32
-        Me.Label82.Text = "Right"
+        Me.LabelS10_Txt05.AutoSize = True
+        Me.LabelS10_Txt05.Location = New System.Drawing.Point(496, 16)
+        Me.LabelS10_Txt05.Name = "LabelS10_Txt05"
+        Me.LabelS10_Txt05.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS10_Txt05.TabIndex = 32
+        Me.LabelS10_Txt05.Text = "Right"
         '
-        'Label85
+        'LabelS10_Txt04
         '
-        Me.Label85.AutoSize = True
-        Me.Label85.Location = New System.Drawing.Point(198, 16)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(25, 13)
-        Me.Label85.TabIndex = 31
-        Me.Label85.Text = "Left"
+        Me.LabelS10_Txt04.AutoSize = True
+        Me.LabelS10_Txt04.Location = New System.Drawing.Point(198, 16)
+        Me.LabelS10_Txt04.Name = "LabelS10_Txt04"
+        Me.LabelS10_Txt04.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS10_Txt04.TabIndex = 31
+        Me.LabelS10_Txt04.Text = "Left"
         '
         'textBoxDikeLeft
         '
@@ -4145,14 +4163,14 @@ Partial Class Main
         Me.buttonBrowseDikeLeft.TabIndex = 21
         Me.buttonBrowseDikeLeft.UseVisualStyleBackColor = True
         '
-        'Label95
+        'LabelS10_Txt01
         '
-        Me.Label95.AutoSize = True
-        Me.Label95.Location = New System.Drawing.Point(3, 12)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(41, 13)
-        Me.Label95.TabIndex = 0
-        Me.Label95.Text = "Name :"
+        Me.LabelS10_Txt01.AutoSize = True
+        Me.LabelS10_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS10_Txt01.Name = "LabelS10_Txt01"
+        Me.LabelS10_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS10_Txt01.TabIndex = 0
+        Me.LabelS10_Txt01.Text = "Name :"
         '
         'buttonBrowseDikeImage
         '
@@ -4196,23 +4214,23 @@ Partial Class Main
         Me.textBoxDikeTitle.Size = New System.Drawing.Size(394, 20)
         Me.textBoxDikeTitle.TabIndex = 9
         '
-        'Label92
+        'LabelS10_Txt03
         '
-        Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(3, 46)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(61, 13)
-        Me.Label92.TabIndex = 3
-        Me.Label92.Text = "Image File :"
+        Me.LabelS10_Txt03.AutoSize = True
+        Me.LabelS10_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS10_Txt03.Name = "LabelS10_Txt03"
+        Me.LabelS10_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS10_Txt03.TabIndex = 3
+        Me.LabelS10_Txt03.Text = "Image File :"
         '
-        'Label94
+        'LabelS10_Txt02
         '
-        Me.Label94.AutoSize = True
-        Me.Label94.Location = New System.Drawing.Point(232, 12)
-        Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(33, 13)
-        Me.Label94.TabIndex = 1
-        Me.Label94.Text = "Title :"
+        Me.LabelS10_Txt02.AutoSize = True
+        Me.LabelS10_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS10_Txt02.Name = "LabelS10_Txt02"
+        Me.LabelS10_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS10_Txt02.TabIndex = 1
+        Me.LabelS10_Txt02.Text = "Title :"
         '
         'GroupBox22
         '
@@ -4305,24 +4323,23 @@ Partial Class Main
         Me.Panel10.Controls.Add(Me.ButtonNewRC)
         Me.Panel10.Controls.Add(Me.textBoxRCgateLeft)
         Me.Panel10.Controls.Add(Me.PictureBoxRCBVEsyntax)
-        Me.Panel10.Controls.Add(Me.Label117)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt01)
         Me.Panel10.Controls.Add(Me.buttonBrowseRCgateRight)
-        Me.Panel10.Controls.Add(Me.Label116)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt02)
         Me.Panel10.Controls.Add(Me.buttonBrowseRCIntersection)
-        Me.Panel10.Controls.Add(Me.Label115)
         Me.Panel10.Controls.Add(Me.buttonBrowseRCgateLeft)
-        Me.Panel10.Controls.Add(Me.Label114)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt03)
         Me.Panel10.Controls.Add(Me.buttonBrowseRCSound)
         Me.Panel10.Controls.Add(Me.textBoxRCName)
-        Me.Panel10.Controls.Add(Me.Label17)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt07)
         Me.Panel10.Controls.Add(Me.textBoxRCTitle)
         Me.Panel10.Controls.Add(Me.textBoxRCSound)
         Me.Panel10.Controls.Add(Me.textBoxRCImage)
-        Me.Panel10.Controls.Add(Me.Label107)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt06)
         Me.Panel10.Controls.Add(Me.buttonBrowseRCImage)
-        Me.Panel10.Controls.Add(Me.Label108)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt05)
         Me.Panel10.Controls.Add(Me.textBoxRCIntersection)
-        Me.Panel10.Controls.Add(Me.Label109)
+        Me.Panel10.Controls.Add(Me.LabelS11_Txt04)
         Me.Panel10.Controls.Add(Me.textBoxRCgateRight)
         Me.Panel10.Location = New System.Drawing.Point(8, 214)
         Me.Panel10.Name = "Panel10"
@@ -4366,14 +4383,14 @@ Partial Class Main
         Me.PictureBoxRCBVEsyntax.TabIndex = 75
         Me.PictureBoxRCBVEsyntax.TabStop = False
         '
-        'Label117
+        'LabelS11_Txt01
         '
-        Me.Label117.AutoSize = True
-        Me.Label117.Location = New System.Drawing.Point(3, 12)
-        Me.Label117.Name = "Label117"
-        Me.Label117.Size = New System.Drawing.Size(41, 13)
-        Me.Label117.TabIndex = 0
-        Me.Label117.Text = "Name :"
+        Me.LabelS11_Txt01.AutoSize = True
+        Me.LabelS11_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS11_Txt01.Name = "LabelS11_Txt01"
+        Me.LabelS11_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS11_Txt01.TabIndex = 0
+        Me.LabelS11_Txt01.Text = "Name :"
         '
         'buttonBrowseRCgateRight
         '
@@ -4384,14 +4401,14 @@ Partial Class Main
         Me.buttonBrowseRCgateRight.TabIndex = 39
         Me.buttonBrowseRCgateRight.UseVisualStyleBackColor = True
         '
-        'Label116
+        'LabelS11_Txt02
         '
-        Me.Label116.AutoSize = True
-        Me.Label116.Location = New System.Drawing.Point(232, 12)
-        Me.Label116.Name = "Label116"
-        Me.Label116.Size = New System.Drawing.Size(33, 13)
-        Me.Label116.TabIndex = 1
-        Me.Label116.Text = "Title :"
+        Me.LabelS11_Txt02.AutoSize = True
+        Me.LabelS11_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS11_Txt02.Name = "LabelS11_Txt02"
+        Me.LabelS11_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS11_Txt02.TabIndex = 1
+        Me.LabelS11_Txt02.Text = "Title :"
         '
         'buttonBrowseRCIntersection
         '
@@ -4402,15 +4419,6 @@ Partial Class Main
         Me.buttonBrowseRCIntersection.TabIndex = 38
         Me.buttonBrowseRCIntersection.UseVisualStyleBackColor = True
         '
-        'Label115
-        '
-        Me.Label115.AutoSize = True
-        Me.Label115.Location = New System.Drawing.Point(3, 92)
-        Me.Label115.Name = "Label115"
-        Me.Label115.Size = New System.Drawing.Size(133, 13)
-        Me.Label115.TabIndex = 2
-        Me.Label115.Text = "BVE structure file (.x only) :"
-        '
         'buttonBrowseRCgateLeft
         '
         Me.buttonBrowseRCgateLeft.Image = CType(resources.GetObject("buttonBrowseRCgateLeft.Image"), System.Drawing.Image)
@@ -4420,14 +4428,14 @@ Partial Class Main
         Me.buttonBrowseRCgateLeft.TabIndex = 37
         Me.buttonBrowseRCgateLeft.UseVisualStyleBackColor = True
         '
-        'Label114
+        'LabelS11_Txt03
         '
-        Me.Label114.AutoSize = True
-        Me.Label114.Location = New System.Drawing.Point(3, 46)
-        Me.Label114.Name = "Label114"
-        Me.Label114.Size = New System.Drawing.Size(61, 13)
-        Me.Label114.TabIndex = 3
-        Me.Label114.Text = "Image File :"
+        Me.LabelS11_Txt03.AutoSize = True
+        Me.LabelS11_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS11_Txt03.Name = "LabelS11_Txt03"
+        Me.LabelS11_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS11_Txt03.TabIndex = 3
+        Me.LabelS11_Txt03.Text = "Image File :"
         '
         'buttonBrowseRCSound
         '
@@ -4445,14 +4453,14 @@ Partial Class Main
         Me.textBoxRCName.Size = New System.Drawing.Size(138, 20)
         Me.textBoxRCName.TabIndex = 8
         '
-        'Label17
+        'LabelS11_Txt07
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(12, 229)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(100, 13)
-        Me.Label17.TabIndex = 35
-        Me.Label17.Text = "Sound effect (.wav)"
+        Me.LabelS11_Txt07.AutoSize = True
+        Me.LabelS11_Txt07.Location = New System.Drawing.Point(12, 229)
+        Me.LabelS11_Txt07.Name = "LabelS11_Txt07"
+        Me.LabelS11_Txt07.Size = New System.Drawing.Size(100, 13)
+        Me.LabelS11_Txt07.TabIndex = 35
+        Me.LabelS11_Txt07.Text = "Sound effect (.wav)"
         '
         'textBoxRCTitle
         '
@@ -4476,15 +4484,15 @@ Partial Class Main
         Me.textBoxRCImage.Size = New System.Drawing.Size(270, 20)
         Me.textBoxRCImage.TabIndex = 10
         '
-        'Label107
+        'LabelS11_Txt06
         '
-        Me.Label107.AutoSize = True
-        Me.Label107.Location = New System.Drawing.Point(12, 184)
-        Me.Label107.Name = "Label107"
-        Me.Label107.Size = New System.Drawing.Size(100, 13)
-        Me.Label107.TabIndex = 32
-        Me.Label107.Text = "Right gate structure"
-        Me.Label107.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS11_Txt06.AutoSize = True
+        Me.LabelS11_Txt06.Location = New System.Drawing.Point(12, 184)
+        Me.LabelS11_Txt06.Name = "LabelS11_Txt06"
+        Me.LabelS11_Txt06.Size = New System.Drawing.Size(100, 13)
+        Me.LabelS11_Txt06.TabIndex = 32
+        Me.LabelS11_Txt06.Text = "Right gate structure"
+        Me.LabelS11_Txt06.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'buttonBrowseRCImage
         '
@@ -4495,15 +4503,15 @@ Partial Class Main
         Me.buttonBrowseRCImage.TabIndex = 20
         Me.buttonBrowseRCImage.UseVisualStyleBackColor = True
         '
-        'Label108
+        'LabelS11_Txt05
         '
-        Me.Label108.AutoSize = True
-        Me.Label108.Location = New System.Drawing.Point(12, 155)
-        Me.Label108.Name = "Label108"
-        Me.Label108.Size = New System.Drawing.Size(90, 13)
-        Me.Label108.TabIndex = 31
-        Me.Label108.Text = "Road intersection"
-        Me.Label108.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS11_Txt05.AutoSize = True
+        Me.LabelS11_Txt05.Location = New System.Drawing.Point(12, 155)
+        Me.LabelS11_Txt05.Name = "LabelS11_Txt05"
+        Me.LabelS11_Txt05.Size = New System.Drawing.Size(90, 13)
+        Me.LabelS11_Txt05.TabIndex = 31
+        Me.LabelS11_Txt05.Text = "Road intersection"
+        Me.LabelS11_Txt05.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'textBoxRCIntersection
         '
@@ -4512,15 +4520,15 @@ Partial Class Main
         Me.textBoxRCIntersection.Size = New System.Drawing.Size(486, 20)
         Me.textBoxRCIntersection.TabIndex = 24
         '
-        'Label109
+        'LabelS11_Txt04
         '
-        Me.Label109.AutoSize = True
-        Me.Label109.Location = New System.Drawing.Point(12, 126)
-        Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(93, 13)
-        Me.Label109.TabIndex = 30
-        Me.Label109.Text = "Left gate structure"
-        Me.Label109.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS11_Txt04.AutoSize = True
+        Me.LabelS11_Txt04.Location = New System.Drawing.Point(12, 126)
+        Me.LabelS11_Txt04.Name = "LabelS11_Txt04"
+        Me.LabelS11_Txt04.Size = New System.Drawing.Size(93, 13)
+        Me.LabelS11_Txt04.TabIndex = 30
+        Me.LabelS11_Txt04.Text = "Left gate structure"
+        Me.LabelS11_Txt04.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'textBoxRCgateRight
         '
@@ -4625,12 +4633,12 @@ Partial Class Main
         Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel11.Controls.Add(Me.ButtonNewPlatform)
         Me.Panel11.Controls.Add(Me.PictureBoxPlatformBVESyntax)
-        Me.Panel11.Controls.Add(Me.GroupBox10)
-        Me.Panel11.Controls.Add(Me.GroupBox4)
+        Me.Panel11.Controls.Add(Me.GroupBoxS12_Txt10)
+        Me.Panel11.Controls.Add(Me.GroupBoxS12_Txt04)
         Me.Panel11.Controls.Add(Me.textBoxPlatformTitle)
-        Me.Panel11.Controls.Add(Me.Label112)
-        Me.Panel11.Controls.Add(Me.Label111)
-        Me.Panel11.Controls.Add(Me.Label102)
+        Me.Panel11.Controls.Add(Me.LabelS12_Txt01)
+        Me.Panel11.Controls.Add(Me.LabelS12_Txt02)
+        Me.Panel11.Controls.Add(Me.LabelS12_Txt03)
         Me.Panel11.Controls.Add(Me.textBoxPlatformName)
         Me.Panel11.Controls.Add(Me.textBoxPlatformImage)
         Me.Panel11.Controls.Add(Me.buttonBrowsePlatformImage)
@@ -4660,29 +4668,29 @@ Partial Class Main
         Me.PictureBoxPlatformBVESyntax.TabIndex = 75
         Me.PictureBoxPlatformBVESyntax.TabStop = False
         '
-        'GroupBox10
+        'GroupBoxS12_Txt10
         '
-        Me.GroupBox10.Controls.Add(Me.Label103)
-        Me.GroupBox10.Controls.Add(Me.NumericUpDownPlatformRoofCycle)
-        Me.GroupBox10.Controls.Add(Me.Label104)
-        Me.GroupBox10.Controls.Add(Me.Label6)
-        Me.GroupBox10.Controls.Add(Me.Label7)
-        Me.GroupBox10.Controls.Add(Me.Label8)
-        Me.GroupBox10.Controls.Add(Me.Label51)
-        Me.GroupBox10.Controls.Add(Me.textBoxPlatformRoofMiddleRight)
-        Me.GroupBox10.Controls.Add(Me.textBoxPlatformRoofLeft)
-        Me.GroupBox10.Controls.Add(Me.textBoxPlatformRoofRight)
-        Me.GroupBox10.Controls.Add(Me.buttonBrowsePlatformRoofMiddleRight)
-        Me.GroupBox10.Controls.Add(Me.textBoxPlatformRoofMiddleLeft)
-        Me.GroupBox10.Controls.Add(Me.buttonBrowsePlatformRoofMiddleLeft)
-        Me.GroupBox10.Controls.Add(Me.buttonBrowsermRoofRight)
-        Me.GroupBox10.Controls.Add(Me.buttonBrowsePlatformRoofLeft)
-        Me.GroupBox10.Location = New System.Drawing.Point(9, 257)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(669, 169)
-        Me.GroupBox10.TabIndex = 22
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Roof"
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.Label103)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.NumericUpDownPlatformRoofCycle)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.LabelS12_Txt15)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.LabelS12_Txt11)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.LabelS12_Txt14)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.LabelS12_Txt12)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.LabelS12_Txt13)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.textBoxPlatformRoofMiddleRight)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.textBoxPlatformRoofLeft)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.textBoxPlatformRoofRight)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.buttonBrowsePlatformRoofMiddleRight)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.textBoxPlatformRoofMiddleLeft)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.buttonBrowsePlatformRoofMiddleLeft)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.buttonBrowsermRoofRight)
+        Me.GroupBoxS12_Txt10.Controls.Add(Me.buttonBrowsePlatformRoofLeft)
+        Me.GroupBoxS12_Txt10.Location = New System.Drawing.Point(9, 257)
+        Me.GroupBoxS12_Txt10.Name = "GroupBoxS12_Txt10"
+        Me.GroupBoxS12_Txt10.Size = New System.Drawing.Size(669, 169)
+        Me.GroupBoxS12_Txt10.TabIndex = 22
+        Me.GroupBoxS12_Txt10.TabStop = False
+        Me.GroupBoxS12_Txt10.Text = "Roof"
         '
         'Label103
         '
@@ -4701,54 +4709,54 @@ Partial Class Main
         Me.NumericUpDownPlatformRoofCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownPlatformRoofCycle.TabIndex = 65
         '
-        'Label104
+        'LabelS12_Txt15
         '
-        Me.Label104.AutoSize = True
-        Me.Label104.Location = New System.Drawing.Point(38, 140)
-        Me.Label104.Name = "Label104"
-        Me.Label104.Size = New System.Drawing.Size(84, 13)
-        Me.Label104.TabIndex = 64
-        Me.Label104.Text = "Repeating cycle"
+        Me.LabelS12_Txt15.AutoSize = True
+        Me.LabelS12_Txt15.Location = New System.Drawing.Point(38, 140)
+        Me.LabelS12_Txt15.Name = "LabelS12_Txt15"
+        Me.LabelS12_Txt15.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS12_Txt15.TabIndex = 64
+        Me.LabelS12_Txt15.Text = "Repeating cycle"
         '
-        'Label6
+        'LabelS12_Txt11
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(53, 22)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 13)
-        Me.Label6.TabIndex = 47
-        Me.Label6.Text = "Left structure"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS12_Txt11.AutoSize = True
+        Me.LabelS12_Txt11.Location = New System.Drawing.Point(53, 22)
+        Me.LabelS12_Txt11.Name = "LabelS12_Txt11"
+        Me.LabelS12_Txt11.Size = New System.Drawing.Size(69, 13)
+        Me.LabelS12_Txt11.TabIndex = 47
+        Me.LabelS12_Txt11.Text = "Left structure"
+        Me.LabelS12_Txt11.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label7
+        'LabelS12_Txt14
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(46, 115)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 13)
-        Me.Label7.TabIndex = 48
-        Me.Label7.Text = "Right structure"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS12_Txt14.AutoSize = True
+        Me.LabelS12_Txt14.Location = New System.Drawing.Point(46, 115)
+        Me.LabelS12_Txt14.Name = "LabelS12_Txt14"
+        Me.LabelS12_Txt14.Size = New System.Drawing.Size(76, 13)
+        Me.LabelS12_Txt14.TabIndex = 48
+        Me.LabelS12_Txt14.Text = "Right structure"
+        Me.LabelS12_Txt14.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label8
+        'LabelS12_Txt12
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(23, 48)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(99, 13)
-        Me.Label8.TabIndex = 49
-        Me.Label8.Text = "Middle left structure"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS12_Txt12.AutoSize = True
+        Me.LabelS12_Txt12.Location = New System.Drawing.Point(23, 48)
+        Me.LabelS12_Txt12.Name = "LabelS12_Txt12"
+        Me.LabelS12_Txt12.Size = New System.Drawing.Size(99, 13)
+        Me.LabelS12_Txt12.TabIndex = 49
+        Me.LabelS12_Txt12.Text = "Middle left structure"
+        Me.LabelS12_Txt12.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label51
+        'LabelS12_Txt13
         '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(17, 89)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(105, 13)
-        Me.Label51.TabIndex = 50
-        Me.Label51.Text = "Middle right structure"
-        Me.Label51.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS12_Txt13.AutoSize = True
+        Me.LabelS12_Txt13.Location = New System.Drawing.Point(17, 89)
+        Me.LabelS12_Txt13.Name = "LabelS12_Txt13"
+        Me.LabelS12_Txt13.Size = New System.Drawing.Size(105, 13)
+        Me.LabelS12_Txt13.TabIndex = 50
+        Me.LabelS12_Txt13.Text = "Middle right structure"
+        Me.LabelS12_Txt13.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'textBoxPlatformRoofMiddleRight
         '
@@ -4814,30 +4822,30 @@ Partial Class Main
         Me.buttonBrowsePlatformRoofLeft.TabIndex = 44
         Me.buttonBrowsePlatformRoofLeft.UseVisualStyleBackColor = True
         '
-        'GroupBox4
+        'GroupBoxS12_Txt04
         '
-        Me.GroupBox4.Controls.Add(Me.ButtonPlatformTip)
-        Me.GroupBox4.Controls.Add(Me.textBoxPlatformRight)
-        Me.GroupBox4.Controls.Add(Me.textBoxPlatformLeft)
-        Me.GroupBox4.Controls.Add(Me.Label90)
-        Me.GroupBox4.Controls.Add(Me.Label89)
-        Me.GroupBox4.Controls.Add(Me.Label101)
-        Me.GroupBox4.Controls.Add(Me.textBoxPlatformMiddleLeft)
-        Me.GroupBox4.Controls.Add(Me.textBoxPlatformMiddleRight)
-        Me.GroupBox4.Controls.Add(Me.Label79)
-        Me.GroupBox4.Controls.Add(Me.NumericUpDownPlatformCycle)
-        Me.GroupBox4.Controls.Add(Me.buttonBrowsePlatformMiddleRight)
-        Me.GroupBox4.Controls.Add(Me.Label77)
-        Me.GroupBox4.Controls.Add(Me.Label105)
-        Me.GroupBox4.Controls.Add(Me.buttonBrowsePlatformMiddleLeft)
-        Me.GroupBox4.Controls.Add(Me.buttonbrowsePlatformRight)
-        Me.GroupBox4.Controls.Add(Me.buttonBrowsePlatformLeft)
-        Me.GroupBox4.Location = New System.Drawing.Point(9, 80)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(669, 171)
-        Me.GroupBox4.TabIndex = 21
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Platform"
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.ButtonPlatformTip)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.textBoxPlatformRight)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.textBoxPlatformLeft)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.LabelS12_Txt05)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.LabelS12_Txt08)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.Label101)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.textBoxPlatformMiddleLeft)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.textBoxPlatformMiddleRight)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.LabelS12_Txt06)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.NumericUpDownPlatformCycle)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.buttonBrowsePlatformMiddleRight)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.LabelS12_Txt07)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.LabelS12_Txt09)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.buttonBrowsePlatformMiddleLeft)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.buttonbrowsePlatformRight)
+        Me.GroupBoxS12_Txt04.Controls.Add(Me.buttonBrowsePlatformLeft)
+        Me.GroupBoxS12_Txt04.Location = New System.Drawing.Point(9, 80)
+        Me.GroupBoxS12_Txt04.Name = "GroupBoxS12_Txt04"
+        Me.GroupBoxS12_Txt04.Size = New System.Drawing.Size(669, 171)
+        Me.GroupBoxS12_Txt04.TabIndex = 21
+        Me.GroupBoxS12_Txt04.TabStop = False
+        Me.GroupBoxS12_Txt04.Text = "Platform"
         '
         'ButtonPlatformTip
         '
@@ -4862,25 +4870,25 @@ Partial Class Main
         Me.textBoxPlatformLeft.Size = New System.Drawing.Size(250, 20)
         Me.textBoxPlatformLeft.TabIndex = 11
         '
-        'Label90
+        'LabelS12_Txt05
         '
-        Me.Label90.AutoSize = True
-        Me.Label90.Location = New System.Drawing.Point(53, 22)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(69, 13)
-        Me.Label90.TabIndex = 15
-        Me.Label90.Text = "Left structure"
-        Me.Label90.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS12_Txt05.AutoSize = True
+        Me.LabelS12_Txt05.Location = New System.Drawing.Point(53, 22)
+        Me.LabelS12_Txt05.Name = "LabelS12_Txt05"
+        Me.LabelS12_Txt05.Size = New System.Drawing.Size(69, 13)
+        Me.LabelS12_Txt05.TabIndex = 15
+        Me.LabelS12_Txt05.Text = "Left structure"
+        Me.LabelS12_Txt05.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label89
+        'LabelS12_Txt08
         '
-        Me.Label89.AutoSize = True
-        Me.Label89.Location = New System.Drawing.Point(46, 115)
-        Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(76, 13)
-        Me.Label89.TabIndex = 16
-        Me.Label89.Text = "Right structure"
-        Me.Label89.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.LabelS12_Txt08.AutoSize = True
+        Me.LabelS12_Txt08.Location = New System.Drawing.Point(46, 115)
+        Me.LabelS12_Txt08.Name = "LabelS12_Txt08"
+        Me.LabelS12_Txt08.Size = New System.Drawing.Size(76, 13)
+        Me.LabelS12_Txt08.TabIndex = 16
+        Me.LabelS12_Txt08.Text = "Right structure"
+        Me.LabelS12_Txt08.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label101
         '
@@ -4905,15 +4913,15 @@ Partial Class Main
         Me.textBoxPlatformMiddleRight.Size = New System.Drawing.Size(250, 20)
         Me.textBoxPlatformMiddleRight.TabIndex = 25
         '
-        'Label79
+        'LabelS12_Txt06
         '
-        Me.Label79.AutoSize = True
-        Me.Label79.Location = New System.Drawing.Point(23, 48)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(99, 13)
-        Me.Label79.TabIndex = 30
-        Me.Label79.Text = "Middle left structure"
-        Me.Label79.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS12_Txt06.AutoSize = True
+        Me.LabelS12_Txt06.Location = New System.Drawing.Point(23, 48)
+        Me.LabelS12_Txt06.Name = "LabelS12_Txt06"
+        Me.LabelS12_Txt06.Size = New System.Drawing.Size(99, 13)
+        Me.LabelS12_Txt06.TabIndex = 30
+        Me.LabelS12_Txt06.Text = "Middle left structure"
+        Me.LabelS12_Txt06.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'NumericUpDownPlatformCycle
         '
@@ -4932,24 +4940,24 @@ Partial Class Main
         Me.buttonBrowsePlatformMiddleRight.TabIndex = 43
         Me.buttonBrowsePlatformMiddleRight.UseVisualStyleBackColor = True
         '
-        'Label77
+        'LabelS12_Txt07
         '
-        Me.Label77.AutoSize = True
-        Me.Label77.Location = New System.Drawing.Point(17, 89)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(105, 13)
-        Me.Label77.TabIndex = 38
-        Me.Label77.Text = "Middle right structure"
-        Me.Label77.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS12_Txt07.AutoSize = True
+        Me.LabelS12_Txt07.Location = New System.Drawing.Point(17, 89)
+        Me.LabelS12_Txt07.Name = "LabelS12_Txt07"
+        Me.LabelS12_Txt07.Size = New System.Drawing.Size(105, 13)
+        Me.LabelS12_Txt07.TabIndex = 38
+        Me.LabelS12_Txt07.Text = "Middle right structure"
+        Me.LabelS12_Txt07.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label105
+        'LabelS12_Txt09
         '
-        Me.Label105.AutoSize = True
-        Me.Label105.Location = New System.Drawing.Point(38, 140)
-        Me.Label105.Name = "Label105"
-        Me.Label105.Size = New System.Drawing.Size(84, 13)
-        Me.Label105.TabIndex = 61
-        Me.Label105.Text = "Repeating cycle"
+        Me.LabelS12_Txt09.AutoSize = True
+        Me.LabelS12_Txt09.Location = New System.Drawing.Point(38, 140)
+        Me.LabelS12_Txt09.Name = "LabelS12_Txt09"
+        Me.LabelS12_Txt09.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS12_Txt09.TabIndex = 61
+        Me.LabelS12_Txt09.Text = "Repeating cycle"
         '
         'buttonBrowsePlatformMiddleLeft
         '
@@ -4985,32 +4993,32 @@ Partial Class Main
         Me.textBoxPlatformTitle.Size = New System.Drawing.Size(394, 20)
         Me.textBoxPlatformTitle.TabIndex = 9
         '
-        'Label112
+        'LabelS12_Txt01
         '
-        Me.Label112.AutoSize = True
-        Me.Label112.Location = New System.Drawing.Point(3, 12)
-        Me.Label112.Name = "Label112"
-        Me.Label112.Size = New System.Drawing.Size(41, 13)
-        Me.Label112.TabIndex = 0
-        Me.Label112.Text = "Name :"
+        Me.LabelS12_Txt01.AutoSize = True
+        Me.LabelS12_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS12_Txt01.Name = "LabelS12_Txt01"
+        Me.LabelS12_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS12_Txt01.TabIndex = 0
+        Me.LabelS12_Txt01.Text = "Name :"
         '
-        'Label111
+        'LabelS12_Txt02
         '
-        Me.Label111.AutoSize = True
-        Me.Label111.Location = New System.Drawing.Point(232, 12)
-        Me.Label111.Name = "Label111"
-        Me.Label111.Size = New System.Drawing.Size(33, 13)
-        Me.Label111.TabIndex = 1
-        Me.Label111.Text = "Title :"
+        Me.LabelS12_Txt02.AutoSize = True
+        Me.LabelS12_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS12_Txt02.Name = "LabelS12_Txt02"
+        Me.LabelS12_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS12_Txt02.TabIndex = 1
+        Me.LabelS12_Txt02.Text = "Title :"
         '
-        'Label102
+        'LabelS12_Txt03
         '
-        Me.Label102.AutoSize = True
-        Me.Label102.Location = New System.Drawing.Point(3, 46)
-        Me.Label102.Name = "Label102"
-        Me.Label102.Size = New System.Drawing.Size(61, 13)
-        Me.Label102.TabIndex = 3
-        Me.Label102.Text = "Image File :"
+        Me.LabelS12_Txt03.AutoSize = True
+        Me.LabelS12_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS12_Txt03.Name = "LabelS12_Txt03"
+        Me.LabelS12_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS12_Txt03.TabIndex = 3
+        Me.LabelS12_Txt03.Text = "Image File :"
         '
         'textBoxPlatformName
         '
@@ -5169,9 +5177,9 @@ Partial Class Main
         Me.Panel12.Controls.Add(Me.textBoxCrackName)
         Me.Panel12.Controls.Add(Me.PictureBoxCrackBVESyntax)
         Me.Panel12.Controls.Add(Me.ButtonNewCrack)
-        Me.Panel12.Controls.Add(Me.Label97)
-        Me.Panel12.Controls.Add(Me.Label88)
-        Me.Panel12.Controls.Add(Me.Label34)
+        Me.Panel12.Controls.Add(Me.LabelS13_Txt01)
+        Me.Panel12.Controls.Add(Me.LabelS13_Txt02)
+        Me.Panel12.Controls.Add(Me.LabelS13_Txt03)
         Me.Panel12.Controls.Add(Me.textBoxCrackTitle)
         Me.Panel12.Controls.Add(Me.textBoxCrackImage)
         Me.Panel12.Controls.Add(Me.buttonBrowseCrackImage)
@@ -5183,15 +5191,15 @@ Partial Class Main
         'GroupBox13
         '
         Me.GroupBox13.Controls.Add(Me.ButtonCrackTip)
-        Me.GroupBox13.Controls.Add(Me.Label37)
+        Me.GroupBox13.Controls.Add(Me.LabelS13_Txt06)
         Me.GroupBox13.Controls.Add(Me.textBoxCrackLeft)
         Me.GroupBox13.Controls.Add(Me.textBoxCrackRight)
-        Me.GroupBox13.Controls.Add(Me.Label28)
-        Me.GroupBox13.Controls.Add(Me.Label27)
+        Me.GroupBox13.Controls.Add(Me.LabelS13_Txt04)
+        Me.GroupBox13.Controls.Add(Me.LabelS13_Txt05)
         Me.GroupBox13.Controls.Add(Me.buttonBrowseCrackLeft)
         Me.GroupBox13.Controls.Add(Me.buttonBrowseCrackRight)
         Me.GroupBox13.Controls.Add(Me.Label106)
-        Me.GroupBox13.Controls.Add(Me.Label118)
+        Me.GroupBox13.Controls.Add(Me.LabelS13_Txt07)
         Me.GroupBox13.Controls.Add(Me.NumericUpDownCrackCycle)
         Me.GroupBox13.Location = New System.Drawing.Point(6, 87)
         Me.GroupBox13.Name = "GroupBox13"
@@ -5208,14 +5216,14 @@ Partial Class Main
         Me.ButtonCrackTip.TabIndex = 70
         Me.ButtonCrackTip.UseVisualStyleBackColor = True
         '
-        'Label37
+        'LabelS13_Txt06
         '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(30, 36)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(50, 13)
-        Me.Label37.TabIndex = 67
-        Me.Label37.Text = "Structure"
+        Me.LabelS13_Txt06.AutoSize = True
+        Me.LabelS13_Txt06.Location = New System.Drawing.Point(30, 36)
+        Me.LabelS13_Txt06.Name = "LabelS13_Txt06"
+        Me.LabelS13_Txt06.Size = New System.Drawing.Size(50, 13)
+        Me.LabelS13_Txt06.TabIndex = 67
+        Me.LabelS13_Txt06.Text = "Structure"
         '
         'textBoxCrackLeft
         '
@@ -5231,25 +5239,25 @@ Partial Class Main
         Me.textBoxCrackRight.Size = New System.Drawing.Size(250, 20)
         Me.textBoxCrackRight.TabIndex = 27
         '
-        'Label28
+        'LabelS13_Txt04
         '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(201, 16)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(25, 13)
-        Me.Label28.TabIndex = 30
-        Me.Label28.Text = "Left"
-        Me.Label28.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS13_Txt04.AutoSize = True
+        Me.LabelS13_Txt04.Location = New System.Drawing.Point(201, 16)
+        Me.LabelS13_Txt04.Name = "LabelS13_Txt04"
+        Me.LabelS13_Txt04.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS13_Txt04.TabIndex = 30
+        Me.LabelS13_Txt04.Text = "Left"
+        Me.LabelS13_Txt04.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label27
+        'LabelS13_Txt05
         '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(493, 17)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(32, 13)
-        Me.Label27.TabIndex = 32
-        Me.Label27.Text = "Right"
-        Me.Label27.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS13_Txt05.AutoSize = True
+        Me.LabelS13_Txt05.Location = New System.Drawing.Point(493, 17)
+        Me.LabelS13_Txt05.Name = "LabelS13_Txt05"
+        Me.LabelS13_Txt05.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS13_Txt05.TabIndex = 32
+        Me.LabelS13_Txt05.Text = "Right"
+        Me.LabelS13_Txt05.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'buttonBrowseCrackLeft
         '
@@ -5278,14 +5286,14 @@ Partial Class Main
         Me.Label106.TabIndex = 66
         Me.Label106.Text = "m"
         '
-        'Label118
+        'LabelS13_Txt07
         '
-        Me.Label118.AutoSize = True
-        Me.Label118.Location = New System.Drawing.Point(9, 61)
-        Me.Label118.Name = "Label118"
-        Me.Label118.Size = New System.Drawing.Size(84, 13)
-        Me.Label118.TabIndex = 64
-        Me.Label118.Text = "Repeating cycle"
+        Me.LabelS13_Txt07.AutoSize = True
+        Me.LabelS13_Txt07.Location = New System.Drawing.Point(9, 61)
+        Me.LabelS13_Txt07.Name = "LabelS13_Txt07"
+        Me.LabelS13_Txt07.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS13_Txt07.TabIndex = 64
+        Me.LabelS13_Txt07.Text = "Repeating cycle"
         '
         'NumericUpDownCrackCycle
         '
@@ -5323,32 +5331,32 @@ Partial Class Main
         Me.ButtonNewCrack.Text = "Add"
         Me.ButtonNewCrack.UseVisualStyleBackColor = True
         '
-        'Label97
+        'LabelS13_Txt01
         '
-        Me.Label97.AutoSize = True
-        Me.Label97.Location = New System.Drawing.Point(3, 12)
-        Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(41, 13)
-        Me.Label97.TabIndex = 0
-        Me.Label97.Text = "Name :"
+        Me.LabelS13_Txt01.AutoSize = True
+        Me.LabelS13_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS13_Txt01.Name = "LabelS13_Txt01"
+        Me.LabelS13_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS13_Txt01.TabIndex = 0
+        Me.LabelS13_Txt01.Text = "Name :"
         '
-        'Label88
+        'LabelS13_Txt02
         '
-        Me.Label88.AutoSize = True
-        Me.Label88.Location = New System.Drawing.Point(232, 12)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(33, 13)
-        Me.Label88.TabIndex = 1
-        Me.Label88.Text = "Title :"
+        Me.LabelS13_Txt02.AutoSize = True
+        Me.LabelS13_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS13_Txt02.Name = "LabelS13_Txt02"
+        Me.LabelS13_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS13_Txt02.TabIndex = 1
+        Me.LabelS13_Txt02.Text = "Title :"
         '
-        'Label34
+        'LabelS13_Txt03
         '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(3, 46)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(61, 13)
-        Me.Label34.TabIndex = 3
-        Me.Label34.Text = "Image File :"
+        Me.LabelS13_Txt03.AutoSize = True
+        Me.LabelS13_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS13_Txt03.Name = "LabelS13_Txt03"
+        Me.LabelS13_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS13_Txt03.TabIndex = 3
+        Me.LabelS13_Txt03.Text = "Image File :"
         '
         'textBoxCrackTitle
         '
@@ -5459,20 +5467,20 @@ Partial Class Main
         Me.Panel15.AutoScroll = True
         Me.Panel15.Controls.Add(Me.ButtonUGExitTip)
         Me.Panel15.Controls.Add(Me.ButtonUGentranceTip)
-        Me.Panel15.Controls.Add(Me.Label155)
+        Me.Panel15.Controls.Add(Me.LabelS14_Txt20)
         Me.Panel15.Controls.Add(Me.buttonBrowseUGExit)
         Me.Panel15.Controls.Add(Me.textBoxUGExit)
-        Me.Panel15.Controls.Add(Me.Label152)
-        Me.Panel15.Controls.Add(Me.GroupBox15)
+        Me.Panel15.Controls.Add(Me.LabelS14_Txt14)
+        Me.Panel15.Controls.Add(Me.GroupBoxS14_Txt15)
         Me.Panel15.Controls.Add(Me.buttonBrowseUGEntrance)
-        Me.Panel15.Controls.Add(Me.GroupBox12)
+        Me.Panel15.Controls.Add(Me.GroupBoxS14_Txt09)
         Me.Panel15.Controls.Add(Me.textBoxUGEntrance)
         Me.Panel15.Controls.Add(Me.ButtonNewUG)
-        Me.Panel15.Controls.Add(Me.Label154)
+        Me.Panel15.Controls.Add(Me.LabelS14_Txt01)
         Me.Panel15.Controls.Add(Me.PictureBoxUGbveSyntax)
-        Me.Panel15.Controls.Add(Me.Label153)
-        Me.Panel15.Controls.Add(Me.GroupBox37)
-        Me.Panel15.Controls.Add(Me.Label151)
+        Me.Panel15.Controls.Add(Me.LabelS14_Txt02)
+        Me.Panel15.Controls.Add(Me.GroupBoxS14_Txt04)
+        Me.Panel15.Controls.Add(Me.LabelS14_Txt03)
         Me.Panel15.Controls.Add(Me.buttonBrowseUGImage)
         Me.Panel15.Controls.Add(Me.textBoxUGName)
         Me.Panel15.Controls.Add(Me.textBoxUGImage)
@@ -5500,14 +5508,14 @@ Partial Class Main
         Me.ButtonUGentranceTip.TabIndex = 71
         Me.ButtonUGentranceTip.UseVisualStyleBackColor = True
         '
-        'Label155
+        'LabelS14_Txt20
         '
-        Me.Label155.AutoSize = True
-        Me.Label155.Location = New System.Drawing.Point(0, 454)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(95, 13)
-        Me.Label155.TabIndex = 80
-        Me.Label155.Text = "Underground Exit :"
+        Me.LabelS14_Txt20.AutoSize = True
+        Me.LabelS14_Txt20.Location = New System.Drawing.Point(0, 454)
+        Me.LabelS14_Txt20.Name = "LabelS14_Txt20"
+        Me.LabelS14_Txt20.Size = New System.Drawing.Size(95, 13)
+        Me.LabelS14_Txt20.TabIndex = 80
+        Me.LabelS14_Txt20.Text = "Underground Exit :"
         '
         'buttonBrowseUGExit
         '
@@ -5525,34 +5533,34 @@ Partial Class Main
         Me.textBoxUGExit.Size = New System.Drawing.Size(250, 20)
         Me.textBoxUGExit.TabIndex = 78
         '
-        'Label152
+        'LabelS14_Txt14
         '
-        Me.Label152.AutoSize = True
-        Me.Label152.Location = New System.Drawing.Point(0, 305)
-        Me.Label152.Name = "Label152"
-        Me.Label152.Size = New System.Drawing.Size(121, 13)
-        Me.Label152.TabIndex = 70
-        Me.Label152.Text = "Underground Entrance :"
+        Me.LabelS14_Txt14.AutoSize = True
+        Me.LabelS14_Txt14.Location = New System.Drawing.Point(0, 305)
+        Me.LabelS14_Txt14.Name = "LabelS14_Txt14"
+        Me.LabelS14_Txt14.Size = New System.Drawing.Size(121, 13)
+        Me.LabelS14_Txt14.TabIndex = 70
+        Me.LabelS14_Txt14.Text = "Underground Entrance :"
         '
-        'GroupBox15
+        'GroupBoxS14_Txt15
         '
-        Me.GroupBox15.Controls.Add(Me.ButtonUGiWallTip)
-        Me.GroupBox15.Controls.Add(Me.Label134)
-        Me.GroupBox15.Controls.Add(Me.Label135)
-        Me.GroupBox15.Controls.Add(Me.NumericUpDownUGiWallCycle)
-        Me.GroupBox15.Controls.Add(Me.Label136)
-        Me.GroupBox15.Controls.Add(Me.buttonBrowseUGiWallRight)
-        Me.GroupBox15.Controls.Add(Me.buttonBrowseUGiWallLeft)
-        Me.GroupBox15.Controls.Add(Me.Label137)
-        Me.GroupBox15.Controls.Add(Me.Label150)
-        Me.GroupBox15.Controls.Add(Me.textBoxUGiWallRight)
-        Me.GroupBox15.Controls.Add(Me.textBoxUGiWallLeft)
-        Me.GroupBox15.Location = New System.Drawing.Point(3, 339)
-        Me.GroupBox15.Name = "GroupBox15"
-        Me.GroupBox15.Size = New System.Drawing.Size(670, 91)
-        Me.GroupBox15.TabIndex = 77
-        Me.GroupBox15.TabStop = False
-        Me.GroupBox15.Text = "Inside wall :"
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.ButtonUGiWallTip)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.LabelS14_Txt18)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.Label135)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.NumericUpDownUGiWallCycle)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.LabelS14_Txt19)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.buttonBrowseUGiWallRight)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.buttonBrowseUGiWallLeft)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.LabelS14_Txt17)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.LabelS14_Txt16)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.textBoxUGiWallRight)
+        Me.GroupBoxS14_Txt15.Controls.Add(Me.textBoxUGiWallLeft)
+        Me.GroupBoxS14_Txt15.Location = New System.Drawing.Point(3, 339)
+        Me.GroupBoxS14_Txt15.Name = "GroupBoxS14_Txt15"
+        Me.GroupBoxS14_Txt15.Size = New System.Drawing.Size(670, 91)
+        Me.GroupBoxS14_Txt15.TabIndex = 77
+        Me.GroupBoxS14_Txt15.TabStop = False
+        Me.GroupBoxS14_Txt15.Text = "Inside wall :"
         '
         'ButtonUGiWallTip
         '
@@ -5563,14 +5571,14 @@ Partial Class Main
         Me.ButtonUGiWallTip.TabIndex = 70
         Me.ButtonUGiWallTip.UseVisualStyleBackColor = True
         '
-        'Label134
+        'LabelS14_Txt18
         '
-        Me.Label134.AutoSize = True
-        Me.Label134.Location = New System.Drawing.Point(38, 36)
-        Me.Label134.Name = "Label134"
-        Me.Label134.Size = New System.Drawing.Size(42, 13)
-        Me.Label134.TabIndex = 67
-        Me.Label134.Text = "Ground"
+        Me.LabelS14_Txt18.AutoSize = True
+        Me.LabelS14_Txt18.Location = New System.Drawing.Point(38, 36)
+        Me.LabelS14_Txt18.Name = "LabelS14_Txt18"
+        Me.LabelS14_Txt18.Size = New System.Drawing.Size(28, 13)
+        Me.LabelS14_Txt18.TabIndex = 67
+        Me.LabelS14_Txt18.Text = "Wall"
         '
         'Label135
         '
@@ -5589,14 +5597,14 @@ Partial Class Main
         Me.NumericUpDownUGiWallCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownUGiWallCycle.TabIndex = 65
         '
-        'Label136
+        'LabelS14_Txt19
         '
-        Me.Label136.AutoSize = True
-        Me.Label136.Location = New System.Drawing.Point(6, 61)
-        Me.Label136.Name = "Label136"
-        Me.Label136.Size = New System.Drawing.Size(84, 13)
-        Me.Label136.TabIndex = 64
-        Me.Label136.Text = "Repeating cycle"
+        Me.LabelS14_Txt19.AutoSize = True
+        Me.LabelS14_Txt19.Location = New System.Drawing.Point(6, 61)
+        Me.LabelS14_Txt19.Name = "LabelS14_Txt19"
+        Me.LabelS14_Txt19.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS14_Txt19.TabIndex = 64
+        Me.LabelS14_Txt19.Text = "Repeating cycle"
         '
         'buttonBrowseUGiWallRight
         '
@@ -5616,25 +5624,25 @@ Partial Class Main
         Me.buttonBrowseUGiWallLeft.TabIndex = 37
         Me.buttonBrowseUGiWallLeft.UseVisualStyleBackColor = True
         '
-        'Label137
+        'LabelS14_Txt17
         '
-        Me.Label137.AutoSize = True
-        Me.Label137.Location = New System.Drawing.Point(501, 17)
-        Me.Label137.Name = "Label137"
-        Me.Label137.Size = New System.Drawing.Size(32, 13)
-        Me.Label137.TabIndex = 36
-        Me.Label137.Text = "Right"
-        Me.Label137.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS14_Txt17.AutoSize = True
+        Me.LabelS14_Txt17.Location = New System.Drawing.Point(501, 17)
+        Me.LabelS14_Txt17.Name = "LabelS14_Txt17"
+        Me.LabelS14_Txt17.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS14_Txt17.TabIndex = 36
+        Me.LabelS14_Txt17.Text = "Right"
+        Me.LabelS14_Txt17.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label150
+        'LabelS14_Txt16
         '
-        Me.Label150.AutoSize = True
-        Me.Label150.Location = New System.Drawing.Point(191, 16)
-        Me.Label150.Name = "Label150"
-        Me.Label150.Size = New System.Drawing.Size(25, 13)
-        Me.Label150.TabIndex = 35
-        Me.Label150.Text = "Left"
-        Me.Label150.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS14_Txt16.AutoSize = True
+        Me.LabelS14_Txt16.Location = New System.Drawing.Point(191, 16)
+        Me.LabelS14_Txt16.Name = "LabelS14_Txt16"
+        Me.LabelS14_Txt16.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS14_Txt16.TabIndex = 35
+        Me.LabelS14_Txt16.Text = "Left"
+        Me.LabelS14_Txt16.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'textBoxUGiWallRight
         '
@@ -5659,25 +5667,25 @@ Partial Class Main
         Me.buttonBrowseUGEntrance.TabIndex = 69
         Me.buttonBrowseUGEntrance.UseVisualStyleBackColor = True
         '
-        'GroupBox12
+        'GroupBoxS14_Txt09
         '
-        Me.GroupBox12.Controls.Add(Me.ButtonUGoWallTip)
-        Me.GroupBox12.Controls.Add(Me.Label113)
-        Me.GroupBox12.Controls.Add(Me.Label128)
-        Me.GroupBox12.Controls.Add(Me.NumericUpDownUGoWallCycle)
-        Me.GroupBox12.Controls.Add(Me.Label129)
-        Me.GroupBox12.Controls.Add(Me.buttonBrowseUGoWallRight)
-        Me.GroupBox12.Controls.Add(Me.buttonBrowseUGoWallLeft)
-        Me.GroupBox12.Controls.Add(Me.Label130)
-        Me.GroupBox12.Controls.Add(Me.Label131)
-        Me.GroupBox12.Controls.Add(Me.textBoxUGoWallRight)
-        Me.GroupBox12.Controls.Add(Me.textBoxUGoWallLeft)
-        Me.GroupBox12.Location = New System.Drawing.Point(3, 190)
-        Me.GroupBox12.Name = "GroupBox12"
-        Me.GroupBox12.Size = New System.Drawing.Size(670, 91)
-        Me.GroupBox12.TabIndex = 68
-        Me.GroupBox12.TabStop = False
-        Me.GroupBox12.Text = "Outside wall :"
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.ButtonUGoWallTip)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.LabelS14_Txt12)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.Label128)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.NumericUpDownUGoWallCycle)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.LabelS14_Txt13)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.buttonBrowseUGoWallRight)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.buttonBrowseUGoWallLeft)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.LabelS14_Txt11)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.LabelS14_Txt10)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.textBoxUGoWallRight)
+        Me.GroupBoxS14_Txt09.Controls.Add(Me.textBoxUGoWallLeft)
+        Me.GroupBoxS14_Txt09.Location = New System.Drawing.Point(3, 190)
+        Me.GroupBoxS14_Txt09.Name = "GroupBoxS14_Txt09"
+        Me.GroupBoxS14_Txt09.Size = New System.Drawing.Size(670, 91)
+        Me.GroupBoxS14_Txt09.TabIndex = 68
+        Me.GroupBoxS14_Txt09.TabStop = False
+        Me.GroupBoxS14_Txt09.Text = "Outside wall :"
         '
         'ButtonUGoWallTip
         '
@@ -5688,14 +5696,14 @@ Partial Class Main
         Me.ButtonUGoWallTip.TabIndex = 69
         Me.ButtonUGoWallTip.UseVisualStyleBackColor = True
         '
-        'Label113
+        'LabelS14_Txt12
         '
-        Me.Label113.AutoSize = True
-        Me.Label113.Location = New System.Drawing.Point(38, 36)
-        Me.Label113.Name = "Label113"
-        Me.Label113.Size = New System.Drawing.Size(28, 13)
-        Me.Label113.TabIndex = 67
-        Me.Label113.Text = "Wall"
+        Me.LabelS14_Txt12.AutoSize = True
+        Me.LabelS14_Txt12.Location = New System.Drawing.Point(38, 36)
+        Me.LabelS14_Txt12.Name = "LabelS14_Txt12"
+        Me.LabelS14_Txt12.Size = New System.Drawing.Size(28, 13)
+        Me.LabelS14_Txt12.TabIndex = 67
+        Me.LabelS14_Txt12.Text = "Wall"
         '
         'Label128
         '
@@ -5714,14 +5722,14 @@ Partial Class Main
         Me.NumericUpDownUGoWallCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownUGoWallCycle.TabIndex = 65
         '
-        'Label129
+        'LabelS14_Txt13
         '
-        Me.Label129.AutoSize = True
-        Me.Label129.Location = New System.Drawing.Point(6, 61)
-        Me.Label129.Name = "Label129"
-        Me.Label129.Size = New System.Drawing.Size(84, 13)
-        Me.Label129.TabIndex = 64
-        Me.Label129.Text = "Repeating cycle"
+        Me.LabelS14_Txt13.AutoSize = True
+        Me.LabelS14_Txt13.Location = New System.Drawing.Point(6, 61)
+        Me.LabelS14_Txt13.Name = "LabelS14_Txt13"
+        Me.LabelS14_Txt13.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS14_Txt13.TabIndex = 64
+        Me.LabelS14_Txt13.Text = "Repeating cycle"
         '
         'buttonBrowseUGoWallRight
         '
@@ -5741,25 +5749,25 @@ Partial Class Main
         Me.buttonBrowseUGoWallLeft.TabIndex = 37
         Me.buttonBrowseUGoWallLeft.UseVisualStyleBackColor = True
         '
-        'Label130
+        'LabelS14_Txt11
         '
-        Me.Label130.AutoSize = True
-        Me.Label130.Location = New System.Drawing.Point(501, 17)
-        Me.Label130.Name = "Label130"
-        Me.Label130.Size = New System.Drawing.Size(32, 13)
-        Me.Label130.TabIndex = 36
-        Me.Label130.Text = "Right"
-        Me.Label130.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS14_Txt11.AutoSize = True
+        Me.LabelS14_Txt11.Location = New System.Drawing.Point(501, 17)
+        Me.LabelS14_Txt11.Name = "LabelS14_Txt11"
+        Me.LabelS14_Txt11.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS14_Txt11.TabIndex = 36
+        Me.LabelS14_Txt11.Text = "Right"
+        Me.LabelS14_Txt11.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label131
+        'LabelS14_Txt10
         '
-        Me.Label131.AutoSize = True
-        Me.Label131.Location = New System.Drawing.Point(191, 16)
-        Me.Label131.Name = "Label131"
-        Me.Label131.Size = New System.Drawing.Size(25, 13)
-        Me.Label131.TabIndex = 35
-        Me.Label131.Text = "Left"
-        Me.Label131.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS14_Txt10.AutoSize = True
+        Me.LabelS14_Txt10.Location = New System.Drawing.Point(191, 16)
+        Me.LabelS14_Txt10.Name = "LabelS14_Txt10"
+        Me.LabelS14_Txt10.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS14_Txt10.TabIndex = 35
+        Me.LabelS14_Txt10.Text = "Left"
+        Me.LabelS14_Txt10.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'textBoxUGoWallRight
         '
@@ -5793,14 +5801,14 @@ Partial Class Main
         Me.ButtonNewUG.Text = "Add"
         Me.ButtonNewUG.UseVisualStyleBackColor = True
         '
-        'Label154
+        'LabelS14_Txt01
         '
-        Me.Label154.AutoSize = True
-        Me.Label154.Location = New System.Drawing.Point(3, 12)
-        Me.Label154.Name = "Label154"
-        Me.Label154.Size = New System.Drawing.Size(41, 13)
-        Me.Label154.TabIndex = 0
-        Me.Label154.Text = "Name :"
+        Me.LabelS14_Txt01.AutoSize = True
+        Me.LabelS14_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS14_Txt01.Name = "LabelS14_Txt01"
+        Me.LabelS14_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS14_Txt01.TabIndex = 0
+        Me.LabelS14_Txt01.Text = "Name :"
         '
         'PictureBoxUGbveSyntax
         '
@@ -5812,34 +5820,34 @@ Partial Class Main
         Me.PictureBoxUGbveSyntax.TabIndex = 75
         Me.PictureBoxUGbveSyntax.TabStop = False
         '
-        'Label153
+        'LabelS14_Txt02
         '
-        Me.Label153.AutoSize = True
-        Me.Label153.Location = New System.Drawing.Point(232, 12)
-        Me.Label153.Name = "Label153"
-        Me.Label153.Size = New System.Drawing.Size(33, 13)
-        Me.Label153.TabIndex = 1
-        Me.Label153.Text = "Title :"
+        Me.LabelS14_Txt02.AutoSize = True
+        Me.LabelS14_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS14_Txt02.Name = "LabelS14_Txt02"
+        Me.LabelS14_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS14_Txt02.TabIndex = 1
+        Me.LabelS14_Txt02.Text = "Title :"
         '
-        'GroupBox37
+        'GroupBoxS14_Txt04
         '
-        Me.GroupBox37.Controls.Add(Me.ButtonUGGroundTip)
-        Me.GroupBox37.Controls.Add(Me.Label110)
-        Me.GroupBox37.Controls.Add(Me.Label146)
-        Me.GroupBox37.Controls.Add(Me.NumericUpDownUGgroundCycle)
-        Me.GroupBox37.Controls.Add(Me.Label147)
-        Me.GroupBox37.Controls.Add(Me.buttonBrowseUGGroundRight)
-        Me.GroupBox37.Controls.Add(Me.buttonBrowseUGGroundLeft)
-        Me.GroupBox37.Controls.Add(Me.Label148)
-        Me.GroupBox37.Controls.Add(Me.Label149)
-        Me.GroupBox37.Controls.Add(Me.textBoxUGGroundRight)
-        Me.GroupBox37.Controls.Add(Me.textBoxUGGroundLeft)
-        Me.GroupBox37.Location = New System.Drawing.Point(3, 93)
-        Me.GroupBox37.Name = "GroupBox37"
-        Me.GroupBox37.Size = New System.Drawing.Size(670, 91)
-        Me.GroupBox37.TabIndex = 20
-        Me.GroupBox37.TabStop = False
-        Me.GroupBox37.Text = "Split ground structure :"
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.ButtonUGGroundTip)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.LabelS14_Txt07)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.Label146)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.NumericUpDownUGgroundCycle)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.LabelS14_Txt08)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.buttonBrowseUGGroundRight)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.buttonBrowseUGGroundLeft)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.LabelS14_Txt06)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.LabelS14_Txt05)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.textBoxUGGroundRight)
+        Me.GroupBoxS14_Txt04.Controls.Add(Me.textBoxUGGroundLeft)
+        Me.GroupBoxS14_Txt04.Location = New System.Drawing.Point(3, 93)
+        Me.GroupBoxS14_Txt04.Name = "GroupBoxS14_Txt04"
+        Me.GroupBoxS14_Txt04.Size = New System.Drawing.Size(670, 91)
+        Me.GroupBoxS14_Txt04.TabIndex = 20
+        Me.GroupBoxS14_Txt04.TabStop = False
+        Me.GroupBoxS14_Txt04.Text = "Split ground structure :"
         '
         'ButtonUGGroundTip
         '
@@ -5850,14 +5858,14 @@ Partial Class Main
         Me.ButtonUGGroundTip.TabIndex = 68
         Me.ButtonUGGroundTip.UseVisualStyleBackColor = True
         '
-        'Label110
+        'LabelS14_Txt07
         '
-        Me.Label110.AutoSize = True
-        Me.Label110.Location = New System.Drawing.Point(38, 36)
-        Me.Label110.Name = "Label110"
-        Me.Label110.Size = New System.Drawing.Size(42, 13)
-        Me.Label110.TabIndex = 67
-        Me.Label110.Text = "Ground"
+        Me.LabelS14_Txt07.AutoSize = True
+        Me.LabelS14_Txt07.Location = New System.Drawing.Point(38, 36)
+        Me.LabelS14_Txt07.Name = "LabelS14_Txt07"
+        Me.LabelS14_Txt07.Size = New System.Drawing.Size(42, 13)
+        Me.LabelS14_Txt07.TabIndex = 67
+        Me.LabelS14_Txt07.Text = "Ground"
         '
         'Label146
         '
@@ -5876,14 +5884,14 @@ Partial Class Main
         Me.NumericUpDownUGgroundCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownUGgroundCycle.TabIndex = 65
         '
-        'Label147
+        'LabelS14_Txt08
         '
-        Me.Label147.AutoSize = True
-        Me.Label147.Location = New System.Drawing.Point(6, 61)
-        Me.Label147.Name = "Label147"
-        Me.Label147.Size = New System.Drawing.Size(84, 13)
-        Me.Label147.TabIndex = 64
-        Me.Label147.Text = "Repeating cycle"
+        Me.LabelS14_Txt08.AutoSize = True
+        Me.LabelS14_Txt08.Location = New System.Drawing.Point(6, 61)
+        Me.LabelS14_Txt08.Name = "LabelS14_Txt08"
+        Me.LabelS14_Txt08.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS14_Txt08.TabIndex = 64
+        Me.LabelS14_Txt08.Text = "Repeating cycle"
         '
         'buttonBrowseUGGroundRight
         '
@@ -5903,25 +5911,25 @@ Partial Class Main
         Me.buttonBrowseUGGroundLeft.TabIndex = 37
         Me.buttonBrowseUGGroundLeft.UseVisualStyleBackColor = True
         '
-        'Label148
+        'LabelS14_Txt06
         '
-        Me.Label148.AutoSize = True
-        Me.Label148.Location = New System.Drawing.Point(501, 17)
-        Me.Label148.Name = "Label148"
-        Me.Label148.Size = New System.Drawing.Size(32, 13)
-        Me.Label148.TabIndex = 36
-        Me.Label148.Text = "Right"
-        Me.Label148.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS14_Txt06.AutoSize = True
+        Me.LabelS14_Txt06.Location = New System.Drawing.Point(501, 17)
+        Me.LabelS14_Txt06.Name = "LabelS14_Txt06"
+        Me.LabelS14_Txt06.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS14_Txt06.TabIndex = 36
+        Me.LabelS14_Txt06.Text = "Right"
+        Me.LabelS14_Txt06.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label149
+        'LabelS14_Txt05
         '
-        Me.Label149.AutoSize = True
-        Me.Label149.Location = New System.Drawing.Point(191, 16)
-        Me.Label149.Name = "Label149"
-        Me.Label149.Size = New System.Drawing.Size(25, 13)
-        Me.Label149.TabIndex = 35
-        Me.Label149.Text = "Left"
-        Me.Label149.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS14_Txt05.AutoSize = True
+        Me.LabelS14_Txt05.Location = New System.Drawing.Point(191, 16)
+        Me.LabelS14_Txt05.Name = "LabelS14_Txt05"
+        Me.LabelS14_Txt05.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS14_Txt05.TabIndex = 35
+        Me.LabelS14_Txt05.Text = "Left"
+        Me.LabelS14_Txt05.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'textBoxUGGroundRight
         '
@@ -5937,14 +5945,14 @@ Partial Class Main
         Me.textBoxUGGroundLeft.Size = New System.Drawing.Size(250, 20)
         Me.textBoxUGGroundLeft.TabIndex = 33
         '
-        'Label151
+        'LabelS14_Txt03
         '
-        Me.Label151.AutoSize = True
-        Me.Label151.Location = New System.Drawing.Point(3, 46)
-        Me.Label151.Name = "Label151"
-        Me.Label151.Size = New System.Drawing.Size(61, 13)
-        Me.Label151.TabIndex = 3
-        Me.Label151.Text = "Image File :"
+        Me.LabelS14_Txt03.AutoSize = True
+        Me.LabelS14_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS14_Txt03.Name = "LabelS14_Txt03"
+        Me.LabelS14_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS14_Txt03.TabIndex = 3
+        Me.LabelS14_Txt03.Text = "Image File :"
         '
         'buttonBrowseUGImage
         '
@@ -6117,15 +6125,15 @@ Partial Class Main
         Me.Panel13.Controls.Add(Me.ButtonNewFreeObject)
         Me.Panel13.Controls.Add(Me.textBoxFreeObjectFile)
         Me.Panel13.Controls.Add(Me.PictureBoxFreeObjectSyntax)
-        Me.Panel13.Controls.Add(Me.Label15)
+        Me.Panel13.Controls.Add(Me.LabelS15_Txt01)
         Me.Panel13.Controls.Add(Me.ButtonBrowseFreeObjectImage)
-        Me.Panel13.Controls.Add(Me.Label14)
+        Me.Panel13.Controls.Add(Me.LabelS15_Txt02)
         Me.Panel13.Controls.Add(Me.ButtonBrowseFreeObjectFile)
-        Me.Panel13.Controls.Add(Me.Label13)
+        Me.Panel13.Controls.Add(Me.LabelS15_Txt05)
         Me.Panel13.Controls.Add(Me.ComboBoxFreeObjectType)
-        Me.Panel13.Controls.Add(Me.Label12)
+        Me.Panel13.Controls.Add(Me.LabelS15_Txt03)
         Me.Panel13.Controls.Add(Me.textBoxFreeObjectImage)
-        Me.Panel13.Controls.Add(Me.Label11)
+        Me.Panel13.Controls.Add(Me.LabelS15_Txt04)
         Me.Panel13.Controls.Add(Me.TextBoxbvefobjname)
         Me.Panel13.Controls.Add(Me.TextBoxbvefobjtitle)
         Me.Panel13.Location = New System.Drawing.Point(8, 214)
@@ -6171,14 +6179,14 @@ Partial Class Main
         Me.PictureBoxFreeObjectSyntax.TabIndex = 75
         Me.PictureBoxFreeObjectSyntax.TabStop = False
         '
-        'Label15
+        'LabelS15_Txt01
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(3, 12)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(41, 13)
-        Me.Label15.TabIndex = 0
-        Me.Label15.Text = "Name :"
+        Me.LabelS15_Txt01.AutoSize = True
+        Me.LabelS15_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS15_Txt01.Name = "LabelS15_Txt01"
+        Me.LabelS15_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS15_Txt01.TabIndex = 0
+        Me.LabelS15_Txt01.Text = "Name :"
         '
         'ButtonBrowseFreeObjectImage
         '
@@ -6189,14 +6197,14 @@ Partial Class Main
         Me.ButtonBrowseFreeObjectImage.TabIndex = 19
         Me.ButtonBrowseFreeObjectImage.UseVisualStyleBackColor = True
         '
-        'Label14
+        'LabelS15_Txt02
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(232, 12)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(33, 13)
-        Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Title :"
+        Me.LabelS15_Txt02.AutoSize = True
+        Me.LabelS15_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS15_Txt02.Name = "LabelS15_Txt02"
+        Me.LabelS15_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS15_Txt02.TabIndex = 1
+        Me.LabelS15_Txt02.Text = "Title :"
         '
         'ButtonBrowseFreeObjectFile
         '
@@ -6207,14 +6215,14 @@ Partial Class Main
         Me.ButtonBrowseFreeObjectFile.TabIndex = 18
         Me.ButtonBrowseFreeObjectFile.UseVisualStyleBackColor = True
         '
-        'Label13
+        'LabelS15_Txt05
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(3, 152)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(72, 13)
-        Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Structure file :"
+        Me.LabelS15_Txt05.AutoSize = True
+        Me.LabelS15_Txt05.Location = New System.Drawing.Point(3, 152)
+        Me.LabelS15_Txt05.Name = "LabelS15_Txt05"
+        Me.LabelS15_Txt05.Size = New System.Drawing.Size(72, 13)
+        Me.LabelS15_Txt05.TabIndex = 2
+        Me.LabelS15_Txt05.Text = "Structure file :"
         '
         'ComboBoxFreeObjectType
         '
@@ -6225,14 +6233,14 @@ Partial Class Main
         Me.ComboBoxFreeObjectType.Size = New System.Drawing.Size(281, 21)
         Me.ComboBoxFreeObjectType.TabIndex = 16
         '
-        'Label12
+        'LabelS15_Txt03
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(3, 46)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(61, 13)
-        Me.Label12.TabIndex = 3
-        Me.Label12.Text = "Image File :"
+        Me.LabelS15_Txt03.AutoSize = True
+        Me.LabelS15_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS15_Txt03.Name = "LabelS15_Txt03"
+        Me.LabelS15_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS15_Txt03.TabIndex = 3
+        Me.LabelS15_Txt03.Text = "Image File :"
         '
         'textBoxFreeObjectImage
         '
@@ -6242,14 +6250,14 @@ Partial Class Main
         Me.textBoxFreeObjectImage.Size = New System.Drawing.Size(270, 20)
         Me.textBoxFreeObjectImage.TabIndex = 11
         '
-        'Label11
+        'LabelS15_Txt04
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(3, 88)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(79, 13)
-        Me.Label11.TabIndex = 4
-        Me.Label11.Text = "Structure type :"
+        Me.LabelS15_Txt04.AutoSize = True
+        Me.LabelS15_Txt04.Location = New System.Drawing.Point(3, 88)
+        Me.LabelS15_Txt04.Name = "LabelS15_Txt04"
+        Me.LabelS15_Txt04.Size = New System.Drawing.Size(79, 13)
+        Me.LabelS15_Txt04.TabIndex = 4
+        Me.LabelS15_Txt04.Text = "Structure type :"
         '
         'TextBoxbvefobjname
         '
@@ -6348,18 +6356,18 @@ Partial Class Main
         Me.Panel14.AutoScroll = True
         Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel14.Controls.Add(Me.ButtonEtcBVEImage)
-        Me.Panel14.Controls.Add(Me.Label78)
-        Me.Panel14.Controls.Add(Me.GroupBox6)
+        Me.Panel14.Controls.Add(Me.LabelS16_Txt07)
+        Me.Panel14.Controls.Add(Me.GroupBoxS16_Txt05)
         Me.Panel14.Controls.Add(Me.PictureBoxetcBVESyntax)
-        Me.Panel14.Controls.Add(Me.GroupBoxbvestrwall)
+        Me.Panel14.Controls.Add(Me.GroupBoxS16_Txt08)
         Me.Panel14.Controls.Add(Me.ButtonNewBVE)
-        Me.Panel14.Controls.Add(Me.Label33)
+        Me.Panel14.Controls.Add(Me.LabelS16_Txt01)
         Me.Panel14.Controls.Add(Me.ButtonBrowseEtcBVEImage)
-        Me.Panel14.Controls.Add(Me.Label32)
+        Me.Panel14.Controls.Add(Me.LabelS16_Txt02)
         Me.Panel14.Controls.Add(Me.ComboBoxBVEType)
-        Me.Panel14.Controls.Add(Me.Label30)
+        Me.Panel14.Controls.Add(Me.LabelS16_Txt03)
         Me.Panel14.Controls.Add(Me.TextBoxetcBVEImage)
-        Me.Panel14.Controls.Add(Me.Label29)
+        Me.Panel14.Controls.Add(Me.Label29S16_Txt04)
         Me.Panel14.Controls.Add(Me.TextBoxBVEstrname)
         Me.Panel14.Controls.Add(Me.TextBoxBVEstrtitle)
         Me.Panel14.Location = New System.Drawing.Point(6, 214)
@@ -6376,27 +6384,27 @@ Partial Class Main
         Me.ButtonEtcBVEImage.TabIndex = 79
         Me.ButtonEtcBVEImage.UseVisualStyleBackColor = True
         '
-        'Label78
+        'LabelS16_Txt07
         '
-        Me.Label78.AutoSize = True
-        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(314, 204)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(45, 25)
-        Me.Label78.TabIndex = 78
-        Me.Label78.Text = "OR"
+        Me.LabelS16_Txt07.AutoSize = True
+        Me.LabelS16_Txt07.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelS16_Txt07.Location = New System.Drawing.Point(314, 204)
+        Me.LabelS16_Txt07.Name = "LabelS16_Txt07"
+        Me.LabelS16_Txt07.Size = New System.Drawing.Size(45, 25)
+        Me.LabelS16_Txt07.TabIndex = 78
+        Me.LabelS16_Txt07.Text = "OR"
         '
-        'GroupBox6
+        'GroupBoxS16_Txt05
         '
-        Me.GroupBox6.Controls.Add(Me.TextBoxBVEfile)
-        Me.GroupBox6.Controls.Add(Me.ButtonBrowseBVEfile)
-        Me.GroupBox6.Controls.Add(Me.Label31)
-        Me.GroupBox6.Location = New System.Drawing.Point(6, 129)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(671, 68)
-        Me.GroupBox6.TabIndex = 77
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Single structure"
+        Me.GroupBoxS16_Txt05.Controls.Add(Me.TextBoxBVEfile)
+        Me.GroupBoxS16_Txt05.Controls.Add(Me.ButtonBrowseBVEfile)
+        Me.GroupBoxS16_Txt05.Controls.Add(Me.LabelS16_Txt06)
+        Me.GroupBoxS16_Txt05.Location = New System.Drawing.Point(6, 129)
+        Me.GroupBoxS16_Txt05.Name = "GroupBoxS16_Txt05"
+        Me.GroupBoxS16_Txt05.Size = New System.Drawing.Size(671, 68)
+        Me.GroupBoxS16_Txt05.TabIndex = 77
+        Me.GroupBoxS16_Txt05.TabStop = False
+        Me.GroupBoxS16_Txt05.Text = "Single structure"
         '
         'TextBoxBVEfile
         '
@@ -6415,14 +6423,14 @@ Partial Class Main
         Me.ButtonBrowseBVEfile.TabIndex = 18
         Me.ButtonBrowseBVEfile.UseVisualStyleBackColor = True
         '
-        'Label31
+        'LabelS16_Txt06
         '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(8, 35)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(56, 13)
-        Me.Label31.TabIndex = 2
-        Me.Label31.Text = "Structure :"
+        Me.LabelS16_Txt06.AutoSize = True
+        Me.LabelS16_Txt06.Location = New System.Drawing.Point(8, 35)
+        Me.LabelS16_Txt06.Name = "LabelS16_Txt06"
+        Me.LabelS16_Txt06.Size = New System.Drawing.Size(56, 13)
+        Me.LabelS16_Txt06.TabIndex = 2
+        Me.LabelS16_Txt06.Text = "Structure :"
         '
         'PictureBoxetcBVESyntax
         '
@@ -6434,33 +6442,33 @@ Partial Class Main
         Me.PictureBoxetcBVESyntax.TabIndex = 75
         Me.PictureBoxetcBVESyntax.TabStop = False
         '
-        'GroupBoxbvestrwall
+        'GroupBoxS16_Txt08
         '
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label91)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label126)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.NumericUpDownBveX)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label127)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.ButtonbrowseBVERight)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.ButtonbrowseBVELeft)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label124)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.Label125)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.TextBoxBVERight)
-        Me.GroupBoxbvestrwall.Controls.Add(Me.textBoxBVELeft)
-        Me.GroupBoxbvestrwall.Location = New System.Drawing.Point(6, 232)
-        Me.GroupBoxbvestrwall.Name = "GroupBoxbvestrwall"
-        Me.GroupBoxbvestrwall.Size = New System.Drawing.Size(671, 92)
-        Me.GroupBoxbvestrwall.TabIndex = 20
-        Me.GroupBoxbvestrwall.TabStop = False
-        Me.GroupBoxbvestrwall.Text = "Repeating structure (.x only) :"
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.LabelS16_Txt11)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.Label126)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.NumericUpDownBveX)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.LabelS16_Txt12)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.ButtonbrowseBVERight)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.ButtonbrowseBVELeft)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.LabelS16_Txt10)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.LabelS16_Txt09)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.TextBoxBVERight)
+        Me.GroupBoxS16_Txt08.Controls.Add(Me.textBoxBVELeft)
+        Me.GroupBoxS16_Txt08.Location = New System.Drawing.Point(6, 232)
+        Me.GroupBoxS16_Txt08.Name = "GroupBoxS16_Txt08"
+        Me.GroupBoxS16_Txt08.Size = New System.Drawing.Size(671, 92)
+        Me.GroupBoxS16_Txt08.TabIndex = 20
+        Me.GroupBoxS16_Txt08.TabStop = False
+        Me.GroupBoxS16_Txt08.Text = "Repeating structure (.x only) :"
         '
-        'Label91
+        'LabelS16_Txt11
         '
-        Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(24, 36)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(56, 13)
-        Me.Label91.TabIndex = 67
-        Me.Label91.Text = "Structure :"
+        Me.LabelS16_Txt11.AutoSize = True
+        Me.LabelS16_Txt11.Location = New System.Drawing.Point(24, 36)
+        Me.LabelS16_Txt11.Name = "LabelS16_Txt11"
+        Me.LabelS16_Txt11.Size = New System.Drawing.Size(56, 13)
+        Me.LabelS16_Txt11.TabIndex = 67
+        Me.LabelS16_Txt11.Text = "Structure :"
         '
         'Label126
         '
@@ -6479,14 +6487,14 @@ Partial Class Main
         Me.NumericUpDownBveX.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownBveX.TabIndex = 65
         '
-        'Label127
+        'LabelS16_Txt12
         '
-        Me.Label127.AutoSize = True
-        Me.Label127.Location = New System.Drawing.Point(8, 61)
-        Me.Label127.Name = "Label127"
-        Me.Label127.Size = New System.Drawing.Size(84, 13)
-        Me.Label127.TabIndex = 64
-        Me.Label127.Text = "Repeating cycle"
+        Me.LabelS16_Txt12.AutoSize = True
+        Me.LabelS16_Txt12.Location = New System.Drawing.Point(8, 61)
+        Me.LabelS16_Txt12.Name = "LabelS16_Txt12"
+        Me.LabelS16_Txt12.Size = New System.Drawing.Size(84, 13)
+        Me.LabelS16_Txt12.TabIndex = 64
+        Me.LabelS16_Txt12.Text = "Repeating cycle"
         '
         'ButtonbrowseBVERight
         '
@@ -6506,25 +6514,25 @@ Partial Class Main
         Me.ButtonbrowseBVELeft.TabIndex = 37
         Me.ButtonbrowseBVELeft.UseVisualStyleBackColor = True
         '
-        'Label124
+        'LabelS16_Txt10
         '
-        Me.Label124.AutoSize = True
-        Me.Label124.Location = New System.Drawing.Point(499, 17)
-        Me.Label124.Name = "Label124"
-        Me.Label124.Size = New System.Drawing.Size(32, 13)
-        Me.Label124.TabIndex = 36
-        Me.Label124.Text = "Right"
-        Me.Label124.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS16_Txt10.AutoSize = True
+        Me.LabelS16_Txt10.Location = New System.Drawing.Point(499, 17)
+        Me.LabelS16_Txt10.Name = "LabelS16_Txt10"
+        Me.LabelS16_Txt10.Size = New System.Drawing.Size(32, 13)
+        Me.LabelS16_Txt10.TabIndex = 36
+        Me.LabelS16_Txt10.Text = "Right"
+        Me.LabelS16_Txt10.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label125
+        'LabelS16_Txt09
         '
-        Me.Label125.AutoSize = True
-        Me.Label125.Location = New System.Drawing.Point(190, 17)
-        Me.Label125.Name = "Label125"
-        Me.Label125.Size = New System.Drawing.Size(25, 13)
-        Me.Label125.TabIndex = 35
-        Me.Label125.Text = "Left"
-        Me.Label125.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelS16_Txt09.AutoSize = True
+        Me.LabelS16_Txt09.Location = New System.Drawing.Point(190, 17)
+        Me.LabelS16_Txt09.Name = "LabelS16_Txt09"
+        Me.LabelS16_Txt09.Size = New System.Drawing.Size(25, 13)
+        Me.LabelS16_Txt09.TabIndex = 35
+        Me.LabelS16_Txt09.Text = "Left"
+        Me.LabelS16_Txt09.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'TextBoxBVERight
         '
@@ -6551,14 +6559,14 @@ Partial Class Main
         Me.ButtonNewBVE.Text = "Add"
         Me.ButtonNewBVE.UseVisualStyleBackColor = True
         '
-        'Label33
+        'LabelS16_Txt01
         '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(3, 12)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(41, 13)
-        Me.Label33.TabIndex = 0
-        Me.Label33.Text = "Name :"
+        Me.LabelS16_Txt01.AutoSize = True
+        Me.LabelS16_Txt01.Location = New System.Drawing.Point(3, 12)
+        Me.LabelS16_Txt01.Name = "LabelS16_Txt01"
+        Me.LabelS16_Txt01.Size = New System.Drawing.Size(41, 13)
+        Me.LabelS16_Txt01.TabIndex = 0
+        Me.LabelS16_Txt01.Text = "Name :"
         '
         'ButtonBrowseEtcBVEImage
         '
@@ -6569,14 +6577,14 @@ Partial Class Main
         Me.ButtonBrowseEtcBVEImage.TabIndex = 19
         Me.ButtonBrowseEtcBVEImage.UseVisualStyleBackColor = True
         '
-        'Label32
+        'LabelS16_Txt02
         '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(232, 12)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(33, 13)
-        Me.Label32.TabIndex = 1
-        Me.Label32.Text = "Title :"
+        Me.LabelS16_Txt02.AutoSize = True
+        Me.LabelS16_Txt02.Location = New System.Drawing.Point(232, 12)
+        Me.LabelS16_Txt02.Name = "LabelS16_Txt02"
+        Me.LabelS16_Txt02.Size = New System.Drawing.Size(33, 13)
+        Me.LabelS16_Txt02.TabIndex = 1
+        Me.LabelS16_Txt02.Text = "Title :"
         '
         'ComboBoxBVEType
         '
@@ -6587,14 +6595,14 @@ Partial Class Main
         Me.ComboBoxBVEType.Size = New System.Drawing.Size(252, 21)
         Me.ComboBoxBVEType.TabIndex = 15
         '
-        'Label30
+        'LabelS16_Txt03
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(3, 46)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(61, 13)
-        Me.Label30.TabIndex = 3
-        Me.Label30.Text = "Image File :"
+        Me.LabelS16_Txt03.AutoSize = True
+        Me.LabelS16_Txt03.Location = New System.Drawing.Point(3, 46)
+        Me.LabelS16_Txt03.Name = "LabelS16_Txt03"
+        Me.LabelS16_Txt03.Size = New System.Drawing.Size(61, 13)
+        Me.LabelS16_Txt03.TabIndex = 3
+        Me.LabelS16_Txt03.Text = "Image File :"
         '
         'TextBoxetcBVEImage
         '
@@ -6604,14 +6612,14 @@ Partial Class Main
         Me.TextBoxetcBVEImage.Size = New System.Drawing.Size(270, 20)
         Me.TextBoxetcBVEImage.TabIndex = 11
         '
-        'Label29
+        'Label29S16_Txt04
         '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(3, 90)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(79, 13)
-        Me.Label29.TabIndex = 4
-        Me.Label29.Text = "Structure type :"
+        Me.Label29S16_Txt04.AutoSize = True
+        Me.Label29S16_Txt04.Location = New System.Drawing.Point(3, 90)
+        Me.Label29S16_Txt04.Name = "Label29S16_Txt04"
+        Me.Label29S16_Txt04.Size = New System.Drawing.Size(79, 13)
+        Me.Label29S16_Txt04.TabIndex = 4
+        Me.Label29S16_Txt04.Text = "Structure type :"
         '
         'TextBoxBVEstrname
         '
@@ -6713,12 +6721,12 @@ Partial Class Main
         '
         Me.Step_17.BackColor = System.Drawing.SystemColors.Control
         Me.Step_17.Controls.Add(Me.ButtonGenerateGBMapsJS)
-        Me.Step_17.Controls.Add(Me.ButtonSaveXML)
+        Me.Step_17.Controls.Add(Me.ButtonSaveTXT)
         Me.Step_17.Controls.Add(Me.LabelS17_Txt02)
-        Me.Step_17.Controls.Add(Me.Label157S17_Txt01)
+        Me.Step_17.Controls.Add(Me.LabelS17_Txt01)
         Me.Step_17.Location = New System.Drawing.Point(4, 40)
         Me.Step_17.Name = "Step_17"
-        Me.Step_17.Size = New System.Drawing.Size(996, 689)
+        Me.Step_17.Size = New System.Drawing.Size(1000, 493)
         Me.Step_17.TabIndex = 19
         Me.Step_17.Text = "Step 17 (Finishing)"
         '
@@ -6731,14 +6739,14 @@ Partial Class Main
         Me.ButtonGenerateGBMapsJS.TabIndex = 20
         Me.ButtonGenerateGBMapsJS.UseVisualStyleBackColor = True
         '
-        'ButtonSaveXML
+        'ButtonSaveTXT
         '
-        Me.ButtonSaveXML.Image = CType(resources.GetObject("ButtonSaveXML.Image"), System.Drawing.Image)
-        Me.ButtonSaveXML.Location = New System.Drawing.Point(145, 158)
-        Me.ButtonSaveXML.Name = "ButtonSaveXML"
-        Me.ButtonSaveXML.Size = New System.Drawing.Size(132, 134)
-        Me.ButtonSaveXML.TabIndex = 19
-        Me.ButtonSaveXML.UseVisualStyleBackColor = True
+        Me.ButtonSaveTXT.Image = CType(resources.GetObject("ButtonSaveTXT.Image"), System.Drawing.Image)
+        Me.ButtonSaveTXT.Location = New System.Drawing.Point(145, 158)
+        Me.ButtonSaveTXT.Name = "ButtonSaveTXT"
+        Me.ButtonSaveTXT.Size = New System.Drawing.Size(132, 134)
+        Me.ButtonSaveTXT.TabIndex = 19
+        Me.ButtonSaveTXT.UseVisualStyleBackColor = True
         '
         'LabelS17_Txt02
         '
@@ -6749,24 +6757,98 @@ Partial Class Main
         Me.LabelS17_Txt02.TabIndex = 16
         Me.LabelS17_Txt02.Text = "Generate GB Maps Javascript data"
         '
-        'Label157S17_Txt01
+        'LabelS17_Txt01
         '
-        Me.Label157S17_Txt01.AutoSize = True
-        Me.Label157S17_Txt01.Location = New System.Drawing.Point(283, 219)
-        Me.Label157S17_Txt01.Name = "Label157S17_Txt01"
-        Me.Label157S17_Txt01.Size = New System.Drawing.Size(86, 13)
-        Me.Label157S17_Txt01.TabIndex = 17
-        Me.Label157S17_Txt01.Text = "Saved TXT data"
+        Me.LabelS17_Txt01.AutoSize = True
+        Me.LabelS17_Txt01.Location = New System.Drawing.Point(283, 219)
+        Me.LabelS17_Txt01.Name = "LabelS17_Txt01"
+        Me.LabelS17_Txt01.Size = New System.Drawing.Size(132, 13)
+        Me.LabelS17_Txt01.TabIndex = 17
+        Me.LabelS17_Txt01.Text = "Save GB Maps Tools data"
         '
         'About
         '
         Me.About.BackColor = System.Drawing.SystemColors.Control
+        Me.About.Controls.Add(Me.PictureBox4)
+        Me.About.Controls.Add(Me.LabelAboutCopyRight)
+        Me.About.Controls.Add(Me.LabelAboutDisclaimer)
+        Me.About.Controls.Add(Me.LabelAboutDescription)
+        Me.About.Controls.Add(Me.LabelAboutVersion)
+        Me.About.Controls.Add(Me.LabelAboutTitle)
+        Me.About.Controls.Add(Me.PictureBox1)
         Me.About.ForeColor = System.Drawing.Color.Black
         Me.About.Location = New System.Drawing.Point(4, 40)
         Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(996, 689)
+        Me.About.Size = New System.Drawing.Size(1000, 493)
         Me.About.TabIndex = 20
         Me.About.Text = "About"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(9, 453)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(88, 31)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox4.TabIndex = 6
+        Me.PictureBox4.TabStop = False
+        '
+        'LabelAboutCopyRight
+        '
+        Me.LabelAboutCopyRight.Font = New System.Drawing.Font("Segoe UI", 7.25!)
+        Me.LabelAboutCopyRight.Location = New System.Drawing.Point(103, 453)
+        Me.LabelAboutCopyRight.Name = "LabelAboutCopyRight"
+        Me.LabelAboutCopyRight.Size = New System.Drawing.Size(889, 35)
+        Me.LabelAboutCopyRight.TabIndex = 5
+        Me.LabelAboutCopyRight.Text = "GB Maps - ギビマップ Tools for BVE Trainsim by Karya IT is licensed under a Creative C" &
+    "ommons Attribution-NonCommercial-ShareAlike 4.0 International License."
+        '
+        'LabelAboutDisclaimer
+        '
+        Me.LabelAboutDisclaimer.Font = New System.Drawing.Font("Segoe UI", 7.25!)
+        Me.LabelAboutDisclaimer.Location = New System.Drawing.Point(8, 417)
+        Me.LabelAboutDisclaimer.Name = "LabelAboutDisclaimer"
+        Me.LabelAboutDisclaimer.Size = New System.Drawing.Size(980, 32)
+        Me.LabelAboutDisclaimer.TabIndex = 4
+        Me.LabelAboutDisclaimer.Text = resources.GetString("LabelAboutDisclaimer.Text")
+        '
+        'LabelAboutDescription
+        '
+        Me.LabelAboutDescription.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAboutDescription.Location = New System.Drawing.Point(14, 325)
+        Me.LabelAboutDescription.Name = "LabelAboutDescription"
+        Me.LabelAboutDescription.Size = New System.Drawing.Size(974, 73)
+        Me.LabelAboutDescription.TabIndex = 3
+        '
+        'LabelAboutVersion
+        '
+        Me.LabelAboutVersion.AutoSize = True
+        Me.LabelAboutVersion.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAboutVersion.Location = New System.Drawing.Point(14, 291)
+        Me.LabelAboutVersion.Name = "LabelAboutVersion"
+        Me.LabelAboutVersion.Size = New System.Drawing.Size(44, 21)
+        Me.LabelAboutVersion.TabIndex = 2
+        Me.LabelAboutVersion.Text = "v2.2"
+        '
+        'LabelAboutTitle
+        '
+        Me.LabelAboutTitle.AutoSize = True
+        Me.LabelAboutTitle.Font = New System.Drawing.Font("Segoe UI Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAboutTitle.Location = New System.Drawing.Point(8, 243)
+        Me.LabelAboutTitle.Name = "LabelAboutTitle"
+        Me.LabelAboutTitle.Size = New System.Drawing.Size(526, 32)
+        Me.LabelAboutTitle.TabIndex = 1
+        Me.LabelAboutTitle.Text = "GB Maps - ギビマップ Tools for BVE Trainsim"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(8, 13)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(980, 215)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'FolderBrowserDialog1
         '
@@ -6775,10 +6857,6 @@ Partial Class Main
         'SaveFileDialog1
         '
         Me.SaveFileDialog1.DefaultExt = "txt"
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.ContainerControl = Me
         '
         'OpenFileDialog2
         '
@@ -6896,11 +6974,11 @@ Partial Class Main
         Me.Panel11.ResumeLayout(False)
         Me.Panel11.PerformLayout()
         CType(Me.PictureBoxPlatformBVESyntax, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
+        Me.GroupBoxS12_Txt10.ResumeLayout(False)
+        Me.GroupBoxS12_Txt10.PerformLayout()
         CType(Me.NumericUpDownPlatformRoofCycle, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
+        Me.GroupBoxS12_Txt04.ResumeLayout(False)
+        Me.GroupBoxS12_Txt04.PerformLayout()
         CType(Me.NumericUpDownPlatformCycle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox28.ResumeLayout(False)
         CType(Me.PictureBoxPlatform, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6918,15 +6996,15 @@ Partial Class Main
         Me.Step_14.ResumeLayout(False)
         Me.Panel15.ResumeLayout(False)
         Me.Panel15.PerformLayout()
-        Me.GroupBox15.ResumeLayout(False)
-        Me.GroupBox15.PerformLayout()
+        Me.GroupBoxS14_Txt15.ResumeLayout(False)
+        Me.GroupBoxS14_Txt15.PerformLayout()
         CType(Me.NumericUpDownUGiWallCycle, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox12.ResumeLayout(False)
-        Me.GroupBox12.PerformLayout()
+        Me.GroupBoxS14_Txt09.ResumeLayout(False)
+        Me.GroupBoxS14_Txt09.PerformLayout()
         CType(Me.NumericUpDownUGoWallCycle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxUGbveSyntax, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox37.ResumeLayout(False)
-        Me.GroupBox37.PerformLayout()
+        Me.GroupBoxS14_Txt04.ResumeLayout(False)
+        Me.GroupBoxS14_Txt04.PerformLayout()
         CType(Me.NumericUpDownUGgroundCycle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox32.ResumeLayout(False)
         CType(Me.PictureBoxUG, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6941,18 +7019,21 @@ Partial Class Main
         Me.Step_16.ResumeLayout(False)
         Me.Panel14.ResumeLayout(False)
         Me.Panel14.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
+        Me.GroupBoxS16_Txt05.ResumeLayout(False)
+        Me.GroupBoxS16_Txt05.PerformLayout()
         CType(Me.PictureBoxetcBVESyntax, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBoxbvestrwall.ResumeLayout(False)
-        Me.GroupBoxbvestrwall.PerformLayout()
+        Me.GroupBoxS16_Txt08.ResumeLayout(False)
+        Me.GroupBoxS16_Txt08.PerformLayout()
         CType(Me.NumericUpDownBveX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox11.ResumeLayout(False)
         CType(Me.PictureBoxBVEstrimg, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewEtc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Step_17.ResumeLayout(False)
         Me.Step_17.PerformLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.About.ResumeLayout(False)
+        Me.About.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -6969,10 +7050,10 @@ Partial Class Main
     Friend WithEvents textBoxRailSleeper1 As System.Windows.Forms.TextBox
     Friend WithEvents textBoxRailTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxRailName As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt04 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt01 As System.Windows.Forms.Label
     Friend WithEvents ButtonNewFreeObject As System.Windows.Forms.Button
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxbvefobjimg As System.Windows.Forms.PictureBox
@@ -6980,21 +7061,21 @@ Partial Class Main
     Friend WithEvents textBoxFreeObjectFile As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxbvefobjtitle As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxbvefobjname As System.Windows.Forms.TextBox
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents LabelS15_Txt04 As System.Windows.Forms.Label
+    Friend WithEvents LabelS15_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS15_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS15_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS15_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewFreeObject As System.Windows.Forms.DataGridView
     Friend WithEvents Buttonaudioadd As System.Windows.Forms.Button
     Friend WithEvents GroupBoxaudioimgshowhide As System.Windows.Forms.GroupBox
     Friend WithEvents TextBoxaudiofile As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxaudiotitle As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxaudioname As System.Windows.Forms.TextBox
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents LabelS05_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS05_Txt04 As System.Windows.Forms.Label
+    Friend WithEvents LabelS05_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS05_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewSound As System.Windows.Forms.DataGridView
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
@@ -7007,11 +7088,11 @@ Partial Class Main
     Friend WithEvents TextBoxBVEfile As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBVEstrtitle As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBVEstrname As System.Windows.Forms.TextBox
-    Friend WithEvents Label29 As System.Windows.Forms.Label
-    Friend WithEvents Label30 As System.Windows.Forms.Label
-    Friend WithEvents Label31 As System.Windows.Forms.Label
-    Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents Label29S16_Txt04 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt06 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewEtc As System.Windows.Forms.DataGridView
     Friend WithEvents ComboBoxBVEType As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBoxFreeObjectType As System.Windows.Forms.ComboBox
@@ -7020,9 +7101,6 @@ Partial Class Main
     Friend WithEvents ComboBoxaudiotype As System.Windows.Forms.ComboBox
     Friend WithEvents Buttonbrowseaudiofile As System.Windows.Forms.Button
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents buttonBrowseRailImage As System.Windows.Forms.Button
     Friend WithEvents buttonBrowseRailSleeper1 As System.Windows.Forms.Button
     Friend WithEvents ButtonBrowseEtcBVEImage As System.Windows.Forms.Button
@@ -7035,7 +7113,7 @@ Partial Class Main
     Friend WithEvents ButtonBrowseTrainDir As System.Windows.Forms.Button
     Friend WithEvents TextBoxTrainDir As System.Windows.Forms.TextBox
     Friend WithEvents ButtonRetriveTrainFolder As System.Windows.Forms.Button
-    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents LabelS04_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTrain As System.Windows.Forms.DataGridView
     Friend WithEvents Step_6 As System.Windows.Forms.TabPage
     Friend WithEvents Step_7 As System.Windows.Forms.TabPage
@@ -7050,43 +7128,43 @@ Partial Class Main
     Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox14 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxTunnelPicture As System.Windows.Forms.PictureBox
-    Friend WithEvents Label47 As System.Windows.Forms.Label
-    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt09 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt04 As System.Windows.Forms.Label
     Friend WithEvents textBoxTunnelExitStructure As System.Windows.Forms.TextBox
     Friend WithEvents textBoxTunnelEntrance As System.Windows.Forms.TextBox
-    Friend WithEvents Label35 As System.Windows.Forms.Label
-    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt06 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt05 As System.Windows.Forms.Label
     Friend WithEvents textBoxTunnelWallRight As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseTunnelImage As System.Windows.Forms.Button
     Friend WithEvents textBoxTunnelWallLeft As System.Windows.Forms.TextBox
-    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt07 As System.Windows.Forms.Label
     Friend WithEvents textBoxTunnelImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxTunnelTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxTunnelName As System.Windows.Forms.TextBox
-    Friend WithEvents Label43 As System.Windows.Forms.Label
-    Friend WithEvents Label45 As System.Windows.Forms.Label
-    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTunnel As System.Windows.Forms.DataGridView
     Friend WithEvents buttonNewTunnel As System.Windows.Forms.Button
     Friend WithEvents Label50 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownTunnelWallCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label48 As System.Windows.Forms.Label
+    Friend WithEvents LabelS06_Txt08 As System.Windows.Forms.Label
     Friend WithEvents GroupBox16 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxBridge As System.Windows.Forms.PictureBox
-    Friend WithEvents Label52 As System.Windows.Forms.Label
-    Friend WithEvents Label54 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt04 As System.Windows.Forms.Label
     Friend WithEvents TextBoxBridgeRight As System.Windows.Forms.TextBox
     Friend WithEvents ButtonBrowseBridgeImageFile As System.Windows.Forms.Button
     Friend WithEvents textBoxBridgePier As System.Windows.Forms.TextBox
-    Friend WithEvents Label56 As System.Windows.Forms.Label
-    Friend WithEvents Label57 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt08 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt06 As System.Windows.Forms.Label
     Friend WithEvents TextBoxBridgeLeft As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBridgeImage As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBridgeTitle As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxBridgeName As System.Windows.Forms.TextBox
-    Friend WithEvents Label59 As System.Windows.Forms.Label
-    Friend WithEvents Label61 As System.Windows.Forms.Label
-    Friend WithEvents Label62 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewBridge As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewBridge As System.Windows.Forms.Button
     Friend WithEvents GroupBox18 As System.Windows.Forms.GroupBox
@@ -7095,9 +7173,9 @@ Partial Class Main
     Friend WithEvents textBoxOverPassImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxOverPassTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxOverPassName As System.Windows.Forms.TextBox
-    Friend WithEvents Label70 As System.Windows.Forms.Label
-    Friend WithEvents Label72 As System.Windows.Forms.Label
-    Friend WithEvents Label73 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewOverpass As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewOverpass As System.Windows.Forms.Button
     Friend WithEvents GroupBox20 As System.Windows.Forms.GroupBox
@@ -7108,9 +7186,9 @@ Partial Class Main
     Friend WithEvents textBoxHillCutImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxHillCutTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxHillCutName As System.Windows.Forms.TextBox
-    Friend WithEvents Label81 As System.Windows.Forms.Label
-    Friend WithEvents Label83 As System.Windows.Forms.Label
-    Friend WithEvents Label84 As System.Windows.Forms.Label
+    Friend WithEvents LabelS09_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS09_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS09_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewHillCut As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewHillCut As System.Windows.Forms.Button
     Friend WithEvents GroupBox22 As System.Windows.Forms.GroupBox
@@ -7121,16 +7199,16 @@ Partial Class Main
     Friend WithEvents textBoxDikeImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxDikeTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxDikeName As System.Windows.Forms.TextBox
-    Friend WithEvents Label92 As System.Windows.Forms.Label
-    Friend WithEvents Label94 As System.Windows.Forms.Label
-    Friend WithEvents Label95 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewDike As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewDike As System.Windows.Forms.Button
     Friend WithEvents GroupBox26 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxRC As System.Windows.Forms.PictureBox
-    Friend WithEvents Label107 As System.Windows.Forms.Label
-    Friend WithEvents Label108 As System.Windows.Forms.Label
-    Friend WithEvents Label109 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt06 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt04 As System.Windows.Forms.Label
     Friend WithEvents textBoxRCgateRight As System.Windows.Forms.TextBox
     Friend WithEvents textBoxRCIntersection As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseRCImage As System.Windows.Forms.Button
@@ -7138,47 +7216,46 @@ Partial Class Main
     Friend WithEvents textBoxRCImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxRCTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxRCName As System.Windows.Forms.TextBox
-    Friend WithEvents Label114 As System.Windows.Forms.Label
-    Friend WithEvents Label115 As System.Windows.Forms.Label
-    Friend WithEvents Label116 As System.Windows.Forms.Label
-    Friend WithEvents Label117 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewRC As System.Windows.Forms.DataGridView
     Friend WithEvents ButtonNewRC As System.Windows.Forms.Button
     Friend WithEvents Label58 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownBridgePierCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label55 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt09 As System.Windows.Forms.Label
     Friend WithEvents Label63 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownOverpassPierCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label64 As System.Windows.Forms.Label
-    Friend WithEvents Label65 As System.Windows.Forms.Label
-    Friend WithEvents Label67 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt09 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt04 As System.Windows.Forms.Label
     Friend WithEvents textBoxOverPassWallRight As System.Windows.Forms.TextBox
     Friend WithEvents textBoxOverPassPier As System.Windows.Forms.TextBox
-    Friend WithEvents Label68 As System.Windows.Forms.Label
-    Friend WithEvents Label69 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt08 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt06 As System.Windows.Forms.Label
     Friend WithEvents textBoxOverPassWallLeft As System.Windows.Forms.TextBox
     Friend WithEvents Step_12 As System.Windows.Forms.TabPage
     Friend WithEvents ButtonNewPlatform As System.Windows.Forms.Button
     Friend WithEvents GroupBox28 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxPlatform As System.Windows.Forms.PictureBox
-    Friend WithEvents Label77 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt07 As System.Windows.Forms.Label
     Friend WithEvents textBoxPlatformRoofMiddleRight As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPlatformRoofMiddleLeft As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPlatformRoofRight As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPlatformRoofLeft As System.Windows.Forms.TextBox
-    Friend WithEvents Label79 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt06 As System.Windows.Forms.Label
     Friend WithEvents textBoxPlatformMiddleRight As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPlatformMiddleLeft As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowsePlatformImage As System.Windows.Forms.Button
     Friend WithEvents textBoxPlatformRight As System.Windows.Forms.TextBox
-    Friend WithEvents Label89 As System.Windows.Forms.Label
-    Friend WithEvents Label90 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt08 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt05 As System.Windows.Forms.Label
     Friend WithEvents textBoxPlatformImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPlatformTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPlatformName As System.Windows.Forms.TextBox
-    Friend WithEvents Label102 As System.Windows.Forms.Label
-    Friend WithEvents Label111 As System.Windows.Forms.Label
-    Friend WithEvents Label112 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewPlatform As System.Windows.Forms.DataGridView
     Friend WithEvents OpenFileDialog2 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents OpenFileDialog3 As System.Windows.Forms.OpenFileDialog
@@ -7192,41 +7269,41 @@ Partial Class Main
     Friend WithEvents textBoxPoleStructureLeft As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPoleTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxPoleName As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents LabelS03_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS03_Txt06 As System.Windows.Forms.Label
+    Friend WithEvents LabelS03_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS03_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewPole As System.Windows.Forms.DataGridView
     Friend WithEvents Step_13 As System.Windows.Forms.TabPage
     Friend WithEvents ButtonNewCrack As System.Windows.Forms.Button
     Friend WithEvents GroupBox30 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBoxCrack As System.Windows.Forms.PictureBox
-    Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents LabelS13_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS13_Txt04 As System.Windows.Forms.Label
     Friend WithEvents textBoxCrackRight As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseCrackImage As System.Windows.Forms.Button
     Friend WithEvents textBoxCrackLeft As System.Windows.Forms.TextBox
     Friend WithEvents textBoxCrackImage As System.Windows.Forms.TextBox
     Friend WithEvents textBoxCrackTitle As System.Windows.Forms.TextBox
     Friend WithEvents textBoxCrackName As System.Windows.Forms.TextBox
-    Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents Label88 As System.Windows.Forms.Label
-    Friend WithEvents Label97 As System.Windows.Forms.Label
+    Friend WithEvents LabelS13_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents LabelS13_Txt02 As System.Windows.Forms.Label
+    Friend WithEvents LabelS13_Txt01 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewCrack As System.Windows.Forms.DataGridView
-    Friend WithEvents Label76 As System.Windows.Forms.Label
+    Friend WithEvents LabelS09_Txt05 As System.Windows.Forms.Label
     Friend WithEvents GroupBox34 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label74 As System.Windows.Forms.Label
+    Friend WithEvents LabelS09_Txt04 As System.Windows.Forms.Label
     Friend WithEvents Label133 As System.Windows.Forms.Label
-    Friend WithEvents Label132 As System.Windows.Forms.Label
-    Friend WithEvents GroupBoxbvestrwall As System.Windows.Forms.GroupBox
+    Friend WithEvents LabelS02_Txt03 As System.Windows.Forms.Label
+    Friend WithEvents GroupBoxS16_Txt08 As System.Windows.Forms.GroupBox
     Friend WithEvents ButtonbrowseBVERight As System.Windows.Forms.Button
     Friend WithEvents ButtonbrowseBVELeft As System.Windows.Forms.Button
-    Friend WithEvents Label124 As System.Windows.Forms.Label
-    Friend WithEvents Label125 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt10 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt09 As System.Windows.Forms.Label
     Friend WithEvents TextBoxBVERight As System.Windows.Forms.TextBox
     Friend WithEvents textBoxBVELeft As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseRCSound As System.Windows.Forms.Button
-    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents LabelS11_Txt07 As System.Windows.Forms.Label
     Friend WithEvents textBoxRCSound As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseTunnelWallRight As System.Windows.Forms.Button
     Friend WithEvents buttonBrowseTunnelExitStructure As System.Windows.Forms.Button
@@ -7257,9 +7334,9 @@ Partial Class Main
     Friend WithEvents buttonBrowseCrackLeft As System.Windows.Forms.Button
     Friend WithEvents textBoxPlatformLeft As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label66 As System.Windows.Forms.Label
-    Friend WithEvents Label53 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt08 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt07 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt06 As System.Windows.Forms.Label
     Friend WithEvents textBoxRailRight1 As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseRailRight1 As System.Windows.Forms.Button
     Friend WithEvents textBoxRailLeft1 As System.Windows.Forms.TextBox
@@ -7267,43 +7344,43 @@ Partial Class Main
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownRailCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label75 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt15 As System.Windows.Forms.Label
     Friend WithEvents Label80 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownPoleCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label86 As System.Windows.Forms.Label
+    Friend WithEvents LabelS03_Txt08 As System.Windows.Forms.Label
     Friend WithEvents Label96 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownBridgeWallCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label98 As System.Windows.Forms.Label
+    Friend WithEvents LabelS07_Txt07 As System.Windows.Forms.Label
     Friend WithEvents Label99 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownOverpassWallCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label100 As System.Windows.Forms.Label
+    Friend WithEvents LabelS08_Txt07 As System.Windows.Forms.Label
     Friend WithEvents GroupBox25 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox36 As System.Windows.Forms.GroupBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownHillCutCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents LabelS09_Txt06 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents GroupBox35 As System.Windows.Forms.GroupBox
     Friend WithEvents Label87 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownDikeCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label93 As System.Windows.Forms.Label
-    Friend WithEvents Label71 As System.Windows.Forms.Label
-    Friend WithEvents Label82 As System.Windows.Forms.Label
-    Friend WithEvents Label85 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt07 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt06 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt05 As System.Windows.Forms.Label
+    Friend WithEvents LabelS10_Txt04 As System.Windows.Forms.Label
     Friend WithEvents Label101 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownPlatformCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label105 As System.Windows.Forms.Label
+    Friend WithEvents LabelS12_Txt09 As System.Windows.Forms.Label
     Friend WithEvents Label106 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownCrackCycle As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label118 As System.Windows.Forms.Label
+    Friend WithEvents LabelS13_Txt07 As System.Windows.Forms.Label
     Friend WithEvents Label126 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownBveX As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label127 As System.Windows.Forms.Label
-    Friend WithEvents Label122 As System.Windows.Forms.Label
-    Friend WithEvents Label121 As System.Windows.Forms.Label
-    Friend WithEvents Label120 As System.Windows.Forms.Label
-    Friend WithEvents Label119 As System.Windows.Forms.Label
-    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents LabelS16_Txt12 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt13 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt12 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt11 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt10 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt09 As System.Windows.Forms.Label
     Friend WithEvents textBoxRailRight5 As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseRailRight5 As System.Windows.Forms.Button
     Friend WithEvents textBoxRailLeft5 As System.Windows.Forms.TextBox
@@ -7328,34 +7405,34 @@ Partial Class Main
     Friend WithEvents buttonBrowseRailLeft2 As System.Windows.Forms.Button
     Friend WithEvents textBoxRailSleeper2 As System.Windows.Forms.TextBox
     Friend WithEvents buttonBrowseRailSleeper2 As System.Windows.Forms.Button
-    Friend WithEvents Label123 As System.Windows.Forms.Label
+    Friend WithEvents LabelS02_Txt14 As System.Windows.Forms.Label
     Friend WithEvents Step_14 As TabPage
     Friend WithEvents ButtonNewUG As Button
     Friend WithEvents GroupBox32 As GroupBox
     Friend WithEvents PictureBoxUG As PictureBox
-    Friend WithEvents GroupBox37 As GroupBox
+    Friend WithEvents GroupBoxS14_Txt04 As GroupBox
     Friend WithEvents Label146 As Label
     Friend WithEvents NumericUpDownUGgroundCycle As NumericUpDown
-    Friend WithEvents Label147 As Label
+    Friend WithEvents LabelS14_Txt08 As Label
     Friend WithEvents buttonBrowseUGGroundRight As Button
     Friend WithEvents buttonBrowseUGGroundLeft As Button
-    Friend WithEvents Label148 As Label
-    Friend WithEvents Label149 As Label
+    Friend WithEvents LabelS14_Txt06 As Label
+    Friend WithEvents LabelS14_Txt05 As Label
     Friend WithEvents textBoxUGGroundRight As TextBox
     Friend WithEvents textBoxUGGroundLeft As TextBox
     Friend WithEvents buttonBrowseUGImage As Button
     Friend WithEvents textBoxUGImage As TextBox
     Friend WithEvents textBoxUGTitle As TextBox
     Friend WithEvents textBoxUGName As TextBox
-    Friend WithEvents Label151 As Label
-    Friend WithEvents Label153 As Label
-    Friend WithEvents Label154 As Label
+    Friend WithEvents LabelS14_Txt03 As Label
+    Friend WithEvents LabelS14_Txt02 As Label
+    Friend WithEvents LabelS14_Txt01 As Label
     Friend WithEvents DataGridViewUG As DataGridView
     Friend WithEvents Step_1 As TabPage
     Friend WithEvents Step_17 As TabPage
     Friend WithEvents About As TabPage
     Friend WithEvents buttonNewXML As Button
-    Friend WithEvents buttonOpenXML As Button
+    Friend WithEvents buttonOpenCSV As Button
     Friend WithEvents LabelS1_Txt09 As Label
     Friend WithEvents LabelS1_Txt10 As Label
     Friend WithEvents LabelS1_Txt08 As Label
@@ -7372,11 +7449,11 @@ Partial Class Main
     Friend WithEvents LabelS1_Txt01 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LabelS1_Txt11 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ComboBoxLanguage As ComboBox
     Friend WithEvents ButtonGenerateGBMapsJS As Button
-    Friend WithEvents ButtonSaveXML As Button
+    Friend WithEvents ButtonSaveTXT As Button
     Friend WithEvents LabelS17_Txt02 As Label
-    Friend WithEvents Label157S17_Txt01 As Label
+    Friend WithEvents LabelS17_Txt01 As Label
     Friend WithEvents textBoxOverHeadWire As TextBox
     Friend WithEvents buttonBrowseOverHeadWire As Button
     Friend WithEvents Panel1 As Panel
@@ -7385,14 +7462,14 @@ Partial Class Main
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents PictureBoxPoleBVESyntax As PictureBox
-    Friend WithEvents Label49 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents Label39 As Label
+    Friend WithEvents LabelS03_Txt07 As Label
+    Friend WithEvents LabelS03_Txt05 As Label
+    Friend WithEvents LabelS03_Txt04 As Label
     Friend WithEvents buttonBrowsePoleStructureRight As Button
     Friend WithEvents textBoxPoleStructureRight As TextBox
     Friend WithEvents comboBoxRailGauge As ComboBox
     Friend WithEvents PictureBoxTrainBVESyntax As PictureBox
-    Friend WithEvents Label60 As Label
+    Friend WithEvents LabelS04_Txt02 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
@@ -7414,52 +7491,52 @@ Partial Class Main
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel11 As Panel
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label51 As Label
-    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents GroupBoxS12_Txt10 As GroupBox
+    Friend WithEvents LabelS12_Txt11 As Label
+    Friend WithEvents LabelS12_Txt14 As Label
+    Friend WithEvents LabelS12_Txt12 As Label
+    Friend WithEvents LabelS12_Txt13 As Label
+    Friend WithEvents GroupBoxS12_Txt04 As GroupBox
     Friend WithEvents Panel12 As Panel
     Friend WithEvents GroupBox13 As GroupBox
-    Friend WithEvents Label37 As Label
+    Friend WithEvents LabelS13_Txt06 As Label
     Friend WithEvents Panel13 As Panel
     Friend WithEvents Panel14 As Panel
-    Friend WithEvents Label78 As Label
-    Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents Label91 As Label
+    Friend WithEvents LabelS16_Txt07 As Label
+    Friend WithEvents GroupBoxS16_Txt05 As GroupBox
+    Friend WithEvents LabelS16_Txt11 As Label
     Friend WithEvents Label103 As Label
     Friend WithEvents NumericUpDownPlatformRoofCycle As NumericUpDown
-    Friend WithEvents Label104 As Label
+    Friend WithEvents LabelS12_Txt15 As Label
     Friend WithEvents Panel15 As Panel
-    Friend WithEvents Label155 As Label
+    Friend WithEvents LabelS14_Txt20 As Label
     Friend WithEvents buttonBrowseUGExit As Button
     Friend WithEvents textBoxUGExit As TextBox
-    Friend WithEvents Label152 As Label
-    Friend WithEvents GroupBox15 As GroupBox
-    Friend WithEvents Label134 As Label
+    Friend WithEvents LabelS14_Txt14 As Label
+    Friend WithEvents GroupBoxS14_Txt15 As GroupBox
+    Friend WithEvents LabelS14_Txt18 As Label
     Friend WithEvents Label135 As Label
     Friend WithEvents NumericUpDownUGiWallCycle As NumericUpDown
-    Friend WithEvents Label136 As Label
+    Friend WithEvents LabelS14_Txt19 As Label
     Friend WithEvents buttonBrowseUGiWallLeft As Button
-    Friend WithEvents Label137 As Label
-    Friend WithEvents Label150 As Label
+    Friend WithEvents LabelS14_Txt17 As Label
+    Friend WithEvents LabelS14_Txt16 As Label
     Friend WithEvents textBoxUGiWallRight As TextBox
     Friend WithEvents textBoxUGiWallLeft As TextBox
     Friend WithEvents buttonBrowseUGEntrance As Button
-    Friend WithEvents GroupBox12 As GroupBox
-    Friend WithEvents Label113 As Label
+    Friend WithEvents GroupBoxS14_Txt09 As GroupBox
+    Friend WithEvents LabelS14_Txt12 As Label
     Friend WithEvents Label128 As Label
     Friend WithEvents NumericUpDownUGoWallCycle As NumericUpDown
-    Friend WithEvents Label129 As Label
+    Friend WithEvents LabelS14_Txt13 As Label
     Friend WithEvents buttonBrowseUGoWallRight As Button
     Friend WithEvents buttonBrowseUGoWallLeft As Button
-    Friend WithEvents Label130 As Label
-    Friend WithEvents Label131 As Label
+    Friend WithEvents LabelS14_Txt11 As Label
+    Friend WithEvents LabelS14_Txt10 As Label
     Friend WithEvents textBoxUGoWallRight As TextBox
     Friend WithEvents textBoxUGoWallLeft As TextBox
     Friend WithEvents textBoxUGEntrance As TextBox
-    Friend WithEvents Label110 As Label
+    Friend WithEvents LabelS14_Txt07 As Label
     Friend WithEvents ButtonUGExitTip As Button
     Friend WithEvents ButtonUGentranceTip As Button
     Friend WithEvents ButtonUGiWallTip As Button
@@ -7619,4 +7696,12 @@ Partial Class Main
     Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
     Friend WithEvents CrStrX As DataGridViewTextBoxColumn
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents LabelAboutCopyRight As Label
+    Friend WithEvents LabelAboutDisclaimer As Label
+    Friend WithEvents LabelAboutDescription As Label
+    Friend WithEvents LabelAboutVersion As Label
+    Friend WithEvents LabelAboutTitle As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

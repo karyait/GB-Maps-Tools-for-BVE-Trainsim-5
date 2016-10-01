@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("GB Maps - ギビマップ Tools for BVE 5 Structures")> 
-<Assembly: AssemblyDescription("BVE5 structure generator, for GB Maps - ギ ビ マ ッ プ v1.0.0.")> 
+<Assembly: AssemblyTitle("GB Maps - ギビマップ Tools for BVE 5 Structures")>
+<Assembly: AssemblyDescription("Structure generator for GB Maps - ギ ビ マ ッ プ v1.2")>
 <Assembly: AssemblyCompany("Karya IT")> 
-<Assembly: AssemblyProduct("GB Maps - ギビマップ")> 
-<Assembly: AssemblyCopyright("GB Maps ギビマップ - © Karya IT 2012-2016. All rights reserved.")> 
+<Assembly: AssemblyProduct("GB Maps - ギビマップ")>
+<Assembly: AssemblyCopyright("GB Maps ギビマップ - © Karya IT 2012-2016. All rights reserved. GB Maps ギビマップ by Karya IT is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.")>
 <Assembly: AssemblyTrademark("GB Maps - ギビマップ")> 
 
 <Assembly: ComVisible(False)>
