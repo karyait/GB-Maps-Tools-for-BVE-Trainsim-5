@@ -9,9 +9,9 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("GB Maps - ギビマップ Tools for BVE 5 Structures")>
-<Assembly: AssemblyDescription("Structure generator for GB Maps - ギ ビ マ ッ プ v1.2")>
-<Assembly: AssemblyCompany("Karya IT")> 
-<Assembly: AssemblyProduct("GB Maps - ギビマップ")>
+<Assembly: AssemblyDescription("Structure generator for GB Maps - ギ ビ マ ッ プ v1.2. This software will generate a list of BVE structures or objects in JavaScript format (.js). Use this software to create your own list of BVE structures for GB Maps - ギビマップ application. To create BVE structure objects in DirectX format, please use 3D applications such as SketchUp or Metasequoia. For more information, please visit http://gbmaps.karyait.net.my/.")>
+<Assembly: AssemblyCompany("Karya IT")>
+<Assembly: AssemblyProduct("GB Maps - ギビマップ [http://gbmaps.karyait.net.my/]")>
 <Assembly: AssemblyCopyright("GB Maps ギビマップ - © Karya IT 2012-2016. All rights reserved. GB Maps ギビマップ by Karya IT is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.")>
 <Assembly: AssemblyTrademark("GB Maps - ギビマップ")> 
 

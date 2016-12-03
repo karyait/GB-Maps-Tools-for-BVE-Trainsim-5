@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormCrackBVESyntax
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,44 +20,32 @@ Partial Class FormCrackBVESyntax
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCrackBVESyntax))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(1, 1)
+        Me.RichTextBox1.Location = New System.Drawing.Point(5, 5)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(350, 284)
+        Me.RichTextBox1.Size = New System.Drawing.Size(425, 344)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(268, 296)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "OK"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'FormVrackBVESyntax
+        'FormCrackBVESyntax
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(355, 331)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(434, 361)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "FormVrackBVESyntax"
-        Me.Text = "BVE Syntax example"
+        Me.Name = "FormCrackBVESyntax"
+        Me.Text = "BVE crack syntax example"
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents Button1 As Button
 End Class

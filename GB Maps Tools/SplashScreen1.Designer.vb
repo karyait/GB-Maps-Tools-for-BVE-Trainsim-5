@@ -32,11 +32,11 @@ Partial Class SplashScreen1
         '
         Me.Copyright.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Copyright.BackColor = System.Drawing.Color.Transparent
-        Me.Copyright.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Copyright.ForeColor = System.Drawing.Color.DarkRed
-        Me.Copyright.Location = New System.Drawing.Point(729, 184)
+        Me.Copyright.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Copyright.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Copyright.Location = New System.Drawing.Point(12, 218)
         Me.Copyright.Name = "Copyright"
-        Me.Copyright.Size = New System.Drawing.Size(232, 21)
+        Me.Copyright.Size = New System.Drawing.Size(424, 21)
         Me.Copyright.TabIndex = 2
         Me.Copyright.Text = "Copyright"
         Me.Copyright.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -46,8 +46,8 @@ Partial Class SplashScreen1
         Me.Version.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Version.BackColor = System.Drawing.Color.Transparent
         Me.Version.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Version.ForeColor = System.Drawing.Color.DarkRed
-        Me.Version.Location = New System.Drawing.Point(727, 157)
+        Me.Version.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Version.Location = New System.Drawing.Point(202, 191)
         Me.Version.Name = "Version"
         Me.Version.Size = New System.Drawing.Size(234, 15)
         Me.Version.TabIndex = 1
@@ -57,23 +57,21 @@ Partial Class SplashScreen1
         'ApplicationTitle
         '
         Me.ApplicationTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ApplicationTitle.AutoSize = True
         Me.ApplicationTitle.BackColor = System.Drawing.Color.Transparent
-        Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplicationTitle.ForeColor = System.Drawing.Color.Maroon
-        Me.ApplicationTitle.Location = New System.Drawing.Point(12, 157)
+        Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ApplicationTitle.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ApplicationTitle.Location = New System.Drawing.Point(179, 37)
         Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(182, 25)
+        Me.ApplicationTitle.Size = New System.Drawing.Size(257, 102)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "Application Title"
-        Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'SplashScreen1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(973, 214)
+        Me.ClientSize = New System.Drawing.Size(448, 248)
         Me.ControlBox = False
         Me.Controls.Add(Me.ApplicationTitle)
         Me.Controls.Add(Me.Copyright)
@@ -82,12 +80,11 @@ Partial Class SplashScreen1
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "SplashScreen1"
-        Me.Opacity = 0.85R
+        Me.Opacity = 0.95R
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.TopMost = True
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Version As System.Windows.Forms.Label

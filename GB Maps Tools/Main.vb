@@ -12,6 +12,7 @@ Public Class Main
     Friend newData As Boolean
     Friend saved As Boolean
     Friend onStartup As Boolean = True
+    Friend kamus As New Dictionary(Of String, String)
 
     Public Enum filetype
         x = 0
@@ -25,6 +26,30 @@ Public Class Main
         LabelAboutVersion.Text = My.Application.Info.Version.ToString
         LabelAboutDescription.Text = My.Application.Info.Description
         LabelAboutCopyRight.Text = My.Application.Info.Copyright
+
+        With kamus
+            .Add("txtMsgErrorTitle", "Error")
+            .Add("txtMsgInfoTitle", "Info")
+            .Add("txtMsgWarningTitle", "Warning")
+            .Add("txtBVEtraindir", "Please select BVE train folder ...")
+            .Add("txtbuttonOpenCSVimgdir1st", "Please set image dir first")
+            .Add("txtbuttonOpenCSVfilter", "GB Maps Data|*.csv|All files|*.*")
+            .Add("txtbuttonOpenCSVerror1", "Sorry! invalid format or older data version not supported.")
+            .Add("txtbuttonOpenCSVerror2", "unknown error.")
+            .Add("txtButtonSaveTXTfilter", "GB Maps Data|*.csv|All files|*.*")
+            .Add("txtButtonGenerateGBMapsJSfilter", "Javascript file|*.js|All files|*.*")
+            .Add("txtButtonGenerateGBMapsJSSaved", "Script file saved succesfully.")
+            .Add("txtUpdateXFileFieldErrorbvedir", "Please set default bve folder in step 1, first.")
+            .Add("txtUpdateXFileFieldErrorimgdir", "Please set default image folder in step 1, first.")
+            .Add("txtUpdateXFileFieldFilterX", "DirectX 3D object (*.x)|*.x")
+            .Add("txtUpdateXFileFieldFilterImg", "Image Files (*.gif, *.jpg, *.png)|*.gif;*.jpg;*.png")
+            .Add("txtUpdateXFileFieldFilterSnd", "Sound Files (*.wav)|*.wav")
+            .Add("txtUpdateXFileFieldFilterAll", "All files|*.*")
+            .Add("txtTabControl1Errorbvedir", "BVE data folder not exist")
+            .Add("txtTabControl1Errorimgdir", "GB Maps image folder not exist")
+            .Add("txtTabControl1RefSaved", "Reference saved")
+            .Add("txtButtonSaveTXTSaved", "CSV file saved succesfully.")
+        End With
 
         If File.Exists("5config.xml") = True Then
             Try
@@ -46,6 +71,7 @@ Public Class Main
                     ComboBoxLanguage.Items.Add(lang.@name.Replace("_", " "))
                     If lang.@select = "true" Then
                         ComboBoxLanguage.SelectedItem = lang.@name.Replace("_", " ")
+
                     End If
                 Next
 
@@ -93,6 +119,23 @@ Public Class Main
             textBoxRailLeft2.Text, textBoxRailRight2.Text, textBoxRailSleeper3.Text, textBoxRailLeft3.Text,
             textBoxRailRight3.Text, textBoxRailSleeper4.Text, textBoxRailLeft4.Text, textBoxRailRight4.Text,
             textBoxRailSleeper5.Text, textBoxRailLeft5.Text, textBoxRailRight5.Text, NumericUpDownRailCycle.Value})
+
+            textBoxRailSleeper1.Text = ""
+            textBoxRailLeft1.Text = ""
+            textBoxRailRight1.Text = ""
+            textBoxRailSleeper2.Text = ""
+            textBoxRailLeft2.Text = ""
+            textBoxRailRight2.Text = ""
+            textBoxRailSleeper3.Text = ""
+            textBoxRailLeft3.Text = ""
+            textBoxRailRight3.Text = ""
+            textBoxRailSleeper4.Text = ""
+            textBoxRailLeft4.Text = ""
+            textBoxRailRight4.Text = ""
+            textBoxRailSleeper5.Text = ""
+            textBoxRailLeft5.Text = ""
+            textBoxRailRight5.Text = ""
+
         End If
     End Sub
 
@@ -119,6 +162,10 @@ Public Class Main
             ComboBoxBVEType.Text, TextBoxBVEfile.Text,
             textBoxBVELeft.Text, TextBoxBVERight.Text,
             NumericUpDownBveX.Value})
+            TextBoxBVEfile.Text = ""
+            textBoxBVELeft.Text = ""
+            TextBoxBVERight.Text = ""
+
         End If
     End Sub
 
@@ -127,6 +174,9 @@ Public Class Main
             DataGridViewFreeObject.Rows.Add(New String() {DataGridViewFreeObject.RowCount - 1,
             TextBoxbvefobjname.Text, TextBoxbvefobjtitle.Text, textBoxFreeObjectImage.Text,
             ComboBoxFreeObjectType.Text, textBoxFreeObjectFile.Text})
+
+            textBoxFreeObjectFile.Text = ""
+
         End If
     End Sub
 
@@ -142,7 +192,7 @@ Public Class Main
         Try
             Dim irow As Integer = DataGridViewSound.CurrentRow.Index
             Dim basedir = bvedir.Substring(0, bvedir.LastIndexOf("\"))
-            Dim fullpath As String = basedir & "\" & DataGridViewSound.Item(4, irow).Value
+            Dim fullpath As String = basedir & "\" & DataGridViewSound.Item(4, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxaudiorun.Visible = True
                 My.Computer.Audio.Stop()
@@ -151,49 +201,50 @@ Public Class Main
                 PictureBoxaudiorun.Visible = False
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewBVEfobj_Click(sender As Object, e As System.EventArgs) Handles DataGridViewFreeObject.Click
         Try
             Dim irow As Integer = DataGridViewFreeObject.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewFreeObject.Item(4, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewFreeObject.Item(4, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxbvefobjimg.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxbvefobjimg.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewBVEstr_Click(sender As Object, e As System.EventArgs) Handles DataGridViewEtc.Click
         Try
             Dim irow As Integer = DataGridViewEtc.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewEtc.Item(4, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewEtc.Item(4, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxBVEstrimg.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxBVEstrimg.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Private Sub DataGridViewRailType_Click(sender As Object, e As System.EventArgs) Handles DataGridViewRail.Click
+    Private Sub DataGridViewRail_Click(sender As Object, e As System.EventArgs) Handles DataGridViewRail.Click
         Try
             Dim irow As Integer = DataGridViewRail.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewRail.Item(6, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewRail.Item(3, irow).Value.ToString.Trim
+            'MsgBox(fullpath)
             If File.Exists(fullpath) Then
                 PictureBoxRailTypeImg.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxRailTypeImg.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -219,7 +270,7 @@ Public Class Main
     End Sub
 
     Private Sub ButtonBrowseTrainDir_Click(sender As System.Object, e As System.EventArgs) Handles ButtonBrowseTrainDir.Click
-        FolderBrowserDialog1.Description = "Please select BVE train folder ..."
+        FolderBrowserDialog1.Description = kamus.Item("txtBVEtraindir")
         If FolderBrowserDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             TextBoxTrainDir.Text = FolderBrowserDialog1.SelectedPath
         End If
@@ -236,6 +287,10 @@ Public Class Main
                 textBoxTunnelEntrance.Text, textBoxTunnelExitStructure.Text,
                 textBoxTunnelWallLeft.Text, textBoxTunnelWallRight.Text,
                 NumericUpDownTunnelWallCycle.Value})
+            textBoxTunnelEntrance.Text = ""
+            textBoxTunnelExitStructure.Text = ""
+            textBoxTunnelWallLeft.Text = ""
+            textBoxTunnelWallRight.Text = ""
         End If
     End Sub
 
@@ -269,6 +324,9 @@ Public Class Main
                 TextBoxBridgeTitle.Text, TextBoxBridgeImage.Text,
                 TextBoxBridgeLeft.Text, TextBoxBridgeRight.Text, NumericUpDownBridgeWallCycle.Value,
                 textBoxBridgePier.Text, NumericUpDownBridgePierCycle.Value})
+            TextBoxBridgeLeft.Text = ""
+            TextBoxBridgeRight.Text = ""
+            textBoxBridgePier.Text = ""
         End If
     End Sub
 
@@ -278,6 +336,9 @@ Public Class Main
                 textBoxOverPassName.Text, textBoxOverPassTitle.Text, textBoxOverPassImage.Text,
                 textBoxOverPassWallLeft.Text, textBoxOverPassWallRight.Text, NumericUpDownOverpassWallCycle.Value,
                 textBoxOverPassPier.Text, NumericUpDownOverpassPierCycle.Value})
+            textBoxOverPassWallLeft.Text = ""
+            textBoxOverPassWallRight.Text = ""
+            textBoxOverPassPier.Text = ""
         End If
     End Sub
 
@@ -286,6 +347,8 @@ Public Class Main
             DataGridViewHillCut.Rows.Add(New String() {DataGridViewHillCut.RowCount - 1,
                 textBoxHillCutName.Text, textBoxHillCutTitle.Text, textBoxHillCutImage.Text,
                 textBoxHillCutLeft.Text, textBoxHillCutRight.Text, NumericUpDownHillCutCycle.Value})
+            textBoxHillCutLeft.Text = ""
+            textBoxHillCutRight.Text = ""
         End If
     End Sub
 
@@ -295,6 +358,8 @@ Public Class Main
             DataGridViewDike.Rows.Add(New String() {DataGridViewDike.RowCount - 1,
             textBoxDikeName.Text, textBoxDikeTitle.Text, textBoxDikeImage.Text,
             textBoxDikeLeft.Text, textBoxDikeRight.Text, NumericUpDownDikeCycle.Value})
+            textBoxDikeLeft.Text = ""
+            textBoxDikeRight.Text = ""
         End If
     End Sub
 
@@ -304,6 +369,11 @@ Public Class Main
                 textBoxRCName.Text, textBoxRCTitle.Text, textBoxRCImage.Text,
                 textBoxRCgateLeft.Text, textBoxRCIntersection.Text, textBoxRCgateRight.Text,
                 textBoxRCSound.Text})
+            textBoxRCgateLeft.Text = ""
+            textBoxRCIntersection.Text = ""
+            textBoxRCgateRight.Text = ""
+            textBoxRCSound.Text = ""
+
         End If
     End Sub
 
@@ -317,6 +387,15 @@ Public Class Main
               textBoxPlatformRoofLeft.Text, textBoxPlatformRoofMiddleLeft.Text,
               textBoxPlatformRoofMiddleRight.Text, textBoxPlatformRoofRight.Text,
               NumericUpDownPlatformRoofCycle.Value})
+            textBoxPlatformLeft.Text = ""
+            textBoxPlatformMiddleLeft.Text = ""
+            textBoxPlatformMiddleRight.Text = ""
+            textBoxPlatformRight.Text = ""
+            textBoxPlatformRoofLeft.Text = ""
+            textBoxPlatformRoofMiddleLeft.Text = ""
+            textBoxPlatformRoofMiddleRight.Text = ""
+            textBoxPlatformRoofRight.Text = ""
+
         End If
     End Sub
 
@@ -325,112 +404,112 @@ Public Class Main
             Dim irow As Integer = DataGridViewTrain.CurrentRow.Index
             Dim basedir = bvedir.Substring(0, bvedir.LastIndexOf("\")) & "\trains" 'bvedir.Replace("Railway\Object", "") & "train"
 
-            Dim fullpath As String = basedir.ToLower & "\" & DataGridViewTrain.Item(3, irow).Value
+            Dim fullpath As String = basedir.ToLower & "\" & DataGridViewTrain.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxTrainDir.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxTrainDir.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewTunnel_Click(sender As Object, e As System.EventArgs) Handles DataGridViewTunnel.Click
         Try
             Dim irow As Integer = DataGridViewTunnel.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewTunnel.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewTunnel.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxTunnelPicture.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxTunnelPicture.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewBridge_Click(sender As Object, e As System.EventArgs) Handles DataGridViewBridge.Click
         Try
             Dim irow As Integer = DataGridViewBridge.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewBridge.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewBridge.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxBridge.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxBridge.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewFlyOver_Click(sender As Object, e As System.EventArgs) Handles DataGridViewOverpass.Click
         Try
             Dim irow As Integer = DataGridViewOverpass.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewOverpass.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewOverpass.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxFO.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxFO.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewCut_Click(sender As Object, e As System.EventArgs) Handles DataGridViewHillCut.Click
         Try
             Dim irow As Integer = DataGridViewHillCut.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewHillCut.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewHillCut.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxHillCut.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxHillCut.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewDike_Click(sender As Object, e As System.EventArgs) Handles DataGridViewDike.Click
         Try
             Dim irow As Integer = DataGridViewDike.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewDike.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewDike.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxDike.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxDike.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewRC_Click(sender As Object, e As System.EventArgs) Handles DataGridViewRC.Click
         Try
             Dim irow As Integer = DataGridViewRC.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewRC.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewRC.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxRC.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxRC.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub DataGridViewPlatform_Click(sender As Object, e As System.EventArgs) Handles DataGridViewPlatform.Click
         Try
             Dim irow As Integer = DataGridViewPlatform.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewPlatform.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewPlatform.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxPlatform.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxPlatform.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -439,6 +518,9 @@ Public Class Main
             DataGridViewPole.Rows.Add(New String() {DataGridViewPole.RowCount - 1, textBoxPoleName.Text,
                 textBoxPoleTitle.Text, textBoxPoleImage.Text, textBoxPoleStructureLeft.Text,
                 textBoxPoleStructureRight.Text, textBoxOverHeadWire.Text, NumericUpDownPoleCycle.Value})
+            textBoxPoleStructureLeft.Text = ""
+            textBoxPoleStructureRight.Text = ""
+            textBoxOverHeadWire.Text = ""
         End If
     End Sub
 
@@ -453,14 +535,14 @@ Public Class Main
     Private Sub DataGridViewPole_Click(sender As Object, e As System.EventArgs) Handles DataGridViewPole.Click
         Try
             Dim irow As Integer = DataGridViewPole.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewPole.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewPole.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxPole.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxPole.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -468,7 +550,9 @@ Public Class Main
         If textBoxCrackName.Text <> "" And textBoxCrackTitle.Text <> "" Then
             DataGridViewCrack.Rows.Add(New String() {DataGridViewCrack.RowCount - 1,
                 textBoxCrackName.Text, textBoxCrackTitle.Text, textBoxCrackImage.Text,
-                textBoxCrackLeft.Text, textBoxCrackRight.Text, NumericUpDownCrackCycle.Value})
+               textBoxCrackLeft.Text, textBoxCrackRight.Text, NumericUpDownCrackCycle.Value})
+            textBoxCrackLeft.Text = ""
+            textBoxCrackRight.Text = ""
         End If
     End Sub
 
@@ -487,14 +571,14 @@ Public Class Main
     Private Sub DataGridViewCrack_Click(sender As Object, e As System.EventArgs) Handles DataGridViewCrack.Click
         Try
             Dim irow As Integer = DataGridViewCrack.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewCrack.Item(3, irow).Value
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewCrack.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxCrack.Image = Image.FromFile(fullpath)
             Else
                 PictureBoxCrack.Image = Nothing
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -685,14 +769,14 @@ Public Class Main
     Private Sub buttonOpenCSV_Click(sender As Object, e As EventArgs) Handles buttonOpenCSV.Click
         Dim basedir As String
         If gbIdir = "" Then
-            MessageBox.Show("Please set image dir first")
+            MessageBox.Show(kamus.item("txtbuttonOpenCSVimgdir1st"))
             Exit Sub
-        Else
+            Else
             basedir = gbIdir.ToLower.Replace("\images", "")
             If basedir <> "" Then OpenFileDialog3.InitialDirectory = basedir
-        End If
+            End If
 
-        OpenFileDialog3.Filter = "GB Maps Data|*.csv|All files|*.*"
+            OpenFileDialog3.Filter = kamus.Item("txtbuttonOpenCSVfilter")
 
         If OpenFileDialog3.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim filename As String = OpenFileDialog3.FileName
@@ -702,30 +786,33 @@ Public Class Main
             '# version check
             Dim vercek = arrRow(0).Split("_")
             If vercek.Count < 3 Then
-                MessageBox.Show("sorry! invalid format or older data version not supported.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(kamus.item("txtbuttonOpenCSVerror1"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
             '# "gbmapstools_v_2.2"
             If vercek(0) <> "gbmapstools" And vercek(1) <> "v" And (Convert.ToDouble(vercek(2)) >= 2.2) Then
-                MessageBox.Show("unknown error.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(kamus.item("txtbuttonOpenCSVerror2"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
             For Each drow As String In arrRow
 
-                Dim dd As String() = drow.Split(",")
+                Dim dd As String() = drow.Split(", ")
 
-                Select Case dd(0).Trim()
+                For i = 0 To dd.Count - 1
+                    dd(i) = dd(i).Trim
+                Next
+                Select Case dd(0)
                     Case "rail"
-                        '#2 "rail,"
+                        '#2 "rail, "
                         Try
                             DataGridViewRail.Rows.Add(New String() {
                                dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10),
                                dd(11), dd(12), dd(13), dd(14), dd(15), dd(16), dd(17), dd(18), dd(19), dd(20),
-                               dd(21), dd(22), dd(23)})
+                               dd(21), dd(22)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
                     Case "pole"
@@ -734,17 +821,17 @@ Public Class Main
                             DataGridViewPole.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "train"
-                        '#4 "train,"
+                        '#4 "train, "
                         Try
                             DataGridViewTrain.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -754,17 +841,17 @@ Public Class Main
                             DataGridViewSound.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "tunnel"
-                        '#6 "tunnel,"
+                        '#6 "tunnel, "
                         Try
                             DataGridViewTunnel.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -774,17 +861,17 @@ Public Class Main
                             DataGridViewBridge.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "overpass"
-                        '#8 "overpass,"
+                        '#8 "overpass, "
                         Try
                             DataGridViewOverpass.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -794,17 +881,17 @@ Public Class Main
                             DataGridViewHillCut.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "dike"
-                        '#10 "dike,"
+                        '#10 "dike, "
                         Try
                             DataGridViewDike.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -814,18 +901,18 @@ Public Class Main
                             DataGridViewRC.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "pform"
-                        '#12 "pform,"
+                        '#12 "pform, "
                         Try
                             DataGridViewPlatform.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10),
                             dd(11), dd(12), dd(13), dd(14)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -835,18 +922,18 @@ Public Class Main
                             DataGridViewCrack.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "ug"
-                        '#14 "ug,"
+                        '#14 "ug, "
                         Try
                             DataGridViewUG.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10),
                             dd(11), dd(12), dd(13), dd(14), dd(15)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -857,17 +944,17 @@ Public Class Main
                             DataGridViewFreeObject.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
                     Case "etc"
-                        '#16 "etc,"
+                        '#16 "etc, "
                         Try
                             DataGridViewEtc.Rows.Add(New String() {
                             dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End Try
 
@@ -875,7 +962,11 @@ Public Class Main
                     Case Else
 
                 End Select
+
             Next
+
+            TabControl1.SelectedTab = Step_2
+
         End If
     End Sub
 
@@ -912,30 +1003,30 @@ Public Class Main
         UpdateXFileField(textBoxRailRight1, filetype.x, Nothing)
     End Sub
 
-    Private Sub ButtonSaveXML_Click(sender As Object, e As EventArgs) Handles ButtonSaveTXT.Click
+    Private Sub ButtonSaveTXT_Click(sender As Object, e As EventArgs) Handles ButtonSaveTXT.Click
         Dim basedir = gbIdir.ToLower.Replace("\images", "")
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\data"
-        SaveFileDialog1.Filter = "GB Maps Data|*.csv|All files|*.*"
+        SaveFileDialog1.Filter = kamus.Item("txtButtonSaveTXTfilter")
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim txt As New StringBuilder
             Dim filename As String = SaveFileDialog1.FileName
             txt.AppendLine("gbmapstools_v_2.2")
-            '#2 Rail (23 item = 0 - 22)
+            '#2 Rail (22 item = 0 - 21)
             For ro = 0 To DataGridViewRail.RowCount - 1
                 If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
                     DataGridViewRail.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "rail," & DataGridViewRail.Item(0, ro).Value & "," &
-                        DataGridViewRail.Item(1, ro).Value & "," & DataGridViewRail.Item(2, ro).Value &
-                        "," & DataGridViewRail.Item(3, ro).Value & "_" & DataGridViewRail.Item(4, ro).Value &
-                        "," & DataGridViewRail.Item(5, ro).Value & "," & DataGridViewRail.Item(6, ro).Value &
-                        "," & DataGridViewRail.Item(7, ro).Value & "," & DataGridViewRail.Item(8, ro).Value &
-                        "," & DataGridViewRail.Item(9, ro).Value & "," & DataGridViewRail.Item(10, ro).Value &
-                        "," & DataGridViewRail.Item(11, ro).Value & "," & DataGridViewRail.Item(12, ro).Value &
-                        "," & DataGridViewRail.Item(13, ro).Value & "," & DataGridViewRail.Item(14, ro).Value &
-                        "," & DataGridViewRail.Item(15, ro).Value & "," & DataGridViewRail.Item(16, ro).Value &
-                        "," & DataGridViewRail.Item(17, ro).Value & "," & DataGridViewRail.Item(18, ro).Value &
-                        "," & DataGridViewRail.Item(19, ro).Value & "," & DataGridViewRail.Item(20, ro).Value &
-                        "," & DataGridViewRail.Item(21, ro).Value & "," & DataGridViewRail.Item(22, ro).Value
+                    Dim ttxt As String = "rail, " & DataGridViewRail.Item(0, ro).Value & ", " &
+                        DataGridViewRail.Item(1, ro).Value & ", " & DataGridViewRail.Item(2, ro).Value &
+                        ", " & DataGridViewRail.Item(3, ro).Value & ", " & DataGridViewRail.Item(4, ro).Value &
+                        ", " & DataGridViewRail.Item(5, ro).Value & ", " & DataGridViewRail.Item(6, ro).Value &
+                        ", " & DataGridViewRail.Item(7, ro).Value & ", " & DataGridViewRail.Item(8, ro).Value &
+                        ", " & DataGridViewRail.Item(9, ro).Value & ", " & DataGridViewRail.Item(10, ro).Value &
+                        ", " & DataGridViewRail.Item(11, ro).Value & ", " & DataGridViewRail.Item(12, ro).Value &
+                        ", " & DataGridViewRail.Item(13, ro).Value & ", " & DataGridViewRail.Item(14, ro).Value &
+                        ", " & DataGridViewRail.Item(15, ro).Value & ", " & DataGridViewRail.Item(16, ro).Value &
+                        ", " & DataGridViewRail.Item(17, ro).Value & ", " & DataGridViewRail.Item(18, ro).Value &
+                        ", " & DataGridViewRail.Item(19, ro).Value & ", " & DataGridViewRail.Item(20, ro).Value &
+                        ", " & DataGridViewRail.Item(21, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -944,11 +1035,11 @@ Public Class Main
             For ro = 0 To DataGridViewPole.RowCount - 1
                 If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" And
                     DataGridViewPole.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "pole," & DataGridViewPole.Item(0, ro).Value &
-                        "," & DataGridViewPole.Item(1, ro).Value & "," & DataGridViewPole.Item(2, ro).Value &
-                        "," & DataGridViewPole.Item(3, ro).Value & "," & DataGridViewPole.Item(4, ro).Value &
-                        "," & DataGridViewPole.Item(5, ro).Value & "," & DataGridViewPole.Item(6, ro).Value &
-                        "," & DataGridViewPole.Item(7, ro).Value
+                    Dim ttxt As String = "pole, " & DataGridViewPole.Item(0, ro).Value &
+                        ", " & DataGridViewPole.Item(1, ro).Value & ", " & DataGridViewPole.Item(2, ro).Value &
+                        ", " & DataGridViewPole.Item(3, ro).Value & ", " & DataGridViewPole.Item(4, ro).Value &
+                        ", " & DataGridViewPole.Item(5, ro).Value & ", " & DataGridViewPole.Item(6, ro).Value &
+                        ", " & DataGridViewPole.Item(7, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -957,9 +1048,9 @@ Public Class Main
             For ro = 0 To DataGridViewTrain.RowCount - 1
                 If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And
                     DataGridViewTrain.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "train," & DataGridViewTrain.Item(0, ro).Value &
-                        "," & DataGridViewTrain.Item(1, ro).Value & "," & DataGridViewTrain.Item(2, ro).Value &
-                        "," & DataGridViewTrain.Item(3, ro).Value & "," & DataGridViewTrain.Item(4, ro).Value
+                    Dim ttxt As String = "train, " & DataGridViewTrain.Item(0, ro).Value &
+                        ", " & DataGridViewTrain.Item(1, ro).Value & ", " & DataGridViewTrain.Item(2, ro).Value &
+                        ", " & DataGridViewTrain.Item(3, ro).Value & ", " & DataGridViewTrain.Item(4, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -968,9 +1059,9 @@ Public Class Main
             For ro = 0 To DataGridViewSound.RowCount - 1
                 If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
                     DataGridViewSound.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "sound," & DataGridViewSound.Item(0, ro).Value &
-                        "," & DataGridViewSound.Item(1, ro).Value & "," & DataGridViewSound.Item(2, ro).Value &
-                        "," & DataGridViewSound.Item(3, ro).Value & "," & DataGridViewSound.Item(4, ro).Value
+                    Dim ttxt As String = "sound, " & DataGridViewSound.Item(0, ro).Value &
+                        ", " & DataGridViewSound.Item(1, ro).Value & ", " & DataGridViewSound.Item(2, ro).Value &
+                        ", " & DataGridViewSound.Item(3, ro).Value & ", " & DataGridViewSound.Item(4, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -979,11 +1070,11 @@ Public Class Main
             For ro = 0 To DataGridViewTunnel.RowCount - 1
                 If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And
                     DataGridViewTunnel.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "tunnel," & DataGridViewTunnel.Item(0, ro).Value &
-                        "," & DataGridViewTunnel.Item(1, ro).Value & "," & DataGridViewTunnel.Item(2, ro).Value &
-                        "," & DataGridViewTunnel.Item(3, ro).Value & "," & DataGridViewTunnel.Item(4, ro).Value &
-                        "," & DataGridViewTunnel.Item(5, ro).Value & "," & DataGridViewTunnel.Item(6, ro).Value &
-                        "," & DataGridViewTunnel.Item(7, ro).Value & "," & DataGridViewTunnel.Item(8, ro).Value
+                    Dim ttxt As String = "tunnel, " & DataGridViewTunnel.Item(0, ro).Value &
+                        ", " & DataGridViewTunnel.Item(1, ro).Value & ", " & DataGridViewTunnel.Item(2, ro).Value &
+                        ", " & DataGridViewTunnel.Item(3, ro).Value & ", " & DataGridViewTunnel.Item(4, ro).Value &
+                        ", " & DataGridViewTunnel.Item(5, ro).Value & ", " & DataGridViewTunnel.Item(6, ro).Value &
+                        ", " & DataGridViewTunnel.Item(7, ro).Value & ", " & DataGridViewTunnel.Item(8, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -992,11 +1083,11 @@ Public Class Main
             For ro = 0 To DataGridViewBridge.RowCount - 1
                 If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And
                     DataGridViewBridge.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "bridge," & DataGridViewBridge.Item(0, ro).Value &
-                        "," & DataGridViewBridge.Item(1, ro).Value & "," & DataGridViewBridge.Item(2, ro).Value &
-                        "," & DataGridViewBridge.Item(3, ro).Value & "," & DataGridViewBridge.Item(4, ro).Value &
-                        "," & DataGridViewBridge.Item(5, ro).Value & "," & DataGridViewBridge.Item(6, ro).Value &
-                        "," & DataGridViewBridge.Item(7, ro).Value & "," & DataGridViewBridge.Item(8, ro).Value
+                    Dim ttxt As String = "bridge, " & DataGridViewBridge.Item(0, ro).Value &
+                        ", " & DataGridViewBridge.Item(1, ro).Value & ", " & DataGridViewBridge.Item(2, ro).Value &
+                        ", " & DataGridViewBridge.Item(3, ro).Value & ", " & DataGridViewBridge.Item(4, ro).Value &
+                        ", " & DataGridViewBridge.Item(5, ro).Value & ", " & DataGridViewBridge.Item(6, ro).Value &
+                        ", " & DataGridViewBridge.Item(7, ro).Value & ", " & DataGridViewBridge.Item(8, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1005,11 +1096,11 @@ Public Class Main
             For ro = 0 To DataGridViewOverpass.RowCount - 1
                 If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And
                     DataGridViewOverpass.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "overpass," & DataGridViewOverpass.Item(0, ro).Value &
-                        "," & DataGridViewOverpass.Item(1, ro).Value & "," & DataGridViewOverpass.Item(2, ro).Value &
-                        "," & DataGridViewOverpass.Item(3, ro).Value & "," & DataGridViewOverpass.Item(4, ro).Value &
-                        "," & DataGridViewOverpass.Item(5, ro).Value & "," & DataGridViewOverpass.Item(6, ro).Value &
-                        "," & DataGridViewOverpass.Item(7, ro).Value & "," & DataGridViewOverpass.Item(8, ro).Value
+                    Dim ttxt As String = "overpass, " & DataGridViewOverpass.Item(0, ro).Value &
+                        ", " & DataGridViewOverpass.Item(1, ro).Value & ", " & DataGridViewOverpass.Item(2, ro).Value &
+                        ", " & DataGridViewOverpass.Item(3, ro).Value & ", " & DataGridViewOverpass.Item(4, ro).Value &
+                        ", " & DataGridViewOverpass.Item(5, ro).Value & ", " & DataGridViewOverpass.Item(6, ro).Value &
+                        ", " & DataGridViewOverpass.Item(7, ro).Value & ", " & DataGridViewOverpass.Item(8, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1018,23 +1109,22 @@ Public Class Main
             For ro = 0 To DataGridViewHillCut.RowCount - 1
                 If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And
                     DataGridViewHillCut.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "hillcut," & DataGridViewHillCut.Item(0, ro).Value &
-                        "," & DataGridViewHillCut.Item(1, ro).Value & "," & DataGridViewHillCut.Item(2, ro).Value &
-                        "," & DataGridViewHillCut.Item(3, ro).Value & "," & DataGridViewHillCut.Item(4, ro).Value &
-                        "," & DataGridViewHillCut.Item(5, ro).Value & "," & DataGridViewHillCut.Item(6, ro).Value
+                    Dim ttxt As String = "hillcut, " & DataGridViewHillCut.Item(0, ro).Value &
+                        ", " & DataGridViewHillCut.Item(1, ro).Value & ", " & DataGridViewHillCut.Item(2, ro).Value &
+                        ", " & DataGridViewHillCut.Item(3, ro).Value & ", " & DataGridViewHillCut.Item(4, ro).Value &
+                        ", " & DataGridViewHillCut.Item(5, ro).Value & ", " & DataGridViewHillCut.Item(6, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
 
-            '#10 Dike (9 item = 0 - 8)
+            '#10 Dike (7 item = 0 - 6)
             For ro = 0 To DataGridViewDike.RowCount - 1
                 If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And
                     DataGridViewDike.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "dike," & DataGridViewDike.Item(0, ro).Value &
-                        "," & DataGridViewDike.Item(1, ro).Value & "," & DataGridViewDike.Item(2, ro).Value &
-                        "," & DataGridViewDike.Item(3, ro).Value & "," & DataGridViewDike.Item(4, ro).Value &
-                        "," & DataGridViewDike.Item(5, ro).Value & "," & DataGridViewDike.Item(6, ro).Value &
-                        "," & DataGridViewDike.Item(7, ro).Value & "," & DataGridViewDike.Item(8, ro).Value
+                    Dim ttxt As String = "dike, " & DataGridViewDike.Item(0, ro).Value &
+                        ", " & DataGridViewDike.Item(1, ro).Value & ", " & DataGridViewDike.Item(2, ro).Value &
+                        ", " & DataGridViewDike.Item(3, ro).Value & ", " & DataGridViewDike.Item(4, ro).Value &
+                        ", " & DataGridViewDike.Item(5, ro).Value & ", " & DataGridViewDike.Item(6, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1043,11 +1133,11 @@ Public Class Main
             For ro = 0 To DataGridViewRC.RowCount - 1
                 If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And
                     DataGridViewRC.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "rc," & DataGridViewRC.Item(0, ro).Value &
-                        "," & DataGridViewRC.Item(1, ro).Value & "," & DataGridViewRC.Item(2, ro).Value &
-                        "," & DataGridViewRC.Item(3, ro).Value & "," & DataGridViewRC.Item(4, ro).Value &
-                        "," & DataGridViewRC.Item(5, ro).Value & "," & DataGridViewRC.Item(6, ro).Value &
-                        "," & DataGridViewRC.Item(7, ro).Value
+                    Dim ttxt As String = "rc, " & DataGridViewRC.Item(0, ro).Value &
+                        ", " & DataGridViewRC.Item(1, ro).Value & ", " & DataGridViewRC.Item(2, ro).Value &
+                        ", " & DataGridViewRC.Item(3, ro).Value & ", " & DataGridViewRC.Item(4, ro).Value &
+                        ", " & DataGridViewRC.Item(5, ro).Value & ", " & DataGridViewRC.Item(6, ro).Value &
+                        ", " & DataGridViewRC.Item(7, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1056,13 +1146,13 @@ Public Class Main
             For ro = 0 To DataGridViewPlatform.RowCount - 1
                 If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And
                     DataGridViewPlatform.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "pform," & DataGridViewPlatform.Item(0, ro).Value &
-                        "," & DataGridViewPlatform.Item(1, ro).Value & "," & DataGridViewPlatform.Item(2, ro).Value &
-                        "," & DataGridViewPlatform.Item(3, ro).Value & "," & DataGridViewPlatform.Item(4, ro).Value &
-                        "," & DataGridViewPlatform.Item(5, ro).Value & "," & DataGridViewPlatform.Item(6, ro).Value &
-                        "," & DataGridViewPlatform.Item(7, ro).Value & "," & DataGridViewPlatform.Item(8, ro).Value &
-                        "," & DataGridViewPlatform.Item(9, ro).Value & "," & DataGridViewPlatform.Item(10, ro).Value &
-                        "," & DataGridViewPlatform.Item(11, ro).Value & "," & DataGridViewPlatform.Item(12, ro).Value &
+                    Dim ttxt As String = "pform, " & DataGridViewPlatform.Item(0, ro).Value &
+                        ", " & DataGridViewPlatform.Item(1, ro).Value & ", " & DataGridViewPlatform.Item(2, ro).Value &
+                        ", " & DataGridViewPlatform.Item(3, ro).Value & ", " & DataGridViewPlatform.Item(4, ro).Value &
+                        ", " & DataGridViewPlatform.Item(5, ro).Value & ", " & DataGridViewPlatform.Item(6, ro).Value &
+                        ", " & DataGridViewPlatform.Item(7, ro).Value & ", " & DataGridViewPlatform.Item(8, ro).Value &
+                        ", " & DataGridViewPlatform.Item(9, ro).Value & ", " & DataGridViewPlatform.Item(10, ro).Value &
+                        ", " & DataGridViewPlatform.Item(11, ro).Value & ", " & DataGridViewPlatform.Item(12, ro).Value &
                         "," & DataGridViewPlatform.Item(13, ro).Value
                     txt.AppendLine(ttxt)
                 End If
@@ -1072,10 +1162,10 @@ Public Class Main
             For ro = 0 To DataGridViewCrack.RowCount - 1
                 If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And
                     DataGridViewCrack.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "cracks," & DataGridViewCrack.Item(0, ro).Value &
-                        "," & DataGridViewCrack.Item(1, ro).Value & "," & DataGridViewCrack.Item(2, ro).Value &
-                        "," & DataGridViewCrack.Item(3, ro).Value & "," & DataGridViewCrack.Item(4, ro).Value &
-                        "," & DataGridViewCrack.Item(5, ro).Value & "," & DataGridViewCrack.Item(6, ro).Value
+                    Dim ttxt As String = "cracks, " & DataGridViewCrack.Item(0, ro).Value &
+                        ", " & DataGridViewCrack.Item(1, ro).Value & ", " & DataGridViewCrack.Item(2, ro).Value &
+                        ", " & DataGridViewCrack.Item(3, ro).Value & ", " & DataGridViewCrack.Item(4, ro).Value &
+                        ", " & DataGridViewCrack.Item(5, ro).Value & ", " & DataGridViewCrack.Item(6, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1084,14 +1174,14 @@ Public Class Main
             For ro = 0 To DataGridViewUG.RowCount - 1
                 If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
                     DataGridViewUG.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ug," & DataGridViewUG.Item(0, ro).Value &
-                        "," & DataGridViewUG.Item(1, ro).Value & "," & DataGridViewUG.Item(2, ro).Value &
-                        "," & DataGridViewUG.Item(3, ro).Value & "," & DataGridViewUG.Item(4, ro).Value &
-                        "," & DataGridViewUG.Item(5, ro).Value & "," & DataGridViewUG.Item(6, ro).Value &
-                        "," & DataGridViewUG.Item(7, ro).Value & "," & DataGridViewUG.Item(8, ro).Value &
-                        "," & DataGridViewUG.Item(9, ro).Value & "," & DataGridViewUG.Item(10, ro).Value &
-                        "," & DataGridViewUG.Item(11, ro).Value & "," & DataGridViewUG.Item(12, ro).Value &
-                        "," & DataGridViewUG.Item(13, ro).Value & "," & DataGridViewUG.Item(14, ro).Value
+                    Dim ttxt As String = "ug, " & DataGridViewUG.Item(0, ro).Value &
+                        ", " & DataGridViewUG.Item(1, ro).Value & ", " & DataGridViewUG.Item(2, ro).Value &
+                        ", " & DataGridViewUG.Item(3, ro).Value & ", " & DataGridViewUG.Item(4, ro).Value &
+                        ", " & DataGridViewUG.Item(5, ro).Value & ", " & DataGridViewUG.Item(6, ro).Value &
+                        ", " & DataGridViewUG.Item(7, ro).Value & ", " & DataGridViewUG.Item(8, ro).Value &
+                        ", " & DataGridViewUG.Item(9, ro).Value & ", " & DataGridViewUG.Item(10, ro).Value &
+                        ", " & DataGridViewUG.Item(11, ro).Value & ", " & DataGridViewUG.Item(12, ro).Value &
+                        ", " & DataGridViewUG.Item(13, ro).Value & ", " & DataGridViewUG.Item(14, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1100,10 +1190,10 @@ Public Class Main
             For ro = 0 To DataGridViewFreeObject.RowCount - 1
                 If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And
                     DataGridViewFreeObject.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "fobj," & DataGridViewFreeObject.Item(0, ro).Value &
-                        "," & DataGridViewFreeObject.Item(1, ro).Value & "," & DataGridViewFreeObject.Item(2, ro).Value &
-                        "," & DataGridViewFreeObject.Item(3, ro).Value & "," & DataGridViewFreeObject.Item(4, ro).Value &
-                        "," & DataGridViewFreeObject.Item(5, ro).Value
+                    Dim ttxt As String = "fobj, " & DataGridViewFreeObject.Item(0, ro).Value &
+                        ", " & DataGridViewFreeObject.Item(1, ro).Value & ", " & DataGridViewFreeObject.Item(2, ro).Value &
+                        ", " & DataGridViewFreeObject.Item(3, ro).Value & ", " & DataGridViewFreeObject.Item(4, ro).Value &
+                        ", " & DataGridViewFreeObject.Item(5, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1112,11 +1202,11 @@ Public Class Main
             For ro = 0 To DataGridViewEtc.RowCount - 1
                 If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And
                     DataGridViewEtc.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "etc," & DataGridViewEtc.Item(0, ro).Value &
-                        "," & DataGridViewEtc.Item(1, ro).Value & "," & DataGridViewEtc.Item(2, ro).Value &
-                        "," & DataGridViewEtc.Item(3, ro).Value & "," & DataGridViewEtc.Item(4, ro).Value &
-                        "," & DataGridViewEtc.Item(5, ro).Value & "," & DataGridViewEtc.Item(6, ro).Value &
-                        "," & DataGridViewEtc.Item(7, ro).Value & "," & DataGridViewEtc.Item(8, ro).Value
+                    Dim ttxt As String = "etc, " & DataGridViewEtc.Item(0, ro).Value &
+                        ", " & DataGridViewEtc.Item(1, ro).Value & ", " & DataGridViewEtc.Item(2, ro).Value &
+                        ", " & DataGridViewEtc.Item(3, ro).Value & ", " & DataGridViewEtc.Item(4, ro).Value &
+                        ", " & DataGridViewEtc.Item(5, ro).Value & ", " & DataGridViewEtc.Item(6, ro).Value &
+                        ", " & DataGridViewEtc.Item(7, ro).Value & ", " & DataGridViewEtc.Item(8, ro).Value
                     txt.AppendLine(ttxt)
                 End If
             Next
@@ -1126,6 +1216,8 @@ Public Class Main
 
             Try
                 File.WriteAllText(filename, txt.ToString)
+                MessageBox.Show(kamus.Item("txtButtonSaveTXTSaved"),
+                                kamus.Item("txtMsgInfoTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information)
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
@@ -1134,9 +1226,9 @@ Public Class Main
     End Sub
 
     Private Sub ButtonGenerateGBMapsJS_Click(sender As Object, e As EventArgs) Handles ButtonGenerateGBMapsJS.Click
-        Dim basedir = gbIdir.ToLower.Replace("\images", "")
+        Dim basedir = gbIdir.ToLower.Replace(" \ images", "")
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\script"
-        SaveFileDialog1.Filter = "Javascript file|*.js|All files|*.*"
+        SaveFileDialog1.Filter = kamus.item("txtButtonGenerateGBMapsJSfilter")
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim scriptfile = SaveFileDialog1.FileName
             Dim txt As New StringBuilder
@@ -1150,7 +1242,7 @@ Public Class Main
 
             txt.AppendLine()
 
-            '#2 Rail (23 item = 0 - 22)
+            '#2 Rail (22 item = 0 - 21)
             For ro = 0 To DataGridViewRail.RowCount - 1
                 If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
                         DataGridViewRail.Item(2, ro).Value <> "" Then
@@ -1165,7 +1257,7 @@ Public Class Main
                         "','" & DataGridViewRail.Item(15, ro).Value & "','" & DataGridViewRail.Item(16, ro).Value &
                         "','" & DataGridViewRail.Item(17, ro).Value & "','" & DataGridViewRail.Item(18, ro).Value &
                         "','" & DataGridViewRail.Item(19, ro).Value & "','" & DataGridViewRail.Item(20, ro).Value &
-                        "','" & DataGridViewRail.Item(21, ro).Value & "','" & DataGridViewRail.Item(22, ro).Value &
+                        "','" & DataGridViewRail.Item(21, ro).Value &
                         "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
@@ -1288,7 +1380,7 @@ Public Class Main
                 End If
             Next
 
-            '#10 Dike (9 item = 0 - 8)
+            '#10 Dike (7 item = 0 - 6)
             For ro = 0 To DataGridViewDike.RowCount - 1
                 If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And
                     DataGridViewDike.Item(2, ro).Value <> "" Then
@@ -1296,7 +1388,6 @@ Public Class Main
                         "','" & DataGridViewDike.Item(1, ro).Value & "','" & DataGridViewDike.Item(2, ro).Value &
                         "','" & DataGridViewDike.Item(3, ro).Value & "','" & DataGridViewDike.Item(4, ro).Value &
                         "','" & DataGridViewDike.Item(5, ro).Value & "','" & DataGridViewDike.Item(6, ro).Value &
-                        "','" & DataGridViewDike.Item(7, ro).Value & "','" & DataGridViewDike.Item(8, ro).Value &
                         "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
@@ -1359,7 +1450,7 @@ Public Class Main
             Next
 
             '#14 UG (15 item = 0 - 14)
-            For ro = 0 To DataGridViewPlatform.RowCount - 1
+            For ro = 0 To DataGridViewUG.RowCount - 1
                 If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
                     DataGridViewUG.Item(2, ro).Value <> "" Then
                     Dim ttxt As String = "ttxt = ['" & DataGridViewUG.Item(0, ro).Value &
@@ -1373,7 +1464,7 @@ Public Class Main
                         "'];"
                     ttxt = ttxt.Replace("\", "/")
                     txt.AppendLine(ttxt)
-                    txt.AppendLine("bveplatformObjArr.push(ttxt);")
+                    txt.AppendLine("bveUGObjArr.push(ttxt);")
                     txt.AppendLine("ttxt = [];")
                 End If
             Next
@@ -1413,7 +1504,7 @@ Public Class Main
 
             Try
                 File.WriteAllText(scriptfile, txt.ToString)
-                MessageBox.Show("Script file ('" & scriptfile & "') saved succesfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(kamus.Item("txtButtonGenerateGBMapsJSSaved"), kamus.item("txtMsgInfoTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information)
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
@@ -1497,6 +1588,15 @@ Public Class Main
               textBoxUGEntrance.Text, textBoxUGiWallLeft.Text,
               textBoxUGiWallRight.Text, NumericUpDownUGiWallCycle.Value,
               textBoxUGExit.Text})
+            textBoxUGGroundLeft.Text = ""
+            textBoxUGGroundRight.Text = ""
+            textBoxUGoWallLeft.Text = ""
+            textBoxUGoWallRight.Text = ""
+            textBoxUGEntrance.Text = ""
+            textBoxUGiWallLeft.Text = ""
+            textBoxUGiWallRight.Text = ""
+            textBoxUGExit.Text = ""
+
         End If
     End Sub
 
@@ -1612,93 +1712,89 @@ Public Class Main
         '# generate controls text list
         Dim xdata As XElement = <list></list>
 
+        For Each teks In kamus
+            xdata.Add(<control>
+                          <name><%= teks.Key %></name>
+                          <type><%= "kamus" %></type>
+                          <text><%= teks.Value %></text>
+                      </control>)
+        Next
+
+        For Each t As Type In Me.GetType().Assembly.GetTypes()
+            If t.BaseType.Name = "Form" Then
+                Dim fom = CType(Activator.CreateInstance(t), Form)
+                If fom.Name <> "Main" Then
+                    xdata.Add(<control>
+                                  <name><%= fom.Name %></name>
+                                  <type><%= "Form" %></type>
+                                  <text><%= fom.Text %></text>
+                              </control>)
+                End If
+            End If
+        Next
+
         For Each page As Control In TabControl1.Controls
             xdata.Add(<control>
                           <name><%= page.Name %></name>
                           <type><%= TypeName(page) %></type>
                           <text><%= page.Text %></text>
                       </control>)
+        Next
 
-            For Each ctrl As Control In page.Controls
+        '#metod3
+        For Each ctrl In GetAll(TabControl1, GetType(Label))
+            If ctrl IsNot Nothing Then
+                If ctrl.Name.Contains("About") Then
+                    Continue For
+                End If
+                If ctrl.Name = "LinkLabel1" Then
+                    Continue For
+                End If
+                xdata.Add(<control>
+                              <name><%= ctrl.Name %></name>
+                              <type><%= TypeName(ctrl) %></type>
+                              <text><%= ctrl.Text %></text>
+                          </control>)
+            End If
+        Next
 
-                Select Case True
-                    Case TypeOf (ctrl) Is Label
-                        If ctrl.Name.Contains("About") Then
-                            Continue For
-                        End If
-                        If ctrl.Name = "LinkLabel1" Then
-                            Continue For
-                        End If
-                        xdata.Add(<control>
-                                      <name><%= ctrl.Name %></name>
-                                      <type>Label</type>
-                                      <text><%= ctrl.Text %></text>
-                                  </control>)
-                    Case TypeOf (ctrl) Is Button
-                        xdata.Add(<control>
-                                      <name><%= ctrl.Name %></name>
-                                      <type>Button</type>
-                                      <text><%= ctrl.Text %></text>
-                                  </control>)
-                    Case TypeOf (ctrl) Is GroupBox
+        For Each ctrl In GetAll(TabControl1, GetType(Button))
+            If ctrl IsNot Nothing Then
+                If ctrl.Name.Contains("About") Then
+                    Continue For
+                End If
+                If ctrl.Name = "LinkLabel1" Then
+                    Continue For
+                End If
+                xdata.Add(<control>
+                              <name><%= ctrl.Name %></name>
+                              <type><%= TypeName(ctrl) %></type>
+                              <text><%= ctrl.Text %></text>
+                          </control>)
+            End If
+        Next
 
-                        xdata.Add(<control>
-                                      <name><%= ctrl.Name %></name>
-                                      <type>GroupBox</type>
-                                      <text><%= ctrl.Text %></text>
-                                  </control>)
-                    Case TypeOf (ctrl) Is Panel
-                        For Each ctrlinPanel As Control In ctrl.Controls
-                            Select Case True
-                                Case TypeOf (ctrlinPanel) Is Label
-                                    xdata.Add(<control>
-                                                  <name><%= ctrlinPanel.Name %></name>
-                                                  <type>Label</type>
-                                                  <text><%= ctrlinPanel.Text %></text>
-                                              </control>)
-                                Case TypeOf (ctrlinPanel) Is Button
-                                    xdata.Add(<control>
-                                                  <name><%= ctrlinPanel.Name %></name>
-                                                  <type>Button</type>
-                                                  <text><%= ctrlinPanel.Text %></text>
-                                              </control>)
-                                Case TypeOf (ctrlinPanel) Is GroupBox
-                                    xdata.Add(<control>
-                                                  <name><%= ctrlinPanel.Name %></name>
-                                                  <type>GroupBox</type>
-                                                  <text><%= ctrlinPanel.Text %></text>
-                                              </control>)
-                                    For Each ctrlinGBox As Control In ctrlinPanel.Controls
-                                        Select Case True
-                                            Case TypeOf (ctrlinGBox) Is Label
-                                                xdata.Add(<control>
-                                                              <name><%= ctrlinGBox.Name %></name>
-                                                              <type>Label</type>
-                                                              <text><%= ctrlinGBox.Text %></text>
-                                                          </control>)
-                                            Case TypeOf (ctrlinGBox) Is Button
-                                                xdata.Add(<control>
-                                                              <name><%= ctrlinGBox.Name %></name>
-                                                              <type>Button</type>
-                                                              <text><%= ctrlinGBox.Text %></text>
-                                                          </control>)
-                                                '      <page><%= page.Name %></page>
-
-                                        End Select
-                                    Next
-                            End Select
-                        Next
-                    Case Else
-
-                End Select
-            Next
+        For Each ctrl In GetAll(TabControl1, GetType(GroupBox))
+            If ctrl IsNot Nothing Then
+                If ctrl.Name.Contains("About") Then
+                    Continue For
+                End If
+                If ctrl.Name = "LinkLabel1" Then
+                    Continue For
+                End If
+                xdata.Add(<control>
+                              <name><%= ctrl.Name %></name>
+                              <type><%= TypeName(ctrl) %></type>
+                              <text><%= ctrl.Text %></text>
+                          </control>)
+            End If
         Next
 
         Try
             xdata.Save("controls_text.xml")
             MessageBox.Show("Control text list saved successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgWarningTitle"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 
@@ -1708,11 +1804,13 @@ Public Class Main
 
     Public Sub UpdateXFileField(TB As TextBox, file As filetype, PB As PictureBox)
         If bvedir Is Nothing And file = filetype.x Then
-            MessageBox.Show("Please set default bve folder in step 1, first.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(kamus.Item("txtUpdateXFileFieldErrorbvedir"),
+                            kamus.Item("txtMsgWarningTitle"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
         If gbIdir Is Nothing And file = filetype.img Then
-            MessageBox.Show("Please set default image folder in step 1, first.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(kamus.Item("txtUpdateXFileFieldErrorimgdir"),
+                            kamus.Item("txtMsgWarningTitle"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
 
@@ -1728,23 +1826,29 @@ Public Class Main
             .DereferenceLinks = True
             Select Case file
                 Case filetype.x
-                    .Filter = "DirectX 3D object (*.x)|*.x"
-                    If IO.Directory.Exists(currDir) Then .InitialDirectory = currDir
+                    .Filter = kamus.item("txtUpdateXFileFieldFilterX")
+                    If IO.Directory.Exists(currDir) Then
+                        .InitialDirectory = currDir
+                    Else
+                        .InitialDirectory = bvedir
+                    End If
                 Case filetype.img
-                    .Filter = "Image Files (*.gif, *.jpg, *.png)|*.gif;*.jpg;*.png"
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterImg")
                     If IO.Directory.Exists(gbIdir) Then .InitialDirectory = gbIdir
                 Case filetype.wav
-                    .Filter = "Sound Files (*.wav)|*.wav"
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterSnd")
                 Case Else
-                    .Filter = "All files|*.*"
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterAll")
             End Select
 
         End With
+
         If FileDialog.ShowDialog = DialogResult.OK Then
             Select Case file
                 Case filetype.x
                     TB.Text = FileDialog.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
                     currDir = My.Computer.FileSystem.GetParentPath(FileDialog.FileName)
+
                 Case filetype.img
                     Try
                         TB.Text = FileDialog.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
@@ -1755,11 +1859,14 @@ Public Class Main
                     Catch ex As Exception
                         MessageBox.Show(ex.Message)
                     End Try
+
                 Case filetype.wav
                     Dim filename = "sounds\" & My.Computer.FileSystem.GetFileInfo(FileDialog.FileName).Name
                     TB.Text = filename
+
                 Case Else
                     TB.Text = FileDialog.FileName.ToLower
+
             End Select
 
         End If
@@ -1775,42 +1882,147 @@ Public Class Main
 
     Private Sub ComboBoxLanguage_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxLanguage.SelectedIndexChanged
         If File.Exists("lang.xml") = True And onStartup = False Then
-            Try
-                Dim xLfile As XDocument = XDocument.Load("lang.xml")
-                For Each lang In From element In xLfile.<language>.<lang>
-                    If lang.@name.Replace("_", " ") = ComboBoxLanguage.SelectedItem Then
 
-                        Dim xUpdLang = XElement.Load(lang.@file)
+            'Dim frmList As New List(Of Form)
+            'For Each t As Type In Me.GetType().Assembly.GetTypes()
+            '    If t.BaseType.Name = "Form" Then
+            '        Dim fom = CType(Activator.CreateInstance(t), Form)
+            '        If fom.Name <> "Main" Then
+            '            frmList.Add(fom)
+            '        End If
+            '    End If
+            'Next
 
-                        For Each kontrol In From element In xUpdLang.Elements
+            'Try
+            Dim xLfile As XDocument = XDocument.Load("lang.xml")
+            For Each lang In From element In xLfile.<language>.<lang>
+                If lang.@name.Replace("_", " ") = ComboBoxLanguage.SelectedItem Then
+
+                    Dim xUpdLang = XElement.Load(lang.@file)
+
+                    For Each kontrol In From element In xUpdLang.Elements
+                        If kontrol.<type>.Value = "kamus" Then
+                            kamus(kontrol.<name>.Value) = kontrol.<text>.Value
+
+                        ElseIf kontrol.<type>.Value = "Form" Then
+                            'For Each fom In frmList
+                            '    If fom.Name = kontrol.<name>.Value Then
+                            '        'fom.Text = kontrol.<text>.Value
+                            '        DirectCast(fom, Form).Text = kontrol.<text>.Value
+
+                            '        'MsgBox(fom.Name & "(" & fom.Name.Length &
+                            '        '       ")  <|>  " & kontrol.<name>.Value &
+                            '        '       "(" & kontrol.<name>.Value.Length &
+                            '        '       ") = " & vbCrLf & (fom.Name = kontrol.<name>.Value))
+                            '        'MsgBox(fom.Text)
+                            '        Exit For
+                            '    End If
+                            'Next
+                            Select Case True
+                                Case DialogBrowseBVEDirHelp.Name = kontrol.<name>.Value
+                                    DialogBrowseBVEDirHelp.Text = kontrol.<text>.Value
+                                Case DialogBrowseGBMapsImageDirHelp.Name = kontrol.<name>.Value
+                                    DialogBrowseGBMapsImageDirHelp.Text = kontrol.<text>.Value
+                                Case FormBridgeBVESyntax.Name = kontrol.<name>.Value
+                                    FormBridgeBVESyntax.Text = kontrol.<text>.Value
+                                Case FormBridgeTip.Name = kontrol.<name>.Value
+                                    FormBridgeTip.Text = kontrol.<text>.Value
+                                Case FormBVESoundSyntax.Name = kontrol.<name>.Value
+                                    FormBVESoundSyntax.Text = kontrol.<text>.Value
+                                Case FormBVETrainSyntax.Name = kontrol.<name>.Value
+                                    FormBVETrainSyntax.Text = kontrol.<text>.Value
+                                Case FormCrackTip.Name = kontrol.<name>.Value
+                                    FormCrackTip.Text = kontrol.<text>.Value
+                                Case FormDikeBVEsyntax.Name = kontrol.<name>.Value
+                                    FormDikeBVEsyntax.Text = kontrol.<text>.Value
+                                Case FormDikeTip.Name = kontrol.<name>.Value
+                                    FormDikeTip.Text = kontrol.<text>.Value
+                                Case FormEtcBVESyntax.Name = kontrol.<name>.Value
+                                    FormEtcBVESyntax.Text = kontrol.<text>.Value
+                                Case FormetcBVEtip.Name = kontrol.<name>.Value
+                                    FormetcBVEtip.Text = kontrol.<text>.Value
+                                Case FormFreeObjectSyntax.Name = kontrol.<name>.Value
+                                    FormFreeObjectSyntax.Text = kontrol.<text>.Value
+                                Case FormFreeObjectTip.Name = kontrol.<name>.Value
+                                    FormFreeObjectTip.Text = kontrol.<text>.Value
+                                Case FormHillCutBVESyntax.Name = kontrol.<name>.Value
+                                    FormHillCutBVESyntax.Text = kontrol.<text>.Value
+                                Case FormHillCutTip.Name = kontrol.<name>.Value
+                                    FormHillCutTip.Text = kontrol.<text>.Value
+                                Case FormOverpassBVESyntax.Name = kontrol.<name>.Value
+                                    FormOverpassBVESyntax.Text = kontrol.<text>.Value
+                                Case FormOverpassTip.Name = kontrol.<name>.Value
+                                    FormOverpassTip.Text = kontrol.<text>.Value
+                                Case FormPlatformBVESyntax.Name = kontrol.<name>.Value
+                                    FormPlatformBVESyntax.Text = kontrol.<text>.Value
+                                Case FormPlatformTip.Name = kontrol.<name>.Value
+                                    FormPlatformTip.Text = kontrol.<text>.Value
+                                Case FormPoleBVESyntax.Name = kontrol.<name>.Value
+                                    FormPoleBVESyntax.Text = kontrol.<text>.Value
+                                Case FormPoleTip.Name = kontrol.<name>.Value
+                                    FormPoleTip.Text = kontrol.<text>.Value
+                                Case FormRailBVESyntaxEx.Name = kontrol.<name>.Value
+                                    FormRailBVESyntaxEx.Text = kontrol.<text>.Value
+                                Case FormRailPicHelp.Name = kontrol.<name>.Value
+                                    FormRailPicHelp.Text = kontrol.<text>.Value
+                                Case FormRCBVEsyntax.Name = kontrol.<name>.Value
+                                    FormRCBVEsyntax.Text = kontrol.<text>.Value
+                                Case FormRCTip.Name = kontrol.<name>.Value
+                                    FormRCTip.Text = kontrol.<text>.Value
+                                Case FormSoundTip.Name = kontrol.<name>.Value
+                                    FormSoundTip.Text = kontrol.<text>.Value
+                                Case FormTrainDirTip.Name = kontrol.<name>.Value
+                                    FormTrainDirTip.Text = kontrol.<text>.Value
+                                Case FormTunnelBVESyntax.Name = kontrol.<name>.Value
+                                    FormTunnelBVESyntax.Text = kontrol.<text>.Value
+                                Case FormTunnelTip.Name = kontrol.<name>.Value
+                                    FormTunnelTip.Text = kontrol.<text>.Value
+                                Case FormCrackBVESyntax.Name = kontrol.<name>.Value
+                                    FormCrackBVESyntax.Text = kontrol.<text>.Value
+                                Case FormUGbveSyntax.Name = kontrol.<name>.Value
+                                    FormUGbveSyntax.Text = kontrol.<text>.Value
+                                Case FormUGEntrance.Name = kontrol.<name>.Value
+                                    FormUGEntrance.Text = kontrol.<text>.Value
+                                Case FormUGExit.Name = kontrol.<name>.Value
+                                    FormUGExit.Text = kontrol.<text>.Value
+                                Case FormUGiWallTip.Name = kontrol.<name>.Value
+                                    FormUGiWallTip.Text = kontrol.<text>.Value
+                                Case FormUGsplitground.Name = kontrol.<name>.Value
+                                    FormUGsplitground.Text = kontrol.<text>.Value
+                                Case FormUGoWallTip.Name = kontrol.<name>.Value
+                                    FormUGoWallTip.Text = kontrol.<text>.Value
+                            End Select
+                        Else
                             DirectCast(TabControl1.Controls.Find(kontrol.<name>.Value, True)(0), Control).Text =
-                                kontrol.<text>.Value
-                        Next
+                                            kontrol.<text>.Value
+                        End If
 
-                        lang.@select = "true"
-                    Else
-                        If lang.@select = "true" Then lang.@select = "false"
-                    End If
-                Next
+                    Next
 
-                xLfile.Save("lang.xml")
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-        End If
+                    lang.@select = "true"
+                Else
+                    If lang.@select = "true" Then lang.@select = "false"
+                End If
+            Next
+
+            xLfile.Save("lang.xml")
+                    'Catch ex As Exception
+                    '    MessageBox.Show(ex.Message)
+                    'End Try
+                End If
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
         If saved = False And TabControl1.SelectedIndex <> 0 Then
             Dim notexist = ""
             If Directory.Exists(textBoxBVEdataDir.Text) = False Then
-                notexist &= "BVE data folder not exist" & vbCrLf
+                notexist &= kamus.Item("txtTabControl1Errorbvedir") & vbCrLf
             End If
             If Directory.Exists(textBoxGBimgDir.Text) = False Then
-                notexist &= "GB Maps image folder not exist"
+                notexist &= kamus.Item("txtTabControl1Errorimgdir")
             End If
             If notexist <> "" Then
-                MessageBox.Show(notexist, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show(notexist, kamus.item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 TabControl1.SelectedTab = Step_1
                 If Directory.Exists(textBoxBVEdataDir.Text) = False Then
                     textBoxBVEdataDir.Focus()
@@ -1821,13 +2033,16 @@ Public Class Main
             End If
 
             Try
+                bvedir = textBoxBVEdataDir.Text
+                gbIdir = textBoxGBimgDir.Text
                 Dim xCfile As XElement =
                         <dir>
                             <bve><%= textBoxBVEdataDir.Text %></bve>
                             <gbimg><%= textBoxGBimgDir.Text %></gbimg>
                         </dir>
                 xCfile.Save("5config.xml")
-                MessageBox.Show("Reference saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(kamus.Item("txtTabControl1RefSaved"), kamus.Item("txtMsgInfoTitle"),
+                                MessageBoxButtons.OK, MessageBoxIcon.Information)
                 saved = True
 
             Catch ex As Exception
@@ -1835,6 +2050,14 @@ Public Class Main
             End Try
 
         End If
+    End Sub
+
+    Private Sub PictureBoxTrainBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxTrainBVESyntax.Click
+        FormBVETrainSyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxSoundBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxSoundBVESyntax.Click
+        FormBVESoundSyntax.Show()
     End Sub
 
     Private Sub TabControl1_KeyDown(sender As Object, e As KeyEventArgs) Handles TabControl1.KeyDown
@@ -1849,5 +2072,16 @@ Public Class Main
 
     Private Sub Main_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         onStartup = False
+        If ComboBoxLanguage.SelectedIndex <> 0 Then
+            ComboBoxLanguage_SelectedIndexChanged(sender, New System.EventArgs())
+        End If
     End Sub
+
+    Public Function GetAll(control As Control, type As Type) As IEnumerable(Of Control)
+        '# original code by PsychoCoder [http://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button]
+        Dim controls = control.Controls.Cast(Of Control)()
+
+        Return controls.SelectMany(Function(ctrl) GetAll(ctrl, type)).Concat(controls).Where(Function(c) c.[GetType]() = type)
+    End Function
+
 End Class

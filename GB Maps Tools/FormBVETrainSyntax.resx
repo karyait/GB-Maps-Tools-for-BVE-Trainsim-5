@@ -117,38 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>delaration in structure.txt:
+    <value>declaration in Scenario file (.txt in ..\Bvets\Scenarios folder)
 
-BveTs Structure List 1.00
-RailL0,strpack1\RailL0.x
-RailL1,strpack1\RailL1.x
-RailL2,strpack1\RailL2.x
-RailL3,strpack1\RailL3.x
-RailL4,strpack1\RailL4.x
-RailR0,strpack1\RailR0.x
-RailR1,strpack1\RailR1.x
-RailR2,strpack1\RailR2.x
-RailR3,strpack1\RailR3.x
-RailR4,strpack1\RailR4.x
-Ballast0,strpack1\Ballast0.x
-Ballast1,strpack1\Ballast1.x
-Ballast2,strpack1\Ballast2.x
-Ballast3,strpack1\Ballast3.x
-Ballast4,strpack1\Ballast4.x
-
-
-BVE syntax in map.txt file:
-Repeater['Ballast'].Begin('', 0, 0, 0, 0, 0, 0, 3, 5, 5, 'Ballast0'); 
-
-OR
-
-Repeater['Ballast'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5, 'Ballast0', 'Ballast1', 'Ballast2', 'Ballast3', 'Ballast4');
-Repeater['RailL'].Begin(, -0.5335, 0, 0, 0, 0, 0, 3, 5, 5, 'RailL0', 'RailL1', 'RailL2', 'RailL3', 'RailL4');
-Repeater['RailR'].Begin(, 0.5335, 0, 0, 0, 0, 0, 3, 5, 5, 'RailR0', 'RailR1', 'RailR2', 'RailR3', 'RailR4');
-</value>
+BveTs Scenario 2.00:UTF-8
+Route = Historical Line\map.txt
+Vehicle = Historical Line\C11207\vehicle.txt
+Title = portweld
+RouteTitle = Historical Line
+VehicleTitle = C11207
+Author = Karya IT
+Comment = Taiping - Kuala Sepetang (Port Weld)
+Image = Historical Line\train.jpg</value>
   </data>
 </root>

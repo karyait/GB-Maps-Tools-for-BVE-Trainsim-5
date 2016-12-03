@@ -70,8 +70,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>GBToolIkon2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -137,6 +136,18 @@
       <DependentUpon>FormBridgeTip.vb</DependentUpon>
     </Compile>
     <Compile Include="FormBridgeTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBVESoundSyntax.Designer.vb">
+      <DependentUpon>FormBVESoundSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBVESoundSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBVETrainSyntax.Designer.vb">
+      <DependentUpon>FormBVETrainSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBVETrainSyntax.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCrackTip.Designer.vb">
@@ -361,6 +372,12 @@
     <EmbeddedResource Include="FormBridgeTip.resx">
       <DependentUpon>FormBridgeTip.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBVESoundSyntax.resx">
+      <DependentUpon>FormBVESoundSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBVETrainSyntax.resx">
+      <DependentUpon>FormBVETrainSyntax.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCrackTip.resx">
       <DependentUpon>FormCrackTip.vb</DependentUpon>
     </EmbeddedResource>
@@ -497,6 +514,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GBToolIkon2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

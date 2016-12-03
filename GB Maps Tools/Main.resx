@@ -934,10 +934,7 @@ Repeater['Ballast'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5, 'Ballast0', 'Ballast1', '
   <metadata name="imgfile.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="baltype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="OPrailtype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="sleepertype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="RailGauge.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -2139,6 +2136,21 @@ Repeater['Ballast'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5, 'Ballast0', 'Ballast1', '
   <metadata name="RCDopler.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="ButtonPlatformTip.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHrSURBVDhPpZDPa9NgHMbzpxQRb3oVFBzCcP4A53ET
+        hVaHgqLePIjgpRj0oEcvelC8iScPO4kKG5tCa7LFru0qadamPxKXFJss7Rp8fJ+XNW39cdHDJ7zv5/t8
+        H8irAPgv5Gcqs6ScuaEr5+9ayqWsk1q4/00VaIJwD55Vzphhlju/FczdMdML2Zr7ctHH1/ouov4PCc90
+        nDHzx4JT1z+nM/c2+pXaDuI4xmAwmICOM2aYnSg4cuFdaubqslsyv6PX6yGKIsnRix8kwztnzDDLnaTg
+        4Owb9eEzA2EYotvtJggvGXfMPHhq0KtJwf4Tr7TcFwedTifBdV202200Gk3o+hry+byE5/crFXAnKdg3
+        /Trc9gN4ngfHcbC5WRHBdQgv0bS1CTaKJn2YFBw4uRhuewFsu4lCoQzDKEqElwzvQwpFi35UcOjcsraq
+        OSiXLZRK1QThJeOOvF2y6Ee/cHi+IB7RxtaWA9NsJggvGXfVagvZJxb96BGPpWup09cabm69K36jg3rd
+        l0xlbMnwTlZyPpjlTlJw/HJLmb7ipedv+/28EYnXj9BqRQiCWMIz3Sd9B3Miwyx3fi2QJbO3fPfxi1CE
+        d2E3Y9iNGB/1Ph49D3D2pu8yw+zfCkhKoAo0QbgHz3ScydxEwb8D5ScjQOt4epkSNQAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="ButtonNewPlatform.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhEAAQAIQAABhwABgAAGDIQPj4+PD48Pj48PD46Oj44Oj42OD40JDYSHDQEOD4yLjogKDgYJjg
@@ -2235,21 +2247,6 @@ Repeater['Ballast'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5, 'Ballast0', 'Ballast1', '
         jRjfvQ15SCSTGRGB7Z0KRaUEWE5Tv/+rHvOjGjE/ewrbnVykUqmMSIhtWVFRlQQ0FZPh3b1dy1OOM7HF
         MS18n3Xovn2A/QSkWEkOsWIMizIsyvb2nByNBDQqiSynqNB8kiw917a9d3XKf189smFmk0ymX6+NWVnn
         0gB2mIwqIkMx7Wg8Rmqdgu6z723L+tHmv5GJz70ojhs+AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ButtonPlatformTip.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHrSURBVDhPpZDPa9NgHMbzpxQRb3oVFBzCcP4A53ET
-        hVaHgqLePIjgpRj0oEcvelC8iScPO4kKG5tCa7LFru0qadamPxKXFJss7Rp8fJ+XNW39cdHDJ7zv5/t8
-        H8irAPgv5Gcqs6ScuaEr5+9ayqWsk1q4/00VaIJwD55Vzphhlju/FczdMdML2Zr7ctHH1/ouov4PCc90
-        nDHzx4JT1z+nM/c2+pXaDuI4xmAwmICOM2aYnSg4cuFdaubqslsyv6PX6yGKIsnRix8kwztnzDDLnaTg
-        4Owb9eEzA2EYotvtJggvGXfMPHhq0KtJwf4Tr7TcFwedTifBdV202200Gk3o+hry+byE5/crFXAnKdg3
-        /Trc9gN4ngfHcbC5WRHBdQgv0bS1CTaKJn2YFBw4uRhuewFsu4lCoQzDKEqElwzvQwpFi35UcOjcsraq
-        OSiXLZRK1QThJeOOvF2y6Ee/cHi+IB7RxtaWA9NsJggvGXfVagvZJxb96BGPpWup09cabm69K36jg3rd
-        l0xlbMnwTlZyPpjlTlJw/HJLmb7ipedv+/28EYnXj9BqRQiCWMIz3Sd9B3Miwyx3fi2QJbO3fPfxi1CE
-        d2E3Y9iNGB/1Ph49D3D2pu8yw+zfCkhKoAo0QbgHz3ScydxEwb8D5ScjQOt4epkSNQAAAABJRU5ErkJg
-        gg==
 </value>
   </data>
   <data name="buttonBrowsePlatformMiddleRight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

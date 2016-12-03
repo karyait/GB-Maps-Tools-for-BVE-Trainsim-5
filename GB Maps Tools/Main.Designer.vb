@@ -116,8 +116,7 @@ Partial Class Main
         Me.nama = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.title = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imgfile = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.baltype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OPrailtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sleepertype = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RailGauge = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bal_file = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RailL = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -436,6 +435,7 @@ Partial Class Main
         Me.RCDopler = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_12 = New System.Windows.Forms.TabPage()
         Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.ButtonPlatformTip = New System.Windows.Forms.Button()
         Me.ButtonNewPlatform = New System.Windows.Forms.Button()
         Me.PictureBoxPlatformBVESyntax = New System.Windows.Forms.PictureBox()
         Me.GroupBoxS12_Txt10 = New System.Windows.Forms.GroupBox()
@@ -455,7 +455,6 @@ Partial Class Main
         Me.buttonBrowsermRoofRight = New System.Windows.Forms.Button()
         Me.buttonBrowsePlatformRoofLeft = New System.Windows.Forms.Button()
         Me.GroupBoxS12_Txt04 = New System.Windows.Forms.GroupBox()
-        Me.ButtonPlatformTip = New System.Windows.Forms.Button()
         Me.textBoxPlatformRight = New System.Windows.Forms.TextBox()
         Me.textBoxPlatformLeft = New System.Windows.Forms.TextBox()
         Me.LabelS12_Txt05 = New System.Windows.Forms.Label()
@@ -840,7 +839,6 @@ Partial Class Main
         Me.TabControl1.Controls.Add(Me.About)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1008, 537)
@@ -871,9 +869,9 @@ Partial Class Main
         Me.Step_1.Controls.Add(Me.LabelS1_Txt03)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt02)
         Me.Step_1.Controls.Add(Me.LabelS1_Txt01)
-        Me.Step_1.Location = New System.Drawing.Point(4, 40)
+        Me.Step_1.Location = New System.Drawing.Point(4, 22)
         Me.Step_1.Name = "Step_1"
-        Me.Step_1.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_1.Size = New System.Drawing.Size(1000, 511)
         Me.Step_1.TabIndex = 18
         Me.Step_1.Text = "Step 1 (Basic Setting)"
         '
@@ -1088,15 +1086,17 @@ Partial Class Main
         Me.Step_2.Controls.Add(Me.Panel1)
         Me.Step_2.Controls.Add(Me.GroupBox2)
         Me.Step_2.Controls.Add(Me.DataGridViewRail)
-        Me.Step_2.Location = New System.Drawing.Point(4, 40)
+        Me.Step_2.Location = New System.Drawing.Point(4, 22)
         Me.Step_2.Name = "Step_2"
         Me.Step_2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_2.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_2.Size = New System.Drawing.Size(1000, 511)
         Me.Step_2.TabIndex = 0
         Me.Step_2.Text = "Step 2 (Rails)"
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel1.AutoScroll = True
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.PictureBoxRailBVESyntax)
@@ -1121,7 +1121,7 @@ Partial Class Main
         Me.Panel1.Controls.Add(Me.NumericUpDownRailCycle)
         Me.Panel1.Location = New System.Drawing.Point(7, 214)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(702, 271)
+        Me.Panel1.Size = New System.Drawing.Size(702, 289)
         Me.Panel1.TabIndex = 66
         '
         'PictureBoxRailBVESyntax
@@ -1591,7 +1591,7 @@ Partial Class Main
         'comboBoxRailGauge
         '
         Me.comboBoxRailGauge.FormattingEnabled = True
-        Me.comboBoxRailGauge.Items.AddRange(New Object() {"1,067 mm", "1,435 mm", "1,520 mm", "1,524 mm", "1,600 mm", "1,668 mm", "1,676 mm", "1,000 mm"})
+        Me.comboBoxRailGauge.Items.AddRange(New Object() {"1.067", "1.435", "1.520", "1.524", "1.600", "1.668", "1.676", "1.000"})
         Me.comboBoxRailGauge.Location = New System.Drawing.Point(53, 50)
         Me.comboBoxRailGauge.Name = "comboBoxRailGauge"
         Me.comboBoxRailGauge.Size = New System.Drawing.Size(121, 21)
@@ -1619,7 +1619,7 @@ Partial Class Main
         '
         Me.buttonNewRail.Image = CType(resources.GetObject("buttonNewRail.Image"), System.Drawing.Image)
         Me.buttonNewRail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.buttonNewRail.Location = New System.Drawing.Point(603, 420)
+        Me.buttonNewRail.Location = New System.Drawing.Point(603, 421)
         Me.buttonNewRail.Name = "buttonNewRail"
         Me.buttonNewRail.Size = New System.Drawing.Size(75, 23)
         Me.buttonNewRail.TabIndex = 3
@@ -1677,9 +1677,9 @@ Partial Class Main
         Me.Label133.AutoSize = True
         Me.Label133.Location = New System.Drawing.Point(180, 53)
         Me.Label133.Name = "Label133"
-        Me.Label133.Size = New System.Drawing.Size(23, 13)
+        Me.Label133.Size = New System.Drawing.Size(15, 13)
         Me.Label133.TabIndex = 24
-        Me.Label133.Text = "mm"
+        Me.Label133.Text = "m"
         '
         'textBoxRailName
         '
@@ -1700,10 +1700,9 @@ Partial Class Main
         '
         'LabelS02_Txt14
         '
-        Me.LabelS02_Txt14.AutoSize = True
         Me.LabelS02_Txt14.Location = New System.Drawing.Point(50, 326)
         Me.LabelS02_Txt14.Name = "LabelS02_Txt14"
-        Me.LabelS02_Txt14.Size = New System.Drawing.Size(486, 26)
+        Me.LabelS02_Txt14.Size = New System.Drawing.Size(626, 45)
         Me.LabelS02_Txt14.TabIndex = 65
         Me.LabelS02_Txt14.Text = "Note: Structure 1 is required, others are optional.  Place five structures with d" &
     "ifferent texture in a cycle " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to create a more natural pattern."
@@ -1748,7 +1747,7 @@ Partial Class Main
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.PictureBoxRailTypeImg)
-        Me.GroupBox2.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox2.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox2.TabIndex = 2
@@ -1765,8 +1764,10 @@ Partial Class Main
         '
         'DataGridViewRail
         '
+        Me.DataGridViewRail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewRail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewRail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.no, Me.nama, Me.title, Me.imgfile, Me.baltype, Me.OPrailtype, Me.RailGauge, Me.bal_file, Me.RailL, Me.RailR, Me.RailBase1, Me.RailL1, Me.RailR1, Me.RailBase2, Me.RailL2, Me.RailR2, Me.RailBase3, Me.RailL3, Me.RailR3, Me.RailBase4, Me.RailL4, Me.RailR4, Me.RailX})
+        Me.DataGridViewRail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.no, Me.nama, Me.title, Me.imgfile, Me.sleepertype, Me.RailGauge, Me.bal_file, Me.RailL, Me.RailR, Me.RailBase1, Me.RailL1, Me.RailR1, Me.RailBase2, Me.RailL2, Me.RailR2, Me.RailBase3, Me.RailL3, Me.RailR3, Me.RailBase4, Me.RailL4, Me.RailR4, Me.RailX})
         Me.DataGridViewRail.Location = New System.Drawing.Point(7, 7)
         Me.DataGridViewRail.Name = "DataGridViewRail"
         Me.DataGridViewRail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -1798,17 +1799,11 @@ Partial Class Main
         Me.imgfile.HeaderText = "Image"
         Me.imgfile.Name = "imgfile"
         '
-        'baltype
+        'sleepertype
         '
-        Me.baltype.HeaderText = "Type"
-        Me.baltype.Name = "baltype"
-        Me.baltype.Width = 60
-        '
-        'OPrailtype
-        '
-        Me.OPrailtype.HeaderText = "Rail"
-        Me.OPrailtype.Name = "OPrailtype"
-        Me.OPrailtype.Width = 40
+        Me.sleepertype.HeaderText = "Type"
+        Me.sleepertype.Name = "sleepertype"
+        Me.sleepertype.Width = 60
         '
         'RailGauge
         '
@@ -1905,15 +1900,17 @@ Partial Class Main
         Me.Step_3.Controls.Add(Me.Panel2)
         Me.Step_3.Controls.Add(Me.GroupBox3)
         Me.Step_3.Controls.Add(Me.DataGridViewPole)
-        Me.Step_3.Location = New System.Drawing.Point(4, 40)
+        Me.Step_3.Location = New System.Drawing.Point(4, 22)
         Me.Step_3.Name = "Step_3"
         Me.Step_3.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_3.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_3.Size = New System.Drawing.Size(1000, 511)
         Me.Step_3.TabIndex = 15
         Me.Step_3.Text = "Step 3 (Poles)"
         '
         'Panel2
         '
+        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel2.AutoScroll = True
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel2.Controls.Add(Me.ButtonPoleTip)
@@ -1941,7 +1938,7 @@ Partial Class Main
         Me.Panel2.Controls.Add(Me.textBoxPoleStructureLeft)
         Me.Panel2.Location = New System.Drawing.Point(9, 215)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(700, 270)
+        Me.Panel2.Size = New System.Drawing.Size(700, 288)
         Me.Panel2.TabIndex = 12
         '
         'ButtonPoleTip
@@ -2153,7 +2150,7 @@ Partial Class Main
         '
         Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.PictureBoxPole)
-        Me.GroupBox3.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox3.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox3.TabIndex = 10
@@ -2170,6 +2167,8 @@ Partial Class Main
         '
         'DataGridViewPole
         '
+        Me.DataGridViewPole.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewPole.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewPole.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn37, Me.Column1, Me.Column2, Me.PoleCycle})
         Me.DataGridViewPole.Location = New System.Drawing.Point(7, 7)
@@ -2232,15 +2231,17 @@ Partial Class Main
         Me.Step_4.Controls.Add(Me.Panel3)
         Me.Step_4.Controls.Add(Me.GroupBox9)
         Me.Step_4.Controls.Add(Me.DataGridViewTrain)
-        Me.Step_4.Location = New System.Drawing.Point(4, 40)
+        Me.Step_4.Location = New System.Drawing.Point(4, 22)
         Me.Step_4.Name = "Step_4"
         Me.Step_4.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_4.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_4.Size = New System.Drawing.Size(1000, 511)
         Me.Step_4.TabIndex = 13
         Me.Step_4.Text = "Step 4 (Running Trainset)"
         '
         'Panel3
         '
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel3.AutoScroll = True
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel3.Controls.Add(Me.ButtonTrainFolderTip)
@@ -2250,9 +2251,9 @@ Partial Class Main
         Me.Panel3.Controls.Add(Me.LabelS04_Txt02)
         Me.Panel3.Controls.Add(Me.ButtonRetriveTrainFolder)
         Me.Panel3.Controls.Add(Me.ButtonBrowseTrainDir)
-        Me.Panel3.Location = New System.Drawing.Point(4, 253)
+        Me.Panel3.Location = New System.Drawing.Point(4, 214)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(705, 232)
+        Me.Panel3.Size = New System.Drawing.Size(705, 289)
         Me.Panel3.TabIndex = 10
         '
         'ButtonTrainFolderTip
@@ -2328,7 +2329,7 @@ Partial Class Main
         '
         Me.GroupBox9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox9.Controls.Add(Me.PictureBoxTrainDir)
-        Me.GroupBox9.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox9.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox9.TabIndex = 9
@@ -2345,12 +2346,14 @@ Partial Class Main
         '
         'DataGridViewTrain
         '
+        Me.DataGridViewTrain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewTrain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewTrain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
         Me.DataGridViewTrain.Location = New System.Drawing.Point(7, 7)
         Me.DataGridViewTrain.Name = "DataGridViewTrain"
         Me.DataGridViewTrain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewTrain.Size = New System.Drawing.Size(985, 239)
+        Me.DataGridViewTrain.Size = New System.Drawing.Size(979, 201)
         Me.DataGridViewTrain.TabIndex = 7
         '
         'DataGridViewTextBoxColumn16
@@ -2388,15 +2391,17 @@ Partial Class Main
         Me.Step_5.Controls.Add(Me.Panel4)
         Me.Step_5.Controls.Add(Me.GroupBoxaudioimgshowhide)
         Me.Step_5.Controls.Add(Me.DataGridViewSound)
-        Me.Step_5.Location = New System.Drawing.Point(4, 40)
+        Me.Step_5.Location = New System.Drawing.Point(4, 22)
         Me.Step_5.Name = "Step_5"
         Me.Step_5.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_5.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_5.Size = New System.Drawing.Size(1000, 511)
         Me.Step_5.TabIndex = 4
         Me.Step_5.Text = "Step 5 (Sound files)"
         '
         'Panel4
         '
+        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel4.AutoScroll = True
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel4.Controls.Add(Me.PictureBoxSoundBVESyntax)
@@ -2413,7 +2418,7 @@ Partial Class Main
         Me.Panel4.Controls.Add(Me.TextBoxaudiotitle)
         Me.Panel4.Location = New System.Drawing.Point(8, 214)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(702, 271)
+        Me.Panel4.Size = New System.Drawing.Size(702, 289)
         Me.Panel4.TabIndex = 8
         '
         'PictureBoxSoundBVESyntax
@@ -2526,7 +2531,7 @@ Partial Class Main
         '
         Me.GroupBoxaudioimgshowhide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxaudioimgshowhide.Controls.Add(Me.PictureBoxaudiorun)
-        Me.GroupBoxaudioimgshowhide.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBoxaudioimgshowhide.Location = New System.Drawing.Point(723, 321)
         Me.GroupBoxaudioimgshowhide.Name = "GroupBoxaudioimgshowhide"
         Me.GroupBoxaudioimgshowhide.Size = New System.Drawing.Size(271, 182)
         Me.GroupBoxaudioimgshowhide.TabIndex = 6
@@ -2546,6 +2551,8 @@ Partial Class Main
         '
         'DataGridViewSound
         '
+        Me.DataGridViewSound.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewSound.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewSound.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumnAudioNo, Me.DataGridViewTextBoxColumnAudioName, Me.DataGridViewTextBoxColumnAudioTitle, Me.DataGridViewTextBoxColumnAudioType, Me.DataGridViewTextBoxColumnAudioFile})
         Me.DataGridViewSound.Location = New System.Drawing.Point(7, 7)
@@ -2591,15 +2598,17 @@ Partial Class Main
         Me.Step_6.Controls.Add(Me.Panel5)
         Me.Step_6.Controls.Add(Me.GroupBox14)
         Me.Step_6.Controls.Add(Me.DataGridViewTunnel)
-        Me.Step_6.Location = New System.Drawing.Point(4, 40)
+        Me.Step_6.Location = New System.Drawing.Point(4, 22)
         Me.Step_6.Name = "Step_6"
         Me.Step_6.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_6.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_6.Size = New System.Drawing.Size(1000, 511)
         Me.Step_6.TabIndex = 6
         Me.Step_6.Text = "Step 6 (Tunnel)"
         '
         'Panel5
         '
+        Me.Panel5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel5.AutoScroll = True
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel5.Controls.Add(Me.ButtonTunnelTip)
@@ -2626,7 +2635,7 @@ Partial Class Main
         Me.Panel5.Controls.Add(Me.LabelS06_Txt09)
         Me.Panel5.Location = New System.Drawing.Point(8, 214)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(702, 271)
+        Me.Panel5.Size = New System.Drawing.Size(702, 289)
         Me.Panel5.TabIndex = 18
         '
         'ButtonTunnelTip
@@ -2842,7 +2851,7 @@ Partial Class Main
         '
         Me.buttonNewTunnel.Image = CType(resources.GetObject("buttonNewTunnel.Image"), System.Drawing.Image)
         Me.buttonNewTunnel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.buttonNewTunnel.Location = New System.Drawing.Point(603, 334)
+        Me.buttonNewTunnel.Location = New System.Drawing.Point(603, 336)
         Me.buttonNewTunnel.Name = "buttonNewTunnel"
         Me.buttonNewTunnel.Size = New System.Drawing.Size(75, 23)
         Me.buttonNewTunnel.TabIndex = 11
@@ -2894,7 +2903,7 @@ Partial Class Main
         '
         Me.GroupBox14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox14.Controls.Add(Me.PictureBoxTunnelPicture)
-        Me.GroupBox14.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox14.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox14.Name = "GroupBox14"
         Me.GroupBox14.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox14.TabIndex = 10
@@ -2911,6 +2920,8 @@ Partial Class Main
         '
         'DataGridViewTunnel
         '
+        Me.DataGridViewTunnel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewTunnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewTunnel.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn30, Me.TunEnt, Me.TunExit, Me.StartL, Me.StartR, Me.EndR})
         Me.DataGridViewTunnel.Location = New System.Drawing.Point(7, 7)
@@ -2979,15 +2990,17 @@ Partial Class Main
         Me.Step_7.Controls.Add(Me.Panel6)
         Me.Step_7.Controls.Add(Me.GroupBox16)
         Me.Step_7.Controls.Add(Me.DataGridViewBridge)
-        Me.Step_7.Location = New System.Drawing.Point(4, 40)
+        Me.Step_7.Location = New System.Drawing.Point(4, 22)
         Me.Step_7.Name = "Step_7"
         Me.Step_7.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_7.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_7.Size = New System.Drawing.Size(1000, 511)
         Me.Step_7.TabIndex = 7
         Me.Step_7.Text = "Setup 7 (Bridges)"
         '
         'Panel6
         '
+        Me.Panel6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel6.AutoScroll = True
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel6.Controls.Add(Me.PictureBoxBridgeBVESyntax)
@@ -3002,7 +3015,7 @@ Partial Class Main
         Me.Panel6.Controls.Add(Me.TextBoxBridgeImage)
         Me.Panel6.Location = New System.Drawing.Point(6, 214)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(702, 271)
+        Me.Panel6.Size = New System.Drawing.Size(702, 289)
         Me.Panel6.TabIndex = 12
         '
         'PictureBoxBridgeBVESyntax
@@ -3264,7 +3277,7 @@ Partial Class Main
         '
         Me.GroupBox16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox16.Controls.Add(Me.PictureBoxBridge)
-        Me.GroupBox16.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox16.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox16.Name = "GroupBox16"
         Me.GroupBox16.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox16.TabIndex = 10
@@ -3281,6 +3294,8 @@ Partial Class Main
         '
         'DataGridViewBridge
         '
+        Me.DataGridViewBridge.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewBridge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewBridge.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn36, Me.BGFOLeft, Me.BGFORight, Me.PierRepeat, Me.UBPier, Me.BridgeLength})
         Me.DataGridViewBridge.Location = New System.Drawing.Point(7, 7)
@@ -3349,15 +3364,17 @@ Partial Class Main
         Me.Step_8.Controls.Add(Me.Panel7)
         Me.Step_8.Controls.Add(Me.GroupBox18)
         Me.Step_8.Controls.Add(Me.DataGridViewOverpass)
-        Me.Step_8.Location = New System.Drawing.Point(4, 40)
+        Me.Step_8.Location = New System.Drawing.Point(4, 22)
         Me.Step_8.Name = "Step_8"
         Me.Step_8.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_8.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_8.Size = New System.Drawing.Size(1000, 511)
         Me.Step_8.TabIndex = 8
         Me.Step_8.Text = "Step 8 (Overpass)"
         '
         'Panel7
         '
+        Me.Panel7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel7.AutoScroll = True
         Me.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel7.Controls.Add(Me.PictureBoxOverpassBVESyntax)
@@ -3372,7 +3389,7 @@ Partial Class Main
         Me.Panel7.Controls.Add(Me.textBoxOverPassName)
         Me.Panel7.Location = New System.Drawing.Point(8, 214)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(702, 271)
+        Me.Panel7.Size = New System.Drawing.Size(702, 289)
         Me.Panel7.TabIndex = 20
         '
         'PictureBoxOverpassBVESyntax
@@ -3634,7 +3651,7 @@ Partial Class Main
         '
         Me.GroupBox18.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox18.Controls.Add(Me.PictureBoxFO)
-        Me.GroupBox18.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox18.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox18.Name = "GroupBox18"
         Me.GroupBox18.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox18.TabIndex = 10
@@ -3651,6 +3668,8 @@ Partial Class Main
         '
         'DataGridViewOverpass
         '
+        Me.DataGridViewOverpass.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewOverpass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewOverpass.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn42, Me.WallL, Me.WallR, Me.FoStrX, Me.Pier, Me.FORepeatPier})
         Me.DataGridViewOverpass.Location = New System.Drawing.Point(7, 7)
@@ -3719,15 +3738,17 @@ Partial Class Main
         Me.Step_9.Controls.Add(Me.Panel8)
         Me.Step_9.Controls.Add(Me.GroupBox20)
         Me.Step_9.Controls.Add(Me.DataGridViewHillCut)
-        Me.Step_9.Location = New System.Drawing.Point(4, 40)
+        Me.Step_9.Location = New System.Drawing.Point(4, 22)
         Me.Step_9.Name = "Step_9"
         Me.Step_9.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_9.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_9.Size = New System.Drawing.Size(1000, 511)
         Me.Step_9.TabIndex = 9
         Me.Step_9.Text = "Step 9 (Hill Cuts)"
         '
         'Panel8
         '
+        Me.Panel8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel8.AutoScroll = True
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel8.Controls.Add(Me.GroupBox34)
@@ -3742,7 +3763,7 @@ Partial Class Main
         Me.Panel8.Controls.Add(Me.textBoxHillCutTitle)
         Me.Panel8.Location = New System.Drawing.Point(8, 214)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(702, 271)
+        Me.Panel8.Size = New System.Drawing.Size(702, 289)
         Me.Panel8.TabIndex = 20
         '
         'GroupBox34
@@ -3941,7 +3962,7 @@ Partial Class Main
         '
         Me.GroupBox20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox20.Controls.Add(Me.PictureBoxHillCut)
-        Me.GroupBox20.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox20.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox20.Name = "GroupBox20"
         Me.GroupBox20.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox20.TabIndex = 10
@@ -3958,6 +3979,8 @@ Partial Class Main
         '
         'DataGridViewHillCut
         '
+        Me.DataGridViewHillCut.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewHillCut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewHillCut.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn48, Me.hCL, Me.hCR, Me.CutStrX})
         Me.DataGridViewHillCut.Location = New System.Drawing.Point(7, 7)
@@ -4014,15 +4037,17 @@ Partial Class Main
         Me.Step_10.Controls.Add(Me.Panel9)
         Me.Step_10.Controls.Add(Me.GroupBox22)
         Me.Step_10.Controls.Add(Me.DataGridViewDike)
-        Me.Step_10.Location = New System.Drawing.Point(4, 40)
+        Me.Step_10.Location = New System.Drawing.Point(4, 22)
         Me.Step_10.Name = "Step_10"
         Me.Step_10.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_10.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_10.Size = New System.Drawing.Size(1000, 511)
         Me.Step_10.TabIndex = 10
         Me.Step_10.Text = "Step 10 (Dikes)"
         '
         'Panel9
         '
+        Me.Panel9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel9.AutoScroll = True
         Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel9.Controls.Add(Me.ButtonDikeTip)
@@ -4038,7 +4063,7 @@ Partial Class Main
         Me.Panel9.Controls.Add(Me.LabelS10_Txt02)
         Me.Panel9.Location = New System.Drawing.Point(8, 214)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(701, 271)
+        Me.Panel9.Size = New System.Drawing.Size(701, 289)
         Me.Panel9.TabIndex = 20
         '
         'ButtonDikeTip
@@ -4236,7 +4261,7 @@ Partial Class Main
         '
         Me.GroupBox22.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox22.Controls.Add(Me.PictureBoxDike)
-        Me.GroupBox22.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox22.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox22.Name = "GroupBox22"
         Me.GroupBox22.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox22.TabIndex = 10
@@ -4253,6 +4278,8 @@ Partial Class Main
         '
         'DataGridViewDike
         '
+        Me.DataGridViewDike.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewDike.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewDike.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51, Me.DataGridViewTextBoxColumn52, Me.DataGridViewTextBoxColumn54, Me.DikeLeft, Me.DikeRight, Me.DikeStrX})
         Me.DataGridViewDike.Location = New System.Drawing.Point(7, 7)
@@ -4309,14 +4336,16 @@ Partial Class Main
         Me.Step_11.Controls.Add(Me.Panel10)
         Me.Step_11.Controls.Add(Me.GroupBox26)
         Me.Step_11.Controls.Add(Me.DataGridViewRC)
-        Me.Step_11.Location = New System.Drawing.Point(4, 40)
+        Me.Step_11.Location = New System.Drawing.Point(4, 22)
         Me.Step_11.Name = "Step_11"
-        Me.Step_11.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_11.Size = New System.Drawing.Size(1000, 511)
         Me.Step_11.TabIndex = 12
         Me.Step_11.Text = "Step 11 (Road Crossing)"
         '
         'Panel10
         '
+        Me.Panel10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel10.AutoScroll = True
         Me.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel10.Controls.Add(Me.ButtonRCTip)
@@ -4343,7 +4372,7 @@ Partial Class Main
         Me.Panel10.Controls.Add(Me.textBoxRCgateRight)
         Me.Panel10.Location = New System.Drawing.Point(8, 214)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(702, 271)
+        Me.Panel10.Size = New System.Drawing.Size(702, 289)
         Me.Panel10.TabIndex = 12
         '
         'ButtonRCTip
@@ -4359,7 +4388,7 @@ Partial Class Main
         '
         Me.ButtonNewRC.Image = CType(resources.GetObject("ButtonNewRC.Image"), System.Drawing.Image)
         Me.ButtonNewRC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewRC.Location = New System.Drawing.Point(603, 298)
+        Me.ButtonNewRC.Location = New System.Drawing.Point(603, 294)
         Me.ButtonNewRC.Name = "ButtonNewRC"
         Me.ButtonNewRC.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewRC.TabIndex = 11
@@ -4541,7 +4570,7 @@ Partial Class Main
         '
         Me.GroupBox26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox26.Controls.Add(Me.PictureBoxRC)
-        Me.GroupBox26.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox26.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox26.Name = "GroupBox26"
         Me.GroupBox26.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox26.TabIndex = 10
@@ -4558,6 +4587,8 @@ Partial Class Main
         '
         'DataGridViewRC
         '
+        Me.DataGridViewRC.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewRC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewRC.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn62, Me.DataGridViewTextBoxColumn63, Me.DataGridViewTextBoxColumn64, Me.DataGridViewTextBoxColumn66, Me.RCL, Me.RCC, Me.RCR, Me.RCDopler})
         Me.DataGridViewRC.Location = New System.Drawing.Point(7, 7)
@@ -4620,17 +4651,20 @@ Partial Class Main
         Me.Step_12.Controls.Add(Me.Panel11)
         Me.Step_12.Controls.Add(Me.GroupBox28)
         Me.Step_12.Controls.Add(Me.DataGridViewPlatform)
-        Me.Step_12.Location = New System.Drawing.Point(4, 40)
+        Me.Step_12.Location = New System.Drawing.Point(4, 22)
         Me.Step_12.Name = "Step_12"
         Me.Step_12.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_12.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_12.Size = New System.Drawing.Size(1000, 511)
         Me.Step_12.TabIndex = 14
-        Me.Step_12.Text = "Step 12 (Platfoms)"
+        Me.Step_12.Text = "Step 12 (Platforms)"
         '
         'Panel11
         '
+        Me.Panel11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel11.AutoScroll = True
         Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel11.Controls.Add(Me.ButtonPlatformTip)
         Me.Panel11.Controls.Add(Me.ButtonNewPlatform)
         Me.Panel11.Controls.Add(Me.PictureBoxPlatformBVESyntax)
         Me.Panel11.Controls.Add(Me.GroupBoxS12_Txt10)
@@ -4644,8 +4678,17 @@ Partial Class Main
         Me.Panel11.Controls.Add(Me.buttonBrowsePlatformImage)
         Me.Panel11.Location = New System.Drawing.Point(7, 214)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(702, 271)
+        Me.Panel11.Size = New System.Drawing.Size(702, 289)
         Me.Panel11.TabIndex = 12
+        '
+        'ButtonPlatformTip
+        '
+        Me.ButtonPlatformTip.Image = CType(resources.GetObject("ButtonPlatformTip.Image"), System.Drawing.Image)
+        Me.ButtonPlatformTip.Location = New System.Drawing.Point(637, 60)
+        Me.ButtonPlatformTip.Name = "ButtonPlatformTip"
+        Me.ButtonPlatformTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonPlatformTip.TabIndex = 70
+        Me.ButtonPlatformTip.UseVisualStyleBackColor = True
         '
         'ButtonNewPlatform
         '
@@ -4687,7 +4730,7 @@ Partial Class Main
         Me.GroupBoxS12_Txt10.Controls.Add(Me.buttonBrowsePlatformRoofLeft)
         Me.GroupBoxS12_Txt10.Location = New System.Drawing.Point(9, 257)
         Me.GroupBoxS12_Txt10.Name = "GroupBoxS12_Txt10"
-        Me.GroupBoxS12_Txt10.Size = New System.Drawing.Size(669, 169)
+        Me.GroupBoxS12_Txt10.Size = New System.Drawing.Size(656, 169)
         Me.GroupBoxS12_Txt10.TabIndex = 22
         Me.GroupBoxS12_Txt10.TabStop = False
         Me.GroupBoxS12_Txt10.Text = "Roof"
@@ -4824,7 +4867,6 @@ Partial Class Main
         '
         'GroupBoxS12_Txt04
         '
-        Me.GroupBoxS12_Txt04.Controls.Add(Me.ButtonPlatformTip)
         Me.GroupBoxS12_Txt04.Controls.Add(Me.textBoxPlatformRight)
         Me.GroupBoxS12_Txt04.Controls.Add(Me.textBoxPlatformLeft)
         Me.GroupBoxS12_Txt04.Controls.Add(Me.LabelS12_Txt05)
@@ -4842,19 +4884,10 @@ Partial Class Main
         Me.GroupBoxS12_Txt04.Controls.Add(Me.buttonBrowsePlatformLeft)
         Me.GroupBoxS12_Txt04.Location = New System.Drawing.Point(9, 80)
         Me.GroupBoxS12_Txt04.Name = "GroupBoxS12_Txt04"
-        Me.GroupBoxS12_Txt04.Size = New System.Drawing.Size(669, 171)
+        Me.GroupBoxS12_Txt04.Size = New System.Drawing.Size(656, 171)
         Me.GroupBoxS12_Txt04.TabIndex = 21
         Me.GroupBoxS12_Txt04.TabStop = False
         Me.GroupBoxS12_Txt04.Text = "Platform"
-        '
-        'ButtonPlatformTip
-        '
-        Me.ButtonPlatformTip.Image = CType(resources.GetObject("ButtonPlatformTip.Image"), System.Drawing.Image)
-        Me.ButtonPlatformTip.Location = New System.Drawing.Point(628, 16)
-        Me.ButtonPlatformTip.Name = "ButtonPlatformTip"
-        Me.ButtonPlatformTip.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonPlatformTip.TabIndex = 70
-        Me.ButtonPlatformTip.UseVisualStyleBackColor = True
         '
         'textBoxPlatformRight
         '
@@ -5048,7 +5081,7 @@ Partial Class Main
         '
         Me.GroupBox28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox28.Controls.Add(Me.PictureBoxPlatform)
-        Me.GroupBox28.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox28.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox28.Name = "GroupBox28"
         Me.GroupBox28.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox28.TabIndex = 10
@@ -5065,6 +5098,8 @@ Partial Class Main
         '
         'DataGridViewPlatform
         '
+        Me.DataGridViewPlatform.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewPlatform.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewPlatform.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn41, Me.FormL, Me.FormCL, Me.FormCR, Me.FormR, Me.FormStrX, Me.RoofL, Me.RoofCL, Me.RoofCR, Me.RoofR, Me.roofCycle})
         Me.DataGridViewPlatform.Location = New System.Drawing.Point(7, 7)
@@ -5162,15 +5197,17 @@ Partial Class Main
         Me.Step_13.Controls.Add(Me.Panel12)
         Me.Step_13.Controls.Add(Me.GroupBox30)
         Me.Step_13.Controls.Add(Me.DataGridViewCrack)
-        Me.Step_13.Location = New System.Drawing.Point(4, 40)
+        Me.Step_13.Location = New System.Drawing.Point(4, 22)
         Me.Step_13.Name = "Step_13"
         Me.Step_13.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_13.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_13.Size = New System.Drawing.Size(1000, 511)
         Me.Step_13.TabIndex = 16
         Me.Step_13.Text = "Step 13 (Cracks)"
         '
         'Panel12
         '
+        Me.Panel12.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel12.AutoScroll = True
         Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel12.Controls.Add(Me.GroupBox13)
@@ -5185,7 +5222,7 @@ Partial Class Main
         Me.Panel12.Controls.Add(Me.buttonBrowseCrackImage)
         Me.Panel12.Location = New System.Drawing.Point(6, 214)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(702, 271)
+        Me.Panel12.Size = New System.Drawing.Size(702, 289)
         Me.Panel12.TabIndex = 20
         '
         'GroupBox13
@@ -5386,7 +5423,7 @@ Partial Class Main
         '
         Me.GroupBox30.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox30.Controls.Add(Me.PictureBoxCrack)
-        Me.GroupBox30.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox30.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox30.Name = "GroupBox30"
         Me.GroupBox30.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox30.TabIndex = 14
@@ -5403,6 +5440,8 @@ Partial Class Main
         '
         'DataGridViewCrack
         '
+        Me.DataGridViewCrack.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewCrack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewCrack.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn55, Me.DataGridViewTextBoxColumn59, Me.CrStrX})
         Me.DataGridViewCrack.Location = New System.Drawing.Point(7, 7)
@@ -5455,16 +5494,19 @@ Partial Class Main
         Me.Step_14.Controls.Add(Me.Panel15)
         Me.Step_14.Controls.Add(Me.GroupBox32)
         Me.Step_14.Controls.Add(Me.DataGridViewUG)
-        Me.Step_14.Location = New System.Drawing.Point(4, 40)
+        Me.Step_14.Location = New System.Drawing.Point(4, 22)
         Me.Step_14.Name = "Step_14"
         Me.Step_14.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_14.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_14.Size = New System.Drawing.Size(1000, 511)
         Me.Step_14.TabIndex = 17
         Me.Step_14.Text = "Step 14 (Undergrounds)"
         '
         'Panel15
         '
+        Me.Panel15.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel15.AutoScroll = True
+        Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel15.Controls.Add(Me.ButtonUGExitTip)
         Me.Panel15.Controls.Add(Me.ButtonUGentranceTip)
         Me.Panel15.Controls.Add(Me.LabelS14_Txt20)
@@ -5487,7 +5529,7 @@ Partial Class Main
         Me.Panel15.Controls.Add(Me.textBoxUGTitle)
         Me.Panel15.Location = New System.Drawing.Point(8, 213)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(702, 271)
+        Me.Panel15.Size = New System.Drawing.Size(702, 290)
         Me.Panel15.TabIndex = 12
         '
         'ButtonUGExitTip
@@ -5794,7 +5836,7 @@ Partial Class Main
         '
         Me.ButtonNewUG.Image = CType(resources.GetObject("ButtonNewUG.Image"), System.Drawing.Image)
         Me.ButtonNewUG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonNewUG.Location = New System.Drawing.Point(607, 517)
+        Me.ButtonNewUG.Location = New System.Drawing.Point(598, 517)
         Me.ButtonNewUG.Name = "ButtonNewUG"
         Me.ButtonNewUG.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNewUG.TabIndex = 11
@@ -5989,7 +6031,7 @@ Partial Class Main
         '
         Me.GroupBox32.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox32.Controls.Add(Me.PictureBoxUG)
-        Me.GroupBox32.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox32.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox32.Name = "GroupBox32"
         Me.GroupBox32.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox32.TabIndex = 10
@@ -6006,6 +6048,8 @@ Partial Class Main
         '
         'DataGridViewUG
         '
+        Me.DataGridViewUG.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewUG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewUG.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57, Me.oWallCycle, Me.Entrance, Me.iWallLeft, Me.iWallRight, Me.iWallCycle, Me.UGExit})
         Me.DataGridViewUG.Location = New System.Drawing.Point(8, 6)
@@ -6110,15 +6154,17 @@ Partial Class Main
         Me.Step_15.Controls.Add(Me.Panel13)
         Me.Step_15.Controls.Add(Me.GroupBox5)
         Me.Step_15.Controls.Add(Me.DataGridViewFreeObject)
-        Me.Step_15.Location = New System.Drawing.Point(4, 40)
+        Me.Step_15.Location = New System.Drawing.Point(4, 22)
         Me.Step_15.Name = "Step_15"
         Me.Step_15.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_15.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_15.Size = New System.Drawing.Size(1000, 511)
         Me.Step_15.TabIndex = 2
         Me.Step_15.Text = "Step 15 (Free Objects)"
         '
         'Panel13
         '
+        Me.Panel13.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel13.AutoScroll = True
         Me.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel13.Controls.Add(Me.ButtonFreeObjectTip)
@@ -6138,7 +6184,7 @@ Partial Class Main
         Me.Panel13.Controls.Add(Me.TextBoxbvefobjtitle)
         Me.Panel13.Location = New System.Drawing.Point(8, 214)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(702, 271)
+        Me.Panel13.Size = New System.Drawing.Size(702, 289)
         Me.Panel13.TabIndex = 8
         '
         'ButtonFreeObjectTip
@@ -6277,7 +6323,7 @@ Partial Class Main
         '
         Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox5.Controls.Add(Me.PictureBoxbvefobjimg)
-        Me.GroupBox5.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox5.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox5.TabIndex = 6
@@ -6294,6 +6340,8 @@ Partial Class Main
         '
         'DataGridViewFreeObject
         '
+        Me.DataGridViewFreeObject.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewFreeObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewFreeObject.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn9, Me.BVEfobtype, Me.DataGridViewTextBoxColumn8})
         Me.DataGridViewFreeObject.Location = New System.Drawing.Point(7, 7)
@@ -6344,15 +6392,17 @@ Partial Class Main
         Me.Step_16.Controls.Add(Me.Panel14)
         Me.Step_16.Controls.Add(Me.GroupBox11)
         Me.Step_16.Controls.Add(Me.DataGridViewEtc)
-        Me.Step_16.Location = New System.Drawing.Point(4, 40)
+        Me.Step_16.Location = New System.Drawing.Point(4, 22)
         Me.Step_16.Name = "Step_16"
         Me.Step_16.Padding = New System.Windows.Forms.Padding(3)
-        Me.Step_16.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_16.Size = New System.Drawing.Size(1000, 511)
         Me.Step_16.TabIndex = 5
         Me.Step_16.Text = "Step 16 (etc.)"
         '
         'Panel14
         '
+        Me.Panel14.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel14.AutoScroll = True
         Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel14.Controls.Add(Me.ButtonEtcBVEImage)
@@ -6372,13 +6422,13 @@ Partial Class Main
         Me.Panel14.Controls.Add(Me.TextBoxBVEstrtitle)
         Me.Panel14.Location = New System.Drawing.Point(6, 214)
         Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(701, 271)
+        Me.Panel14.Size = New System.Drawing.Size(701, 289)
         Me.Panel14.TabIndex = 8
         '
         'ButtonEtcBVEImage
         '
         Me.ButtonEtcBVEImage.Image = CType(resources.GetObject("ButtonEtcBVEImage.Image"), System.Drawing.Image)
-        Me.ButtonEtcBVEImage.Location = New System.Drawing.Point(649, 90)
+        Me.ButtonEtcBVEImage.Location = New System.Drawing.Point(637, 100)
         Me.ButtonEtcBVEImage.Name = "ButtonEtcBVEImage"
         Me.ButtonEtcBVEImage.Size = New System.Drawing.Size(28, 23)
         Me.ButtonEtcBVEImage.TabIndex = 79
@@ -6401,7 +6451,7 @@ Partial Class Main
         Me.GroupBoxS16_Txt05.Controls.Add(Me.LabelS16_Txt06)
         Me.GroupBoxS16_Txt05.Location = New System.Drawing.Point(6, 129)
         Me.GroupBoxS16_Txt05.Name = "GroupBoxS16_Txt05"
-        Me.GroupBoxS16_Txt05.Size = New System.Drawing.Size(671, 68)
+        Me.GroupBoxS16_Txt05.Size = New System.Drawing.Size(659, 68)
         Me.GroupBoxS16_Txt05.TabIndex = 77
         Me.GroupBoxS16_Txt05.TabStop = False
         Me.GroupBoxS16_Txt05.Text = "Single structure"
@@ -6456,7 +6506,7 @@ Partial Class Main
         Me.GroupBoxS16_Txt08.Controls.Add(Me.textBoxBVELeft)
         Me.GroupBoxS16_Txt08.Location = New System.Drawing.Point(6, 232)
         Me.GroupBoxS16_Txt08.Name = "GroupBoxS16_Txt08"
-        Me.GroupBoxS16_Txt08.Size = New System.Drawing.Size(671, 92)
+        Me.GroupBoxS16_Txt08.Size = New System.Drawing.Size(659, 92)
         Me.GroupBoxS16_Txt08.TabIndex = 20
         Me.GroupBoxS16_Txt08.TabStop = False
         Me.GroupBoxS16_Txt08.Text = "Repeating structure (.x only) :"
@@ -6499,7 +6549,7 @@ Partial Class Main
         'ButtonbrowseBVERight
         '
         Me.ButtonbrowseBVERight.Image = CType(resources.GetObject("ButtonbrowseBVERight.Image"), System.Drawing.Image)
-        Me.ButtonbrowseBVERight.Location = New System.Drawing.Point(636, 31)
+        Me.ButtonbrowseBVERight.Location = New System.Drawing.Point(630, 31)
         Me.ButtonbrowseBVERight.Name = "ButtonbrowseBVERight"
         Me.ButtonbrowseBVERight.Size = New System.Drawing.Size(23, 23)
         Me.ButtonbrowseBVERight.TabIndex = 38
@@ -6536,7 +6586,7 @@ Partial Class Main
         '
         'TextBoxBVERight
         '
-        Me.TextBoxBVERight.Location = New System.Drawing.Point(380, 33)
+        Me.TextBoxBVERight.Location = New System.Drawing.Point(374, 33)
         Me.TextBoxBVERight.Name = "TextBoxBVERight"
         Me.TextBoxBVERight.Size = New System.Drawing.Size(250, 20)
         Me.TextBoxBVERight.TabIndex = 34
@@ -6639,7 +6689,7 @@ Partial Class Main
         '
         Me.GroupBox11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox11.Controls.Add(Me.PictureBoxBVEstrimg)
-        Me.GroupBox11.Location = New System.Drawing.Point(723, 303)
+        Me.GroupBox11.Location = New System.Drawing.Point(723, 321)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Size = New System.Drawing.Size(271, 182)
         Me.GroupBox11.TabIndex = 6
@@ -6656,6 +6706,8 @@ Partial Class Main
         '
         'DataGridViewEtc
         '
+        Me.DataGridViewEtc.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewEtc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewEtc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn24, Me.BvestrType, Me.DataGridViewTextBoxColumn23, Me.bveWallL, Me.bveWallR, Me.BveStrX})
         Me.DataGridViewEtc.Location = New System.Drawing.Point(7, 7)
@@ -6724,9 +6776,9 @@ Partial Class Main
         Me.Step_17.Controls.Add(Me.ButtonSaveTXT)
         Me.Step_17.Controls.Add(Me.LabelS17_Txt02)
         Me.Step_17.Controls.Add(Me.LabelS17_Txt01)
-        Me.Step_17.Location = New System.Drawing.Point(4, 40)
+        Me.Step_17.Location = New System.Drawing.Point(4, 22)
         Me.Step_17.Name = "Step_17"
-        Me.Step_17.Size = New System.Drawing.Size(1000, 493)
+        Me.Step_17.Size = New System.Drawing.Size(1000, 511)
         Me.Step_17.TabIndex = 19
         Me.Step_17.Text = "Step 17 (Finishing)"
         '
@@ -6777,9 +6829,9 @@ Partial Class Main
         Me.About.Controls.Add(Me.LabelAboutTitle)
         Me.About.Controls.Add(Me.PictureBox1)
         Me.About.ForeColor = System.Drawing.Color.Black
-        Me.About.Location = New System.Drawing.Point(4, 40)
+        Me.About.Location = New System.Drawing.Point(4, 22)
         Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(1000, 493)
+        Me.About.Size = New System.Drawing.Size(1000, 511)
         Me.About.TabIndex = 20
         Me.About.Text = "About"
         '
@@ -6871,7 +6923,6 @@ Partial Class Main
         Me.Controls.Add(Me.TabControl1)
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
         Me.Name = "Main"
         Me.Text = "GB Maps - ギビマップ Tools for BVE 5 Structures"
         Me.TabControl1.ResumeLayout(False)
@@ -7555,29 +7606,6 @@ Partial Class Main
     Friend WithEvents ButtonCrackTip As Button
     Friend WithEvents ButtonFreeObjectTip As Button
     Friend WithEvents ButtonEtcBVEImage As Button
-    Friend WithEvents no As DataGridViewTextBoxColumn
-    Friend WithEvents nama As DataGridViewTextBoxColumn
-    Friend WithEvents title As DataGridViewTextBoxColumn
-    Friend WithEvents imgfile As DataGridViewTextBoxColumn
-    Friend WithEvents baltype As DataGridViewTextBoxColumn
-    Friend WithEvents OPrailtype As DataGridViewTextBoxColumn
-    Friend WithEvents RailGauge As DataGridViewTextBoxColumn
-    Friend WithEvents bal_file As DataGridViewTextBoxColumn
-    Friend WithEvents RailL As DataGridViewTextBoxColumn
-    Friend WithEvents RailR As DataGridViewTextBoxColumn
-    Friend WithEvents RailBase1 As DataGridViewTextBoxColumn
-    Friend WithEvents RailL1 As DataGridViewTextBoxColumn
-    Friend WithEvents RailR1 As DataGridViewTextBoxColumn
-    Friend WithEvents RailBase2 As DataGridViewTextBoxColumn
-    Friend WithEvents RailL2 As DataGridViewTextBoxColumn
-    Friend WithEvents RailR2 As DataGridViewTextBoxColumn
-    Friend WithEvents RailBase3 As DataGridViewTextBoxColumn
-    Friend WithEvents RailL3 As DataGridViewTextBoxColumn
-    Friend WithEvents RailR3 As DataGridViewTextBoxColumn
-    Friend WithEvents RailBase4 As DataGridViewTextBoxColumn
-    Friend WithEvents RailL4 As DataGridViewTextBoxColumn
-    Friend WithEvents RailR4 As DataGridViewTextBoxColumn
-    Friend WithEvents RailX As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
@@ -7704,4 +7732,26 @@ Partial Class Main
     Friend WithEvents LabelAboutVersion As Label
     Friend WithEvents LabelAboutTitle As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents no As DataGridViewTextBoxColumn
+    Friend WithEvents nama As DataGridViewTextBoxColumn
+    Friend WithEvents title As DataGridViewTextBoxColumn
+    Friend WithEvents imgfile As DataGridViewTextBoxColumn
+    Friend WithEvents sleepertype As DataGridViewTextBoxColumn
+    Friend WithEvents RailGauge As DataGridViewTextBoxColumn
+    Friend WithEvents bal_file As DataGridViewTextBoxColumn
+    Friend WithEvents RailL As DataGridViewTextBoxColumn
+    Friend WithEvents RailR As DataGridViewTextBoxColumn
+    Friend WithEvents RailBase1 As DataGridViewTextBoxColumn
+    Friend WithEvents RailL1 As DataGridViewTextBoxColumn
+    Friend WithEvents RailR1 As DataGridViewTextBoxColumn
+    Friend WithEvents RailBase2 As DataGridViewTextBoxColumn
+    Friend WithEvents RailL2 As DataGridViewTextBoxColumn
+    Friend WithEvents RailR2 As DataGridViewTextBoxColumn
+    Friend WithEvents RailBase3 As DataGridViewTextBoxColumn
+    Friend WithEvents RailL3 As DataGridViewTextBoxColumn
+    Friend WithEvents RailR3 As DataGridViewTextBoxColumn
+    Friend WithEvents RailBase4 As DataGridViewTextBoxColumn
+    Friend WithEvents RailL4 As DataGridViewTextBoxColumn
+    Friend WithEvents RailR4 As DataGridViewTextBoxColumn
+    Friend WithEvents RailX As DataGridViewTextBoxColumn
 End Class
