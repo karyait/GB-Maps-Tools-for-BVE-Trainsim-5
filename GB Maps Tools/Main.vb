@@ -14,6 +14,7 @@ Public Class Main
     Friend onStartup As Boolean = True
     Friend kamus As New Dictionary(Of String, String)
 
+
     Public Enum filetype
         x = 0
         img = 1
@@ -208,7 +209,7 @@ Public Class Main
     Private Sub DataGridViewBVEfobj_Click(sender As Object, e As System.EventArgs) Handles DataGridViewFreeObject.Click
         Try
             Dim irow As Integer = DataGridViewFreeObject.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewFreeObject.Item(4, irow).Value.ToString.Trim
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewFreeObject.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxbvefobjimg.Image = Image.FromFile(fullpath)
             Else
@@ -222,7 +223,7 @@ Public Class Main
     Private Sub DataGridViewBVEstr_Click(sender As Object, e As System.EventArgs) Handles DataGridViewEtc.Click
         Try
             Dim irow As Integer = DataGridViewEtc.CurrentRow.Index
-            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewEtc.Item(4, irow).Value.ToString.Trim
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewEtc.Item(3, irow).Value.ToString.Trim
             If File.Exists(fullpath) Then
                 PictureBoxBVEstrimg.Image = Image.FromFile(fullpath)
             Else
@@ -767,16 +768,20 @@ Public Class Main
     End Sub
 
     Private Sub buttonOpenCSV_Click(sender As Object, e As EventArgs) Handles buttonOpenCSV.Click
+        OpenCSV()
+    End Sub
+
+    Private Sub OpenCSV()
         Dim basedir As String
         If gbIdir = "" Then
-            MessageBox.Show(kamus.item("txtbuttonOpenCSVimgdir1st"))
+            MessageBox.Show(kamus.Item("txtbuttonOpenCSVimgdir1st"))
             Exit Sub
-            Else
+        Else
             basedir = gbIdir.ToLower.Replace("\images", "")
             If basedir <> "" Then OpenFileDialog3.InitialDirectory = basedir
-            End If
+        End If
 
-            OpenFileDialog3.Filter = kamus.Item("txtbuttonOpenCSVfilter")
+        OpenFileDialog3.Filter = kamus.Item("txtbuttonOpenCSVfilter")
 
         If OpenFileDialog3.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim filename As String = OpenFileDialog3.FileName
@@ -786,13 +791,13 @@ Public Class Main
             '# version check
             Dim vercek = arrRow(0).Split("_")
             If vercek.Count < 3 Then
-                MessageBox.Show(kamus.item("txtbuttonOpenCSVerror1"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(kamus.Item("txtbuttonOpenCSVerror1"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
             '# "gbmapstools_v_2.2"
             If vercek(0) <> "gbmapstools" And vercek(1) <> "v" And (Convert.ToDouble(vercek(2)) >= 2.2) Then
-                MessageBox.Show(kamus.item("txtbuttonOpenCSVerror2"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(kamus.Item("txtbuttonOpenCSVerror2"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
@@ -1004,6 +1009,10 @@ Public Class Main
     End Sub
 
     Private Sub ButtonSaveTXT_Click(sender As Object, e As EventArgs) Handles ButtonSaveTXT.Click
+        SaveCSV()
+    End Sub
+
+    Private Sub SaveCSV()
         Dim basedir = gbIdir.ToLower.Replace("\images", "")
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\data"
         SaveFileDialog1.Filter = kamus.Item("txtButtonSaveTXTfilter")
@@ -1012,205 +1021,278 @@ Public Class Main
             Dim filename As String = SaveFileDialog1.FileName
             txt.AppendLine("gbmapstools_v_2.2")
             '#2 Rail (22 item = 0 - 21)
-            For ro = 0 To DataGridViewRail.RowCount - 1
-                If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
-                    DataGridViewRail.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "rail, " & DataGridViewRail.Item(0, ro).Value & ", " &
-                        DataGridViewRail.Item(1, ro).Value & ", " & DataGridViewRail.Item(2, ro).Value &
-                        ", " & DataGridViewRail.Item(3, ro).Value & ", " & DataGridViewRail.Item(4, ro).Value &
-                        ", " & DataGridViewRail.Item(5, ro).Value & ", " & DataGridViewRail.Item(6, ro).Value &
-                        ", " & DataGridViewRail.Item(7, ro).Value & ", " & DataGridViewRail.Item(8, ro).Value &
-                        ", " & DataGridViewRail.Item(9, ro).Value & ", " & DataGridViewRail.Item(10, ro).Value &
-                        ", " & DataGridViewRail.Item(11, ro).Value & ", " & DataGridViewRail.Item(12, ro).Value &
-                        ", " & DataGridViewRail.Item(13, ro).Value & ", " & DataGridViewRail.Item(14, ro).Value &
-                        ", " & DataGridViewRail.Item(15, ro).Value & ", " & DataGridViewRail.Item(16, ro).Value &
-                        ", " & DataGridViewRail.Item(17, ro).Value & ", " & DataGridViewRail.Item(18, ro).Value &
-                        ", " & DataGridViewRail.Item(19, ro).Value & ", " & DataGridViewRail.Item(20, ro).Value &
-                        ", " & DataGridViewRail.Item(21, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewRail.RowCount - 1
+                    If DataGridViewRail.Item(0, ro).Value <> "" And DataGridViewRail.Item(1, ro).Value <> "" And
+                        DataGridViewRail.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "rail, " & DataGridViewRail.Item(0, ro).Value & ", " &
+                            DataGridViewRail.Item(1, ro).Value & ", " & DataGridViewRail.Item(2, ro).Value &
+                            ", " & DataGridViewRail.Item(3, ro).Value & ", " & DataGridViewRail.Item(4, ro).Value &
+                            ", " & DataGridViewRail.Item(5, ro).Value & ", " & DataGridViewRail.Item(6, ro).Value &
+                            ", " & DataGridViewRail.Item(7, ro).Value & ", " & DataGridViewRail.Item(8, ro).Value &
+                            ", " & DataGridViewRail.Item(9, ro).Value & ", " & DataGridViewRail.Item(10, ro).Value &
+                            ", " & DataGridViewRail.Item(11, ro).Value & ", " & DataGridViewRail.Item(12, ro).Value &
+                            ", " & DataGridViewRail.Item(13, ro).Value & ", " & DataGridViewRail.Item(14, ro).Value &
+                            ", " & DataGridViewRail.Item(15, ro).Value & ", " & DataGridViewRail.Item(16, ro).Value &
+                            ", " & DataGridViewRail.Item(17, ro).Value & ", " & DataGridViewRail.Item(18, ro).Value &
+                            ", " & DataGridViewRail.Item(19, ro).Value & ", " & DataGridViewRail.Item(20, ro).Value &
+                            ", " & DataGridViewRail.Item(21, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewRail")
+            End Try
+
 
             '#3 Pole (8 item = 0 - 7)
-            For ro = 0 To DataGridViewPole.RowCount - 1
-                If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" And
-                    DataGridViewPole.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "pole, " & DataGridViewPole.Item(0, ro).Value &
-                        ", " & DataGridViewPole.Item(1, ro).Value & ", " & DataGridViewPole.Item(2, ro).Value &
-                        ", " & DataGridViewPole.Item(3, ro).Value & ", " & DataGridViewPole.Item(4, ro).Value &
-                        ", " & DataGridViewPole.Item(5, ro).Value & ", " & DataGridViewPole.Item(6, ro).Value &
-                        ", " & DataGridViewPole.Item(7, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewPole.RowCount - 1
+                    If DataGridViewPole.Item(0, ro).Value <> "" And DataGridViewPole.Item(1, ro).Value <> "" And
+                        DataGridViewPole.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "pole, " & DataGridViewPole.Item(0, ro).Value &
+                            ", " & DataGridViewPole.Item(1, ro).Value & ", " & DataGridViewPole.Item(2, ro).Value &
+                            ", " & DataGridViewPole.Item(3, ro).Value & ", " & DataGridViewPole.Item(4, ro).Value &
+                            ", " & DataGridViewPole.Item(5, ro).Value & ", " & DataGridViewPole.Item(6, ro).Value &
+                            ", " & DataGridViewPole.Item(7, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewPole")
+            End Try
+
 
             '#4 Train (5 item = 0 - 4)
-            For ro = 0 To DataGridViewTrain.RowCount - 1
-                If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And
-                    DataGridViewTrain.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "train, " & DataGridViewTrain.Item(0, ro).Value &
-                        ", " & DataGridViewTrain.Item(1, ro).Value & ", " & DataGridViewTrain.Item(2, ro).Value &
-                        ", " & DataGridViewTrain.Item(3, ro).Value & ", " & DataGridViewTrain.Item(4, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewTrain.RowCount - 1
+                    If DataGridViewTrain.Item(0, ro).Value <> "" And DataGridViewTrain.Item(1, ro).Value <> "" And
+                        DataGridViewTrain.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "train, " & DataGridViewTrain.Item(0, ro).Value &
+                            ", " & DataGridViewTrain.Item(1, ro).Value & ", " & DataGridViewTrain.Item(2, ro).Value &
+                            ", " & DataGridViewTrain.Item(3, ro).Value & ", " & DataGridViewTrain.Item(4, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewTrain")
+            End Try
+
 
             '#5 Sound (5 item = 0 - 4)
-            For ro = 0 To DataGridViewSound.RowCount - 1
-                If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
-                    DataGridViewSound.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "sound, " & DataGridViewSound.Item(0, ro).Value &
-                        ", " & DataGridViewSound.Item(1, ro).Value & ", " & DataGridViewSound.Item(2, ro).Value &
-                        ", " & DataGridViewSound.Item(3, ro).Value & ", " & DataGridViewSound.Item(4, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewSound.RowCount - 1
+                    If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
+                        DataGridViewSound.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "sound, " & DataGridViewSound.Item(0, ro).Value &
+                            ", " & DataGridViewSound.Item(1, ro).Value & ", " & DataGridViewSound.Item(2, ro).Value &
+                            ", " & DataGridViewSound.Item(3, ro).Value & ", " & DataGridViewSound.Item(4, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewSound")
+            End Try
+
 
             '#6 Tunnel (9 item = 0 - 8)
-            For ro = 0 To DataGridViewTunnel.RowCount - 1
-                If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And
-                    DataGridViewTunnel.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "tunnel, " & DataGridViewTunnel.Item(0, ro).Value &
-                        ", " & DataGridViewTunnel.Item(1, ro).Value & ", " & DataGridViewTunnel.Item(2, ro).Value &
-                        ", " & DataGridViewTunnel.Item(3, ro).Value & ", " & DataGridViewTunnel.Item(4, ro).Value &
-                        ", " & DataGridViewTunnel.Item(5, ro).Value & ", " & DataGridViewTunnel.Item(6, ro).Value &
-                        ", " & DataGridViewTunnel.Item(7, ro).Value & ", " & DataGridViewTunnel.Item(8, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewTunnel.RowCount - 1
+                    If DataGridViewTunnel.Item(0, ro).Value <> "" And DataGridViewTunnel.Item(1, ro).Value <> "" And
+                        DataGridViewTunnel.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "tunnel, " & DataGridViewTunnel.Item(0, ro).Value &
+                            ", " & DataGridViewTunnel.Item(1, ro).Value & ", " & DataGridViewTunnel.Item(2, ro).Value &
+                            ", " & DataGridViewTunnel.Item(3, ro).Value & ", " & DataGridViewTunnel.Item(4, ro).Value &
+                            ", " & DataGridViewTunnel.Item(5, ro).Value & ", " & DataGridViewTunnel.Item(6, ro).Value &
+                            ", " & DataGridViewTunnel.Item(7, ro).Value & ", " & DataGridViewTunnel.Item(8, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewTunnel")
+            End Try
+
 
             '#7 Bridge (9 item = 0 - 8)
-            For ro = 0 To DataGridViewBridge.RowCount - 1
-                If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And
-                    DataGridViewBridge.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "bridge, " & DataGridViewBridge.Item(0, ro).Value &
-                        ", " & DataGridViewBridge.Item(1, ro).Value & ", " & DataGridViewBridge.Item(2, ro).Value &
-                        ", " & DataGridViewBridge.Item(3, ro).Value & ", " & DataGridViewBridge.Item(4, ro).Value &
-                        ", " & DataGridViewBridge.Item(5, ro).Value & ", " & DataGridViewBridge.Item(6, ro).Value &
-                        ", " & DataGridViewBridge.Item(7, ro).Value & ", " & DataGridViewBridge.Item(8, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewBridge.RowCount - 1
+                    If DataGridViewBridge.Item(0, ro).Value <> "" And DataGridViewBridge.Item(1, ro).Value <> "" And
+                        DataGridViewBridge.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "bridge, " & DataGridViewBridge.Item(0, ro).Value &
+                            ", " & DataGridViewBridge.Item(1, ro).Value & ", " & DataGridViewBridge.Item(2, ro).Value &
+                            ", " & DataGridViewBridge.Item(3, ro).Value & ", " & DataGridViewBridge.Item(4, ro).Value &
+                            ", " & DataGridViewBridge.Item(5, ro).Value & ", " & DataGridViewBridge.Item(6, ro).Value &
+                            ", " & DataGridViewBridge.Item(7, ro).Value & ", " & DataGridViewBridge.Item(8, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewBridge")
+            End Try
+
 
             '#8 Overpass (9 item = 0 - 8)
-            For ro = 0 To DataGridViewOverpass.RowCount - 1
-                If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And
-                    DataGridViewOverpass.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "overpass, " & DataGridViewOverpass.Item(0, ro).Value &
-                        ", " & DataGridViewOverpass.Item(1, ro).Value & ", " & DataGridViewOverpass.Item(2, ro).Value &
-                        ", " & DataGridViewOverpass.Item(3, ro).Value & ", " & DataGridViewOverpass.Item(4, ro).Value &
-                        ", " & DataGridViewOverpass.Item(5, ro).Value & ", " & DataGridViewOverpass.Item(6, ro).Value &
-                        ", " & DataGridViewOverpass.Item(7, ro).Value & ", " & DataGridViewOverpass.Item(8, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewOverpass.RowCount - 1
+                    If DataGridViewOverpass.Item(0, ro).Value <> "" And DataGridViewOverpass.Item(1, ro).Value <> "" And
+                        DataGridViewOverpass.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "overpass, " & DataGridViewOverpass.Item(0, ro).Value &
+                            ", " & DataGridViewOverpass.Item(1, ro).Value & ", " & DataGridViewOverpass.Item(2, ro).Value &
+                            ", " & DataGridViewOverpass.Item(3, ro).Value & ", " & DataGridViewOverpass.Item(4, ro).Value &
+                            ", " & DataGridViewOverpass.Item(5, ro).Value & ", " & DataGridViewOverpass.Item(6, ro).Value &
+                            ", " & DataGridViewOverpass.Item(7, ro).Value & ", " & DataGridViewOverpass.Item(8, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewOverpass")
+            End Try
+
 
             '#9 Hillcut (7 item = 0 - 6)
-            For ro = 0 To DataGridViewHillCut.RowCount - 1
-                If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And
-                    DataGridViewHillCut.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "hillcut, " & DataGridViewHillCut.Item(0, ro).Value &
-                        ", " & DataGridViewHillCut.Item(1, ro).Value & ", " & DataGridViewHillCut.Item(2, ro).Value &
-                        ", " & DataGridViewHillCut.Item(3, ro).Value & ", " & DataGridViewHillCut.Item(4, ro).Value &
-                        ", " & DataGridViewHillCut.Item(5, ro).Value & ", " & DataGridViewHillCut.Item(6, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewHillCut.RowCount - 1
+                    If DataGridViewHillCut.Item(0, ro).Value <> "" And DataGridViewHillCut.Item(1, ro).Value <> "" And
+                        DataGridViewHillCut.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "hillcut, " & DataGridViewHillCut.Item(0, ro).Value &
+                            ", " & DataGridViewHillCut.Item(1, ro).Value & ", " & DataGridViewHillCut.Item(2, ro).Value &
+                            ", " & DataGridViewHillCut.Item(3, ro).Value & ", " & DataGridViewHillCut.Item(4, ro).Value &
+                            ", " & DataGridViewHillCut.Item(5, ro).Value & ", " & DataGridViewHillCut.Item(6, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewHillCut")
+            End Try
+
 
             '#10 Dike (7 item = 0 - 6)
-            For ro = 0 To DataGridViewDike.RowCount - 1
-                If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And
-                    DataGridViewDike.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "dike, " & DataGridViewDike.Item(0, ro).Value &
-                        ", " & DataGridViewDike.Item(1, ro).Value & ", " & DataGridViewDike.Item(2, ro).Value &
-                        ", " & DataGridViewDike.Item(3, ro).Value & ", " & DataGridViewDike.Item(4, ro).Value &
-                        ", " & DataGridViewDike.Item(5, ro).Value & ", " & DataGridViewDike.Item(6, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewDike.RowCount - 1
+                    If DataGridViewDike.Item(0, ro).Value <> "" And DataGridViewDike.Item(1, ro).Value <> "" And
+                        DataGridViewDike.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "dike, " & DataGridViewDike.Item(0, ro).Value &
+                            ", " & DataGridViewDike.Item(1, ro).Value & ", " & DataGridViewDike.Item(2, ro).Value &
+                            ", " & DataGridViewDike.Item(3, ro).Value & ", " & DataGridViewDike.Item(4, ro).Value &
+                            ", " & DataGridViewDike.Item(5, ro).Value & ", " & DataGridViewDike.Item(6, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewDike")
+            End Try
+
 
             '#11 Road Crossing (8 item = 0 - 7)
-            For ro = 0 To DataGridViewRC.RowCount - 1
-                If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And
-                    DataGridViewRC.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "rc, " & DataGridViewRC.Item(0, ro).Value &
-                        ", " & DataGridViewRC.Item(1, ro).Value & ", " & DataGridViewRC.Item(2, ro).Value &
-                        ", " & DataGridViewRC.Item(3, ro).Value & ", " & DataGridViewRC.Item(4, ro).Value &
-                        ", " & DataGridViewRC.Item(5, ro).Value & ", " & DataGridViewRC.Item(6, ro).Value &
-                        ", " & DataGridViewRC.Item(7, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewRC.RowCount - 1
+                    If DataGridViewRC.Item(0, ro).Value <> "" And DataGridViewRC.Item(1, ro).Value <> "" And
+                        DataGridViewRC.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "rc, " & DataGridViewRC.Item(0, ro).Value &
+                            ", " & DataGridViewRC.Item(1, ro).Value & ", " & DataGridViewRC.Item(2, ro).Value &
+                            ", " & DataGridViewRC.Item(3, ro).Value & ", " & DataGridViewRC.Item(4, ro).Value &
+                            ", " & DataGridViewRC.Item(5, ro).Value & ", " & DataGridViewRC.Item(6, ro).Value &
+                            ", " & DataGridViewRC.Item(7, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewRC")
+            End Try
+
 
             '#12 Platform (14 item = 0 - 13)
-            For ro = 0 To DataGridViewPlatform.RowCount - 1
-                If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And
-                    DataGridViewPlatform.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "pform, " & DataGridViewPlatform.Item(0, ro).Value &
-                        ", " & DataGridViewPlatform.Item(1, ro).Value & ", " & DataGridViewPlatform.Item(2, ro).Value &
-                        ", " & DataGridViewPlatform.Item(3, ro).Value & ", " & DataGridViewPlatform.Item(4, ro).Value &
-                        ", " & DataGridViewPlatform.Item(5, ro).Value & ", " & DataGridViewPlatform.Item(6, ro).Value &
-                        ", " & DataGridViewPlatform.Item(7, ro).Value & ", " & DataGridViewPlatform.Item(8, ro).Value &
-                        ", " & DataGridViewPlatform.Item(9, ro).Value & ", " & DataGridViewPlatform.Item(10, ro).Value &
-                        ", " & DataGridViewPlatform.Item(11, ro).Value & ", " & DataGridViewPlatform.Item(12, ro).Value &
-                        "," & DataGridViewPlatform.Item(13, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewPlatform.RowCount - 1
+                    If DataGridViewPlatform.Item(0, ro).Value <> "" And DataGridViewPlatform.Item(1, ro).Value <> "" And
+                        DataGridViewPlatform.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "pform, " & DataGridViewPlatform.Item(0, ro).Value &
+                            ", " & DataGridViewPlatform.Item(1, ro).Value & ", " & DataGridViewPlatform.Item(2, ro).Value &
+                            ", " & DataGridViewPlatform.Item(3, ro).Value & ", " & DataGridViewPlatform.Item(4, ro).Value &
+                            ", " & DataGridViewPlatform.Item(5, ro).Value & ", " & DataGridViewPlatform.Item(6, ro).Value &
+                            ", " & DataGridViewPlatform.Item(7, ro).Value & ", " & DataGridViewPlatform.Item(8, ro).Value &
+                            ", " & DataGridViewPlatform.Item(9, ro).Value & ", " & DataGridViewPlatform.Item(10, ro).Value &
+                            ", " & DataGridViewPlatform.Item(11, ro).Value & ", " & DataGridViewPlatform.Item(12, ro).Value &
+                            "," & DataGridViewPlatform.Item(13, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewPlatform")
+            End Try
+
 
             '#13 Crack (7 item = 0 - 6)
-            For ro = 0 To DataGridViewCrack.RowCount - 1
-                If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And
-                    DataGridViewCrack.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "cracks, " & DataGridViewCrack.Item(0, ro).Value &
-                        ", " & DataGridViewCrack.Item(1, ro).Value & ", " & DataGridViewCrack.Item(2, ro).Value &
-                        ", " & DataGridViewCrack.Item(3, ro).Value & ", " & DataGridViewCrack.Item(4, ro).Value &
-                        ", " & DataGridViewCrack.Item(5, ro).Value & ", " & DataGridViewCrack.Item(6, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewCrack.RowCount - 1
+                    If DataGridViewCrack.Item(0, ro).Value <> "" And DataGridViewCrack.Item(1, ro).Value <> "" And
+                        DataGridViewCrack.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "cracks, " & DataGridViewCrack.Item(0, ro).Value &
+                            ", " & DataGridViewCrack.Item(1, ro).Value & ", " & DataGridViewCrack.Item(2, ro).Value &
+                            ", " & DataGridViewCrack.Item(3, ro).Value & ", " & DataGridViewCrack.Item(4, ro).Value &
+                            ", " & DataGridViewCrack.Item(5, ro).Value & ", " & DataGridViewCrack.Item(6, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewCrack")
+            End Try
+
 
             '#14 Underground (15 item = 0 - 14)
-            For ro = 0 To DataGridViewUG.RowCount - 1
-                If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
-                    DataGridViewUG.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "ug, " & DataGridViewUG.Item(0, ro).Value &
-                        ", " & DataGridViewUG.Item(1, ro).Value & ", " & DataGridViewUG.Item(2, ro).Value &
-                        ", " & DataGridViewUG.Item(3, ro).Value & ", " & DataGridViewUG.Item(4, ro).Value &
-                        ", " & DataGridViewUG.Item(5, ro).Value & ", " & DataGridViewUG.Item(6, ro).Value &
-                        ", " & DataGridViewUG.Item(7, ro).Value & ", " & DataGridViewUG.Item(8, ro).Value &
-                        ", " & DataGridViewUG.Item(9, ro).Value & ", " & DataGridViewUG.Item(10, ro).Value &
-                        ", " & DataGridViewUG.Item(11, ro).Value & ", " & DataGridViewUG.Item(12, ro).Value &
-                        ", " & DataGridViewUG.Item(13, ro).Value & ", " & DataGridViewUG.Item(14, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewUG.RowCount - 1
+                    If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
+                        DataGridViewUG.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "ug, " & DataGridViewUG.Item(0, ro).Value &
+                            ", " & DataGridViewUG.Item(1, ro).Value & ", " & DataGridViewUG.Item(2, ro).Value &
+                            ", " & DataGridViewUG.Item(3, ro).Value & ", " & DataGridViewUG.Item(4, ro).Value &
+                            ", " & DataGridViewUG.Item(5, ro).Value & ", " & DataGridViewUG.Item(6, ro).Value &
+                            ", " & DataGridViewUG.Item(7, ro).Value & ", " & DataGridViewUG.Item(8, ro).Value &
+                            ", " & DataGridViewUG.Item(9, ro).Value & ", " & DataGridViewUG.Item(10, ro).Value &
+                            ", " & DataGridViewUG.Item(11, ro).Value & ", " & DataGridViewUG.Item(12, ro).Value &
+                            ", " & DataGridViewUG.Item(13, ro).Value & ", " & DataGridViewUG.Item(14, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewUG")
+            End Try
+
 
             '#15 Free objects  (6 item = 0 - 5)
-            For ro = 0 To DataGridViewFreeObject.RowCount - 1
-                If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And
-                    DataGridViewFreeObject.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "fobj, " & DataGridViewFreeObject.Item(0, ro).Value &
-                        ", " & DataGridViewFreeObject.Item(1, ro).Value & ", " & DataGridViewFreeObject.Item(2, ro).Value &
-                        ", " & DataGridViewFreeObject.Item(3, ro).Value & ", " & DataGridViewFreeObject.Item(4, ro).Value &
-                        ", " & DataGridViewFreeObject.Item(5, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
+            Try
+                For ro = 0 To DataGridViewFreeObject.RowCount - 1
+                    If DataGridViewFreeObject.Item(0, ro).Value <> "" And DataGridViewFreeObject.Item(1, ro).Value <> "" And
+                        DataGridViewFreeObject.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "fobj, " & DataGridViewFreeObject.Item(0, ro).Value &
+                            ", " & DataGridViewFreeObject.Item(1, ro).Value & ", " & DataGridViewFreeObject.Item(2, ro).Value &
+                            ", " & DataGridViewFreeObject.Item(3, ro).Value & ", " & DataGridViewFreeObject.Item(4, ro).Value &
+                            ", " & DataGridViewFreeObject.Item(5, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewFreeObject")
+            End Try
+
 
             '#16 Etc (9 item = 0 - 8)
-            For ro = 0 To DataGridViewEtc.RowCount - 1
-                If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And
-                    DataGridViewEtc.Item(2, ro).Value <> "" Then
-                    Dim ttxt As String = "etc, " & DataGridViewEtc.Item(0, ro).Value &
-                        ", " & DataGridViewEtc.Item(1, ro).Value & ", " & DataGridViewEtc.Item(2, ro).Value &
-                        ", " & DataGridViewEtc.Item(3, ro).Value & ", " & DataGridViewEtc.Item(4, ro).Value &
-                        ", " & DataGridViewEtc.Item(5, ro).Value & ", " & DataGridViewEtc.Item(6, ro).Value &
-                        ", " & DataGridViewEtc.Item(7, ro).Value & ", " & DataGridViewEtc.Item(8, ro).Value
-                    txt.AppendLine(ttxt)
-                End If
-            Next
-
+            Try
+                For ro = 0 To DataGridViewEtc.RowCount - 1
+                    If DataGridViewEtc.Item(0, ro).Value <> "" And DataGridViewEtc.Item(1, ro).Value <> "" And
+                        DataGridViewEtc.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "etc, " & DataGridViewEtc.Item(0, ro).Value &
+                            ", " & DataGridViewEtc.Item(1, ro).Value & ", " & DataGridViewEtc.Item(2, ro).Value &
+                            ", " & DataGridViewEtc.Item(3, ro).Value & ", " & DataGridViewEtc.Item(4, ro).Value &
+                            ", " & DataGridViewEtc.Item(5, ro).Value & ", " & DataGridViewEtc.Item(6, ro).Value &
+                            ", " & DataGridViewEtc.Item(7, ro).Value & ", " & DataGridViewEtc.Item(8, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewEtc")
+            End Try
 
             ' // *******************************
 
@@ -2084,4 +2166,31 @@ Public Class Main
         Return controls.SelectMany(Function(ctrl) GetAll(ctrl, type)).Concat(controls).Where(Function(c) c.[GetType]() = type)
     End Function
 
+    Private Sub Main_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.Control AndAlso e.KeyCode = Keys.O Then
+            OpenCSV()
+        End If
+
+        If e.Control And e.KeyCode = Keys.S Then
+            SaveCSV()
+        End If
+
+        If e.KeyCode = Keys.F1 Then
+            TabControl1.SelectedTab = About
+        End If
+
+        'detect left arrow key
+        If e.KeyCode = Keys.Left Then
+            If (TabControl1.SelectedIndex > 0) Then
+                TabControl1.SelectedIndex = TabControl1.SelectedIndex - 1
+            End If
+        End If
+
+        'detect right arrow key
+        If e.KeyCode = Keys.Right Then
+            If (TabControl1.SelectedIndex < TabControl1.TabCount - 1) Then
+                TabControl1.SelectedIndex = TabControl1.SelectedIndex + 1
+            End If
+        End If
+    End Sub
 End Class

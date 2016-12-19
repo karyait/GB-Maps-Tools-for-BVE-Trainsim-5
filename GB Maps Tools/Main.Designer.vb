@@ -2699,7 +2699,7 @@ Partial Class Main
         '
         'textBoxTunnelWallLeft
         '
-        Me.textBoxTunnelWallLeft.ForeColor = System.Drawing.Color.Crimson
+        Me.textBoxTunnelWallLeft.ForeColor = System.Drawing.SystemColors.WindowText
         Me.textBoxTunnelWallLeft.Location = New System.Drawing.Point(78, 3)
         Me.textBoxTunnelWallLeft.Name = "textBoxTunnelWallLeft"
         Me.textBoxTunnelWallLeft.Size = New System.Drawing.Size(244, 20)
@@ -2717,7 +2717,7 @@ Partial Class Main
         '
         'textBoxTunnelWallRight
         '
-        Me.textBoxTunnelWallRight.ForeColor = System.Drawing.Color.Crimson
+        Me.textBoxTunnelWallRight.ForeColor = System.Drawing.SystemColors.WindowText
         Me.textBoxTunnelWallRight.Location = New System.Drawing.Point(368, 3)
         Me.textBoxTunnelWallRight.Name = "textBoxTunnelWallRight"
         Me.textBoxTunnelWallRight.Size = New System.Drawing.Size(244, 20)
@@ -2744,7 +2744,7 @@ Partial Class Main
         '
         'textBoxTunnelExitStructure
         '
-        Me.textBoxTunnelExitStructure.ForeColor = System.Drawing.Color.Green
+        Me.textBoxTunnelExitStructure.ForeColor = System.Drawing.SystemColors.WindowText
         Me.textBoxTunnelExitStructure.Location = New System.Drawing.Point(84, 277)
         Me.textBoxTunnelExitStructure.Name = "textBoxTunnelExitStructure"
         Me.textBoxTunnelExitStructure.Size = New System.Drawing.Size(280, 20)
@@ -2840,7 +2840,7 @@ Partial Class Main
         '
         'textBoxTunnelEntrance
         '
-        Me.textBoxTunnelEntrance.ForeColor = System.Drawing.Color.Crimson
+        Me.textBoxTunnelEntrance.ForeColor = System.Drawing.SystemColors.WindowText
         Me.textBoxTunnelEntrance.Location = New System.Drawing.Point(84, 116)
         Me.textBoxTunnelEntrance.Name = "textBoxTunnelEntrance"
         Me.textBoxTunnelEntrance.Size = New System.Drawing.Size(280, 20)
@@ -2891,7 +2891,6 @@ Partial Class Main
         'LabelS06_Txt09
         '
         Me.LabelS06_Txt09.AutoSize = True
-        Me.LabelS06_Txt09.Enabled = False
         Me.LabelS06_Txt09.ForeColor = System.Drawing.SystemColors.ControlText
         Me.LabelS06_Txt09.Location = New System.Drawing.Point(3, 282)
         Me.LabelS06_Txt09.Name = "LabelS06_Txt09"
@@ -6923,6 +6922,7 @@ Partial Class Main
         Me.Controls.Add(Me.TabControl1)
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Name = "Main"
         Me.Text = "GB Maps - ギビマップ Tools for BVE 5 Structures"
         Me.TabControl1.ResumeLayout(False)
