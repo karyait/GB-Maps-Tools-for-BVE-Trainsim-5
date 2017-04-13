@@ -878,7 +878,7 @@ Partial Class Main
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(906, 40)
+        Me.LinkLabel1.Location = New System.Drawing.Point(906, 35)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(80, 13)
         Me.LinkLabel1.TabIndex = 80
@@ -2791,10 +2791,11 @@ Partial Class Main
         '
         Me.NumericUpDownTunnelWallCycle.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDownTunnelWallCycle.Location = New System.Drawing.Point(94, 226)
+        Me.NumericUpDownTunnelWallCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownTunnelWallCycle.Name = "NumericUpDownTunnelWallCycle"
         Me.NumericUpDownTunnelWallCycle.Size = New System.Drawing.Size(54, 20)
         Me.NumericUpDownTunnelWallCycle.TabIndex = 42
-        Me.NumericUpDownTunnelWallCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
+        Me.NumericUpDownTunnelWallCycle.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'textBoxTunnelImage
         '
@@ -3805,10 +3806,11 @@ Partial Class Main
         'NumericUpDownHillCutCycle
         '
         Me.NumericUpDownHillCutCycle.Location = New System.Drawing.Point(96, 63)
-        Me.NumericUpDownHillCutCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownHillCutCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownHillCutCycle.Name = "NumericUpDownHillCutCycle"
         Me.NumericUpDownHillCutCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownHillCutCycle.TabIndex = 56
+        Me.NumericUpDownHillCutCycle.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'LabelS09_Txt06
         '
@@ -4114,10 +4116,11 @@ Partial Class Main
         'NumericUpDownDikeCycle
         '
         Me.NumericUpDownDikeCycle.Location = New System.Drawing.Point(96, 64)
-        Me.NumericUpDownDikeCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownDikeCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownDikeCycle.Name = "NumericUpDownDikeCycle"
         Me.NumericUpDownDikeCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownDikeCycle.TabIndex = 59
+        Me.NumericUpDownDikeCycle.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'LabelS10_Txt07
         '
@@ -4746,10 +4749,11 @@ Partial Class Main
         'NumericUpDownPlatformRoofCycle
         '
         Me.NumericUpDownPlatformRoofCycle.Location = New System.Drawing.Point(128, 138)
-        Me.NumericUpDownPlatformRoofCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownPlatformRoofCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownPlatformRoofCycle.Name = "NumericUpDownPlatformRoofCycle"
         Me.NumericUpDownPlatformRoofCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownPlatformRoofCycle.TabIndex = 65
+        Me.NumericUpDownPlatformRoofCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
         'LabelS12_Txt15
         '
@@ -4958,10 +4962,11 @@ Partial Class Main
         'NumericUpDownPlatformCycle
         '
         Me.NumericUpDownPlatformCycle.Location = New System.Drawing.Point(128, 138)
-        Me.NumericUpDownPlatformCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownPlatformCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownPlatformCycle.Name = "NumericUpDownPlatformCycle"
         Me.NumericUpDownPlatformCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownPlatformCycle.TabIndex = 62
+        Me.NumericUpDownPlatformCycle.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'buttonBrowsePlatformMiddleRight
         '
@@ -5334,10 +5339,11 @@ Partial Class Main
         'NumericUpDownCrackCycle
         '
         Me.NumericUpDownCrackCycle.Location = New System.Drawing.Point(99, 59)
-        Me.NumericUpDownCrackCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownCrackCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownCrackCycle.Name = "NumericUpDownCrackCycle"
         Me.NumericUpDownCrackCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownCrackCycle.TabIndex = 65
+        Me.NumericUpDownCrackCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
         'textBoxCrackName
         '
@@ -5633,10 +5639,11 @@ Partial Class Main
         'NumericUpDownUGiWallCycle
         '
         Me.NumericUpDownUGiWallCycle.Location = New System.Drawing.Point(96, 59)
-        Me.NumericUpDownUGiWallCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownUGiWallCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownUGiWallCycle.Name = "NumericUpDownUGiWallCycle"
         Me.NumericUpDownUGiWallCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownUGiWallCycle.TabIndex = 65
+        Me.NumericUpDownUGiWallCycle.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'LabelS14_Txt19
         '
@@ -5758,10 +5765,11 @@ Partial Class Main
         'NumericUpDownUGoWallCycle
         '
         Me.NumericUpDownUGoWallCycle.Location = New System.Drawing.Point(96, 59)
-        Me.NumericUpDownUGoWallCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownUGoWallCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownUGoWallCycle.Name = "NumericUpDownUGoWallCycle"
         Me.NumericUpDownUGoWallCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownUGoWallCycle.TabIndex = 65
+        Me.NumericUpDownUGoWallCycle.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'LabelS14_Txt13
         '
@@ -5920,10 +5928,11 @@ Partial Class Main
         'NumericUpDownUGgroundCycle
         '
         Me.NumericUpDownUGgroundCycle.Location = New System.Drawing.Point(96, 59)
-        Me.NumericUpDownUGgroundCycle.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownUGgroundCycle.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownUGgroundCycle.Name = "NumericUpDownUGgroundCycle"
         Me.NumericUpDownUGgroundCycle.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownUGgroundCycle.TabIndex = 65
+        Me.NumericUpDownUGgroundCycle.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
         'LabelS14_Txt08
         '
@@ -6531,10 +6540,11 @@ Partial Class Main
         'NumericUpDownBveX
         '
         Me.NumericUpDownBveX.Location = New System.Drawing.Point(96, 59)
-        Me.NumericUpDownBveX.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDownBveX.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDownBveX.Name = "NumericUpDownBveX"
         Me.NumericUpDownBveX.Size = New System.Drawing.Size(55, 20)
         Me.NumericUpDownBveX.TabIndex = 65
+        Me.NumericUpDownBveX.Value = New Decimal(New Integer() {25, 0, 0, 0})
         '
         'LabelS16_Txt12
         '
