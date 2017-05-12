@@ -2193,4 +2193,18 @@ Public Class Main
             End If
         End If
     End Sub
+
+    Private Sub DataGridViewUG_CurrentCellChanged(sender As Object, e As EventArgs) Handles DataGridViewUG.CurrentCellChanged
+        Try
+            Dim irow As Integer = DataGridViewUG.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewUG.Item(3, irow).Value.ToString.Trim
+            If File.Exists(fullpath) Then
+                PictureBoxUG.Image = Image.FromFile(fullpath)
+            Else
+                PictureBoxUG.Image = Nothing
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class

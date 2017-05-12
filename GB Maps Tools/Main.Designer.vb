@@ -5504,7 +5504,7 @@ Partial Class Main
         Me.Step_14.Padding = New System.Windows.Forms.Padding(3)
         Me.Step_14.Size = New System.Drawing.Size(1000, 511)
         Me.Step_14.TabIndex = 17
-        Me.Step_14.Text = "Step 14 (Undergrounds)"
+        Me.Step_14.Text = "Step 14 (Subway)"
         '
         'Panel15
         '
