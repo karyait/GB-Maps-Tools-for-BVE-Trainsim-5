@@ -45,7 +45,7 @@ Partial Class FormUGExit
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormUGExit"
-        Me.Text = "Underground Exit Example"
+        Me.Text = "Subway Exit Example"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

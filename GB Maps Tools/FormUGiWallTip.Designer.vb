@@ -45,7 +45,7 @@ Partial Class FormUGiWallTip
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormUGiWallTip"
-        Me.Text = "Underground Wall Example"
+        Me.Text = "Subway Wall Example"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

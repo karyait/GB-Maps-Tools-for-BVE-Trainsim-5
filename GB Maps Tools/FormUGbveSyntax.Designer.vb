@@ -42,7 +42,7 @@ Partial Class FormUGbveSyntax
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormUGbveSyntax"
-        Me.Text = "Underground BVE syntax example"
+        Me.Text = "Subway BVE syntax example"
         Me.ResumeLayout(False)
 
     End Sub

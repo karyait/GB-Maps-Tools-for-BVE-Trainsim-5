@@ -45,7 +45,7 @@ Partial Class FormUGEntrance
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormUGEntrance"
-        Me.Text = "Underground Entrance Example"
+        Me.Text = "Subway Entrance Example"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

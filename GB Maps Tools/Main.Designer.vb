@@ -5560,9 +5560,9 @@ Partial Class Main
         Me.LabelS14_Txt20.AutoSize = True
         Me.LabelS14_Txt20.Location = New System.Drawing.Point(0, 454)
         Me.LabelS14_Txt20.Name = "LabelS14_Txt20"
-        Me.LabelS14_Txt20.Size = New System.Drawing.Size(95, 13)
+        Me.LabelS14_Txt20.Size = New System.Drawing.Size(71, 13)
         Me.LabelS14_Txt20.TabIndex = 80
-        Me.LabelS14_Txt20.Text = "Underground Exit :"
+        Me.LabelS14_Txt20.Text = "Subway Exit :"
         '
         'buttonBrowseUGExit
         '
@@ -5585,9 +5585,9 @@ Partial Class Main
         Me.LabelS14_Txt14.AutoSize = True
         Me.LabelS14_Txt14.Location = New System.Drawing.Point(0, 305)
         Me.LabelS14_Txt14.Name = "LabelS14_Txt14"
-        Me.LabelS14_Txt14.Size = New System.Drawing.Size(121, 13)
+        Me.LabelS14_Txt14.Size = New System.Drawing.Size(97, 13)
         Me.LabelS14_Txt14.TabIndex = 70
-        Me.LabelS14_Txt14.Text = "Underground Entrance :"
+        Me.LabelS14_Txt14.Text = "Subway Entrance :"
         '
         'GroupBoxS14_Txt15
         '

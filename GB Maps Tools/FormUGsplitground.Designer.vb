@@ -45,7 +45,7 @@ Partial Class FormUGsplitground
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormUGsplitground"
-        Me.Text = "Underground Ground Split Example"
+        Me.Text = "Subway Ground Split Example"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
